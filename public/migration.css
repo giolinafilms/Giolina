@@ -14,3 +14,15 @@
 @media(max-width:767px){.elementor-widget-gallery .elementor-gallery__container{grid-template-columns:repeat(2,minmax(0,1fr))}.elementor-widget-gallery .e-gallery-image{min-height:180px}}
 @media(prefers-reduced-motion:reduce){.migration-background-video{display:none}*{scroll-behavior:auto!important}}
 .migration-lightbox{max-width:95vw;max-height:95vh;border:0;background:#fff;padding:14px}.migration-lightbox::backdrop{background:rgba(0,0,0,.85)}.migration-lightbox img{display:block;max-width:85vw;max-height:75vh;object-fit:contain;margin:8px auto}.migration-lightbox button{padding:8px 16px;color:#111;background:#f3e4d1;border:0;cursor:pointer}.migration-lightbox div{display:flex;justify-content:space-between;gap:15px}
+
+/* Homepage hero typography */
+.home :is(.elementor-element-5c1896,.elementor-element-39d825fe) .elementor-heading-title{color:#fff!important;text-shadow:0 2px 18px rgba(0,0,0,.38)}
+.home :is(.elementor-element-76f7d212,.elementor-element-2e5d7764) .elementor-heading-title{font-family:Arial,sans-serif!important;font-size:clamp(12px,1.05vw,15px)!important;font-weight:400!important;letter-spacing:.16em!important;line-height:1.6!important;text-transform:uppercase!important}
+.home :is(.elementor-element-78807137,.elementor-element-4ead86d6,.elementor-element-4665eaf8,.elementor-element-7b2e65b0) .elementor-heading-title{font-family:Georgia,'Times New Roman',serif!important;font-weight:400!important;text-transform:capitalize!important;letter-spacing:-.025em!important;line-height:1.08!important}
+.home :is(.elementor-element-78807137,.elementor-element-4ead86d6) .elementor-heading-title{font-size:clamp(42px,5.4vw,78px)!important}
+.home :is(.elementor-element-4665eaf8,.elementor-element-7b2e65b0) .elementor-heading-title{font-size:clamp(38px,4.7vw,68px)!important}
+.home :is(.elementor-element-7aecd40e,.elementor-element-4881d278){width:100%!important;max-width:100%!important}
+.home :is(.elementor-element-7aecd40e,.elementor-element-4881d278) .elementor-heading-title{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(23px,2.4vw,34px)!important;font-weight:400!important;font-style:italic!important;letter-spacing:0!important;line-height:1.35!important;text-transform:none!important}
+.home :is(.elementor-element-78807137,.elementor-element-4ead86d6,.elementor-element-7aecd40e,.elementor-element-4881d278,.elementor-element-4665eaf8,.elementor-element-7b2e65b0){margin-bottom:12px!important}
+.home :is(.elementor-element-33d2ea15,.elementor-element-265cda71){margin-top:22px!important}
+@media(max-width:767px){.home .elementor-element-39d825fe .elementor-heading-title{text-align:left!important}.home :is(.elementor-element-2e5d7764) .elementor-heading-title{letter-spacing:.1em!important;font-size:11px!important}}
