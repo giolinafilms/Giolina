@@ -67,3 +67,6 @@
 .home .elementor-element-2f3fa469{width:100%!important;max-width:720px!important}
 .home .elementor-element-2f3fa469>.elementor-widget-wrap{padding:24px 32px!important}
 @media(max-width:767px){.home .migration-review-heading h2{font-size:28px}.home :is(.elementor-element-3bea00e7,.elementor-element-36430518,.elementor-element-11a1102c){width:100%!important}}
+
+.home .migration-review-heading h2{font-family:'Allura',cursive!important;font-size:48px!important;font-weight:400!important;line-height:1.25!important;letter-spacing:0!important}
+@media(max-width:767px){.home .migration-review-heading h2{font-size:40px!important}}
