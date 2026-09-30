@@ -70,3 +70,7 @@
 
 .home .migration-review-heading h2{font-family:'Allura',cursive!important;font-size:48px!important;font-weight:400!important;line-height:1.25!important;letter-spacing:0!important}
 @media(max-width:767px){.home .migration-review-heading h2{font-size:40px!important}}
+
+/* Prevent the empty middle photo column from collapsing */
+.home .elementor-element-36430518>.elementor-widget-wrap{min-height:400px!important;height:400px!important;align-self:center!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}
+@media(max-width:767px){.home .elementor-element-36430518>.elementor-widget-wrap{min-height:340px!important;height:340px!important}}
