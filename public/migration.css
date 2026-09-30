@@ -1,0 +1,16 @@
+/* Static compatibility layer. Original design CSS remains locally owned. */
+.elementor-invisible{visibility:visible!important}.animated{animation:none!important}
+.migration-skip{position:absolute;left:-9999px}.migration-skip:focus{left:20px;top:10px;z-index:10000;background:white;padding:15px;color:#111}
+.migration-background-video{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.migration-background-video iframe{position:absolute;width:177.78vh;height:100%;min-width:100%;min-height:56.25vw;left:50%;top:50%;transform:translate(-50%,-50%);border:0}
+.elementor-background-overlay{pointer-events:none}
+.elementor-widget-video iframe{display:block}
+.elementor-nav-menu--dropdown{display:none}.elementor-nav-menu--dropdown.migration-open{display:block}
+.elementor-location-popup{display:none}
+[data-preview-form] input,[data-preview-form] textarea{opacity:.65}
+[data-preview-form] p{font:14px/1.6 sans-serif;color:#333;background:#f5eee3;padding:12px}
+.elementor-widget-gallery .elementor-gallery__container{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.elementor-widget-gallery .e-gallery-image{min-height:240px;aspect-ratio:3/2;background-size:cover;background-position:center}
+@media(max-width:767px){.elementor-widget-gallery .elementor-gallery__container{grid-template-columns:repeat(2,minmax(0,1fr))}.elementor-widget-gallery .e-gallery-image{min-height:180px}}
+@media(prefers-reduced-motion:reduce){.migration-background-video{display:none}*{scroll-behavior:auto!important}}
+.migration-lightbox{max-width:95vw;max-height:95vh;border:0;background:#fff;padding:14px}.migration-lightbox::backdrop{background:rgba(0,0,0,.85)}.migration-lightbox img{display:block;max-width:85vw;max-height:75vh;object-fit:contain;margin:8px auto}.migration-lightbox button{padding:8px 16px;color:#111;background:#f3e4d1;border:0;cursor:pointer}.migration-lightbox div{display:flex;justify-content:space-between;gap:15px}

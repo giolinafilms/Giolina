@@ -1,0 +1,28 @@
+---
+import pages from '../content/pages.mjs';
+export function getStaticPaths() {
+ return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
+}
+const {page}=Astro.props;
+---
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>{page.title}</title>
+<link rel="canonical" href={new URL(page.path,'https://giolinafilms.com').href} />
+{(page.schema ?? []).map((schema)=><script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<","\\u003c")} />)}
+{page.seo.map((tag)=><Fragment set:html={tag} />)}
+{page.css.map((href)=><link rel="stylesheet" href={href} />)}
+<link rel="stylesheet" href="/migration.css" />
+</head>
+<body class={page.bodyClass}>
+<a class="migration-skip" href="#content">Skip to content</a>
+<Fragment set:html={page.header} />
+<main id="content"><Fragment set:html={page.content} /></main>
+<Fragment set:html={page.footer} />
+<script src="/migration.js" is:inline></script>
+</body>
+</html>
