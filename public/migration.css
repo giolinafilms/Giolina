@@ -29,5 +29,5 @@
 
 /* Handwritten homepage headlines */
 @font-face{font-family:'Allura';font-style:normal;font-weight:400;font-display:swap;src:url('https://fonts.gstatic.com/s/allura/v23/9oRPNYsQpS4zjuAPjA.ttf') format('truetype')}
-.home :is(.elementor-element-78807137,.elementor-element-4ead86d6,.elementor-element-4665eaf8,.elementor-element-7b2e65b0) .elementor-heading-title{font-family:'Allura',cursive!important;font-size:clamp(58px,7.2vw,104px)!important;letter-spacing:0!important;line-height:1.15!important;text-transform:none!important;font-weight:400!important}
-@media(max-width:767px){.home :is(.elementor-element-4ead86d6,.elementor-element-7b2e65b0) .elementor-heading-title{font-size:clamp(54px,12vw,78px)!important}}
+.home :is(.elementor-element-78807137,.elementor-element-4ead86d6,.elementor-element-4665eaf8,.elementor-element-7b2e65b0) .elementor-heading-title{font-family:'Allura',cursive!important;font-size:clamp(40px,4.6vw,66px)!important;letter-spacing:0!important;line-height:1.15!important;text-transform:none!important;font-weight:400!important}
+@media(max-width:767px){.home :is(.elementor-element-4ead86d6,.elementor-element-7b2e65b0) .elementor-heading-title{font-size:clamp(38px,9vw,54px)!important}}
