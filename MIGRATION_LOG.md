@@ -65,3 +65,10 @@ This user-approved shortened log contains design changes and test results only.
 - Local Astro build/check passed (26 routes, 910 asset references). Source revisions dd4217f and 2863cbf deployed through existing Cloudflare Git integration.
 - Live browser verified no standalone Schedule links, title computed Allura/cursive at 72px, consultation href unchanged and no horizontal overflow at 1363px. Mobile font rule 48px deployed; actual phone visual remains unverified.
 - No photo added yet; existing wedding photo recommended for empty area, selection open. Production/domain and service settings unchanged.
+
+
+## October 1, 2026 — photos under Contact Info
+
+- User authorized temporary photo selection to fill blank area. Reused existing black-and-white wedding photographs 9d28de469d3f3c6b.jpg and 2487c01449acd020.jpg below contact details.
+- Two full-proportion images stack at maximum 420px width on desktop; phone rules display two fluid columns. No crops, generated photos, videos, duplicate scheduling links or form changes.
+- Source 313a9e1 and 636bf79; local build/check passed (26 routes, 912 asset references). Hosted visual verification follows deployment; phone visual remains unconfirmed.
