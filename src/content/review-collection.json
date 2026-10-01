@@ -7,7 +7,12 @@
       "name": "Alexandria P",
       "date": "2024-10-15",
       "quote": "Frank was the videographer for our wedding in August 2024 and he did an incredible job. After we spoke with Frank, it became obvious how much he cares about his work and how much time and attention he puts into all of his videos. He put so much effort into picking the perfect songs for our video and would even have phone calls with us upwards of 30+ minutes long. After the wedding, he got the final video cut back to us in record time and it was even more beautiful than we ever could've imagined. It was absolutely breathtaking and immediately took us right back to our wedding day. He captured the entire day and every emotion that came with it perfectly. He is passionate and takes immense pride in his work, and those characteristics absolutely come through in the final video. Frank is truly amazing at what he does and we cannot recommend him enough!!!",
-      "rating": 5
+      "rating": 5,
+      "media": {
+        "type": "vimeo",
+        "videoId": null,
+        "status": "awaiting-client-link"
+      }
     },
     {
       "id": "christopher-2023",

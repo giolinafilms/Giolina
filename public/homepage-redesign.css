@@ -17,3 +17,44 @@
 .gl-header-actions{display:flex;align-items:center;gap:24px}.gl-social-icons{display:flex;align-items:center;gap:8px}.gl-social-icons a{display:inline-flex;width:40px;min-height:44px;align-items:center;justify-content:center;border:0!important;margin:0!important;padding:0!important;color:#202a2e}.gl-social-glyph{font-family:"Font Awesome 5 Brands";font-weight:400;font-style:normal;font-size:20px;line-height:1}.gl-social-icons a:hover{color:#14747a}.gl-footer .gl-social-icons{margin-top:14px}.gl-masthead .gl-header-inquire{white-space:nowrap}
 @media(max-width:900px){.gl-masthead p{display:none}}
 @media(max-width:650px){.gl-header-actions{gap:5px}.gl-masthead{flex-wrap:wrap;gap:12px}.gl-masthead .gl-header-inquire{display:none}.gl-social-icons a{width:36px}.gl-masthead img{width:130px}.gl-nav-inner{flex-wrap:wrap}}
+
+/* Phone layouts use content-sized sections, not desktop breathing room. */
+.gl-redesign .gl-review-video-slot{aspect-ratio:16/9;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#edf8f8;border:1px solid #b4dbdd;color:#126c72;text-align:center;padding:18px;font:400 17px/1.4 Arial,sans-serif}
+.gl-redesign .gl-review-video-mark{font-size:38px;line-height:1}.gl-redesign .gl-review-video-slot small{font-size:14px;color:#526266}
+@media(max-width:700px){
+ .gl-redesign .gl-hero{min-height:0;align-items:start}
+ .gl-redesign .gl-hero-copy{padding:34px 22px 38px}
+ .gl-redesign .gl-hero h1{font-size:clamp(42px,11.5vw,58px);line-height:1.1;max-width:100%}
+ .gl-redesign .gl-hero-sub{font-size:20px;line-height:1.4;margin:12px 0 22px!important}
+ .gl-redesign .gl-eyebrow{font-size:13px;letter-spacing:.1em;margin-bottom:14px!important}
+ .gl-redesign .gl-section{padding:32px 22px}
+ .gl-redesign :is(.gl-intro,.gl-feature-inner,.gl-review,.gl-experience,.gl-about-inner,.gl-closing){grid-template-columns:minmax(0,1fr);gap:22px}
+ .gl-redesign :is(.gl-intro-copy,.gl-feature-inner>div,.gl-review>div,.gl-experience>div,.gl-about-inner>div,.gl-closing>div){min-width:0}
+ .gl-redesign .gl-intro h2,.gl-redesign .gl-experience h2,.gl-redesign .gl-about h2{font-size:30px;line-height:1.2}
+ .gl-redesign .gl-intro-copy p:not(.gl-eyebrow){margin-top:16px}
+ .gl-redesign .gl-text-link{margin-top:14px;min-height:44px}
+ .gl-redesign .gl-pair{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+ .gl-redesign .gl-pair figure:nth-child(2){padding-top:0}
+ .gl-redesign .gl-detail-pair{padding:20px 22px 32px;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gl-redesign .gl-detail-pair figure:nth-child(2){margin-top:0}
+ .gl-redesign .gl-ballroom figcaption{padding:14px 20px 0;font-size:38px;line-height:1.15}
+ .gl-redesign .gl-feature-inner{padding:32px 22px}
+ .gl-redesign .gl-feature figure{width:min(100%,260px);max-width:260px;margin:0 auto}
+ .gl-redesign .gl-feature h2{font-size:44px;line-height:1.15}
+ .gl-redesign .gl-feature-inner>div{text-align:center}
+ .gl-redesign .gl-home-stories{padding:32px 22px}
+ .gl-redesign .gl-home-stories h2{font-size:40px;margin-bottom:20px}
+ .gl-redesign .gl-story-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+ .gl-redesign .gl-story-grid h3{margin:12px 0 6px}
+ .gl-redesign .gl-story-grid p{margin-bottom:0}
+ .gl-redesign .gl-review h2{font-size:42px;margin-bottom:16px}
+ .gl-redesign .gl-review blockquote{font-size:17px;line-height:1.65}
+ .gl-redesign .gl-review cite{margin-top:14px}
+ .gl-redesign .gl-experience p:not(.gl-eyebrow){margin-top:16px}
+ .gl-redesign .gl-experience figure{width:min(100%,240px);max-width:240px;margin:0 auto}
+ .gl-redesign .gl-about-inner{padding:32px 22px;gap:22px}
+ .gl-redesign .gl-about p:not(.gl-eyebrow){margin-top:14px}
+ .gl-redesign .gl-recognition{grid-template-columns:1fr 1fr;align-items:center;max-width:100%;padding:14px;gap:16px}
+ .gl-redesign .gl-closing{padding:32px 22px;gap:22px}
+ .gl-redesign .gl-closing h2{font-size:42px;line-height:1.15;margin-bottom:18px}
+}

@@ -24,6 +24,11 @@
 .gl-review-stars{display:block;margin-top:7px;color:var(--review-cyan);font:400 13px/1 Arial,sans-serif;letter-spacing:.18em}
 .gl-review-card blockquote{font:italic 400 18px/1.72 Georgia,serif;color:var(--review-ink)}
 .gl-review-card blockquote p+p{margin-top:1em}
+.gl-review-video-slot{aspect-ratio:16/9;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#edf8f8;border:1px solid #b4dbdd;color:#126c72;text-align:center;padding:18px;font:400 17px/1.4 Arial,sans-serif}
+.gl-review-video-mark{font-size:38px;line-height:1}.gl-review-video-slot small{font-size:14px;color:#526266}
+.gl-review-with-film{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);align-items:start;gap:30px}
+.gl-review-with-film .gl-review-person{margin-bottom:22px}
+@media(max-width:700px){.gl-review-with-film{grid-template-columns:minmax(0,1fr);gap:22px}}
 .gl-reviews-closing{padding:62px 24px 68px;background:#dff3f3;text-align:center}
 .gl-reviews-closing h2{font:400 clamp(50px,6vw,70px)/1.1 Allura,cursive;color:var(--review-deep);margin-bottom:20px}
 .gl-reviews-closing p{max-width:560px;margin:0 auto 26px!important;color:#4d5b5e}
