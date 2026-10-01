@@ -56,3 +56,10 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Redesigned page observed on Cloudflare preview with full photos, new typography/layout and preserved complete Mina review. Both images loaded successfully; no desktop horizontal overflow; FAQ expands and displays its answer. Contact Us destinations retained.
 - Added scoped header Schedule sizing fix in ca7a8c40. Vimeo engagement player reports connection security restriction in this browser; actual playback not claimed. Phone-width visual QA remains unavailable.
 - Homepage spacing cleanup also verified: empty blue sections and descriptive line absent in hosted DOM; section bottom padding 32px.
+
+## September 30, 2026 — decorative font consistency
+
+- User requests readable white Experience statement and consistent elegant fonts going forward.
+- 'The best moments are the ones you feel' now explicitly white, including its emphasized word, in Allura script with responsive 48–74px sizing and 1.18 line height. This prevents inherited theme heading color from reducing contrast on deep teal.
+- Design preference: Allura is the single decorative/elegant script throughout future GioLina changes, matching current homepage script headings. Keep body and navigation typography readable; avoid introducing additional script families.
+- Source commit ac6dab23. Preview deployment verification follows; no production/protected-system changes.
