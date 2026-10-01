@@ -77,3 +77,12 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Source commit 13da5991. Build/check passed for 26 routes, 910 asset references, internal links and preview protections.
 - Cloudflare preview verified: all four controls accept typed test values, displayed in browser screenshot; Submit remains disabled. No test message sent. Actual phone viewport verification remains unavailable.
 - Homepage video, fonts, photos and full reviews unchanged. No production, DNS, email or clients.giolina.co changes.
+
+## September 30, 2026 — contact choices and email draft fallback
+
+- User authorizes connecting inquiries to info@giolina.co and requests consultation guidance in contact-page whitespace.
+- Added warm ivory contact guidance with Allura heading and Click here to schedule linking /schedule-a-meeting-2/. Replaced that page's inactive WordPress booking shortcode with consultation guidance and a link to the existing scheduler; no scheduler-system settings changed.
+- Automatic delivery remains blocked: preview has no configured mail provider/binding/credential and no connected Cloudflare administration tool. Interim button clearly labeled Open email to send creates a mailto draft addressed to info@giolina.co with name, reply email, subject and message. User must send from their mail application; this is not server-side submission or verified delivery.
+- Button enabled only with JavaScript; browser validation required before opening draft. Existing preview POST protection retained. No messages sent in verification.
+- Build/check passed for 26 routes and 910 asset references. Local handler checks passed for destination, special-character encoding, field contents and invalid-form blocking. Hosted preview shows enabled button, validation on click, scheduling card and successful navigation to Schedule a Meeting with correct scheduler destination. Email-app launch and delivery not claimed.
+- Source commits 3b065da4, 7235820a, 181bfe19 and c0f43746. No production, DNS, mailbox configuration or clients.giolina.co changes. Homepage media, typography and reviews retained.
