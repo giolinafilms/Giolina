@@ -72,3 +72,5 @@ This user-approved shortened log contains design changes and test results only.
 - User authorized temporary photo selection to fill blank area. Reused existing black-and-white wedding photographs 9d28de469d3f3c6b.jpg and 2487c01449acd020.jpg below contact details.
 - Two full-proportion images stack at maximum 420px width on desktop; phone rules display two fluid columns. No crops, generated photos, videos, duplicate scheduling links or form changes.
 - Source 313a9e1 and 636bf79; local build/check passed (26 routes, 912 asset references). Hosted visual verification follows deployment; phone visual remains unconfirmed.
+
+- Hosted desktop verified: both original photos load at 420px width, stack below Contact Info, retain full proportions, and no horizontal overflow. Consultation remains beside them below form. Phone two-column rules deployed; actual phone visual not claimed.
