@@ -1,5 +1,13 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — homepage featured wedding refinement
+
+- Bianca & Bobby homepage photograph is now plain static image markup: removed film-trigger button and film-poster class. Original image URL, dimensions, alt text and full proportions retained; no video ID, iframe, controls, play icon or interactive link remains on the photograph. Cinematography portfolio CTA remains /portfolio-2/.
+- Reduced spacing around A day to remember, connected its background to the feature, tightened the photo/text grid, refined eyebrow/title sizing and added an aligned portrait stack for phones. Reduced the immediate Films & Photographs transition padding without replacing any media.
+- Alexandria's homepage video button and accessible label now read Play film; dialog/player title is Wedding film. Vimeo 1008616852 and media URL unchanged. Reviews page unchanged.
+- All other homepage section markup, including the hero, is unchanged. New CSS is loaded only on the homepage and scoped to this immediate feature/portfolio area. Production and DNS unchanged.
+- Build and route/link/asset checks passed. Exact source comparisons confirm only the feature and Alexandria presentation changed. Hosted desktop static-image interaction verification follows deployment. Phone responsive rules inspected; actual mobile portrait visual verification remains unavailable.
+
 ## October 1, 2026 — five-second hero still-to-video transition
 
 - Follow-up: replaced the automatically initializing Vimeo SDK with a hero-only iframe message controller to prevent side effects on portfolio buttons below the hero. Origin/source validation, timeouts, handshake, preparation, timer, fade and loop behavior tested. No below-hero content changed.
