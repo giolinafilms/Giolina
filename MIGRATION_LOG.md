@@ -1,113 +1,33 @@
-# GioLina Films migration checkpoint
+# GioLina website migration checkpoint
 
-## September 30, 2026 — homepage inquiry and mobile layout
+## September 30, 2026 — design and layout
 
-- Resumed from latest source revision e7c9d0d.
-- Both desktop and mobile hero buttons now say Inquire and link to /contact-us-2/ in the same tab.
-- Added responsive mobile header, hero spacing, photo stacking, uncropped center photo and text sizing fixes. Menu toggles now update accessibility visibility and keyboard link access.
-- Preserved latest Vimeo 548643452, font declarations, real photos and complete Alexandria P review.
-- Build/check passed: 26 routes plus 404, 915 asset references, internal links and preview protections.
-- Verified hosted homepage contains both inquiry destinations. Browser click successfully opened Contact Us. Desktop has no horizontal overflow at 1363px. Hosted responsive CSS matches the updated source.
-- Phone-width visual QA remains blocked: available browser controls do not provide viewport emulation. Mobile visual completion is not claimed.
-- Vimeo playback is restricted in the verification browser; embed remains unchanged. Preview contact delivery remains disabled and is an outstanding migration gate.
-- No production, DNS, email or client-system changes. No production cutover.
+- Homepage buttons say Inquire and link to Contact Us.
+- Bianca & Bobby section shows the complete original photo. Removed its Learn More button, description and excess cyan space.
+- Homepage Experience portrait and closing photo preserve their full proportions. Latest homepage video, original photos, fonts and full reviews preserved.
+- Experience page redesigned with real photos, editorial spacing, process sections, complete review, engagement film, FAQ and inquiry links.
+- Allura is the shared elegant script. The Experience statement is white and readable.
+- Brand accents use cyan #19B5BC consistently. Contact scheduling control matches Submit; Experience buttons and statement background use the same cyan.
+- Contact fields are editable. Contact guidance and scheduling page added.
+- Approved reply wording: “Thank you for reaching out to GioLina! We’ve received your inquiry and will be in touch soon. We look forward to hearing more about your day.”
+- Automatic reply activation remains pending.
 
-Historical recovery notes remain in the existing migration record; this repository checkpoint contains only current website implementation and validation details.
+## September 30, 2026 — portrait sizing corrections
 
-## September 30, 2026 — Bianca & Bobby photo
+- Applied shared phone header sizing across all pages.
+- At widths up to 767px, contact fields stack into one column.
+- Inputs use a minimum 16px font size to help prevent automatic iPhone focus zoom.
+- Bounded card/button widths, border-box sizing and wrapping reduce overflow.
+- Source revision a6e55e17 deployed; responsive rules verified in the loaded preview stylesheet.
+- Build and checks passed for 26 routes and 910 asset references.
+- Desktop preview checked. Actual phone portrait visual confirmation remains pending a user screenshot; available browser controls do not support phone viewport sizing.
 
-- User phone screenshot showed the groom cropped off the featured wedding photograph.
-- Replaced fixed background sizing/offset with contain, centered positioning and the original 617:683 image aspect ratio. Removed the artificial spacer from this photo container; mobile column uses full available width.
-- Original image file unchanged. Build/check passed for all 26 routes and 915 asset references.
-- Commit 77558740 deployed: hosted CSS byte-matches source; browser computed background-size contain and aspect-ratio 617/683 at 582.42 by 644.72 pixels, preserving the complete photograph.
-- Phone viewport emulation remains unavailable; mobile behavior uses the same uncropped rule. Production and protected systems unchanged.
+## Remaining verification
 
-## September 30, 2026 — featured wedding button
+- Confirm portrait layout against the user's phone screenshot.
+- Complete human verification and post-verification submission testing.
+- Automatic reply not activated; paid-plan requirement remains unresolved.
+- Third-party video playback verification remains limited in the verification browser.
+- Production and protected systems unchanged.
 
-- Removed the entire Learn More button widget from the Bianca & Bobby homepage section, per request. Featured photo, heading and description preserved; other section buttons unchanged.
-- Source commit 3d290144. Local build and check passed for 26 routes and 915 asset references.
-- Cloudflare preview deployment verification follows this commit; production and protected systems unchanged.
-
-## September 30, 2026 — Experience and closing photos
-
-- User mobile screenshots showed cropped Experience portrait and closing wedding image.
-- Experience portrait now uses contain and original 1707:2560 proportions; mobile negative overlap and photo spacers removed, with consistent margins.
-- Mobile closing photo now displays fully at original 2560:1707 proportions. Existing Allura headline moved below photograph with dark text on white, preserving faces and readability. Experience Learn More button retained.
-- Original photos, latest Vimeo, fonts, complete review and other content unchanged. Build and check passed for all 26 routes and 915 asset references. CSS asset paths checked locally.
-- Source commit 6c15f9d6. Native Cloudflare preview deployment verification follows; actual phone viewport verification remains unavailable in this browser. No production or protected-system changes.
-- Prior featured-wedding button removal confirmed in hosted HTML and browser after its native deployment.
-
-## September 30, 2026 — featured wedding spacing cleanup
-
-- Previous Experience/closing changes deployed: hosted CSS byte-matched source; Experience portrait computed contain at original 1707:2560 proportions.
-- Removed Bianca & Bobby description 'Learn more about this beautiful wedding.' and both empty blue sections adding 300px of mobile padding. Reduced remaining featured section padding and removed text spacer. Uncropped photo, location and names retained.
-- Source commits 10f53c3b and fb4a410c. Build/check passed for 26 routes and 915 asset references. Preview verification follows; production and protected systems unchanged.
-
-## September 30, 2026 — Experience page redesign proposal
-
-- Rebuilt /experience-2/ as a scoped editorial page: warm ivory, deep teal, serif/script headings, full real photos, clear three-stage process, Mina's complete existing review, surprise engagement film, native FAQ disclosures and Contact Us invitations.
-- Kept page route, header/footer, metadata and canonical. Reused existing image assets and Vimeo 236688446; no generated media or new service promises, packages or turnaround guarantees. Homepage refinements and complete review unchanged.
-- FAQ fees/custom proposal language based on existing page. Consultation now links existing scheduler; inquiry calls link /contact-us-2/. Removed redundant old-brand/corporate-event content from this redesigned page; original remains available in Git history and reviews elsewhere.
-- Added isolated public/experience.css; mobile columns stack and images use intrinsic dimensions. Build/check passed: 26 routes and 910 asset references. Native details require no extra JavaScript.
-- Source commits b9e28704 and ae6a708b. Preview only; final design acceptance remains with user. Previous source version can be restored if page is not wanted. No production, DNS, email or client-system changes.
-- Verification: native Cloudflare preview deployment is pending observation at this checkpoint. Phone viewport verification and third-party playback limitations remain as previously recorded.
-
-### Experience redesign hosted verification
-- Redesigned page observed on Cloudflare preview with full photos, new typography/layout and preserved complete Mina review. Both images loaded successfully; no desktop horizontal overflow; FAQ expands and displays its answer. Contact Us destinations retained.
-- Added scoped header Schedule sizing fix in ca7a8c40. Vimeo engagement player reports connection security restriction in this browser; actual playback not claimed. Phone-width visual QA remains unavailable.
-- Homepage spacing cleanup also verified: empty blue sections and descriptive line absent in hosted DOM; section bottom padding 32px.
-
-## September 30, 2026 — decorative font consistency
-
-- User requests readable white Experience statement and consistent elegant fonts going forward.
-- 'The best moments are the ones you feel' now explicitly white, including its emphasized word, in Allura script with responsive 48–74px sizing and 1.18 line height. This prevents inherited theme heading color from reducing contrast on deep teal.
-- Design preference: Allura is the single decorative/elegant script throughout future GioLina changes, matching current homepage script headings. Keep body and navigation typography readable; avoid introducing additional script families.
-- Source commit ac6dab23. Preview deployment verification follows; no production/protected-system changes.
-
-## September 30, 2026 — Instagram link review checkpoint
-
-- Requested review of @giolinafilms for curated website hyperlinks remains incomplete: public profile/grid accessible, but individual posts require sign-in and the chosen authentication flow returns to the login page.
-- Existing Instagram profile hyperlinks retained in the site header/footer. No unreviewed posts, captions or media added.
-- Experience statement previously verified on preview as white Allura text. Website design/source unchanged in this checkpoint; no production, DNS, email or client-system changes.
-
-## September 30, 2026 — editable Contact Us preview fields
-
-- Removed disabled attributes from name, email, subject and message fields on /contact-us-2/. Submit remains disabled while message delivery is unconfigured.
-- Clarified preview notice and linked it to the form accessibly. Form uses POST as a fallback; existing JavaScript prevents preview submission and Worker rejects unexpected POST.
-- Source commit 13da5991. Build/check passed for 26 routes, 910 asset references, internal links and preview protections.
-- Cloudflare preview verified: all four controls accept typed test values, displayed in browser screenshot; Submit remains disabled. No test message sent. Actual phone viewport verification remains unavailable.
-- Homepage video, fonts, photos and full reviews unchanged. No production, DNS, email or the existing scheduling service changes.
-
-## September 30, 2026 — contact choices and email draft fallback
-
-- User authorizes connecting inquiries to the configured inquiry inbox and requests consultation guidance in contact-page whitespace.
-- Added warm ivory contact guidance with Allura heading and Click here to schedule linking /schedule-a-meeting-2/. Replaced that page's inactive WordPress booking shortcode with consultation guidance and a link to the existing scheduler; no scheduler-system settings changed.
-- Automatic delivery remains blocked: preview has no configured mail provider/binding/credential and no connected Cloudflare administration tool. Interim button clearly labeled Open email to send creates a mailto draft addressed to the configured inquiry inbox with name, reply email, subject and message. User must send from their mail application; this is not server-side submission or verified delivery.
-- Button enabled only with JavaScript; browser validation required before opening draft. Existing preview POST protection retained. No messages sent in verification.
-- Build/check passed for 26 routes and 910 asset references. Local handler checks passed for destination, special-character encoding, field contents and invalid-form blocking. Hosted preview shows enabled button, validation on click, scheduling card and successful navigation to Schedule a Meeting with correct scheduler destination. Email-app launch and delivery not claimed.
-- Source commits 3b065da4, 7235820a, 181bfe19 and c0f43746. No production, DNS, mailbox configuration or the existing scheduling service changes. Homepage media, typography and reviews retained.
-
-## September 30, 2026 — Formspree connected and preview submission verified
-
-- Inquiry delivery service connected on the free plan; no paid subscription purchased.
-- Replaced temporary mailto draft with native POST action and AJAX submission. Fields use name/email/subject/message keys; email supports replies. Submit works without opening an email application. Added sending and accepted-confirmation states, form reset on success, retained fields on failure, validation and duplicate-submit protection.
-- Existing spam filtering and inquiry archive enabled. Scheduling card and route preserved.
-- Build/check passed for all 26 routes, 910 asset references and preview protections. Additional local behavior checks passed for success/reset, failures preserving values, validation, button recovery and duplicate prevention. Existing check script's generic delivery/deployment limitation labels predate this checkpoint and do not reflect hosted verification.
-- Source commits 739ac53a and b618db58 deployed. On Cloudflare preview, one marked test inquiry submitted with subject [TEST] GioLina website contact form. Sending state changed to accepted confirmation, fields reset, Submit re-enabled. Exact test recorded in Formspree Inbox, Spam count 0. Workflow recipient verified. Actual receipt in GoDaddy inbox awaits user's confirmation; acceptance is not proof of inbox delivery.
-- No production, DNS, GoDaddy mailbox configuration or the existing scheduling service changes. Homepage video, fonts, photos and complete reviews preserved. Actual phone viewport QA still unavailable.
-
-## October 1, 2026 — contact human verification
-
-- Enabled Formspree hosted reCAPTCHA alongside existing Formshield spam filtering, using the free plan. Contact form uses native POST for the hosted verification step; updated visitor notice, pending button label and back-navigation recovery. Existing inquiry recipient and schedule links retained.
-- Source commits fcb8ac2d and ea407849 deployed. Build/check passed for 26 routes and 910 assets; local behavior check confirmed native submission is not prevented and button resets on pageshow.
-- Cloudflare preview test reached Formspree Almost There page with an unchecked I'm not a robot checkbox. No CAPTCHA completed and no successful post-verification delivery claimed. Widget displays a reCAPTCHA Enterprise free quota warning; final usability/delivery test remains an explicit verification gate. Alternate providers require a custom key; none configured or purchased.
-- Homepage video, fonts, photos, reviews and protected systems unchanged. No production, DNS, mailbox configuration or the existing scheduling service changes.
-
-## September 30, 2026 — consistent cyan and approved inquiry reply
-
-- Shared brand cyan #19B5BC now used for contact/scheduling accents and Experience buttons and statement background. Body text remains dark neutral; white Allura statement, photos, videos and full reviews preserved.
-- Source commits 34e2218d and 7da452f2 deployed. Build/check passed: 26 routes and 910 assets. Route stylesheet audit found shared cyan on every route and no remaining custom dark-teal variants. Social logo colors retain their own identity.
-- Contact and Experience changes visually verified on preview. Phone viewport QA remains unavailable.
-- Approved reply: Thank you for reaching out to GioLina! We’ve received your inquiry and will be in touch soon. We look forward to hearing more about your day.
-- Automatic email reply remains blocked by a paid-plan requirement; no upgrade purchased. Human-check completion and post-verification delivery test remain pending.
-- Production and protected systems unchanged. This checkpoint omits account and service connection details.
+This user-approved shortened log contains design changes and test results only.
