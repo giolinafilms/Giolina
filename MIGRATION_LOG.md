@@ -13,3 +13,11 @@
 - No production, DNS, email or client-system changes. No production cutover.
 
 Historical recovery notes remain in the existing migration record; this repository checkpoint contains only current website implementation and validation details.
+
+## September 30, 2026 — Bianca & Bobby photo
+
+- User phone screenshot showed the groom cropped off the featured wedding photograph.
+- Replaced fixed background sizing/offset with contain, centered positioning and the original 617:683 image aspect ratio. Removed the artificial spacer from this photo container; mobile column uses full available width.
+- Original image file unchanged. Build/check passed for all 26 routes and 915 asset references.
+- Commit 77558740 deployed: hosted CSS byte-matches source; browser computed background-size contain and aspect-ratio 617/683 at 582.42 by 644.72 pixels, preserving the complete photograph.
+- Phone viewport emulation remains unavailable; mobile behavior uses the same uncropped rule. Production and protected systems unchanged.
