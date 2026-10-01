@@ -1,5 +1,11 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — hero playback recovery, verification still blocked
+
+- User reports poster never transitions. Current delay implementation had disabled Vimeo native autoplay and gated playback on an initial seek/pause acknowledgement chain. Removed that pre-seek/pause dependency; restored autoplay=1 with muted=1/background=1/loop=1 and added playsinline=1. Native playback prepares behind the poster; after five seconds and readiness, controller seeks to five seconds and requests play, revealing only when the clock advances.
+- A slow readiness handshake can now recover after the former permanent 15-second timeout. Non-visible data-video-state supports diagnosis without customer-facing technical text. Hero design and every other section remain unchanged.
+- Build/check and scoped late-ready/seek/play/reveal tests passed. Actual Cloudflare Chrome inspection shows Vimeo connection-security restriction and Turnstile failures in this browser; visible playback cannot be confirmed here. Mobile visual verification also remains unavailable. This is a code repair candidate, not a claim of verified end-to-end autoplay.
+
 ## October 1, 2026 — homepage featured wedding refinement
 
 - Bianca & Bobby homepage photograph is now plain static image markup: removed film-trigger button and film-poster class. Original image URL, dimensions, alt text and full proportions retained; no video ID, iframe, controls, play icon or interactive link remains on the photograph. Cinematography portfolio CTA remains /portfolio-2/.
