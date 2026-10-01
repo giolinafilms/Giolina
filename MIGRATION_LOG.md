@@ -60,7 +60,8 @@ This user-approved shortened log contains design changes and test results only.
 
 ## October 1, 2026 — Contact Us title and redundant scheduling links
 
-- Removed both redundant Schedule anchors beside social icons from Contact Us header/footer only. Kept the consultation button below Submit and its direct client scheduler destination.
-- Contact Us h1 now uses shared Allura script, normal weight and responsive 48–72px sizing. Footer social column fills available width; empty Schedule column hidden on this page.
-- Existing source retained. Local Astro build/check passed (26 routes, 910 asset references). Source revisions dd4217f and 2863cbf committed through existing Cloudflare Git deployment. Hosted verification pending at this checkpoint.
-- No photo added yet; one existing wedding photo recommended for blank space, selection remains open. Production/domain and service settings unchanged.
+- Removed redundant Schedule anchors beside social icons from Contact Us header and footer only. Preserved consultation button below Submit and direct client scheduler destination.
+- Contact Us h1 now uses shared Allura script, normal weight and responsive 48–72px sizing; footer social column fills available width.
+- Local Astro build/check passed (26 routes, 910 asset references). Source revisions dd4217f and 2863cbf deployed through existing Cloudflare Git integration.
+- Live browser verified no standalone Schedule links, title computed Allura/cursive at 72px, consultation href unchanged and no horizontal overflow at 1363px. Mobile font rule 48px deployed; actual phone visual remains unverified.
+- No photo added yet; existing wedding photo recommended for empty area, selection open. Production/domain and service settings unchanged.
