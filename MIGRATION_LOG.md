@@ -96,3 +96,21 @@ This user-approved shortened log contains design changes and test results only.
 - User requested homepage header consistently across all pages; then specified white menu text with blue hover text. Created shared SiteHeader.astro used by all content routes and 404. Added site-header.css scoped to shared header, preserving cyan bar, unlinked left logo, masthead social icons and inquiry link.
 - Menu order: Home, Cinematography, Photography, Reviews, Experience, About Us, Contact Us. Current section has underline; white default and blue #164d83 hover/focus. Mobile uses native Menu disclosure. All existing page bodies, forms, footers and media retained.
 - Build, existing route/link validation and shared-header verification passed across all 28 rendered pages, including 404. Hosted visual check follows deployment.
+
+
+## October 1, 2026 — Beck contact photos published
+
+- User authorized replacing the two black-and-white Contact Us photographs with two carefully selected images from the shared Beck gallery (Deanna + Josiah). Compared thumbnail groups and full-size portraits; selected i-8jSXv6G (soft close-up with bouquet) and i-4XMMw4Q (couple beneath white garden columns).
+- Downloaded publicly displayed 400x600 derivatives and stripped private metadata without recompression. Prepared local beck-close.jpg and beck-garden.jpg, accurate alt text and intrinsic dimensions. Two-column portrait layout preserves full proportions and avoids excessive stacked height. Form, direct scheduler and shared header unchanged.
+- Local build/check passed: 28 rendered pages, 27 content routes, 879 local asset references, internal links and Worker/header checks. Historical generic check limitation strings remain stale and do not describe the active Formspree integration.
+- After explicit user approval of the two image uploads and complete Contact Us JSON file, published only those three files in commit b23ec2ea0262d3b26171fcfefed7a952d68b3885. Cloudflare migration preview deployed successfully. Shared stylesheet unchanged; two columns are scoped to the contact photo wrapper.
+- Hosted desktop screenshot and DOM checks confirmed both images loaded at full portrait proportions, side by side with no horizontal overflow. Direct consultation URL retained below the form. Fluid two-column layout covers phones; actual phone visual pass remains unverified. Original WordPress production domain unchanged.
+
+## October 1, 2026 — consolidated Reviews page redesign
+
+- User requested combining WeddingWire, The Knot and existing website reviews, removing duplicates, redesigning the Reviews page in existing cyan/script style, and adding small equal photo placeholders. Homepage expressly excluded.
+- Reviewed both public source pages: WeddingWire shows 13 five-star entries, The Knot six. Retained 14 unique cards: the 13 WeddingWire entries plus Christopher P from The Knot. Five matching/closely corresponding The Knot entries share cards with both source links. Different-year Deanna posts and distinct Chris/Chris-Ann author entries retained.
+- Preserved the three existing site testimonials verbatim once each. External additions are explicitly labeled concise review summaries with links to full original reviews; no summaries presented as direct quotations. Dates are posting dates except separately labeled existing wedding dates.
+- Added review-collection.json with stable per-review IDs for future couple-photo mapping; equal 96px desktop / 72px phone square placeholders. Used authentic logos extracted/downloaded from source platforms. Page-local stylesheet uses Allura, existing #19b5bc cyan, white and pale cyan; shared header/footer retained.
+- Updated both /client-reviews/ (navigation destination) and /reviews/ (existing alias). Replaced the old disabled inquiry block with a link to the existing working Contact Us page. Homepage, contact page, shared styles/navigation, Vimeo, Formspree, scheduler and original production domain untouched.
+- Build and route/asset/link/Worker checks passed: 28 generated pages, 27 content routes, 921 asset references. Hosted visual verification follows preview deployment; actual phone screenshot not yet available.

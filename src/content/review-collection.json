@@ -1,0 +1,150 @@
+{
+  "checkedOn": "2026-10-01",
+  "sources": {
+    "WeddingWire": {
+      "url": "https://www.weddingwire.com/reviews/ready-to-go-productions-staten-island/66a6d6ef38ed8404.html",
+      "logo": "/assets/weddingwire-logo.svg"
+    },
+    "The Knot": {
+      "url": "https://www.theknot.com/marketplace/giolina-films-madsion-nj-2054990",
+      "logo": "/assets/the-knot-logo.svg"
+    }
+  },
+  "deduplication": "13 WeddingWire entries plus Christopher P on The Knot. Five cross-posted/near-identical The Knot entries share WeddingWire cards. Three existing site quotes preserved; repeated desktop/mobile copies removed. Different authors and different-year Deanna posts retained.",
+  "reviews": [
+    {
+      "id": "alexandria-2024",
+      "name": "Alexandria P",
+      "date": "2024-10-15",
+      "sources": [
+        "WeddingWire",
+        "The Knot"
+      ],
+      "summary": "Thoughtful music choices, attentive planning, and fast delivery of an emotionally powerful wedding film."
+    },
+    {
+      "id": "christopher-2023",
+      "name": "Christopher P",
+      "date": "2023-03-30",
+      "sources": [
+        "The Knot"
+      ],
+      "summary": "Christopher appreciated Frank’s caring, personal approach and a film that lets the couple relive their wedding with love."
+    },
+    {
+      "id": "mina-2022",
+      "name": "Mina G",
+      "date": "2022-12-11",
+      "sources": [
+        "WeddingWire",
+        "The Knot"
+      ],
+      "summary": "Mina felt reassured throughout, with her ideas reflected in the finished film."
+    },
+    {
+      "id": "deanna-2022",
+      "name": "Deanna B",
+      "date": "2022-11-05",
+      "sources": [
+        "WeddingWire",
+        "The Knot"
+      ],
+      "summary": "Deanna praised effortless coverage and a cinematic film that told their complete story."
+    },
+    {
+      "id": "chris-ann-2022",
+      "name": "Chris-Ann G",
+      "date": "2022-04-26",
+      "sources": [
+        "WeddingWire",
+        "The Knot"
+      ],
+      "summary": "Flexible support from Frank and Monica helped the couple navigate wedding-day obstacles."
+    },
+    {
+      "id": "chris-2022",
+      "name": "Chris",
+      "date": "2022-04-25",
+      "sources": [
+        "WeddingWire"
+      ],
+      "summary": "Chris appreciated planning help and the team’s response to unexpected wedding-day changes."
+    },
+    {
+      "id": "andrew-2022",
+      "name": "Andrew",
+      "date": "2022-01-02",
+      "sources": [
+        "WeddingWire"
+      ],
+      "summary": "Andrew valued the quality, fair pricing, and time spent refining the result."
+    },
+    {
+      "id": "deanna-2021",
+      "name": "Deanna B",
+      "date": "2021-12-13",
+      "sources": [
+        "WeddingWire",
+        "The Knot"
+      ],
+      "summary": "Photos impressed Deanna; the emotional film exceeded expectations and still brings happy tears."
+    },
+    {
+      "id": "loriann-2021",
+      "name": "Loriann",
+      "date": "2021-12-13",
+      "sources": [
+        "WeddingWire"
+      ],
+      "summary": "Loriann enjoyed the whole experience, from early arrangements through the celebration."
+    },
+    {
+      "id": "christina-2020",
+      "name": "Christina",
+      "date": "2020-03-10",
+      "weddingDate": "2020-03-07",
+      "sources": [
+        "WeddingWire"
+      ],
+      "quote": "The ready to go productions team was nothing short of amazing from start to finish! We can’t wait to see our finished product !"
+    },
+    {
+      "id": "stephanie-2019",
+      "name": "Stephanie",
+      "date": "2019-04-19",
+      "sources": [
+        "WeddingWire"
+      ],
+      "summary": "Stephanie loved the comprehensive photography and video coverage, reasonable prices, and helpful staff."
+    },
+    {
+      "id": "jennifer-2019",
+      "name": "Jennifer B",
+      "date": "2019-03-12",
+      "weddingDate": "2018-10-19",
+      "sources": [
+        "WeddingWire"
+      ],
+      "quote": "We had such a great experience with Ready to Go Productions! Frank & his team did an amazing job. They were able to capture our special day so magically. The team is very professional and reliable! They go over every detail with you. I would definitely recommend Ready to Go to anyone!"
+    },
+    {
+      "id": "lauren-2015",
+      "name": "Lauren",
+      "date": "2015-03-24",
+      "weddingDate": "2015-03-21",
+      "sources": [
+        "WeddingWire"
+      ],
+      "quote": "Ready to Go productions were so great to work with! Frank is amazing at what he does. Professionalism and communication throughout the whole process was A++! Ready to Go offers a unique personal touch to the whole wedding video process- I couldn’t have asked for better! Our love story interview/same day edit video turned out amazing- we loved every minute of the whole process from filming to being surprised with the video at our wedding. We are so, so pleased! Can’t wait to see our final video!"
+    },
+    {
+      "id": "annie-2014",
+      "name": "Annie",
+      "date": "2014-03-24",
+      "sources": [
+        "WeddingWire"
+      ],
+      "summary": "Annie praised Frank’s professionalism and the popular red carpet at their corporate event."
+    }
+  ]
+}
