@@ -28,11 +28,8 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Source commit 3d290144. Local build and check passed for 26 routes and 915 asset references.
 - Cloudflare preview deployment verification follows this commit; production and protected systems unchanged.
 
-## September 30, 2026 — Experience and closing photos
+## September 30, 2026 — photo verification and featured wedding spacing
 
-- User mobile screenshots showed cropped Experience portrait and closing wedding image.
-- Experience portrait now uses contain and original 1707:2560 proportions; mobile negative overlap and photo spacers removed, with consistent margins.
-- Mobile closing photo now displays fully at original 2560:1707 proportions. Existing Allura headline moved below photograph with dark text on white, preserving faces and readability. Experience Learn More button retained.
-- Original photos, latest Vimeo, fonts, complete review and other content unchanged. Build and check passed for all 26 routes and 915 asset references. CSS asset paths checked locally.
-- Source commit 6c15f9d6. Native Cloudflare preview deployment verification follows; actual phone viewport verification remains unavailable in this browser. No production or protected-system changes.
-- Prior featured-wedding button removal confirmed in hosted HTML and browser after its native deployment.
+- Experience portrait deployed and inspected: background-size contain, original 1707:2560 ratio, rendered 421.03 by 631.42 pixels. Hosted CSS including complete mobile closing image matched source.
+- Removed Bianca & Bobby description 'Learn more about this beautiful wedding.' and two empty blue sections adding 300px of mobile padding. Reduced remaining featured section padding and removed text spacer; uncropped photo, location and names retained.
+- Source commits 10f53c3b and fb4a410c. Build/check passed for 26 routes and 915 asset references. Native preview deployment verification follows. Production and protected systems unchanged.
