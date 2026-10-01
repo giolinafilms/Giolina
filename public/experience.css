@@ -69,3 +69,10 @@
  .elementor-page-422 .elementor-element-141f70d2 img{max-width:140px;width:100%;height:auto}
  .elementor-page-422 .elementor-element-6572bb56 a{padding:10px 8px!important;font-size:14px!important}
 }
+
+/* Shared elegant script: Allura, matching the homepage decorative headings. */
+.gl-exp-statement h2,.gl-exp-statement h2 em{
+ color:#fff!important;font-family:'Allura',cursive!important;
+ font-style:normal!important;font-weight:400!important;letter-spacing:0!important;
+}
+.gl-exp-statement h2{font-size:clamp(48px,5.3vw,74px)!important;line-height:1.18!important}
