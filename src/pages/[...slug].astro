@@ -5,6 +5,7 @@ export function getStaticPaths() {
  return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
 }
 const {page}=Astro.props;
+const pageHeading = page.header.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1];
 ---
 <!doctype html>
 <html lang="en-US">
@@ -23,7 +24,7 @@ const {page}=Astro.props;
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
 <SiteHeader path={page.path} />
-<main id="content"><Fragment set:html={page.content} /></main>
+<main id="content">{pageHeading && <div class="gl-page-heading"><h1 set:html={pageHeading} /></div>}<Fragment set:html={page.content} /></main>
 <Fragment set:html={page.footer} />
 <script src="/migration.js" is:inline></script>
 </body>
