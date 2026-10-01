@@ -89,3 +89,31 @@
 .home a[href*="clients.giolina.co/schedule/"] .elementor-button-text{font-size:16px!important}
 .home a[href*="clients.giolina.co/schedule/"] svg{width:22px!important;height:12px!important}
 @media(max-width:767px){.home .migration-review-heading h2{font-size:54px!important}.home .migration-client-photo{height:340px}.home .migration-client-review{padding:20px 8px}}
+
+/* Responsive migration completion: preserve fonts, real photos and full review. */
+.elementor-column,.elementor-widget-wrap{min-width:0}
+.elementor-menu-toggle::before{content:'Menu';font:16px/1.4 Arial,sans-serif}
+.elementor-menu-toggle{min-height:44px;min-width:44px}
+.elementor-nav-menu--dropdown.migration-open{width:100%;position:relative;transform:none!important;max-height:none!important}
+.elementor-nav-menu--dropdown.migration-open a{min-height:44px;display:flex;align-items:center}
+@media(max-width:767px){
+ .home .elementor-element-16df2c0e>.elementor-container{flex-wrap:nowrap!important;align-items:center}
+ .home .elementor-element-45ebdf45{width:8%!important}
+ .home .elementor-element-5621617b{width:47%!important}
+ .home .elementor-element-176a58a6{width:45%!important}
+ .home .elementor-element-141f70d2 img{max-width:140px;width:100%;height:auto}
+ .home .elementor-element-6572bb56 a{padding:10px 8px!important;font-size:14px!important}
+ .home .elementor-element-39d825fe>.elementor-container{min-height:520px!important}
+ .home .elementor-element-172867fe>.elementor-widget-wrap{padding:48px 24px!important;align-content:center}
+ .home .elementor-element-3d88af26{display:none!important}
+ .home .elementor-element-4881d278 .elementor-heading-title{font-size:25px!important}
+ .home .elementor-element-265cda71 a{min-height:44px;display:inline-flex;align-items:center}
+ .home .elementor-element-637a95f7>.elementor-container{flex-direction:column;gap:24px}
+ .home :is(.elementor-element-3bea00e7,.elementor-element-36430518,.elementor-element-11a1102c){width:100%!important;max-width:100%!important}
+ .home .migration-client-photo{height:auto;max-height:none;object-fit:contain}
+ .home .migration-client-review{padding:24px 12px}
+ .home .migration-review-heading{padding:32px 24px 16px}
+ .home .elementor-element-108a4e63 .elementor-heading-title{font-size:26px!important;line-height:1.4!important;letter-spacing:0!important}
+ .home .elementor-element-26ba581e{margin:16px 0!important}
+ .home .elementor-element-26ba581e .elementor-heading-title{font-size:38px!important}
+}
