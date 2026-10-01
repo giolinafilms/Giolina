@@ -1,3 +1,12 @@
+## October 1, 2026 — homepage flow, Same Day Edits and scheduler links
+
+- Preserved the entire homepage hero section and hero CSS/controller/SDK byte-for-byte. Replaced everything below it with five compact sections: short two-sentence introduction, paired Films & Photographs preview, Same Day Edits, brief Experience bridge and simple inquiry invitation. Removed the standalone ballroom/Bianca feature, large Alexandria testimonial and extra About/recognition block from the homepage, without deleting any underlying assets or review records.
+- Portfolio preview retains 548643452 with a static existing photograph before click, plus the existing waterfront photography preview; explicit cinematography/photography links remain. No hidden portfolio Vimeo UI before interaction.
+- Added paired Same Day Edit cards: verified existing Bianca & Bobby 328842441 and client-provided Francesca & Chris 761102048. Both use the existing same-site film dialog and Play film buttons; no player iframe/UI is created in these cards before click. Bianca appears in one homepage card. Francesca's temporary non-photographic 1600x900 JPG is labeled in code and can be replaced at the same asset path; both cards are 16:9 desktop/phone, stacked on phones.
+- Reduced repeated copy, imagery and CTAs; introduced homepage-scoped responsive spacing and typography without altering shared portfolio styles or hero design. No SmugMug work.
+- Secured remaining live-content scheduler anchors on Contact aliases, Experience and the scheduling alias with target=_blank and rel=noopener noreferrer; shared footer was already secure. Existing scheduler URL, labels, styling and integrations unchanged; no client portal or DNS changes. All rendered routes checked for matching attributes.
+- Build and route/link/asset checks passed. Exact hero/SEO preservation assertions and unchanged hero-file hashes passed; all 28 built routes were checked for secure scheduling anchors. Alexandria remains unchanged on Reviews. Hosted desktop layout/dialog verification follows preview deployment; actual phone visual checks and Vimeo playback cannot be claimed from code inspection.
+
 ## October 1, 2026 — replace hero playback controller after poster regression
 
 - User confirmed video could appear and return to the still. Source identified reversible reveal paths: bufferstart always removed the visible-video class, and a delayed play-promise failure could also undo a reveal. Removed the custom message bridge entirely.
