@@ -1,5 +1,12 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — homepage hero composition and playback refinement
+
+- Hero only: preserved Vimeo 548643452 and autoplay/muted/background/loop settings, adding #t=5s for initial playback. A hero-scoped Vimeo SDK handler seeks to five seconds on ready and when native looping resets below 4.8 seconds. The timecode remains a fallback if the SDK is unavailable.
+- Replaced oversized Allura hero headline with the existing Georgia serif at restrained 42–58px desktop sizing and 32–42px phone sizing, with three left-aligned lines. Kept requested words, eyebrow, supporting line and Inquire link. Reduced supporting line and eyebrow scale, refined spacing, and softened the desktop overlay toward a clear right side.
+- Added homepage-only hero CSS and playback script. All content below the first hero section, other pages, shared styles, SEO metadata, Vimeo source video, production domains and DNS are unchanged.
+- Build/link/asset checks and mocked initial/loop seek behavior passed. Actual Vimeo playback and phone visual QA remain unverified due current browser restrictions. Existing phone background-video hiding is preserved.
+
 ## October 1, 2026 — homepage hero starts at five seconds
 
 - Added Vimeo’s supported #t=5s timecode fragment only to the homepage hero iframe. Video ID 548643452, background/autoplay/muted/loop settings, hero design, all other homepage content and responsive styles are unchanged.

@@ -1,0 +1,15 @@
+/* Loaded only by the homepage; every rule is limited to its hero. */
+.gl-redesign .gl-hero::after{background:linear-gradient(90deg,rgba(12,25,29,.52) 0%,rgba(12,25,29,.26) 45%,rgba(12,25,29,.06) 75%,transparent 100%)}
+.gl-redesign .gl-hero-copy{padding:76px 7% 64px;text-align:left}
+.gl-redesign .gl-hero .gl-eyebrow{font-size:12px;line-height:1.6;letter-spacing:.13em;margin-bottom:20px!important;max-width:490px}
+.gl-redesign .gl-hero h1{font:400 clamp(42px,4.2vw,58px)/1.14 Georgia,'Times New Roman',serif;letter-spacing:-.025em;max-width:540px;text-wrap:balance}
+.gl-redesign .gl-hero h1 span{display:block}
+.gl-redesign .gl-hero .gl-hero-sub{font:italic 400 21px/1.5 Georgia,'Times New Roman',serif;margin:24px 0 28px!important;max-width:490px}
+.gl-redesign .gl-hero .gl-button{font-size:14px;padding:12px 25px;min-height:48px}
+@media(max-width:700px){
+ .gl-redesign .gl-hero-copy{padding:42px 24px 46px}
+ .gl-redesign .gl-hero .gl-eyebrow{font-size:11px;letter-spacing:.11em;margin-bottom:18px!important}
+ .gl-redesign .gl-hero h1{font-size:clamp(32px,8.7vw,42px);line-height:1.15;max-width:100%;letter-spacing:-.02em}
+ .gl-redesign .gl-hero .gl-hero-sub{font-size:18px;line-height:1.5;margin:20px 0 25px!important}
+ .gl-redesign .gl-hero::after{background:linear-gradient(90deg,rgba(12,25,29,.55),rgba(12,25,29,.20))}
+}
