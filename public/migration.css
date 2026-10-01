@@ -211,3 +211,9 @@
  .home .elementor-element-108a4e63>.elementor-widget-container{padding:0 14px!important}
  .home .elementor-element-108a4e63 .elementor-heading-title{font-size:clamp(20px,5.5vw,26px)!important;text-align:center!important;line-height:1.4!important}
 }
+
+/* Contact page title follows the shared script; consultation stays below form. */
+.page-id-1752 .elementor-element-cc504f9 h1{font-family:'Allura',cursive!important;font-size:clamp(48px,6vw,72px)!important;font-weight:400!important;line-height:1.2!important;letter-spacing:0!important;text-transform:none!important}
+.page-id-1752 .elementor-element-788df342{display:none!important}
+.page-id-1752 .elementor-element-6eef06bd{width:100%!important}
+@media(max-width:767px){.page-id-1752 .elementor-element-cc504f9 h1{font-size:48px!important}}
