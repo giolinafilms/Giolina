@@ -50,3 +50,9 @@ This user-approved shortened log contains design changes and test results only.
 - Desktop browser verified rendered placement below Submit, cyan rgb(25,181,188), and no page horizontal overflow at 1363px. Button successfully navigated to /schedule-a-meeting-2/, where the existing client scheduling link is present.
 - Live migration.css exactly matches repository source. Phone rules verified: one-column form fields, 16px inputs, full-width consultation button, bounded card widths and wrapping. Actual phone visual QA remains unverified because the available browser has no viewport resize/emulation capability; keyboard zoom did not change innerWidth. Do not claim a mobile visual pass.
 - Formspree endpoint and homepage Vimeo ID 548643452 preserved. No form submission, appointment booking, service setting, domain or production cutover performed.
+
+
+## October 1, 2026 — direct scheduling from Contact Us
+
+- User requested combining consultation scheduling with Contact Us and opening the live scheduler directly. Changed only the consultation button href to https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7 in contact-us-2.json; kept the existing invitation below Submit, cyan styling and form intact.
+- Source commit bda01487c914b8d3433fd18425b2f3fb58729c52 read back and deployed preview HTML verified. Live browser confirms the consultation button targets the client scheduler directly, without the intermediate meeting page. Same link serves desktop and phones. No booking or contact form submitted.
