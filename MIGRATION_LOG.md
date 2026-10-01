@@ -63,3 +63,9 @@ Historical recovery notes remain in the existing migration record; this reposito
 - 'The best moments are the ones you feel' now explicitly white, including its emphasized word, in Allura script with responsive 48–74px sizing and 1.18 line height. This prevents inherited theme heading color from reducing contrast on deep teal.
 - Design preference: Allura is the single decorative/elegant script throughout future GioLina changes, matching current homepage script headings. Keep body and navigation typography readable; avoid introducing additional script families.
 - Source commit ac6dab23. Preview deployment verification follows; no production/protected-system changes.
+
+## September 30, 2026 — Instagram link review checkpoint
+
+- Requested review of @giolinafilms for curated website hyperlinks remains incomplete: public profile/grid accessible, but individual posts require sign-in and the chosen authentication flow returns to the login page.
+- Existing Instagram profile hyperlinks retained in the site header/footer. No unreviewed posts, captions or media added.
+- Experience statement previously verified on preview as white Allura text. Website design/source unchanged in this checkpoint; no production, DNS, email or client-system changes.
