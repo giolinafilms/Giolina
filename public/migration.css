@@ -176,3 +176,23 @@
 .gl-schedule-page .gl-schedule-eyebrow{font-size:14px;letter-spacing:.16em;text-transform:uppercase}
 .gl-schedule-page .gl-schedule-back{margin-top:28px;font-size:16px}
 @media(max-width:767px){.gl-contact-options{margin-top:24px;padding:24px}.gl-contact-schedule{width:100%;text-align:center}.gl-schedule-page{padding:48px 24px}}
+
+/* Shared phone sizing, including pages beyond Home and Experience. */
+@media(max-width:767px){
+ .elementor-element-16df2c0e>.elementor-container{flex-wrap:nowrap!important;align-items:center}
+ .elementor-element-45ebdf45{width:8%!important}
+ .elementor-element-5621617b{width:47%!important}
+ .elementor-element-176a58a6{width:45%!important}
+ .elementor-element-141f70d2 img{max-width:140px;width:100%;height:auto}
+ a[href*="clients.giolina.co/schedule/"]{font-family:Arial,sans-serif!important;font-size:14px!important;line-height:1.3!important;white-space:normal!important;max-width:100%!important;padding:10px 8px!important;box-sizing:border-box}
+ a[href*="clients.giolina.co/schedule/"] .elementor-button-text{font-size:14px!important}
+ a[href*="clients.giolina.co/schedule/"] svg{width:22px!important;height:12px!important;flex-shrink:0}
+ [data-contact-form] .elementor-field-group{width:100%!important;max-width:100%;min-width:0}
+ [data-contact-form] :is(input,textarea){width:100%;max-width:100%;min-width:0;box-sizing:border-box;font-size:16px!important}
+ [data-contact-form] textarea{resize:vertical}
+ [data-contact-status]{font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+ .gl-contact-options{box-sizing:border-box;max-width:100%}
+ .gl-contact-options h3{font-size:clamp(32px,9vw,42px)!important;overflow-wrap:break-word}
+ .gl-contact-schedule{box-sizing:border-box;max-width:100%;min-height:44px}
+ .elementor-widget-text-editor,.elementor-heading-title{overflow-wrap:break-word}
+}
