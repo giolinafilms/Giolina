@@ -1,3 +1,6 @@
 /* About copy refinement: preserve existing page composition and photography. */
 .gl-about-paragraph{font:400 18px/1.8 Arial,sans-serif!important;text-align:left!important;white-space:normal!important;margin:0 0 22px!important;color:#202a2e!important}.gl-about-paragraph:last-child{margin-bottom:0!important}
 @media(max-width:700px){.gl-about-paragraph{font-size:17px!important;line-height:1.75!important;margin-bottom:20px!important}}
+.elementor-416 .elementor-element.elementor-element-59d63c66{align-self:flex-start}
+.elementor-416 .elementor-element.elementor-element-59d63c66>.elementor-element-populated{height:auto!important;margin:24px 24px 24px 0!important;padding:48px 28px!important}
+@media(max-width:700px){.elementor-416 .elementor-element.elementor-element-59d63c66>.elementor-element-populated{margin:0 20px 24px!important;padding:32px 24px!important}}
