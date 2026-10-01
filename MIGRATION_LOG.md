@@ -1,5 +1,10 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — homepage hero starts at five seconds
+
+- Added Vimeo’s supported #t=5s timecode fragment only to the homepage hero iframe. Video ID 548643452, background/autoplay/muted/loop settings, hero design, all other homepage content and responsive styles are unchanged.
+- Build and existing route/link/asset checks passed. Mobile portrait currently hides the background video by design; that responsive behavior is preserved. Actual fresh-load Vimeo playback remains unverified in the restricted verification browser.
+
 ## October 1, 2026 — seven-page aesthetic refinement pass
 
 Worked sequentially from the existing project, preserving the GioLina identity and working integrations. All page changes are published to the development preview; the production website and inactive Services page are unchanged.
