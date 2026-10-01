@@ -31,3 +31,11 @@
 - Production and protected systems unchanged.
 
 This user-approved shortened log contains design changes and test results only.
+
+## September 30, 2026 — homepage photo collage on phones
+
+- User portrait screenshot identified cropped homepage collage images. Original phone styles used fixed background sizes, negative offsets and artificial spacers.
+- At phone widths, both collage rows now use two fluid columns with a 16px gap and 24px side margins. Each of the four original images uses centered contain sizing and its own original aspect ratio. Removed photo offsets and spacer heights in those rows only.
+- Centered the introductory heading and removed its asymmetric phone padding. Original photos and all other media, fonts, cyan accents and complete reviews preserved; desktop collage styles unchanged.
+- Source revision 7eb608e6. Build/check passed for 26 routes and 910 assets. Hosted stylesheet verification follows deployment; actual portrait visual confirmation remains with the user's phone because browser viewport emulation is unavailable.
+- Production and protected systems unchanged.
