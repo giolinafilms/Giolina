@@ -51,3 +51,8 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Added isolated public/experience.css; mobile columns stack and images use intrinsic dimensions. Build/check passed: 26 routes and 910 asset references. Native details require no extra JavaScript.
 - Source commits b9e28704 and ae6a708b. Preview only; final design acceptance remains with user. Previous source version can be restored if page is not wanted. No production, DNS, email or client-system changes.
 - Verification: native Cloudflare preview deployment is pending observation at this checkpoint. Phone viewport verification and third-party playback limitations remain as previously recorded.
+
+### Experience redesign hosted verification
+- Redesigned page observed on Cloudflare preview with full photos, new typography/layout and preserved complete Mina review. Both images loaded successfully; no desktop horizontal overflow; FAQ expands and displays its answer. Contact Us destinations retained.
+- Added scoped header Schedule sizing fix in ca7a8c40. Vimeo engagement player reports connection security restriction in this browser; actual playback not claimed. Phone-width visual QA remains unavailable.
+- Homepage spacing cleanup also verified: empty blue sections and descriptive line absent in hosted DOM; section bottom padding 32px.
