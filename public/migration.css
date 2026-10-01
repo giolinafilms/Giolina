@@ -153,3 +153,11 @@
  .home .elementor-element-26ba581e .elementor-heading-title{color:#222!important;font-size:38px!important;line-height:1.25!important}
  .home .elementor-element-3b1e65af{display:none!important}
 }
+
+/* Remove unused blue space beneath the featured wedding. */
+.home .elementor-element-5b03bd7c{padding-bottom:32px!important}
+@media(max-width:767px){
+ .home .elementor-element-5b03bd7c{padding:32px 24px!important;min-height:0!important}
+ .home .elementor-element-2871127d>.elementor-widget-wrap{padding:24px 0 0!important}
+ .home .elementor-element-19cd78bb{display:none!important}
+}
