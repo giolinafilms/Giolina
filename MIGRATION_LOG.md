@@ -2,6 +2,7 @@
 
 ## October 1, 2026 — five-second hero still-to-video transition
 
+- Follow-up: replaced the automatically initializing Vimeo SDK with a hero-only iframe message controller to prevent side effects on portfolio buttons below the hero. Origin/source validation, timeouts, handshake, preparation, timer, fade and loop behavior tested. No below-hero content changed.
 - Kept the existing hero photograph and full text/button visible while preparing Vimeo behind an initially transparent layer. Hold lasts at least five seconds from first contentful paint; page content and layout do not wait for the timer.
 - Deferred playback seeks to 00:05, pauses during preparation, then starts when both the timer and preparation complete. The 900ms fade waits for the playback clock to advance beyond 5.02 seconds. Slow/blocked playback, buffering or errors retain/restore the photograph instead of displaying the Vimeo loading/error state. Muted/background/native looping and loop-slate skip preserved; ID 548643452 unchanged.
 - Hero-only phone override now allows the same transition on portrait widths; reduced-motion visitors retain the still image. No changes below the homepage hero or to other pages, production or DNS.
