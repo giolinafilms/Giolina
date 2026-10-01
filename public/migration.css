@@ -117,3 +117,15 @@
  .home .elementor-element-26ba581e{margin:16px 0!important}
  .home .elementor-element-26ba581e .elementor-heading-title{font-size:38px!important}
 }
+
+/* Show the complete Bianca & Bobby photograph at its original proportions. */
+.home .elementor-element-16471412>.elementor-widget-wrap{
+ background-size:contain!important;background-position:center top!important;
+ background-repeat:no-repeat!important;aspect-ratio:617/683;
+ min-height:0!important;padding:0!important;align-self:flex-start;
+}
+.home .elementor-element-16471412 .elementor-widget-spacer{display:none!important}
+@media(max-width:767px){
+ .home .elementor-element-16471412{width:100%!important}
+ .home .elementor-element-16471412>.elementor-widget-wrap{width:100%!important}
+}
