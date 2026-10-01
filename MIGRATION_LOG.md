@@ -42,3 +42,12 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Previous Experience/closing changes deployed: hosted CSS byte-matched source; Experience portrait computed contain at original 1707:2560 proportions.
 - Removed Bianca & Bobby description 'Learn more about this beautiful wedding.' and both empty blue sections adding 300px of mobile padding. Reduced remaining featured section padding and removed text spacer. Uncropped photo, location and names retained.
 - Source commits 10f53c3b and fb4a410c. Build/check passed for 26 routes and 915 asset references. Preview verification follows; production and protected systems unchanged.
+
+## September 30, 2026 — Experience page redesign proposal
+
+- Rebuilt /experience-2/ as a scoped editorial page: warm ivory, deep teal, serif/script headings, full real photos, clear three-stage process, Mina's complete existing review, surprise engagement film, native FAQ disclosures and Contact Us invitations.
+- Kept page route, header/footer, metadata and canonical. Reused existing image assets and Vimeo 236688446; no generated media or new service promises, packages or turnaround guarantees. Homepage refinements and complete review unchanged.
+- FAQ fees/custom proposal language based on existing page. Consultation now links existing scheduler; inquiry calls link /contact-us-2/. Removed redundant old-brand/corporate-event content from this redesigned page; original remains available in Git history and reviews elsewhere.
+- Added isolated public/experience.css; mobile columns stack and images use intrinsic dimensions. Build/check passed: 26 routes and 910 asset references. Native details require no extra JavaScript.
+- Source commits b9e28704 and ae6a708b. Preview only; final design acceptance remains with user. Previous source version can be restored if page is not wanted. No production, DNS, email or client-system changes.
+- Verification: native Cloudflare preview deployment is pending observation at this checkpoint. Phone viewport verification and third-party playback limitations remain as previously recorded.
