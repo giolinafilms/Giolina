@@ -53,3 +53,21 @@
  .gl-redesign .gl-collage-detail{grid-column:1;grid-row:3}
  .gl-redesign .gl-collage-celebration{grid-column:2;grid-row:3}
 }
+
+/* One editorial gateway replaces the separate portfolio and Experience teasers. */
+.gl-redesign .gl-home-gateway .gl-story-grid{grid-template-columns:1.2fr 1fr .85fr;gap:28px;align-items:start}
+.gl-redesign .gl-home-gateway article{min-width:0}
+.gl-redesign .gl-home-gateway .gl-gateway-photography{padding-top:42px}
+.gl-redesign .gl-home-gateway .gl-gateway-experience{padding-top:84px}
+.gl-redesign .gl-home-gateway .gl-gateway-photography .gl-home-media{aspect-ratio:3/2}
+.gl-redesign .gl-home-gateway .gl-gateway-experience .gl-home-media{aspect-ratio:935/785}
+.gl-redesign .gl-home-gateway .gl-gateway-experience img{object-position:center}
+.gl-redesign .gl-home-gateway .gl-text-link{font-size:14px;line-height:1.5}
+@media(max-width:900px){.gl-redesign .gl-home-gateway .gl-story-grid{gap:22px}.gl-redesign .gl-home-gateway h3{font-size:25px}}
+@media(max-width:700px){
+ .gl-redesign .gl-home-gateway .gl-story-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+ .gl-redesign .gl-home-gateway .gl-gateway-photography,.gl-redesign .gl-home-gateway .gl-gateway-experience{padding-top:0}
+ .gl-redesign .gl-home-gateway .gl-gateway-experience .gl-home-media{aspect-ratio:auto}
+ .gl-redesign .gl-home-gateway .gl-gateway-experience img{height:auto}
+ .gl-redesign .gl-home-gateway .gl-text-link{font-size:15px}
+}
