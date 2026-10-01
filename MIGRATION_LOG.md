@@ -21,3 +21,9 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Original image file unchanged. Build/check passed for all 26 routes and 915 asset references.
 - Commit 77558740 deployed: hosted CSS byte-matches source; browser computed background-size contain and aspect-ratio 617/683 at 582.42 by 644.72 pixels, preserving the complete photograph.
 - Phone viewport emulation remains unavailable; mobile behavior uses the same uncropped rule. Production and protected systems unchanged.
+
+## September 30, 2026 — featured wedding button
+
+- Removed the entire Learn More button widget from the Bianca & Bobby homepage section, per request. Featured photo, heading and description preserved; other section buttons unchanged.
+- Source commit 3d290144. Local build and check passed for 26 routes and 915 asset references.
+- Cloudflare preview deployment verification follows this commit; production and protected systems unchanged.
