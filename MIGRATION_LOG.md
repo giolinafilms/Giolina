@@ -69,3 +69,11 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Requested review of @giolinafilms for curated website hyperlinks remains incomplete: public profile/grid accessible, but individual posts require sign-in and the chosen authentication flow returns to the login page.
 - Existing Instagram profile hyperlinks retained in the site header/footer. No unreviewed posts, captions or media added.
 - Experience statement previously verified on preview as white Allura text. Website design/source unchanged in this checkpoint; no production, DNS, email or client-system changes.
+
+## September 30, 2026 — editable Contact Us preview fields
+
+- Removed disabled attributes from name, email, subject and message fields on /contact-us-2/. Submit remains disabled while message delivery is unconfigured.
+- Clarified preview notice and linked it to the form accessibly. Form uses POST as a fallback; existing JavaScript prevents preview submission and Worker rejects unexpected POST.
+- Source commit 13da5991. Build/check passed for 26 routes, 910 asset references, internal links and preview protections.
+- Cloudflare preview verified: all four controls accept typed test values, displayed in browser screenshot; Submit remains disabled. No test message sent. Actual phone viewport verification remains unavailable.
+- Homepage video, fonts, photos and full reviews unchanged. No production, DNS, email or clients.giolina.co changes.
