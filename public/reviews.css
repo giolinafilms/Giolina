@@ -21,7 +21,7 @@
 .gl-review-person{min-width:0}
 .gl-review-copy{position:relative;z-index:1}
 .gl-review-card h2{font:400 42px/1.05 Allura,cursive;color:var(--review-deep);margin-bottom:8px}
-.gl-review-card time{display:block;font:400 12px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--review-muted)}
+.gl-review-stars{display:block;margin-top:7px;color:var(--review-cyan);font:400 13px/1 Arial,sans-serif;letter-spacing:.18em}
 .gl-review-card blockquote{font:italic 400 18px/1.72 Georgia,serif;color:var(--review-ink)}
 .gl-review-card blockquote p+p{margin-top:1em}
 .gl-reviews-closing{padding:62px 24px 68px;background:#dff3f3;text-align:center}
