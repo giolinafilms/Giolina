@@ -1,5 +1,19 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — seven-page aesthetic refinement pass
+
+Worked sequentially from the existing project, preserving the GioLina identity and working integrations. All page changes are published to the development preview; the production website and inactive Services page are unchanged.
+
+- Homepage: retained “Beautifully captured. Deeply felt.”, Bianca & Bobby and Vimeo 548643452; clarified the dedicated portfolio links, tightened copy and spacing, removed the redundant detail section, and connected Alexandria’s supplied Vimeo 1008616852.
+- Cinematography: retained all 12 existing film IDs and same-site player; emphasized the opening film, arranged remaining films in two desktop columns and one phone column, and used the verified Bianca & Bobby title.
+- Photography: retained all 30 original gallery images and the lightbox; varied landscape sizes, added intrinsic dimensions, preserved full image proportions and paired phone layouts, and refined the Contact invitation. SmugMug was not changed.
+- Reviews: preserved all 13 full testimonials, names and existing stars, with dates hidden by prior preference; explained the active Ready to Go Productions relationship, removed unfinished photo placeholders, and paired Alexandria with the supplied film.
+- Experience: preserved the three-step layout, FAQ answers, testimonial and engagement film; refined preparation/communication copy and FAQ readability. Completed the previously requested removal of identifiable Jennifer/Mike imagery without assigning unverified identities to replacement images.
+- About Us: rewrote five paragraphs covering Frank’s continuing television work, active Ready to Go Productions, GioLina’s boutique wedding focus and the name’s connection to Giovanni and Michaelina; refined reading spacing and compacted the name panel.
+- Contact: kept the inquiry form first and direct scheduling optional below a clear cyan separation; added optional Wedding Date, removed customer-facing technical language, and preserved the Formspree endpoint, spam protection and scheduler destination. No account-level email or auto-response settings were altered.
+
+Validation: Astro build and existing route/link/asset checks passed. Hosted desktop visual checks covered all seven pages, with no horizontal overflow or visible placeholder text. Film dialogs, photography lightbox, FAQ disclosure, editable date and native email validation were checked. No test inquiry was sent. Phone responsive CSS was inspected, but actual phone-width visual QA remains unavailable in the current browser. Vimeo connection screening prevents actual playback verification. These verification limits remain outstanding; no claim of completed phone or media playback QA is made.
+
 ## September 30, 2026 — design and layout
 
 - Homepage buttons say Inquire and link to Contact Us.
