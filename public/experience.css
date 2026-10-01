@@ -1,0 +1,58 @@
+/* Experience page: warm editorial layout, scoped to this page only. */
+.gl-experience{--ink:#213f3b;--paper:#f6f3ec;--line:#d7d9cf;background:var(--paper);color:var(--ink);font:400 16px/1.75 'Montserrat',Arial,sans-serif}
+.gl-experience *{box-sizing:border-box}
+.gl-experience :is(h1,h2,h3,p,figure,blockquote){margin:0}
+.gl-experience a{color:inherit}
+.gl-exp-wrap{width:min(1120px,calc(100% - 80px));margin-inline:auto}
+.gl-exp-kicker{font:500 11px/1.6 'Montserrat',Arial,sans-serif;letter-spacing:.2em;margin-bottom:22px!important}
+.gl-experience h1{font:400 clamp(66px,7.6vw,112px)/.98 Georgia,serif;letter-spacing:-.055em}
+.gl-experience h1 span,.gl-exp-cta h2 span{font-family:'Allura',cursive;letter-spacing:0;font-size:1.2em}
+.gl-experience h2{font:400 clamp(36px,4.2vw,58px)/1.12 Georgia,serif;letter-spacing:-.035em}
+.gl-experience h3{font:400 26px/1.25 Georgia,serif;letter-spacing:-.02em;margin:22px 0 14px}
+.gl-experience img{display:block;width:100%;height:auto}
+.gl-exp-hero{display:grid;grid-template-columns:1fr .85fr;gap:9%;padding-block:72px 90px;align-items:center}
+.gl-exp-intro>p:not(.gl-exp-kicker){max-width:430px}
+.gl-exp-lead{font:400 24px/1.5 Georgia,serif;margin:30px 0 20px!important}
+.gl-exp-button{display:inline-flex;gap:30px;align-items:center;justify-content:space-between;min-height:52px;padding:14px 22px;background:var(--ink);color:#fff!important;font-size:13px;letter-spacing:.03em;text-decoration:none;margin-top:30px}
+.gl-exp-button:hover{background:#315b54}
+.gl-experience a:focus-visible,.gl-experience summary:focus-visible{outline:3px solid #ad7951;outline-offset:5px}
+.gl-exp-text-link{display:block;width:fit-content;margin-top:22px;text-underline-offset:6px;font-size:13px}
+.gl-exp-hero-photo{padding:14px;background:#fff;transform:rotate(1.5deg)}
+.gl-exp-hero-photo figcaption{padding:14px 4px 3px;font:400 14px/1.4 Georgia,serif;font-style:italic}
+.gl-exp-statement{background:var(--ink);color:var(--paper);padding:85px 0;text-align:center}
+.gl-exp-statement p:last-child{max-width:610px;margin:28px auto 0}
+.gl-exp-process{padding-block:90px}
+.gl-exp-section-title{margin-bottom:46px}
+.gl-exp-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+.gl-exp-steps>div{border-top:1px solid var(--line);padding-top:22px}
+.gl-exp-number{font:400 38px/1 Georgia,serif;color:#8e9a8b}
+.gl-exp-review{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center;padding-bottom:90px}
+.gl-exp-review blockquote{font-size:15px;line-height:1.85;margin-top:28px}
+.gl-exp-credit{font-size:12px;letter-spacing:.1em;margin-top:20px!important}
+.gl-exp-film{background:#e8ebe3;padding:75px 0}
+.gl-exp-film-heading{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:32px}
+.gl-exp-film-heading>p{font-size:14px}
+.gl-exp-video{aspect-ratio:16/9;background:#213f3b}
+.gl-exp-video iframe{display:block;width:100%;height:100%;border:0}
+.gl-exp-faq{display:grid;grid-template-columns:.7fr 1fr;gap:10%;padding-block:90px}
+.gl-exp-questions details{border-top:1px solid var(--line);padding:20px 0}
+.gl-exp-questions details:last-child{border-bottom:1px solid var(--line)}
+.gl-exp-questions summary{cursor:pointer;font:400 20px/1.4 Georgia,serif;min-height:32px}
+.gl-exp-questions details p{padding-top:18px;font-size:14px}
+.gl-exp-cta{text-align:center;background:#ece3d5;padding:75px 0 85px}
+@media(max-width:767px){
+ .gl-exp-wrap{width:calc(100% - 48px)}
+ .gl-exp-hero{grid-template-columns:1fr;gap:40px;padding-block:48px 56px}
+ .gl-experience h1{font-size:76px}
+ .gl-exp-hero-photo{transform:none;max-width:440px;margin-inline:auto}
+ .gl-exp-statement{padding:56px 0}
+ .gl-exp-process{padding-block:56px}
+ .gl-exp-steps{grid-template-columns:1fr;gap:32px}
+ .gl-exp-review{grid-template-columns:1fr;gap:32px;padding-bottom:56px}
+ .gl-exp-film{padding:48px 0}
+ .gl-exp-film-heading{display:block}.gl-exp-film-heading>p{margin-top:20px}
+ .gl-exp-faq{grid-template-columns:1fr;gap:32px;padding-block:56px}
+ .gl-exp-cta{padding:50px 0 56px}
+ .gl-exp-button{gap:20px;max-width:100%}
+}
+@media(max-width:360px){.gl-experience h1{font-size:64px}.gl-exp-wrap{width:calc(100% - 36px)}}
