@@ -56,3 +56,11 @@ This user-approved shortened log contains design changes and test results only.
 
 - User requested combining consultation scheduling with Contact Us and opening the live scheduler directly. Changed only the consultation button href to https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7 in contact-us-2.json; kept the existing invitation below Submit, cyan styling and form intact.
 - Source commit bda01487c914b8d3433fd18425b2f3fb58729c52 read back and deployed preview HTML verified. Live browser confirms the consultation button targets the client scheduler directly, without the intermediate meeting page. Same link serves desktop and phones. No booking or contact form submitted.
+
+
+## October 1, 2026 — Contact Us title and redundant scheduling links
+
+- Removed both redundant Schedule anchors beside social icons from Contact Us header/footer only. Kept the consultation button below Submit and its direct client scheduler destination.
+- Contact Us h1 now uses shared Allura script, normal weight and responsive 48–72px sizing. Footer social column fills available width; empty Schedule column hidden on this page.
+- Existing source retained. Local Astro build/check passed (26 routes, 910 asset references). Source revisions dd4217f and 2863cbf committed through existing Cloudflare Git deployment. Hosted verification pending at this checkpoint.
+- No photo added yet; one existing wedding photo recommended for blank space, selection remains open. Production/domain and service settings unchanged.
