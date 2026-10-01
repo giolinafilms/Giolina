@@ -1,5 +1,6 @@
 ---
 import pages from '../content/pages.mjs';
+import SiteHeader from '../components/SiteHeader.astro';
 export function getStaticPaths() {
  return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
 }
@@ -17,10 +18,11 @@ const {page}=Astro.props;
 {page.seo.map((tag)=><Fragment set:html={tag} />)}
 {page.css.map((href)=><link rel="stylesheet" href={href} />)}
 <link rel="stylesheet" href="/migration.css" />
+<link rel="stylesheet" href="/site-header.css" />
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
-<Fragment set:html={page.header} />
+<SiteHeader path={page.path} />
 <main id="content"><Fragment set:html={page.content} /></main>
 <Fragment set:html={page.footer} />
 <script src="/migration.js" is:inline></script>

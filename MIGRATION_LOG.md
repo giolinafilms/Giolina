@@ -90,3 +90,9 @@ This user-approved shortened log contains design changes and test results only.
 - Logo is unlinked and positioned at masthead left, Home precedes Cinematography in cyan navigation, mobile menu uses native details/summary. Other pages and contact form are untouched. Production domain cutover remains unauthorized.
 - Prior main-branch review rejection was respected: draft was saved to homepage-design-review and user previewed it before giving this explicit implementation approval.
 - Source a49cc2d6 applied to migration preview. Hosted desktop verified Home first in nav, logo unlinked, all six social icon links/font, all twelve image instances loaded, correct Vimeo iframe ID, and no horizontal overflow (scroll width 1348, viewport 1363). Vimeo playback blocked in verification browser by connection screening; user-browser playback remains unverified. Mobile responsive rules included; actual phone visual pass not claimed.
+
+## October 1, 2026 — shared header throughout site
+
+- User requested homepage header consistently across all pages; then specified white menu text with blue hover text. Created shared SiteHeader.astro used by all content routes and 404. Added site-header.css scoped to shared header, preserving cyan bar, unlinked left logo, masthead social icons and inquiry link.
+- Menu order: Home, Cinematography, Photography, Reviews, Experience, About Us, Contact Us. Current section has underline; white default and blue #164d83 hover/focus. Mobile uses native Menu disclosure. All existing page bodies, forms, footers and media retained.
+- Build, existing route/link validation and shared-header verification passed across all 28 rendered pages, including 404. Hosted visual check follows deployment.

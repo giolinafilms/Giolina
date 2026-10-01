@@ -1,0 +1,25 @@
+/* Shared GioLina masthead and navigation, independent of legacy page styling. */
+@font-face{font-family:"Font Awesome 5 Brands";font-style:normal;font-weight:400;font-display:swap;src:url('/assets/596190fb95b3251d.woff2') format('woff2')}
+html,body{margin:0}
+.gl-site-header{width:100%;font:400 17px/1.75 Arial,sans-serif;background:#fff;color:#202a2e}
+.gl-site-header *{box-sizing:border-box}
+.gl-site-header a{text-decoration:none;transition:color .15s ease}
+.gl-site-header a:focus-visible,.gl-site-header summary:focus-visible{outline:3px solid #144778;outline-offset:4px}
+.gl-site-header .gl-site-nav{background:#19b5bc;color:#fff}
+.gl-site-header .gl-site-nav-inner{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,44px);min-height:58px;padding:8px 24px}
+.gl-site-header .gl-site-nav a{color:#fff;font-size:15px;line-height:1.4;padding:10px 0;position:relative}
+.gl-site-header .gl-site-nav a:hover,.gl-site-header .gl-site-nav a:focus-visible{color:#164d83}
+.gl-site-header .gl-site-nav a[aria-current]::after{content:'';position:absolute;bottom:3px;left:0;right:0;height:1px;background:currentColor}
+.gl-site-header .gl-site-mobile-menu{display:none}
+.gl-site-header .gl-site-masthead{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:21px 42px;gap:24px}
+.gl-site-header .gl-site-masthead img{display:block;width:160px;max-width:100%;height:auto;margin:0}
+.gl-site-header .gl-site-masthead p{margin:0;font:400 14px/1.75 Arial,sans-serif;text-transform:uppercase;letter-spacing:.13em;color:#202a2e}
+.gl-site-header .gl-site-header-actions{display:flex;align-items:center;gap:24px}
+.gl-site-header .gl-site-header-inquire{font-size:14px;line-height:1.75;border-bottom:1px solid #19b5bc;padding:5px 0;white-space:nowrap;color:#202a2e}
+.gl-site-header .gl-site-social-icons{display:flex;align-items:center;gap:8px}
+.gl-site-header .gl-site-social-icons a{display:inline-flex;width:40px;min-height:44px;align-items:center;justify-content:center;border:0;margin:0;padding:0;color:#202a2e}
+.gl-site-header .gl-site-social-glyph{font-family:"Font Awesome 5 Brands";font-weight:400;font-style:normal;font-size:20px;line-height:1}
+.gl-site-header .gl-site-social-icons a:hover,.gl-site-header .gl-site-header-inquire:hover{color:#164d83}
+@media(max-width:900px){.gl-site-header .gl-site-nav-inner{gap:20px}.gl-site-header .gl-site-masthead{padding:19px 28px}.gl-site-header .gl-site-masthead p{display:none}}
+@media(max-width:650px){.gl-site-header .gl-site-desktop-nav{display:none}.gl-site-header .gl-site-mobile-menu{display:block;margin:0;padding:0 22px}.gl-site-header .gl-site-mobile-menu summary{cursor:pointer;min-height:52px;display:flex;align-items:center;font-size:16px;list-style:none;color:#fff}.gl-site-header .gl-site-mobile-menu summary::-webkit-details-marker{display:none}.gl-site-header .gl-site-mobile-menu summary::after{content:'+';margin-left:auto;font-size:25px}.gl-site-header .gl-site-mobile-menu[open] summary::after{content:'−'}.gl-site-header .gl-site-mobile-menu nav{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;padding-bottom:18px}.gl-site-header .gl-site-mobile-menu a{padding:12px 0;font-size:15px}.gl-site-header .gl-site-masthead{padding:18px 22px;flex-wrap:wrap;gap:12px}.gl-site-header .gl-site-masthead img{width:130px}.gl-site-header .gl-site-header-actions{gap:5px}.gl-site-header .gl-site-header-inquire{display:none}.gl-site-header .gl-site-social-icons a{width:36px}}
+@media(prefers-reduced-motion:reduce){.gl-site-header a{transition:none}}
