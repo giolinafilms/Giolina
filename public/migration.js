@@ -28,7 +28,7 @@ for(const form of document.querySelectorAll('[data-contact-form]')){
  const status=form.querySelector('[data-contact-status]');
  // Hosted verification runs before Formspree accepts and emails the inquiry.
  if(form.dataset.humanVerification==='hosted'){
-  form.addEventListener('submit',()=>{button.disabled=true;label.textContent='Continue to human check…';});
+  form.addEventListener('submit',()=>{button.disabled=true;label.textContent='Continue…';});
   window.addEventListener('pageshow',()=>{button.disabled=false;label.textContent='Submit';});
   continue;
  }
