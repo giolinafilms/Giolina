@@ -76,29 +76,38 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Clarified preview notice and linked it to the form accessibly. Form uses POST as a fallback; existing JavaScript prevents preview submission and Worker rejects unexpected POST.
 - Source commit 13da5991. Build/check passed for 26 routes, 910 asset references, internal links and preview protections.
 - Cloudflare preview verified: all four controls accept typed test values, displayed in browser screenshot; Submit remains disabled. No test message sent. Actual phone viewport verification remains unavailable.
-- Homepage video, fonts, photos and full reviews unchanged. No production, DNS, email or clients.giolina.co changes.
+- Homepage video, fonts, photos and full reviews unchanged. No production, DNS, email or the existing scheduling service changes.
 
 ## September 30, 2026 — contact choices and email draft fallback
 
-- User authorizes connecting inquiries to info@giolina.co and requests consultation guidance in contact-page whitespace.
+- User authorizes connecting inquiries to the configured inquiry inbox and requests consultation guidance in contact-page whitespace.
 - Added warm ivory contact guidance with Allura heading and Click here to schedule linking /schedule-a-meeting-2/. Replaced that page's inactive WordPress booking shortcode with consultation guidance and a link to the existing scheduler; no scheduler-system settings changed.
-- Automatic delivery remains blocked: preview has no configured mail provider/binding/credential and no connected Cloudflare administration tool. Interim button clearly labeled Open email to send creates a mailto draft addressed to info@giolina.co with name, reply email, subject and message. User must send from their mail application; this is not server-side submission or verified delivery.
+- Automatic delivery remains blocked: preview has no configured mail provider/binding/credential and no connected Cloudflare administration tool. Interim button clearly labeled Open email to send creates a mailto draft addressed to the configured inquiry inbox with name, reply email, subject and message. User must send from their mail application; this is not server-side submission or verified delivery.
 - Button enabled only with JavaScript; browser validation required before opening draft. Existing preview POST protection retained. No messages sent in verification.
 - Build/check passed for 26 routes and 910 asset references. Local handler checks passed for destination, special-character encoding, field contents and invalid-form blocking. Hosted preview shows enabled button, validation on click, scheduling card and successful navigation to Schedule a Meeting with correct scheduler destination. Email-app launch and delivery not claimed.
-- Source commits 3b065da4, 7235820a, 181bfe19 and c0f43746. No production, DNS, mailbox configuration or clients.giolina.co changes. Homepage media, typography and reviews retained.
+- Source commits 3b065da4, 7235820a, 181bfe19 and c0f43746. No production, DNS, mailbox configuration or the existing scheduling service changes. Homepage media, typography and reviews retained.
 
 ## September 30, 2026 — Formspree connected and preview submission verified
 
-- User approved free Formspree setup and processing contact names, email addresses and messages. User created account and verified info@giolina.co. Form GioLina Films — Website Inquiries created with public endpoint https://formspree.io/f/xbglbbpo; workflow sends each submission to info@giolina.co. Free plan retained; no paid subscription purchased.
+- Inquiry delivery service connected on the free plan; no paid subscription purchased.
 - Replaced temporary mailto draft with native POST action and AJAX submission. Fields use name/email/subject/message keys; email supports replies. Submit works without opening an email application. Added sending and accepted-confirmation states, form reset on success, retained fields on failure, validation and duplicate-submit protection.
-- Formspree form enabled with default Formshield spam filtering and submission archive. No recipient-mailbox or DNS changes. Existing scheduling card and route preserved.
+- Existing spam filtering and inquiry archive enabled. Scheduling card and route preserved.
 - Build/check passed for all 26 routes, 910 asset references and preview protections. Additional local behavior checks passed for success/reset, failures preserving values, validation, button recovery and duplicate prevention. Existing check script's generic delivery/deployment limitation labels predate this checkpoint and do not reflect hosted verification.
 - Source commits 739ac53a and b618db58 deployed. On Cloudflare preview, one marked test inquiry submitted with subject [TEST] GioLina website contact form. Sending state changed to accepted confirmation, fields reset, Submit re-enabled. Exact test recorded in Formspree Inbox, Spam count 0. Workflow recipient verified. Actual receipt in GoDaddy inbox awaits user's confirmation; acceptance is not proof of inbox delivery.
-- No production, DNS, GoDaddy mailbox configuration or clients.giolina.co changes. Homepage video, fonts, photos and complete reviews preserved. Actual phone viewport QA still unavailable.
+- No production, DNS, GoDaddy mailbox configuration or the existing scheduling service changes. Homepage video, fonts, photos and complete reviews preserved. Actual phone viewport QA still unavailable.
 
 ## October 1, 2026 — contact human verification
 
 - Enabled Formspree hosted reCAPTCHA alongside existing Formshield spam filtering, using the free plan. Contact form uses native POST for the hosted verification step; updated visitor notice, pending button label and back-navigation recovery. Existing inquiry recipient and schedule links retained.
 - Source commits fcb8ac2d and ea407849 deployed. Build/check passed for 26 routes and 910 assets; local behavior check confirmed native submission is not prevented and button resets on pageshow.
 - Cloudflare preview test reached Formspree Almost There page with an unchecked I'm not a robot checkbox. No CAPTCHA completed and no successful post-verification delivery claimed. Widget displays a reCAPTCHA Enterprise free quota warning; final usability/delivery test remains an explicit verification gate. Alternate providers require a custom key; none configured or purchased.
-- Homepage video, fonts, photos, reviews and protected systems unchanged. No production, DNS, mailbox configuration or clients.giolina.co changes.
+- Homepage video, fonts, photos, reviews and protected systems unchanged. No production, DNS, mailbox configuration or the existing scheduling service changes.
+
+## September 30, 2026 — consistent cyan and approved inquiry reply
+
+- Shared brand cyan #19B5BC now used for contact/scheduling accents and Experience buttons and statement background. Body text remains dark neutral; white Allura statement, photos, videos and full reviews preserved.
+- Source commits 34e2218d and 7da452f2 deployed. Build/check passed: 26 routes and 910 assets. Route stylesheet audit found shared cyan on every route and no remaining custom dark-teal variants. Social logo colors retain their own identity.
+- Contact and Experience changes visually verified on preview. Phone viewport QA remains unavailable.
+- Approved reply: Thank you for reaching out to GioLina! We’ve received your inquiry and will be in touch soon. We look forward to hearing more about your day.
+- Automatic email reply remains blocked by a paid-plan requirement; no upgrade purchased. Human-check completion and post-verification delivery test remain pending.
+- Production and protected systems unchanged. This checkpoint omits account and service connection details.
