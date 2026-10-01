@@ -1,5 +1,12 @@
 # GioLina website migration checkpoint
 
+## October 1, 2026 — five-second hero still-to-video transition
+
+- Kept the existing hero photograph and full text/button visible while preparing Vimeo behind an initially transparent layer. Hold lasts at least five seconds from first contentful paint; page content and layout do not wait for the timer.
+- Deferred playback seeks to 00:05, pauses during preparation, then starts when both the timer and preparation complete. The 900ms fade waits for the playback clock to advance beyond 5.02 seconds. Slow/blocked playback, buffering or errors retain/restore the photograph instead of displaying the Vimeo loading/error state. Muted/background/native looping and loop-slate skip preserved; ID 548643452 unchanged.
+- Hero-only phone override now allows the same transition on portrait widths; reduced-motion visitors retain the still image. No changes below the homepage hero or to other pages, production or DNS.
+- Build and existing route/link/asset checks passed. Mocked tests covered timer, readiness, slow preparation, clock-gated reveal, buffer/error fallback, looping and reduced motion. Hosted desktop still fallback verification follows deployment. Actual Vimeo playback and phone visual/cold-load checks remain limited by the verification browser.
+
 ## October 1, 2026 — homepage hero composition and playback refinement
 
 - Hero only: preserved Vimeo 548643452 and autoplay/muted/background/loop settings, adding #t=5s for initial playback. A hero-scoped Vimeo SDK handler seeks to five seconds on ready and when native looping resets below 4.8 seconds. The timecode remains a fallback if the SDK is unavailable.
