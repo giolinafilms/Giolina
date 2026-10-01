@@ -1,3 +1,11 @@
+## October 1, 2026 — replace hero playback controller after poster regression
+
+- User confirmed video could appear and return to the still. Source identified reversible reveal paths: bufferstart always removed the visible-video class, and a delayed play-promise failure could also undo a reveal. Removed the custom message bridge entirely.
+- Replaced it with Vimeo Player SDK v2.30.4, vendored as an ES module with MIT notice preserved. Disabled only its document-wide automatic embed bootstrap so it initializes the existing hero iframe without touching portfolio buttons or other videos. SDK loaded locally, with no runtime dependency on a separate SDK CDN request.
+- Native background autoplay/muted/loop/playsinline and video 548643452 remain. SDK explicitly mutes before requesting play, starts immediately behind the poster, and seeks to five seconds without making seek success a condition of playback. Five-second visual hold remains; bounded best-effort seek at reveal, then two advancing clock samples reveal video. Reveal is permanent for the page lifetime; transient buffering, loop resets and delayed play errors do not bring the poster back. Loop seeks remain best-effort.
+- Non-visible data attributes record initialization, mute, play promise, seek and hold outcomes without console output or customer-facing debug text. No pause/reload/destroy cycle. Hero markup changes only script loading to ES module; hero CSS, dimensions, poster, typography, text, CTA, navigation and all sections below remain identical.
+- Build/check and regression simulations passed for hold, clock-gated reveal, seek failure, rejected play promise with advancing native autoplay, buffering/error/loop after reveal. These are code checks, not visual playback verification. Vimeo connection-security screening blocks the verification browser; user will test the new preview locally. Production and DNS unchanged.
+
 # GioLina website migration checkpoint
 
 ## October 1, 2026 — hero playback recovery, verification still blocked
