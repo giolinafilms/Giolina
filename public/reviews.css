@@ -51,3 +51,7 @@
  .gl-reviews-closing a{width:100%;max-width:320px}
 }
 @media(max-width:360px){.gl-review-card{padding-left:18px;padding-right:18px}.gl-review-heading{gap:14px}.gl-couple-photo{width:82px}.gl-review-card h2{font-size:36px}.gl-review-card blockquote{font-size:17px}}
+
+/* Review context and clearer reading hierarchy; testimonial wording unchanged. */
+.gl-reviews-history{max-width:740px;margin:24px auto 0!important;font:400 15px/1.7 Arial,sans-serif;color:#526266}.gl-review-heading{margin-bottom:20px}.gl-review-card blockquote{font-size:17px;line-height:1.8}.gl-review-with-film{border-top:3px solid #19b5bc}.gl-review-with-film blockquote{font-size:18px}.gl-review-list .gl-film-preview{min-width:0;width:100%}
+@media(max-width:700px){.gl-reviews-history{font-size:14px;line-height:1.7}.gl-review-card blockquote{font-size:17px;line-height:1.75}.gl-review-with-film blockquote{font-size:17px}.gl-review-card h2{overflow-wrap:anywhere}}
