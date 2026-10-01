@@ -21,14 +21,26 @@ if(gallery.length){
  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(active-1);if(e.key==='ArrowRight')show(active+1);});
 }
 
-// Contact preview: open an email draft; never claim automatic delivery.
-for(const form of document.querySelectorAll('[data-contact-email]')){
- const submit=form.querySelector('button[type="submit"]');if(submit)submit.disabled=false;
- form.addEventListener('submit',event=>{
-  event.preventDefault();if(!form.reportValidity())return;
-  const field=label=>form.querySelector(`[aria-label="${label}"]`)?.value.trim()||'';
-  const subject=field('Subject')||'Wedding inquiry — GioLina Films';
-  const body=`Name: ${field('Your name')}\nEmail: ${field('Your email')}\n\n${field('Message')}`;
-  window.location.href=`mailto:${form.dataset.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// Verified Formspree delivery; show success only when the service accepts it.
+for(const form of document.querySelectorAll('[data-contact-form]')){
+ const button=form.querySelector('button[type="submit"]');
+ const label=button.querySelector('.elementor-button-text');
+ const status=form.querySelector('[data-contact-status]');
+ let submitting=false;
+ form.addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(submitting||!form.reportValidity())return;
+  submitting=true;button.disabled=true;label.textContent='Sending…';
+  status.textContent='Sending your inquiry…';
+  try{
+   const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+   if(!response.ok)throw new Error('Submission not accepted');
+   status.textContent='Thank you! Your inquiry has been sent. We’ll be in touch soon.';
+   form.reset();
+  }catch{
+   status.textContent='We couldn’t send your inquiry. Please try again or email info@giolina.co.';
+  }finally{
+   submitting=false;button.disabled=false;label.textContent='Submit';
+  }
  });
 }
