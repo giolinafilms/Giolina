@@ -1,6 +1,7 @@
 ---
 import pages from '../content/pages.mjs';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 export function getStaticPaths() {
  return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
 }
@@ -19,12 +20,14 @@ const {page}=Astro.props;
 {page.css.map((href)=><link rel="stylesheet" href={href} />)}
 <link rel="stylesheet" href="/migration.css" />
 <link rel="stylesheet" href="/site-header.css" />
+<link rel="stylesheet" href="/portfolio-refresh.css" />
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
 <SiteHeader path={page.path} />
 <main id="content"><Fragment set:html={page.content} /></main>
-<Fragment set:html={page.footer} />
+<SiteFooter />
 <script src="/migration.js" is:inline></script>
+<script src="/film-player.js" is:inline></script>
 </body>
 </html>
