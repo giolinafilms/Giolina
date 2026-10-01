@@ -129,3 +129,27 @@
  .home .elementor-element-16471412{width:100%!important}
  .home .elementor-element-16471412>.elementor-widget-wrap{width:100%!important}
 }
+
+/* Complete Experience portrait; retain the original photograph. */
+.home .elementor-element-a944182>.elementor-widget-wrap{
+ background-size:contain!important;background-position:center top!important;
+ background-repeat:no-repeat!important;aspect-ratio:1707/2560;
+ min-height:0!important;padding:0!important;align-self:flex-start;
+}
+.home .elementor-element-a944182 .elementor-widget-spacer{display:none!important}
+@media(max-width:767px){
+ .home .elementor-element-25634451{margin-top:0!important;padding:32px 24px!important}
+ .home .elementor-element-a944182{width:100%!important}
+ .home .elementor-element-a944182>.elementor-widget-wrap{margin:0!important;width:100%!important}
+ .home .elementor-element-5095ee2c>.elementor-widget-wrap{padding:32px 0 0!important}
+ .home .elementor-element-14971cbf{display:none!important}
+ /* Landscape closing photo stays whole; headline sits below the faces. */
+ .home .elementor-element-3d5aad21{background-image:none!important;margin:0!important;padding:0!important;background-color:#fff!important}
+ .home .elementor-element-3d5aad21::before{content:'';display:block;width:100%;aspect-ratio:2560/1707;background:url('/assets/2487c01449acd020.jpg') center/contain no-repeat}
+ .home .elementor-element-3d5aad21>.elementor-background-overlay{display:none!important}
+ .home .elementor-element-3d5aad21>.elementor-container{min-height:0!important;max-width:100%!important}
+ .home .elementor-element-551c40ff>.elementor-widget-wrap{padding:24px!important}
+ .home .elementor-element-26ba581e{margin:0!important;max-width:100%!important}
+ .home .elementor-element-26ba581e .elementor-heading-title{color:#222!important;font-size:38px!important;line-height:1.25!important}
+ .home .elementor-element-3b1e65af{display:none!important}
+}
