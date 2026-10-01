@@ -1,0 +1,25 @@
+/* Selective temporary photography frames; never used by the homepage hero or films. */
+.gl-image-rotation{position:relative;aspect-ratio:var(--image-ratio,3/2);width:100%;overflow:hidden;background:#d9e6e6}
+.gl-image-rotation img{position:absolute!important;inset:0;display:block;width:100%!important;height:100%!important;object-fit:cover;opacity:0;transition:opacity 900ms ease;pointer-events:none}
+.gl-image-rotation img.is-current{opacity:1}
+.gl-redesign .gl-home-feature-photo{width:min(1600px,100%);margin:20px auto 0;padding:0}
+.gl-redesign .gl-home-feature-photo img{display:block;width:100%;height:auto;aspect-ratio:2.4/1;max-height:620px;object-fit:cover;object-position:center 25%}
+.gl-redesign .gl-home-gateway{max-width:1280px;margin:auto;padding:42px 32px 48px}
+.gl-redesign .gl-home-gateway .gl-story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
+.gl-redesign .gl-home-gateway article{padding:0;min-width:0}
+.gl-redesign .gl-destination-card{display:block;color:#202a2e;text-decoration:none}
+.gl-redesign .gl-destination-card h3{font:400 clamp(23px,2.25vw,29px)/1.35 Georgia,serif;margin:18px 0 4px;white-space:nowrap}
+.gl-redesign .gl-destination-card .gl-text-link{font-size:14px;line-height:1.4;min-height:44px;display:flex;align-items:center;border:0}
+.gl-destination-card:focus-visible{outline:2px solid #126c72;outline-offset:6px}
+.gl-destination-card:hover .gl-text-link{text-decoration:underline;text-underline-offset:5px}
+.gl-exp-hero-photo .gl-image-rotation{max-width:100%}
+.gl-contact-photos>.gl-image-rotation{min-width:0}
+@media(max-width:700px){
+ .gl-redesign .gl-home-feature-photo{margin-top:8px}
+ .gl-redesign .gl-home-feature-photo img{aspect-ratio:3/2;object-position:35% center}
+ .gl-redesign .gl-home-gateway{padding:28px 22px 34px}
+ .gl-redesign .gl-home-gateway .gl-story-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+ .gl-redesign .gl-destination-card h3{font-size:27px;margin-top:14px}
+ .gl-redesign .gl-destination-card .gl-text-link{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.gl-image-rotation img{transition:none}}
