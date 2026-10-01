@@ -76,3 +76,7 @@
  font-style:normal!important;font-weight:400!important;letter-spacing:0!important;
 }
 .gl-exp-statement h2{font-size:clamp(48px,5.3vw,74px)!important;line-height:1.18!important}
+
+/* Targeted refinement; existing three-step process and FAQ preserved. */
+.gl-exp-questions summary{line-height:1.5;padding-right:30px}.gl-exp-questions details p{line-height:1.8}.gl-exp-intro h1{overflow-wrap:normal}
+@media(max-width:700px){.gl-exp-intro h1{font-size:clamp(42px,10vw,58px);line-height:1.1}.gl-exp-steps p{line-height:1.75}.gl-exp-questions summary{font-size:17px;min-height:48px}.gl-exp-questions details p{font-size:16px}}
