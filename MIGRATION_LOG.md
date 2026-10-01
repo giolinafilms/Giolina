@@ -41,3 +41,12 @@ This user-approved shortened log contains design changes and test results only.
 - Production and protected systems unchanged.
 
 - Hosted collage verification: preview loaded the exact phone grid, contain sizing and four original aspect ratios. All four original photo references retained. Desktop content width equals viewport width at 1348px; no horizontal overflow observed. Phone visual confirmation still pending.
+
+
+## October 1, 2026 — scheduling interruption recovery
+
+- Reopened existing giolinafilms/Giolina repository and read migration log before work. Main was ee6612f783b4e1729f286a44d05b48f92ff37b0c: the prior consultation move had already been committed and deployed.
+- Live preview Contact Us contains one consultation invitation immediately after the contact form: “Ready to talk about your day?”, explanatory text, and “Schedule a consultation”. No duplicate invitation in the contact-info column. Existing cyan button, script heading and card styling retained. No product-source change needed.
+- Desktop browser verified rendered placement below Submit, cyan rgb(25,181,188), and no page horizontal overflow at 1363px. Button successfully navigated to /schedule-a-meeting-2/, where the existing client scheduling link is present.
+- Live migration.css exactly matches repository source. Phone rules verified: one-column form fields, 16px inputs, full-width consultation button, bounded card widths and wrapping. Actual phone visual QA remains unverified because the available browser has no viewport resize/emulation capability; keyboard zoom did not change innerWidth. Do not claim a mobile visual pass.
+- Formspree endpoint and homepage Vimeo ID 548643452 preserved. No form submission, appointment booking, service setting, domain or production cutover performed.
