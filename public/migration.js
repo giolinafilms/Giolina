@@ -20,3 +20,15 @@ if(gallery.length){
  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(active-1);if(e.key==='ArrowRight')show(active+1);});
 }
+
+// Contact preview: open an email draft; never claim automatic delivery.
+for(const form of document.querySelectorAll('[data-contact-email]')){
+ const submit=form.querySelector('button[type="submit"]');if(submit)submit.disabled=false;
+ form.addEventListener('submit',event=>{
+  event.preventDefault();if(!form.reportValidity())return;
+  const field=label=>form.querySelector(`[aria-label="${label}"]`)?.value.trim()||'';
+  const subject=field('Subject')||'Wedding inquiry — GioLina Films';
+  const body=`Name: ${field('Your name')}\nEmail: ${field('Your email')}\n\n${field('Message')}`;
+  window.location.href=`mailto:${form.dataset.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+ });
+}
