@@ -74,3 +74,11 @@ This user-approved shortened log contains design changes and test results only.
 - Source 313a9e1 and 636bf79; local build/check passed (26 routes, 912 asset references). Hosted visual verification follows deployment; phone visual remains unconfirmed.
 
 - Hosted desktop verified: both original photos load at 420px width, stack below Contact Info, retain full proportions, and no horizontal overflow. Consultation remains beside them below form. Phone two-column rules deployed; actual phone visual not claimed.
+
+
+## October 1, 2026 — homepage design preview
+
+- User requested an explicit Home link beside Cinematography, relocating the logo from the centered home-link position, and an elegant homepage redesign with review before replacing the current homepage.
+- Added isolated /homepage-preview/ route and homepage-redesign.css. Current homepage and existing routes are unchanged. Preview uses a cyan navigation bar with Home first, an unlinked logo at left in a compact masthead, cinematic hero retaining Vimeo 548643452, original wedding imagery at full proportions in the body, complete Alexandria P review, Experience and About sections, and contact inquiry links.
+- Dropbox content review is deferred per user instruction. Existing project/media reused; no new website created, no domain or production changes.
+- Astro build and existing validation passed for 27 content routes, 923 initial asset references, internal links, preview headers and Worker behavior. Hosted review verification follows.
