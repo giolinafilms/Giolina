@@ -39,3 +39,5 @@ This user-approved shortened log contains design changes and test results only.
 - Centered the introductory heading and removed its asymmetric phone padding. Original photos and all other media, fonts, cyan accents and complete reviews preserved; desktop collage styles unchanged.
 - Source revision 7eb608e6. Build/check passed for 26 routes and 910 assets. Hosted stylesheet verification follows deployment; actual portrait visual confirmation remains with the user's phone because browser viewport emulation is unavailable.
 - Production and protected systems unchanged.
+
+- Hosted collage verification: preview loaded the exact phone grid, contain sizing and four original aspect ratios. All four original photo references retained. Desktop content width equals viewport width at 1348px; no horizontal overflow observed. Phone visual confirmation still pending.
