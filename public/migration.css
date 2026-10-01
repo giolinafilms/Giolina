@@ -1,3 +1,4 @@
+:root{--gl-brand-cyan:#19b5bc}
 /* Static compatibility layer. Original design CSS remains locally owned. */
 .elementor-invisible{visibility:visible!important}.animated{animation:none!important}
 .migration-skip{position:absolute;left:-9999px}.migration-skip:focus{left:20px;top:10px;z-index:10000;background:white;padding:15px;color:#111}
@@ -164,11 +165,11 @@
 
 /* Contact choices and consultation page. */
 .gl-contact-options{margin:36px 0 0;padding:28px;background:#f5efe5;text-align:left}
-.gl-contact-options h3,.gl-schedule-page h2{font-family:Allura,cursive!important;font-weight:400!important;letter-spacing:0!important;color:#204c4d!important;line-height:1.15!important}
+.gl-contact-options h3,.gl-schedule-page h2{font-family:Allura,cursive!important;font-weight:400!important;letter-spacing:0!important;color:var(--gl-brand-cyan)!important;line-height:1.15!important}
 .gl-contact-options h3{font-size:42px!important;margin:0 0 16px!important}
 .gl-contact-options p{font-size:17px!important;line-height:1.65!important;color:#333!important;margin:0 0 22px!important}
-.gl-contact-schedule{display:inline-block;background:#204c4d;color:#fff!important;padding:16px 22px;font-size:16px;line-height:1.4;text-decoration:none!important}
-.gl-contact-schedule:hover,.gl-contact-schedule:focus-visible{background:#153738;outline:2px solid #204c4d;outline-offset:4px}
+.gl-contact-schedule{display:inline-block;background:var(--gl-brand-cyan);color:#fff!important;padding:16px 22px;font-size:16px;line-height:1.4;text-decoration:none!important}
+.gl-contact-schedule:hover,.gl-contact-schedule:focus-visible{background:var(--gl-brand-cyan);outline:2px solid var(--gl-brand-cyan);outline-offset:4px}
 .gl-schedule-page{max-width:760px;margin:0 auto;padding:72px 28px;text-align:center}
 .gl-schedule-page h2{font-size:clamp(48px,7vw,72px)!important;margin:12px 0 24px!important}
 .gl-schedule-page p{font-size:18px;line-height:1.7;color:#333;margin:0 0 28px}
