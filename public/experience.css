@@ -56,3 +56,16 @@
  .gl-exp-button{gap:20px;max-width:100%}
 }
 @media(max-width:360px){.gl-experience h1{font-size:64px}.gl-exp-wrap{width:calc(100% - 36px)}}
+
+/* Keep the shared Schedule controls within the redesigned page header/footer. */
+.elementor-page-422 a[href*="clients.giolina.co/schedule/"]{font-family:Arial,sans-serif!important;font-size:16px!important;line-height:1.3!important;white-space:nowrap!important;padding:10px 16px!important;max-width:100%!important}
+.elementor-page-422 a[href*="clients.giolina.co/schedule/"] .elementor-button-text{font-size:16px!important}
+.elementor-page-422 a[href*="clients.giolina.co/schedule/"] svg{width:22px!important;height:12px!important}
+@media(max-width:767px){
+ .elementor-page-422 .elementor-element-16df2c0e>.elementor-container{flex-wrap:nowrap!important;align-items:center}
+ .elementor-page-422 .elementor-element-45ebdf45{width:8%!important}
+ .elementor-page-422 .elementor-element-5621617b{width:47%!important}
+ .elementor-page-422 .elementor-element-176a58a6{width:45%!important}
+ .elementor-page-422 .elementor-element-141f70d2 img{max-width:140px;width:100%;height:auto}
+ .elementor-page-422 .elementor-element-6572bb56 a{padding:10px 8px!important;font-size:14px!important}
+}
