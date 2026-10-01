@@ -20,6 +20,25 @@
 
 .gl-film-page-title{font:400 clamp(60px,7vw,96px)/1.15 Allura,cursive!important;letter-spacing:0!important;text-transform:none!important}@media(max-width:700px){.gl-film-page-title{font-size:52px!important}}
 
+/* Full-card film actions must not inherit Elementor's solid white button hover. */
+.gl-film-preview>button,.gl-film-preview>button:hover,.gl-film-preview>button:focus,
+.gl-film-poster>button,.gl-film-poster>button:hover,.gl-film-poster>button:focus{
+ background-color:transparent!important;
+ background-image:linear-gradient(transparent 55%,rgba(0,0,0,.48))!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;
+ color:#fff!important;transition:none;
+}
+.gl-film-preview>button span,.gl-film-poster>button span{
+ transition:background-color 180ms ease,border-color 180ms ease;
+}
+.gl-film-preview>button:hover span,.gl-film-preview>button:focus-visible span,
+.gl-film-poster>button:hover span,.gl-film-poster>button:focus-visible span{
+ background:#edf8f8;border-bottom-color:#126c72;
+}
+.gl-film-collection .gl-film-preview iframe{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){.gl-film-preview>button span,.gl-film-poster>button span{transition:none}}
+
+
 /* Photography: emphasize selected landscape frames without cropping originals. */
 .gl-photo-gallery a:nth-child(7n+4){grid-column:auto}.gl-photo-gallery a.gl-photo-wide{grid-column:span 2}.gl-photo-gallery{gap:26px}.gl-photo-intro{padding-bottom:56px}.gl-photo-spread figcaption{padding:24px}.gl-photo-close a{min-height:48px;background:#19b5bc;color:#12383b}.gl-photo-close a:hover{background:#126c72;color:#fff}
 @media(max-width:700px){.gl-photo-intro{padding:32px 22px;gap:24px}.gl-photo-gallery{gap:14px}.gl-photo-gallery a.gl-photo-wide,.gl-photo-gallery a:nth-child(9n){grid-column:auto}.gl-photo-gallery a.gl-photo-mobile-wide{grid-column:span 2}.gl-photo-close{padding:38px 22px}}
