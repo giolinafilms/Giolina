@@ -95,3 +95,10 @@ Historical recovery notes remain in the existing migration record; this reposito
 - Build/check passed for all 26 routes, 910 asset references and preview protections. Additional local behavior checks passed for success/reset, failures preserving values, validation, button recovery and duplicate prevention. Existing check script's generic delivery/deployment limitation labels predate this checkpoint and do not reflect hosted verification.
 - Source commits 739ac53a and b618db58 deployed. On Cloudflare preview, one marked test inquiry submitted with subject [TEST] GioLina website contact form. Sending state changed to accepted confirmation, fields reset, Submit re-enabled. Exact test recorded in Formspree Inbox, Spam count 0. Workflow recipient verified. Actual receipt in GoDaddy inbox awaits user's confirmation; acceptance is not proof of inbox delivery.
 - No production, DNS, GoDaddy mailbox configuration or clients.giolina.co changes. Homepage video, fonts, photos and complete reviews preserved. Actual phone viewport QA still unavailable.
+
+## October 1, 2026 — contact human verification
+
+- Enabled Formspree hosted reCAPTCHA alongside existing Formshield spam filtering, using the free plan. Contact form uses native POST for the hosted verification step; updated visitor notice, pending button label and back-navigation recovery. Existing inquiry recipient and schedule links retained.
+- Source commits fcb8ac2d and ea407849 deployed. Build/check passed for 26 routes and 910 assets; local behavior check confirmed native submission is not prevented and button resets on pageshow.
+- Cloudflare preview test reached Formspree Almost There page with an unchecked I'm not a robot checkbox. No CAPTCHA completed and no successful post-verification delivery claimed. Widget displays a reCAPTCHA Enterprise free quota warning; final usability/delivery test remains an explicit verification gate. Alternate providers require a custom key; none configured or purchased.
+- Homepage video, fonts, photos, reviews and protected systems unchanged. No production, DNS, mailbox configuration or clients.giolina.co changes.
