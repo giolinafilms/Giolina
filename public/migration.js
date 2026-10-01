@@ -2,7 +2,7 @@
 for (const toggle of document.querySelectorAll('.elementor-menu-toggle')) {
  toggle.setAttribute('role','button');toggle.setAttribute('tabindex','0');toggle.setAttribute('aria-label','Toggle navigation');toggle.setAttribute('aria-expanded','false');
  const menu=toggle.parentElement.querySelector('.elementor-nav-menu--dropdown');
- const act=()=>{const open=menu?.classList.toggle('migration-open');toggle.setAttribute('aria-expanded',String(Boolean(open)));};
+ const act=()=>{const open=menu?.classList.toggle('migration-open');toggle.setAttribute('aria-expanded',String(Boolean(open)));if(menu){menu.setAttribute('aria-hidden',String(!open));for(const link of menu.querySelectorAll('a'))link.setAttribute('tabindex',open?'0':'-1');}};
  toggle.addEventListener('click',act);toggle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
 }
 for(const form of document.querySelectorAll('[data-preview-form]'))form.addEventListener('submit',e=>e.preventDefault());
