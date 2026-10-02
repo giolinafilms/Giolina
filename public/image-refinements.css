@@ -23,3 +23,6 @@
  .gl-redesign .gl-destination-card .gl-text-link{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){.gl-image-rotation img{transition:none}}
+
+/* Keep a real photograph behind every dissolving frame, including failed loads. */
+.gl-image-rotation img{z-index:1}.gl-image-rotation img.is-fallback{z-index:0;opacity:1!important}

@@ -1,3 +1,10 @@
+## 2026-10-01 — Home and Contact real-photograph repair
+
+- Replaced neutral rotating frames in three Home gateway areas and both Contact photo areas with existing real GioLina portfolio photographs. Kept sizing, alignment, timing and gentle dissolves. First photograph remains a fallback beneath other frames.
+- Hero/controller, Contact form and scheduling remain unchanged. Photography's intentional static placeholders remain unchanged.
+- Other prepared page refinements from the new document are awaiting direct user approval after automatic review flagged a conflict with the earlier deferral. They are not included in this preview update.
+- Local build/check passed. Hosted Home/Contact QA follows publication. Actual phone/tablet/wide visual testing remains unverified because available browser has no viewport controls.
+
 ## 2026-10-01 — Homepage / Photography / rotating-image pass published and desktop checked
 
 - Published prepared implementation to existing Cloudflare workers.dev preview only: implementation commit ce6751606a8ac3f6eb24b39505f5b3deadfc30a3; Workers Builds: giolina succeeded. Production WordPress, canonical domain, clients.giolina.co service, DNS/email records and SmugMug untouched.
