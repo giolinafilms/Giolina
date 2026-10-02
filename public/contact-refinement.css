@@ -6,6 +6,9 @@
 .gl-contact-service-area{font:400 16px/1.65 Arial,sans-serif!important;color:#526266!important;margin:18px 0 24px!important;max-width:520px}.elementor-form button[type="submit"]{color:#12383b!important}
 
 /* Legible supporting copy, contact details and form hints. */
-.elementor-element-5b1d695e p,.elementor-icon-list-text,.elementor-icon-list-icon i{color:#526266!important}
+.elementor .elementor-element.elementor-element-5b1d695e .elementor-widget-container p,.elementor .elementor-element .elementor-widget-container .elementor-icon-list-text,.elementor .elementor-element .elementor-widget-container .elementor-icon-list-icon i{color:#526266!important}
 .elementor-field::placeholder{color:#526266!important;opacity:1}
-.gl-contact-schedule,.gl-contact-schedule .elementor-button-text{color:#12383b!important}
+.elementor .gl-contact-options .gl-contact-schedule,.elementor .gl-contact-options .gl-contact-schedule .elementor-button-text{color:#12383b!important}
+
+/* Preserve the consultation heading typography after its semantic H2 correction. */
+.gl-contact-options h2{font-family:Allura,cursive!important;font-weight:400!important;letter-spacing:0!important;color:#126c72!important;line-height:1.15!important;margin:0 0 16px!important}
