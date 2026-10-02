@@ -29,7 +29,7 @@ async function boundedBody(response) {
  while(true){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>16384){await reader.cancel();throw new Error('response_too_large');}chunks.push(value);}
  const bytes=new Uint8Array(size);let at=0;for(const chunk of chunks){bytes.set(chunk,at);at+=chunk.length;}return new TextDecoder().decode(bytes);
 }
-export async function testRequestToken(env) {
+async function prepareRequestToken(env) {
  if(!env.SMUGMUG_API_KEY?.trim()||!env.SMUGMUG_API_SECRET?.trim())return {requestTokenSucceeded:false,authUrlGenerated:false,error:'runtime_secrets_missing'};
  try {
   const response=await fetch(TOKEN_URL,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await requestTokenHeader(env)},redirect:'manual',signal:AbortSignal.timeout(20000)});
@@ -42,10 +42,14 @@ export async function testRequestToken(env) {
   const token=fields.get('oauth_token'),secret=fields.get('oauth_token_secret');
   if(!token||!secret||fields.get('oauth_callback_confirmed')==='false')return {requestTokenSucceeded:false,authUrlGenerated:false,upstreamStatus:response.status,error:'invalid_request_token_response'};
   const authorization=new URL(AUTHORIZE_URL);authorization.searchParams.set('oauth_token',token);authorization.searchParams.set('Access','Full');authorization.searchParams.set('Permissions','Read');
-  // Deliberately return neither the URL nor tokens. They are discarded after
-  // proving URL generation; no user approval or account reads happen here.
-  return {requestTokenSucceeded:true,authUrlGenerated:authorization.origin==='https://api.smugmug.com',upstreamStatus:response.status};
+  // Only the GET start route may send this URL to SmugMug as an HTTPS redirect.
+  // It is never rendered in HTML, logged, or returned by the proof-only POST.
+  return {requestTokenSucceeded:true,authUrlGenerated:authorization.origin==='https://api.smugmug.com',upstreamStatus:response.status,authorizationUrl:authorization.href};
  }catch(error){return {requestTokenSucceeded:false,authUrlGenerated:false,error:['TimeoutError','AbortError'].includes(error.name)?'request_token_timeout':error.message==='response_too_large'?'response_too_large':'request_token_connection_failed'};}
+}
+export async function testRequestToken(env) {
+ const {authorizationUrl,...result}=await prepareRequestToken(env);
+ return result;
 }
 function page(env,csrf,result) {
  const configured={SMUGMUG_API_KEY:!!env.SMUGMUG_API_KEY?.trim(),SMUGMUG_API_SECRET:!!env.SMUGMUG_API_SECRET?.trim()};
@@ -59,6 +63,13 @@ export async function handleSmugMug(request,env) {
  // Never activate this test on the main worker hostname or a custom domain.
  if(url.hostname!==PREVIEW)return new Response('Not found',{status:404,headers});
  if(request.method==='GET' && url.pathname===BASE)return page(env,crypto.randomUUID());
+ if(request.method==='GET' && url.pathname===BASE+'start') {
+  const {authorizationUrl,...result}=await prepareRequestToken(env);
+  if(authorizationUrl)return new Response(null,{status:303,headers:{...headers,Location:authorizationUrl}});
+  // A provider rejection must remain visible and distinguishable from a 404.
+  const rendered=page(env,crypto.randomUUID(),result);
+  return new Response(rendered.body,{status:502,headers:rendered.headers});
+ }
  if(request.method!=='POST'||url.pathname!==BASE+'start')return new Response('Not found',{status:404,headers});
  if(request.headers.get('Origin')!==url.origin)return new Response('Origin rejected',{status:403,headers});
  if(Number(request.headers.get('Content-Length')||0)>2048)return new Response('Request too large',{status:413,headers});
