@@ -1,3 +1,8 @@
+## 2026-10-02 — SmugMug Preview secret and UI loading repair
+- Dedicated smugmug-discovery Preview created successfully. Hosted UI confirms both saved runtime secrets available; no values inspected or re-entered. Existing main workers.dev UI confirms API key available but API secret missing there.
+- Hosted button test exposed actual second failure: discovery ui.js static request returns Cloudflare 1101; the button therefore fell back to native form navigation. Discovery JavaScript/CSS now bundled into the Worker and served directly with correct MIME/security headers, independent of ASSETS. Native form no longer puts CSRF in URL. No public website/hero changes.
+- Binding diagnostics, client 25-second deadline, pending/error states and sanitized upstream status/timeout handling retained. Read-only session/CSRF/signature tests and bundled asset route checks pass. Real authorization-link verification follows Preview publication; account approval and inventory remain pending.
+
 ## 2026-10-02 — SmugMug authorization stall diagnosis (preview only)
 - Inspected hosted discovery page: it loads and reports a required runtime secret missing; Prepare authorization is disabled. No request token/account authorization is confirmed. User reports both secrets saved in Cloudflare Preview; the current main workers.dev deployment does not expose both bindings. Credentials were not requested, read, changed or logged.
 - Server-rendered discovery page now lists exact binding names and presence only, including current hostname; missing bindings remain visible even if the client status request fails. Clarifies Preview/main binding separation. No credential values shown.

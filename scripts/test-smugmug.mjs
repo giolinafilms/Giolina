@@ -28,6 +28,10 @@ const missingPage=await (await handleSmugMug(new Request(origin+'/__smugmug/'),p
 assert.ok(missingPage.includes('SMUGMUG_API_SECRET:')===false);
 assert.ok(missingPage.includes('SMUGMUG_API_SECRET</code>: not available'));
 assert.ok(!missingPage.includes(partial.SMUGMUG_API_KEY));
+for(const [asset,type] of [['ui.js','text/javascript'],['ui.css','text/css']]) {
+ const response=await handleSmugMug(new Request(origin+'/__smugmug/'+asset),{});
+ assert.equal(response.status,200);assert.ok(response.headers.get('Content-Type').startsWith(type));assert.ok((await response.text()).length>100);
+}
 const originalFetch=globalThis.fetch;let calls=[];
 globalThis.fetch=async(url,options)=>{
  calls.push({url:String(url),method:options.method});
