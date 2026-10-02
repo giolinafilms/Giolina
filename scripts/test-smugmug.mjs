@@ -57,7 +57,24 @@ try{
  const timeout=await handleSmugMug(request('start',{}),env);assert.equal(timeout.status,504);assert.deepEqual(await timeout.json(),{error:'smugmug_timeout'});
  globalThis.fetch=async()=>new Response('oauth_problem=signature_invalid&private_detail=fictional-secret',{status:401});
  const denied=await handleSmugMug(request('start',{}),env);
- assert.deepEqual(await denied.json(),{error:'smugmug_request_failed',oauthProblem:'signature_invalid',upstreamStatus:401});
+ assert.deepEqual(await denied.json(),{error:'smugmug_request_failed',oauthProblem:'signature_invalid',signatureAudit:{providerBaseAvailable:false,signatureMatchesIndependentHmac:true,headerRoundTripMatches:true},upstreamStatus:401});
+ // Provider debug_sbs is a final raw field, not a normally escaped form value.
+ // Assert exact comparisons while keeping the credential-bearing body private.
+ globalThis.fetch=async(url,options)=>{
+  const enc=value=>encodeURIComponent(value).replace(/[!'()*]/g,c=>'%'+c.charCodeAt(0).toString(16).toUpperCase());
+  const fields=Object.fromEntries([...options.headers.Authorization.matchAll(/(oauth_\w+)="([^"]*)"/g)].map(m=>[m[1],decodeURIComponent(m[2])]));
+  delete fields.oauth_signature;
+  const target=new URL(url);
+  const pairs=[...target.searchParams,...Object.entries(fields)].map(([k,v])=>[enc(k),enc(v)]).sort((a,b)=>a[0].localeCompare(b[0])||a[1].localeCompare(b[1]));
+  const base='GET&'+enc(target.origin+target.pathname)+'&'+enc(pairs.map(p=>p.join('=')).join('&'));
+  return new Response('oauth_problem=signature_invalid&debug_sbs='+base,{status:401});
+ };
+ const compared=await (await handleSmugMug(request('start',{}),env)).json();
+ assert.ok(compared.signatureAudit.methodMatches&&compared.signatureAudit.urlMatches&&compared.signatureAudit.parametersMatch);
+ assert.ok(compared.signatureAudit.signatureMatchesIndependentHmac&&compared.signatureAudit.headerRoundTripMatches);
+ assert.ok(Object.values(compared.signatureAudit.fieldsMatch).every(Boolean));
+ assert.ok(!JSON.stringify(compared).includes(env.SMUGMUG_API_KEY));
+ assert.ok(!JSON.stringify(compared).includes(env.SMUGMUG_API_SECRET));
  globalThis.fetch=async()=>new Response('sensitive-upstream-body',{status:401});
  const failure=await handleSmugMug(request('read',{path:'/api/v2!authuser'}),env);
  assert.ok(!(await failure.text()).includes('sensitive-upstream-body'));
