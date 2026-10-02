@@ -4,13 +4,23 @@ const status=document.querySelector('#status');
 const csrf=document.querySelector('[name=csrf]').value;
 let report=null;
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function requestJson(path,options={}) {
+ const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),25000);
+ try {
+  const response=await fetch(path,{...options,cache:'no-store',signal:controller.signal});
+  if(!response.headers.get('content-type')?.includes('application/json'))throw new Error('The authorization endpoint returned an unexpected page. No credentials were exposed.');
+  return {response,data:await response.json()};
+ } catch(error) {
+  if(error.name==='AbortError')throw new Error('The connection request timed out. You can try again; no archive changes were made.');
+  throw error;
+ } finally {clearTimeout(timer);}
+}
 async function post(action,body={}) {
  for(let attempt=0;attempt<4;attempt++) {
-  const response=await fetch(base+action,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,csrf})});
-  const data=await response.json();
+  const {response,data}=await requestJson(base+action,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,csrf})});
   if(response.ok)return data;
   if(data.upstreamStatus===429 && attempt<3){status.textContent='SmugMug rate limit reached; waiting before another read…';await sleep(5000*(attempt+1));continue;}
-  throw new Error(data.error==='runtime_secrets_missing'?'The Worker cannot see both runtime secrets.':data.error==='session_expired'?'Session expired. Reload and authorize again.':data.error==='smugmug_request_failed'?`SmugMug did not accept this request${data.upstreamStatus?' (HTTP '+data.upstreamStatus+')':''}. No archive changes were made.`:data.error);
+  throw new Error(data.error==='smugmug_timeout'?'SmugMug did not respond within 20 seconds. You can try again.':data.error==='runtime_secrets_missing'?'The Worker cannot see both runtime secrets.':data.error==='session_expired'?'Session expired. Reload and authorize again.':data.error==='smugmug_request_failed'?`SmugMug did not accept this request${data.upstreamStatus?' (HTTP '+data.upstreamStatus+')':''}. No archive changes were made.`:data.error);
  }
 }
 const read=path=>post('read',{path});
@@ -48,10 +58,10 @@ function recompute(){report.summary={folders:report.folders.length,galleries:rep
 function connected(account){status.textContent='Connected read-only to '+(account.Name || account.NickName || 'your account')+'.';
  document.querySelector('#connect').hidden=true;document.querySelector('#authorize').hidden=true;document.querySelector('#discovery').hidden=false;}
 document.querySelector('#connect').addEventListener('submit',async event=>{
- event.preventDefault();const button=event.target.querySelector('button');button.disabled=true;
+ event.preventDefault();const button=event.target.querySelector('button');button.disabled=true;button.textContent='Contacting SmugMug…';status.textContent='Preparing read-only approval link (up to 25 seconds)…';
  try{const data=await post('start');const anchor=document.querySelector('#authorization');anchor.href=data.authorizationUrl;
   document.querySelector('#authorize').hidden=false;status.textContent='Open the authorization link, approve Read access, and return within five minutes.';
- }catch(error){status.textContent=error.message;}finally{button.disabled=false;}
+ }catch(error){status.textContent=error.message;}finally{button.disabled=false;button.textContent='Prepare read-only authorization';}
 });
 document.querySelector('#verify').addEventListener('submit',async event=>{
  event.preventDefault();const button=event.target.querySelector('button');button.disabled=true;
@@ -128,7 +138,11 @@ document.querySelector('#download').addEventListener('click',()=>{
  const anchor=document.createElement('a');anchor.href=href;anchor.download='GioLina_SmugMug_Inventory.json';anchor.click();setTimeout(()=>URL.revokeObjectURL(href),1000);
 });
 document.querySelector('#disconnect').addEventListener('click',async()=>{await post('disconnect');location.reload();});
-fetch(base+'status',{cache:'no-store'}).then(r=>r.json()).then(data=>{
+requestJson(base+'status').then(({data})=>{
  if(data.connected)connected(data.account);
- else status.textContent=Object.values(data.configured).every(Boolean)?'Both runtime secrets are available. Ready for read-only authorization.':'A required runtime secret is missing. No credential values were exposed.';
-}).catch(()=>{status.textContent='Connection status unavailable. Please reload.';});
+ else {
+  const missing=Object.keys(data.configured).filter(name=>!data.configured[name]);
+  document.querySelector('#connect button').disabled=missing.length>0;
+  status.textContent=missing.length?'Authorization cannot start: '+missing.join(', ')+' is not available to this deployment.':'Both runtime secrets are available. Ready for read-only authorization.';
+ }
+}).catch(()=>{ /* Keep the server-rendered runtime binding result visible. */ });

@@ -21,6 +21,13 @@ assert.equal((await handleSmugMug(request('read',{path:'/api/v2!authuser'},{orig
 assert.equal((await handleSmugMug(request('read',{csrf:'wrong',path:'/api/v2!authuser'}),env)).status,403);
 assert.equal((await handleSmugMug(new Request(origin+'/__smugmug/read',{method:'POST',headers:{Origin:origin},body:'{}'}),env)).status,401);
 assert.equal((await handleSmugMug(request('read',{path:'/api/v2/node/ABC!unlock'}),env)).status,400);
+const partial={SMUGMUG_API_KEY:'fictional-test-key'};
+const bindingStatus=await (await handleSmugMug(new Request(origin+'/__smugmug/status'),partial)).json();
+assert.deepEqual(bindingStatus.configured,{SMUGMUG_API_KEY:true,SMUGMUG_API_SECRET:false});
+const missingPage=await (await handleSmugMug(new Request(origin+'/__smugmug/'),partial)).text();
+assert.ok(missingPage.includes('SMUGMUG_API_SECRET:')===false);
+assert.ok(missingPage.includes('SMUGMUG_API_SECRET</code>: not available'));
+assert.ok(!missingPage.includes(partial.SMUGMUG_API_KEY));
 const originalFetch=globalThis.fetch;let calls=[];
 globalThis.fetch=async(url,options)=>{
  calls.push({url:String(url),method:options.method});
@@ -38,6 +45,8 @@ try{
  assert.ok(complete.headers.get('Set-Cookie').includes('HttpOnly; Secure; SameSite=Strict'));
  assert.ok(calls.every(call=>call.method==='GET'));
  assert.ok(!complete.headers.get('Set-Cookie').includes('fictional-access'));
+ globalThis.fetch=async()=>{throw new DOMException('private detail','TimeoutError');};
+ const timeout=await handleSmugMug(request('start',{}),env);assert.equal(timeout.status,504);assert.deepEqual(await timeout.json(),{error:'smugmug_timeout'});
  globalThis.fetch=async()=>new Response('sensitive-upstream-body',{status:401});
  const failure=await handleSmugMug(request('read',{path:'/api/v2!authuser'}),env);
  assert.ok(!(await failure.text()).includes('sensitive-upstream-body'));

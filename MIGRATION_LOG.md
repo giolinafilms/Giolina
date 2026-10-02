@@ -1,3 +1,9 @@
+## 2026-10-02 — SmugMug authorization stall diagnosis (preview only)
+- Inspected hosted discovery page: it loads and reports a required runtime secret missing; Prepare authorization is disabled. No request token/account authorization is confirmed. User reports both secrets saved in Cloudflare Preview; the current main workers.dev deployment does not expose both bindings. Credentials were not requested, read, changed or logged.
+- Server-rendered discovery page now lists exact binding names and presence only, including current hostname; missing bindings remain visible even if the client status request fails. Clarifies Preview/main binding separation. No credential values shown.
+- Added 25-second client request deadline, actionable pending/error states, guaranteed button reset, unexpected response detection; OAuth upstream HTTP failures remain sanitized and a server timeout returns a safe 504 response. SmugMug GET-only access, read permissions, session encryption and CSRF remain intact.
+- Tests passed: missing-binding diagnostics without value disclosure, sanitized OAuth timeout, existing OAuth/session/CSRF/read-only tests; Astro build and route/asset checks passed. Successful real OAuth link and both hosted bindings remain blocked until the deployment with the already-saved Preview secrets is accessed. No website, hero, imagery, production or DNS changes.
+
 ## 2026-10-02 — SmugMug read-only discovery connection prepared (preview only)
 
 - Added a separate /__smugmug/ authorization/discovery tool. Reads Cloudflare runtime Secret bindings SMUGMUG_API_KEY and SMUGMUG_API_SECRET exclusively; no credential values are present in configuration, source, GitHub, logs or this document.

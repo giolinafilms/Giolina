@@ -72,7 +72,7 @@ async function boundedText(response, max) {
 async function oauthRequest(endpoint,env,session,extra) {
  const url=API+'/services/oauth/1.0a/'+endpoint;
  const response=await fetch(url,{method:'GET',headers:{Authorization:await oauthHeader(url,env,session,extra)},redirect:'error',signal:AbortSignal.timeout(20000)});
- if(!response.ok) throw new Error('oauth_failed');
+ if(!response.ok) {const error=new Error('oauth_failed');error.status=response.status;throw error;}
  const fields=new URLSearchParams(await boundedText(response,16384));
  if(!fields.get('oauth_token') || !fields.get('oauth_token_secret'))throw new Error('oauth_failed');
  return {token:fields.get('oauth_token'),secret:fields.get('oauth_token_secret')};
@@ -96,8 +96,11 @@ async function read(path,env,session) {
  if(!response.ok) {const error=new Error('smug_read_failed');error.status=response.status;throw error;}
  return JSON.parse(await boundedText(response,4*1024*1024));
 }
-function page(csrf,configured) {
- return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GioLina — archive discovery</title><link rel="stylesheet" href="${BASE}ui.css"><script src="${BASE}ui.js" defer></script></head><body><main><h1>SmugMug archive discovery</h1><p>Read-only connection. This tool does not change the archive or website photographs.</p><p id="status" role="status">${configured?'Checking connection…':'The Worker cannot see both required runtime secrets.'}</p><form id="connect"><input type="hidden" name="csrf" value="${esc(csrf)}"><button ${configured?'':'disabled'}>Prepare read-only authorization</button></form><section id="authorize" hidden><p><a id="authorization" target="_blank" rel="noopener noreferrer">Open SmugMug authorization</a></p><p>Approve read-only access in SmugMug, then return here and enter its six-digit verification code. Do not enter your API key or secret.</p><form id="verify"><label>Verification code <input name="verifier" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autocomplete="off"></label><button>Connect account</button></form></section><section id="discovery" hidden><button id="inventory">Inventory folders and galleries</button><button id="images" hidden>Inventory all image metadata</button><button id="download" hidden>Download inventory JSON</button><button id="disconnect">End this session</button><pre id="summary"></pre><p>Inventory stays in this browser session. Download the JSON to keep or share the results. The export contains metadata and accessible media URLs, never credentials or OAuth tokens.</p></section></main></body></html>`;
+function page(csrf,bindings,host) {
+ const configured=Object.values(bindings).every(Boolean);
+ const missing=Object.keys(bindings).filter(name=>!bindings[name]);
+ const runtime=Object.entries(bindings).map(([name,present])=>`<li><code>${name}</code>: ${present?'available':'not available in this deployment'}</li>`).join('');
+ return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GioLina — archive discovery</title><link rel="stylesheet" href="${BASE}ui.css"><script src="${BASE}ui.js" defer></script></head><body><main><h1>SmugMug archive discovery</h1><p>Read-only connection. This tool does not change the archive or website photographs.</p><p id="status" role="status">${configured?'Both runtime secrets are available. Ready for read-only authorization.':'Authorization cannot start: '+esc(missing.join(', '))+' is not available to this deployment.'}</p><p>Current deployment: <code>${esc(host)}</code></p><ul id="runtime-bindings">${runtime}</ul><p ${configured?'hidden':''}>Cloudflare Preview secrets and the main workers.dev deployment have separate bindings. Open the Preview deployment that has your saved secrets; no credential re-entry is needed here.</p><form id="connect"><input type="hidden" name="csrf" value="${esc(csrf)}"><button ${configured?'':'disabled'}>Prepare read-only authorization</button></form><section id="authorize" hidden><p><a id="authorization" target="_blank" rel="noopener noreferrer">Open SmugMug authorization</a></p><p>Approve read-only access in SmugMug, then return here and enter its six-digit verification code. Do not enter your API key or secret.</p><form id="verify"><label>Verification code <input name="verifier" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autocomplete="off"></label><button>Connect account</button></form></section><section id="discovery" hidden><button id="inventory">Inventory folders and galleries</button><button id="images" hidden>Inventory all image metadata</button><button id="download" hidden>Download inventory JSON</button><button id="disconnect">End this session</button><pre id="summary"></pre><p>Inventory stays in this browser session. Download the JSON to keep or share the results. The export contains metadata and accessible media URLs, never credentials or OAuth tokens.</p></section></main></body></html>`;
 }
 export async function handleSmugMug(request,env) {
  const url=new URL(request.url);
@@ -114,7 +117,7 @@ export async function handleSmugMug(request,env) {
   const existing=configured?await sessionFor(request,env):null;
   const csrf=existing?.csrf || crypto.randomUUID();
   const initial={kind:'initial',csrf,expires:Date.now()+15*60000};
-  return new Response(page(csrf,configured),{headers:{...headers,'Content-Type':'text/html; charset=utf-8',
+  return new Response(page(csrf,{SMUGMUG_API_KEY:!!env.SMUGMUG_API_KEY,SMUGMUG_API_SECRET:!!env.SMUGMUG_API_SECRET},url.hostname),{headers:{...headers,'Content-Type':'text/html; charset=utf-8',
    ...(configured&&!existing?{'Set-Cookie':cookie(await seal(initial,env,url.origin),900)}:{})}});
  }
  if(!configured)return json({error:'runtime_secrets_missing'},503);
@@ -149,6 +152,7 @@ export async function handleSmugMug(request,env) {
  } catch(error) {
   // Never expose upstream bodies, URLs, credentials or tokens in logs/errors.
   const rejected=error.message==='path_rejected';
+  if(['TimeoutError','AbortError'].includes(error.name))return json({error:'smugmug_timeout'},504);
   return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
  }
 }
