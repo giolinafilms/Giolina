@@ -1,3 +1,12 @@
+## 2026-10-02 — SmugMug read-only discovery connection prepared (preview only)
+
+- Added a separate /__smugmug/ authorization/discovery tool. Reads Cloudflare runtime Secret bindings SMUGMUG_API_KEY and SMUGMUG_API_SECRET exclusively; no credential values are present in configuration, source, GitHub, logs or this document.
+- OAuth 1.0a HMAC-SHA1 with out-of-band verification requests Access=Full / Permissions=Read, allowing authorized private-library discovery without archive write operations. A manual SmugMug approval and six-digit verifier entry on the secure preview tool are still required. No account connection or inventory success is claimed yet.
+- OAuth request/access tokens use origin-bound AES-GCM encrypted HttpOnly/Secure/SameSite=Strict cookies (five-minute request authorization; twelve-hour discovery session). No shared account token or public private-library endpoint; archive reads require that authenticated browser session and same-origin CSRF validation. Only narrowly allowlisted GET requests reach SmugMug. Writes, uploads, unlocking and method overrides are unavailable. Upstream errors are sanitized and credential/token logging is absent.
+- Discovery supports paginated folder/gallery hierarchy, gallery counts and privacy, dates/descriptions, all image list metadata, and one accessible size/file-metadata sample per gallery. Browser-only JSON export contains discovery metadata, never authentication tokens. No image downloads, final selection, guessed couple matches or website imagery replacement. Counts represent gallery entries and may include collected-image duplicates.
+- Automated checks passed: published OAuth reference signature, session encryption/origin binding/tampering/expiry, allowlist rejection, origin/CSRF protection, mocked read-only authorization, sanitized upstream failures. Astro build and existing route/asset checks passed. Wrangler dry-run succeeded; local Wrangler dev runtime could not start due to uv_interface_addresses environment failure. Hosted binding/route verification follows publication; actual account authorization/inventory remains pending user completion.
+- Existing website pages, photographs, hero playback, Vimeo, forms, scheduler, production, DNS, canonical domain, email and clients.giolina.co unchanged.
+
 ## 2026-10-02 — Final design, UX and technical audit (preview only)
 
 - Removed the generic Contact map on both Contact routes. Added concise Staten Island / New York / New Jersey service-area text; kept the inquiry form, photographs, contact details and optional scheduler intact.
