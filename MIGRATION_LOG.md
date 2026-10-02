@@ -3,7 +3,7 @@
 - Published prepared About, Experience, Reviews and Cinematography refinements after direct chat approval. Preserved the later Home/Contact photograph repairs and hero implementation.
 - About: personal family-name and founder story, ongoing television background, team and active Ready to Go context. Experience: refined copy/spacing, three film cards and existing photographs. Reviews: preserved 13 quotations, corrected Deanna attributions, static photo positions and Alexandria film. Cinematography: consistent static posters, verified names and removal of duplicate Bianca & Bobby long cut.
 - Exact MediaZilla sources, final couple/Frank photographs, family video and starting prices remain pending. No invented media or prices.
-- Local build/check passed. Hosted desktop QA follows deployment; mobile portrait visual QA remains unverified because available browser lacks viewport controls.
+- Local build/check and Cloudflare deployment passed. Desktop Chrome 1363px: all four revised pages rendered without horizontal overflow; About photograph loaded; Experience film cards measured equal 357.33px widths and all three posters loaded. Reviews rendered all 13 original quotations. Cinematography posters use equal 518x291.375px boxes with no iframe/UI before Play; Christina & Danny action opened the correct Vimeo ID 425184212, Escape removed the iframe and restored focus. Vimeo blocked playback in the cloud browser, so playback is not visually verified. Responsive CSS was inspected; mobile portrait visual QA remains unverified because available browser lacks viewport controls.
 
 ## 2026-10-01 — Home and Contact real-photograph repair
 
