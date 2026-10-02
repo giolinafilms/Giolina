@@ -72,20 +72,12 @@ async function boundedText(response, max) {
  const bytes=new Uint8Array(size);let offset=0;for(const p of parts){bytes.set(p,offset);offset+=p.length;}
  return new TextDecoder().decode(bytes);
 }
-function tokenAuthorization(env,session) {
- // OAuth PLAINTEXT is supported by SmugMug over HTTPS only. This header is
- // sent solely to the fixed secure.smugmug.com token endpoint, never logged.
- const fields={oauth_consumer_key:env.SMUGMUG_API_KEY.trim(),oauth_signature_method:'PLAINTEXT',
-  oauth_nonce:crypto.randomUUID(),oauth_timestamp:String(Math.floor(Date.now()/1000)),oauth_version:'1.0',
-  ...(session.token?{oauth_token:session.token}:{}),oauth_signature:encode(env.SMUGMUG_API_SECRET.trim())+'&'+encode(session.secret || '')};
- return 'OAuth '+Object.entries(fields).map(([k,v])=>`${encode(k)}="${encode(v)}"`).join(', ');
-}
 async function oauthRequest(endpoint,env,session,extra) {
  const target=new URL(OAUTH+'/services/oauth/1.0a/'+endpoint);
  for(const [name,value] of Object.entries(extra || {}))target.searchParams.set(name,value);
  const url=target.href;
  let response;
- try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:tokenAuthorization(env,session)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
+ try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
  if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
  if(!response.ok) {
   const error=new Error('oauth_failed');error.status=response.status;
