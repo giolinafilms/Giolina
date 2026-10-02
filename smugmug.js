@@ -20,7 +20,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 const json = (body, status = 200, cookie) => new Response(JSON.stringify(body), {
  status, headers: {...headers, 'Content-Type': 'application/json', ...(cookie ? {'Set-Cookie': cookie} : {})}
 });
-export async function oauthHeader(url, env, session = {}, extra = {}, fixed = {}) {
+async function signedOAuth(url, env, session = {}, extra = {}, fixed = {}) {
  const target = new URL(url);
  const fields = {oauth_consumer_key: env.SMUGMUG_API_KEY.trim(), oauth_nonce: fixed.nonce || crypto.randomUUID(),
   oauth_signature_method: 'HMAC-SHA1', oauth_timestamp: fixed.timestamp || String(Math.floor(Date.now()/1000)),
@@ -32,8 +32,9 @@ export async function oauthHeader(url, env, session = {}, extra = {}, fixed = {}
  const key = await crypto.subtle.importKey('raw', encoder.encode(encode(env.SMUGMUG_API_SECRET.trim()) + '&' + encode(session.secret || '')),
   {name:'HMAC',hash:'SHA-1'},false,['sign']);
  fields.oauth_signature = b64(await crypto.subtle.sign('HMAC', key, encoder.encode(input)));
- return 'OAuth ' + Object.entries(fields).map(([k,v]) => `${encode(k)}="${encode(v)}"`).join(', ');
+ return {baseString:input,header:'OAuth ' + Object.entries(fields).map(([k,v]) => `${encode(k)}="${encode(v)}"`).join(', ')};
 }
+export async function oauthHeader(...args) {return (await signedOAuth(...args)).header;}
 async function cookieKey(env) {
  const key = await crypto.subtle.importKey('raw', encoder.encode(env.SMUGMUG_API_SECRET.trim()), 'HKDF', false, ['deriveKey']);
  return crypto.subtle.deriveKey({name:'HKDF', hash:'SHA-256', salt:encoder.encode('giolina-smug-discovery-v1'),
@@ -76,12 +77,26 @@ async function oauthRequest(endpoint,env,session,extra) {
  const target=new URL(OAUTH+'/services/oauth/1.0a/'+endpoint);
  for(const [name,value] of Object.entries(extra || {}))target.searchParams.set(name,value);
  const url=target.href;
+ const signed=await signedOAuth(url,env,session);
  let response;
- try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
+ try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:signed.header},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
  if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
  if(!response.ok) {
   const error=new Error('oauth_failed');error.status=response.status;
-  const problem=new URLSearchParams(await boundedText(response,16384)).get('oauth_problem');
+  const details=new URLSearchParams(await boundedText(response,16384));
+  const problem=details.get('oauth_problem');
+  if(problem==='signature_invalid') {
+   // Compare privately: provider base strings can contain credentials. Return only
+   // booleans; never log/return the base string, signature, or upstream body.
+   const providerBase=details.get('debug_sbs');
+   error.signatureAudit={providerBaseAvailable:!!providerBase};
+   if(providerBase) {
+    const expected=signed.baseString.split('&');const actual=providerBase.split('&');
+    error.signatureAudit.methodMatches=actual[0]===expected[0];
+    error.signatureAudit.urlMatches=actual[1]===expected[1];
+    error.signatureAudit.parametersMatch=actual.slice(2).join('&')===expected.slice(2).join('&');
+   }
+  }
   if(['signature_invalid','consumer_key_rejected','consumer_key_unknown','timestamp_refused','parameter_absent','token_rejected','permission_denied'].includes(problem))error.problem=problem;
   throw error;
  }
@@ -170,6 +185,6 @@ export async function handleSmugMug(request,env) {
   // Never expose upstream bodies, URLs, credentials or tokens in logs/errors.
   const rejected=error.message==='path_rejected';
   if(['TimeoutError','AbortError'].includes(error.name))return json({error:'smugmug_timeout'},504);
-  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(['oauth_network_failed','oauth_redirect','oauth_response_invalid'].includes(error.message)?{stage:error.message}:{}),...(error.problem?{oauthProblem:error.problem}:{}),...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
+  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(['oauth_network_failed','oauth_redirect','oauth_response_invalid'].includes(error.message)?{stage:error.message}:{}),...(error.problem?{oauthProblem:error.problem}:{}),...(error.signatureAudit?{signatureAudit:error.signatureAudit}:{}),...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
  }
 }
