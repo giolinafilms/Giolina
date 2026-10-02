@@ -20,7 +20,7 @@ async function post(action,body={}) {
   const {response,data}=await requestJson(base+action,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({...body,csrf})});
   if(response.ok)return data;
   if(data.upstreamStatus===429 && attempt<3){status.textContent='SmugMug rate limit reached; waiting before another read…';await sleep(5000*(attempt+1));continue;}
-  throw new Error(data.error==='smugmug_timeout'?'SmugMug did not respond within 20 seconds. You can try again.':data.error==='runtime_secrets_missing'?'The Worker cannot see both runtime secrets.':data.error==='session_expired'?'Session expired. Reload and authorize again.':data.error==='smugmug_request_failed'?`SmugMug did not accept this request${data.upstreamStatus?' (HTTP '+data.upstreamStatus+')':''}. No archive changes were made.`:data.error);
+  throw new Error(data.error==='smugmug_timeout'?'SmugMug did not respond within 20 seconds. You can try again.':data.error==='runtime_secrets_missing'?'The Worker cannot see both runtime secrets.':data.error==='session_expired'?'Session expired. Reload and authorize again.':data.error==='smugmug_request_failed'?`SmugMug did not accept this request${data.upstreamStatus?' (HTTP '+data.upstreamStatus+')':''}${data.stage?' — '+data.stage:''}. No archive changes were made.`:data.error);
  }
 }
 const read=path=>post('read',{path});

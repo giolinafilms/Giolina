@@ -72,10 +72,12 @@ async function boundedText(response, max) {
 }
 async function oauthRequest(endpoint,env,session,extra) {
  const url=API+'/services/oauth/1.0a/'+endpoint;
- const response=await fetch(url,{method:'GET',headers:{Authorization:await oauthHeader(url,env,session,extra)},redirect:'error',signal:AbortSignal.timeout(20000)});
+ let response;
+ try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session,extra)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
+ if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
  if(!response.ok) {const error=new Error('oauth_failed');error.status=response.status;throw error;}
  const fields=new URLSearchParams(await boundedText(response,16384));
- if(!fields.get('oauth_token') || !fields.get('oauth_token_secret'))throw new Error('oauth_failed');
+ if(!fields.get('oauth_token') || !fields.get('oauth_token_secret')){const error=new Error('oauth_response_invalid');error.status=response.status;throw error;}
  return {token:fields.get('oauth_token'),secret:fields.get('oauth_token_secret')};
 }
 // Narrow read allowlist. No upload host, write HTTP method, unlocking operation,
@@ -157,6 +159,6 @@ export async function handleSmugMug(request,env) {
   // Never expose upstream bodies, URLs, credentials or tokens in logs/errors.
   const rejected=error.message==='path_rejected';
   if(['TimeoutError','AbortError'].includes(error.name))return json({error:'smugmug_timeout'},504);
-  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
+  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(['oauth_network_failed','oauth_redirect','oauth_response_invalid'].includes(error.message)?{stage:error.message}:{}),...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
  }
 }
