@@ -22,20 +22,20 @@ const json = (body, status = 200, cookie) => new Response(JSON.stringify(body), 
 });
 export async function oauthHeader(url, env, session = {}, extra = {}, fixed = {}) {
  const target = new URL(url);
- const fields = {oauth_consumer_key: env.SMUGMUG_API_KEY, oauth_nonce: fixed.nonce || crypto.randomUUID(),
+ const fields = {oauth_consumer_key: env.SMUGMUG_API_KEY.trim(), oauth_nonce: fixed.nonce || crypto.randomUUID(),
   oauth_signature_method: 'HMAC-SHA1', oauth_timestamp: fixed.timestamp || String(Math.floor(Date.now()/1000)),
   oauth_version: '1.0', ...(session.token ? {oauth_token: session.token} : {}), ...extra};
  const pairs = [...target.searchParams, ...Object.entries(fields)].map(([k,v]) => [encode(k),encode(v)]);
  pairs.sort((a,b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0);
  const normal = pairs.map(pair => pair.join('=')).join('&');
  const input = 'GET&' + encode(target.origin + target.pathname) + '&' + encode(normal);
- const key = await crypto.subtle.importKey('raw', encoder.encode(encode(env.SMUGMUG_API_SECRET) + '&' + encode(session.secret || '')),
+ const key = await crypto.subtle.importKey('raw', encoder.encode(encode(env.SMUGMUG_API_SECRET.trim()) + '&' + encode(session.secret || '')),
   {name:'HMAC',hash:'SHA-1'},false,['sign']);
  fields.oauth_signature = b64(await crypto.subtle.sign('HMAC', key, encoder.encode(input)));
  return 'OAuth ' + Object.entries(fields).map(([k,v]) => `${encode(k)}="${encode(v)}"`).join(', ');
 }
 async function cookieKey(env) {
- const key = await crypto.subtle.importKey('raw', encoder.encode(env.SMUGMUG_API_SECRET), 'HKDF', false, ['deriveKey']);
+ const key = await crypto.subtle.importKey('raw', encoder.encode(env.SMUGMUG_API_SECRET.trim()), 'HKDF', false, ['deriveKey']);
  return crypto.subtle.deriveKey({name:'HKDF', hash:'SHA-256', salt:encoder.encode('giolina-smug-discovery-v1'),
   info:encoder.encode(env.SMUGMUG_API_KEY)}, key, {name:'AES-GCM',length:256},false,['encrypt','decrypt']);
 }
@@ -73,11 +73,18 @@ async function boundedText(response, max) {
  return new TextDecoder().decode(bytes);
 }
 async function oauthRequest(endpoint,env,session,extra) {
- const url=OAUTH+'/services/oauth/1.0a/'+endpoint;
+ const target=new URL(OAUTH+'/services/oauth/1.0a/'+endpoint);
+ for(const [name,value] of Object.entries(extra || {}))target.searchParams.set(name,value);
+ const url=target.href;
  let response;
- try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session,extra)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
+ try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
  if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
- if(!response.ok) {const error=new Error('oauth_failed');error.status=response.status;throw error;}
+ if(!response.ok) {
+  const error=new Error('oauth_failed');error.status=response.status;
+  const problem=new URLSearchParams(await boundedText(response,16384)).get('oauth_problem');
+  if(['signature_invalid','consumer_key_rejected','consumer_key_unknown','timestamp_refused','parameter_absent','token_rejected','permission_denied'].includes(problem))error.problem=problem;
+  throw error;
+ }
  const fields=new URLSearchParams(await boundedText(response,16384));
  if(!fields.get('oauth_token') || !fields.get('oauth_token_secret')){const error=new Error('oauth_response_invalid');error.status=response.status;throw error;}
  return {token:fields.get('oauth_token'),secret:fields.get('oauth_token_secret')};
@@ -161,6 +168,6 @@ export async function handleSmugMug(request,env) {
   // Never expose upstream bodies, URLs, credentials or tokens in logs/errors.
   const rejected=error.message==='path_rejected';
   if(['TimeoutError','AbortError'].includes(error.name))return json({error:'smugmug_timeout'},504);
-  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(['oauth_network_failed','oauth_redirect','oauth_response_invalid'].includes(error.message)?{stage:error.message}:{}),...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
+  return json({error:rejected?'read_path_rejected':'smugmug_request_failed',...(['oauth_network_failed','oauth_redirect','oauth_response_invalid'].includes(error.message)?{stage:error.message}:{}),...(error.problem?{oauthProblem:error.problem}:{}),...(error.status?{upstreamStatus:error.status}:{})},rejected?400:502);
  }
 }
