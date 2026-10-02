@@ -1,3 +1,10 @@
+## 2026-10-02 — Quick Cinematography and Reviews corrections
+
+- Removed Jen & Mike's film, thumbnail, name and playback action from both Cinematography route variants. Retained one neutral future-film slot without a media source.
+- Jazz & Trevor's exact MediaZilla embed could not be recovered from accessible conversation history, repository or supplied documents. Removed the unconnected named video box; no substitute film was added. Exact embed is required to complete playback verification.
+- Changed shared Reviews layout to natural-height editorial columns, removing row-height stretching. Preserved all 13 quotations, photo positions, alternating card treatments and Alexandria's existing film.
+- Local build/check passed. Hosted desktop QA follows deployment. Tablet/mobile visual and MediaZilla playback verification remain pending.
+
 ## 2026-10-02 — Approved page refinements on preview
 
 - Published prepared About, Experience, Reviews and Cinematography refinements after direct chat approval. Preserved the later Home/Contact photograph repairs and hero implementation.
