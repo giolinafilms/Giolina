@@ -2,7 +2,7 @@
 .gl-redesign .gl-hero-video{opacity:0;transition:opacity 900ms ease;will-change:opacity}
 .gl-redesign .gl-hero.gl-hero-video-visible .gl-hero-video{opacity:1}
 .gl-redesign .gl-hero::after{background:linear-gradient(90deg,rgba(12,25,29,.52) 0%,rgba(12,25,29,.26) 45%,rgba(12,25,29,.06) 75%,transparent 100%)}
-.gl-redesign .gl-hero-copy{padding:76px 7% 64px;text-align:left}
+.gl-redesign .gl-hero-copy{box-sizing:border-box;max-width:none;margin:0;align-self:flex-end;padding:76px clamp(32px,5vw,80px) 64px;text-align:left}
 .gl-redesign .gl-hero .gl-eyebrow{font-size:12px;line-height:1.6;letter-spacing:.13em;margin-bottom:20px!important;max-width:490px}
 .gl-redesign .gl-hero h1{font:400 clamp(42px,4.2vw,58px)/1.14 Georgia,'Times New Roman',serif;letter-spacing:-.025em;max-width:540px;text-wrap:balance}
 .gl-redesign .gl-hero h1 span{display:block}

@@ -1,3 +1,8 @@
 /* Preserve the working inquiry first; scheduling stays optional below it. */
 .gl-contact-options{border-top:1px solid #19b5bc;background:#edf8f8!important;margin-top:36px!important;padding:28px!important}.gl-contact-options h3{font-size:36px!important}.gl-wedding-date{display:flex!important;flex-direction:column;align-items:stretch}.gl-wedding-date label{display:block;color:#273235;font:400 15px/1.5 Arial,sans-serif;margin-bottom:8px}.gl-wedding-date label span{color:#526266}.gl-wedding-date input{display:block;width:100%;min-width:0;box-sizing:border-box;min-height:48px;font-size:16px}.gl-contact-schedule{color:#12383b!important}
 @media(max-width:700px){.gl-contact-options{margin-top:26px!important;padding:24px 20px!important}.gl-contact-options h3{font-size:32px!important}.gl-wedding-date input{max-width:100%}}
+
+/* The scheduler uses h2: isolate it from the legacy global oversized headings. */
+.gl-contact-options{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
+.gl-contact-options h2{box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;font:400 clamp(28px,2.7vw,36px)/1.2 Georgia,serif!important;letter-spacing:0!important;color:#126c72!important;margin:0 0 16px!important;white-space:normal;word-break:normal;overflow-wrap:normal}
+.gl-contact-options p{max-width:100%;word-break:normal;overflow-wrap:break-word}
