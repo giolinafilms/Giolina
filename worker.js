@@ -1,4 +1,4 @@
-import { handleSmugMug } from './smugmug.js';
+import { handleSmugMug } from './smugmug-request-token.js';
 export default {
  async fetch(request, env) {
   const url=new URL(request.url);
