@@ -83,18 +83,31 @@ async function oauthRequest(endpoint,env,session,extra) {
  if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
  if(!response.ok) {
   const error=new Error('oauth_failed');error.status=response.status;
-  const details=new URLSearchParams(await boundedText(response,16384));
+  const responseBody=await boundedText(response,16384);
+  const details=new URLSearchParams(responseBody);
   const problem=details.get('oauth_problem');
   if(problem==='signature_invalid') {
    // Compare privately: provider base strings can contain credentials. Return only
    // booleans; never log/return the base string, signature, or upstream body.
-   const providerBase=details.get('debug_sbs');
+   let providerBase=details.get('debug_sbs');
+   // Some providers append an unescaped base string as the final response field.
+   if(providerBase==='GET' && responseBody.includes('debug_sbs=GET&'))providerBase=responseBody.slice(responseBody.indexOf('debug_sbs=')+10);
    error.signatureAudit={providerBaseAvailable:!!providerBase};
    if(providerBase) {
     const expected=signed.baseString.split('&');const actual=providerBase.split('&');
     error.signatureAudit.methodMatches=actual[0]===expected[0];
     error.signatureAudit.urlMatches=actual[1]===expected[1];
     error.signatureAudit.parametersMatch=actual.slice(2).join('&')===expected.slice(2).join('&');
+    try {
+     const providerUrl=new URL(decodeURIComponent(actual[1]));
+     error.signatureAudit.providerUsesHttps=providerUrl.protocol==='https:';
+     error.signatureAudit.providerUsesApiHost=providerUrl.hostname==='api.smugmug.com';
+     error.signatureAudit.providerUsesSecureHost=providerUrl.hostname==='secure.smugmug.com';
+     error.signatureAudit.pathMatches=providerUrl.pathname===target.pathname;
+     const providerParams=new URLSearchParams(decodeURIComponent(actual.slice(2).join('&')));
+     const expectedParams=new URLSearchParams(decodeURIComponent(expected.slice(2).join('&')));
+     error.signatureAudit.fieldsMatch=Object.fromEntries(['oauth_callback','oauth_consumer_key','oauth_nonce','oauth_signature_method','oauth_timestamp','oauth_version'].map(name=>[name,providerParams.get(name)===expectedParams.get(name)]));
+    }catch {}
    }
   }
   if(['signature_invalid','consumer_key_rejected','consumer_key_unknown','timestamp_refused','parameter_absent','token_rejected','permission_denied'].includes(problem))error.problem=problem;
