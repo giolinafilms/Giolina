@@ -20,6 +20,16 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 const json = (body, status = 200, cookie) => new Response(JSON.stringify(body), {
  status, headers: {...headers, 'Content-Type': 'application/json', ...(cookie ? {'Set-Cookie': cookie} : {})}
 });
+// Independent RFC 2104 HMAC check using SHA-1 digest, separate from sign().
+async function digestHmacSha1(keyBytes,messageBytes) {
+ let bytes=keyBytes;
+ if(bytes.length>64)bytes=new Uint8Array(await crypto.subtle.digest('SHA-1',bytes));
+ const inner=new Uint8Array(64+messageBytes.length);const outer=new Uint8Array(84);
+ for(let i=0;i<64;i++){inner[i]=(bytes[i]||0)^0x36;outer[i]=(bytes[i]||0)^0x5c;}
+ inner.set(messageBytes,64);
+ outer.set(new Uint8Array(await crypto.subtle.digest('SHA-1',inner)),64);
+ return b64(await crypto.subtle.digest('SHA-1',outer));
+}
 async function signedOAuth(url, env, session = {}, extra = {}, fixed = {}) {
  const target = new URL(url);
  const fields = {oauth_consumer_key: env.SMUGMUG_API_KEY.trim(), oauth_nonce: fixed.nonce || crypto.randomUUID(),
@@ -29,10 +39,11 @@ async function signedOAuth(url, env, session = {}, extra = {}, fixed = {}) {
  pairs.sort((a,b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0);
  const normal = pairs.map(pair => pair.join('=')).join('&');
  const input = 'GET&' + encode(target.origin + target.pathname) + '&' + encode(normal);
- const key = await crypto.subtle.importKey('raw', encoder.encode(encode(env.SMUGMUG_API_SECRET.trim()) + '&' + encode(session.secret || '')),
+ const signingKeyBytes=encoder.encode(encode(env.SMUGMUG_API_SECRET.trim()) + '&' + encode(session.secret || ''));
+ const key = await crypto.subtle.importKey('raw', signingKeyBytes,
   {name:'HMAC',hash:'SHA-1'},false,['sign']);
  fields.oauth_signature = b64(await crypto.subtle.sign('HMAC', key, encoder.encode(input)));
- return {baseString:input,header:'OAuth ' + Object.entries(fields).map(([k,v]) => `${encode(k)}="${encode(v)}"`).join(', ')};
+ return {baseString:input,signingKeyBytes,signature:fields.oauth_signature,header:'OAuth ' + Object.entries(fields).map(([k,v]) => `${encode(k)}="${encode(v)}"`).join(', ')};
 }
 export async function oauthHeader(...args) {return (await signedOAuth(...args)).header;}
 async function cookieKey(env) {
@@ -92,7 +103,7 @@ async function oauthRequest(endpoint,env,session,extra) {
    let providerBase=details.get('debug_sbs');
    // Some providers append an unescaped base string as the final response field.
    if(providerBase==='GET' && responseBody.includes('debug_sbs=GET&'))providerBase=responseBody.slice(responseBody.indexOf('debug_sbs=')+10);
-   error.signatureAudit={providerBaseAvailable:!!providerBase};
+   error.signatureAudit={providerBaseAvailable:!!providerBase,signatureMatchesIndependentHmac:await same(signed.signature,await digestHmacSha1(signed.signingKeyBytes,encoder.encode(signed.baseString))),headerRoundTripMatches:await same(signed.signature,decodeURIComponent(signed.header.match(/oauth_signature="([^"]+)"/)[1]))};
    if(providerBase) {
     const expected=signed.baseString.split('&');const actual=providerBase.split('&');
     error.signatureAudit.methodMatches=actual[0]===expected[0];
