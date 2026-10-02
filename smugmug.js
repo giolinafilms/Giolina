@@ -146,6 +146,8 @@ export async function handleSmugMug(request,env) {
  try {
   if(url.pathname===BASE+'disconnect')return json({connected:false},200,cookie('',0));
   if(url.pathname===BASE+'start') {
+   // Check only a boolean inside the Worker; never return values or fingerprints.
+   if(await same(env.SMUGMUG_API_KEY.trim(),env.SMUGMUG_API_SECRET.trim()))return json({error:'runtime_credentials_identical'},422);
    const credentials=await oauthRequest('getRequestToken',env,{}, {oauth_callback:'oob'});
    const next={...credentials,kind:'request',csrf:session.csrf,expires:Date.now()+5*60000};
    const auth=new URL(OAUTH+'/services/oauth/1.0a/authorize');

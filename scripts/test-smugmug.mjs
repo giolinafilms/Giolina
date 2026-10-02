@@ -40,6 +40,10 @@ globalThis.fetch=async(url,options)=>{
  return Response.json({Response:{User:{Name:'Test Account',NickName:'test',Uris:{Node:{Uri:'/api/v2/node/ROOT'}}}}});
 };
 try{
+ const duplicateEnv={SMUGMUG_API_KEY:'fictional-duplicate',SMUGMUG_API_SECRET:'fictional-duplicate'};
+ const duplicateCookie=await seal(session,duplicateEnv,origin);
+ const duplicate=await handleSmugMug(new Request(origin+'/__smugmug/start',{method:'POST',headers:{Origin:origin,Cookie:'__Host-gl-smug='+duplicateCookie},body:JSON.stringify({csrf:session.csrf})}),duplicateEnv);
+ assert.equal(duplicate.status,422);assert.deepEqual(await duplicate.json(),{error:'runtime_credentials_identical'});assert.equal(calls.length,0);
  const start=await handleSmugMug(request('start',{}),env);assert.equal(start.status,200);
  const data=await start.json();const auth=new URL(data.authorizationUrl);
  assert.equal(auth.searchParams.get('Permissions'),'Read');assert.equal(auth.searchParams.get('Access'),'Full');
@@ -51,6 +55,9 @@ try{
  assert.ok(!complete.headers.get('Set-Cookie').includes('fictional-access'));
  globalThis.fetch=async()=>{throw new DOMException('private detail','TimeoutError');};
  const timeout=await handleSmugMug(request('start',{}),env);assert.equal(timeout.status,504);assert.deepEqual(await timeout.json(),{error:'smugmug_timeout'});
+ globalThis.fetch=async()=>new Response('oauth_problem=signature_invalid&private_detail=fictional-secret',{status:401});
+ const denied=await handleSmugMug(request('start',{}),env);
+ assert.deepEqual(await denied.json(),{error:'smugmug_request_failed',oauthProblem:'signature_invalid',upstreamStatus:401});
  globalThis.fetch=async()=>new Response('sensitive-upstream-body',{status:401});
  const failure=await handleSmugMug(request('read',{path:'/api/v2!authuser'}),env);
  assert.ok(!(await failure.text()).includes('sensitive-upstream-body'));
