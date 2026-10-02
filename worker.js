@@ -1,7 +1,9 @@
 import { handleSmugMug } from './smugmug-request-token.js';
+import { officialProof } from './smugmug-official-proof.js';
 export default {
  async fetch(request, env) {
   const url=new URL(request.url);
+  if(url.pathname==='/__smugmug/official-proof')return officialProof(request,env);
   if(url.pathname.startsWith('/__smugmug/')) {
    const discovery=await handleSmugMug(request,env);
    if(discovery)return discovery;
