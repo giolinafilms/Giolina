@@ -9,7 +9,7 @@ for(const form of document.querySelectorAll('[data-preview-form]'))form.addEvent
 for(const tile of document.querySelectorAll('.e-gallery-image[data-thumbnail]'))tile.style.backgroundImage=`url("${tile.closest('a')?.getAttribute('href') || tile.dataset.thumbnail}")`;
 // Third-party widgets require preview-domain validation; no analytics are sent.
 if(document.querySelector('.embedsocial-hashtag')){const s=document.createElement('script');s.src='https://embedsocial.com/cdn/ht.js';s.async=true;document.head.append(s);}
-const gallery=[...document.querySelectorAll('.e-gallery-item[href^="/assets/"]')];
+const gallery=[...document.querySelectorAll('.e-gallery-item[href^="/assets/"]:not([data-photo-viewer-link])')];
 if(gallery.length){
  const dialog=document.createElement('dialog');dialog.className='migration-lightbox';
  dialog.innerHTML='<button type="button" aria-label="Close photo">Close</button><img alt="Wedding portfolio photograph"><div><button type="button" aria-label="Previous photo">Previous</button><button type="button" aria-label="Next photo">Next</button></div>';
