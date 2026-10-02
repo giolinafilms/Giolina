@@ -1,0 +1,69 @@
+{
+  "mediazilla": {
+    "deanna-m-anthony": {
+      "embedUrl": null,
+      "oldVimeoId": "768293139",
+      "destinations": [
+        "Cinematography",
+        "Deanna M. review"
+      ]
+    },
+    "jazz-trevor": {
+      "embedUrl": null,
+      "destinations": [
+        "Cinematography"
+      ]
+    },
+    "selena-dashmir": {
+      "embedUrl": null,
+      "existingVimeoId": "842690557",
+      "destinations": [
+        "Cinematography"
+      ]
+    },
+    "full-presentation": {
+      "shareUrl": null,
+      "destinations": [
+        "one Cinematography full-presentation CTA"
+      ]
+    }
+  },
+  "about": {
+    "heroPhoto": "temporary-real-portfolio-selection",
+    "frankPhoto": null,
+    "giovanniMichaelinaVideo": null,
+    "rtgUrl": null
+  },
+  "pricing": {
+    "photographyStartingPrice": null,
+    "cinematographyStartingPrice": null
+  },
+  "reviewFilmsAwaited": [
+    "Christopher P.",
+    "Mina G.",
+    "Deanna B.",
+    "Chris",
+    "Christina",
+    "Lauren"
+  ],
+  "coupleNamesAwaited": [
+    "545724644"
+  ],
+  "verifiedVimeoMetadataSource": "https://vimeo.com/api/v2/video/{id}.json",
+  "biancaLongCutRemoved": {
+    "vimeoId": "386373202",
+    "durationSeconds": 681
+  },
+  "confirmedNames": {
+    "545724644": null,
+    "425184212": "Christina & Danny",
+    "425185852": "Nicole & Phillip",
+    "331322129": "Stephanie & Danny",
+    "321635758": "Jen & Mike",
+    "263901273": "Sara & Phil",
+    "328842441": "Bianca & Bobby",
+    "842690557": "Selena & Dashmir",
+    "799295947": "Francesca & Chris",
+    "768293139": "Deanna M. & Anthony"
+  }
+}

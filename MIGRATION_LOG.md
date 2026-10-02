@@ -1,3 +1,10 @@
+## 2026-10-02 — Approved page refinements on preview
+
+- Published prepared About, Experience, Reviews and Cinematography refinements after direct chat approval. Preserved the later Home/Contact photograph repairs and hero implementation.
+- About: personal family-name and founder story, ongoing television background, team and active Ready to Go context. Experience: refined copy/spacing, three film cards and existing photographs. Reviews: preserved 13 quotations, corrected Deanna attributions, static photo positions and Alexandria film. Cinematography: consistent static posters, verified names and removal of duplicate Bianca & Bobby long cut.
+- Exact MediaZilla sources, final couple/Frank photographs, family video and starting prices remain pending. No invented media or prices.
+- Local build/check passed. Hosted desktop QA follows deployment; mobile portrait visual QA remains unverified because available browser lacks viewport controls.
+
 ## 2026-10-01 — Home and Contact real-photograph repair
 
 - Replaced neutral rotating frames in three Home gateway areas and both Contact photo areas with existing real GioLina portfolio photographs. Kept sizing, alignment, timing and gentle dissolves. First photograph remains a fallback beneath other frames.
