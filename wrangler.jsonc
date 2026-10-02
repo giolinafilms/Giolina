@@ -1,5 +1,5 @@
 {
- "name":"giolina-films-preview",
+ "name":"giolina",
  "main":"worker.js",
  "compatibility_date":"2026-09-30",
  "workers_dev":true,
