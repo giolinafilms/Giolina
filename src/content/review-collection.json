@@ -1,10 +1,10 @@
 {
-  "checkedOn": "2026-10-01",
-  "deduplication": "Duplicate submissions appearing on both WeddingWire and The Knot are included once. Jennifer and Mike are excluded from the published reviews by client request.",
+  "checkedOn": "2026-10-02",
+  "deduplication": "Duplicate submissions appearing on both WeddingWire and The Knot are included once. Jennifer and Mike are excluded from the published reviews by client request. Client correction: the November 2022 review is Deanna M.; December 2021 is Deanna B. Both remain, separated and in alternating backgrounds. Client-approved correction: standalone Annie removed; Chris Ann versions consolidated into chris-ann-2022. No testimonial wording changed.",
   "reviews": [
     {
       "id": "alexandria-2024",
-      "name": "Alexandria P",
+      "name": "Alexandria & James",
       "date": "2024-10-15",
       "quote": "Frank was the videographer for our wedding in August 2024 and he did an incredible job. After we spoke with Frank, it became obvious how much he cares about his work and how much time and attention he puts into all of his videos. He put so much effort into picking the perfect songs for our video and would even have phone calls with us upwards of 30+ minutes long. After the wedding, he got the final video cut back to us in record time and it was even more beautiful than we ever could've imagined. It was absolutely breathtaking and immediately took us right back to our wedding day. He captured the entire day and every emotion that came with it perfectly. He is passionate and takes immense pride in his work, and those characteristics absolutely come through in the final video. Frank is truly amazing at what he does and we cannot recommend him enough!!!",
       "rating": 5,
@@ -12,91 +12,152 @@
         "type": "vimeo",
         "videoId": "1008616852",
         "status": "connected"
+      },
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
       }
     },
     {
       "id": "christopher-2023",
-      "name": "Christopher P",
+      "name": "Christopher P.",
       "date": "2023-03-29",
       "quote": "Frank was the absolute best I will be recommending him to all of our friends getting married. It was an absolute honor to have him video our wedding he was personable, caring, and truly cared about how my wife and I both felt. Frank captured one of the greatest days of our lives and we are now able to enjoy looking back over and over again with nothing but love.",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "status": "awaiting-verified-source",
+        "embedUrl": null
+      }
     },
     {
       "id": "mina-2022",
-      "name": "Mina G",
+      "name": "Julie & Mina",
       "date": "2022-12-11",
       "quote": "We highly recommend GioLina Films and Frank for your wedding! Frank put us at ease from start to finish. From the moment of our consultation to the end product, he was great to work with. It was nice to have one less thing to worry about when it came to wedding vendors. He took our ideas and suggestions and made sure to capture our day in the way we could've only dreamed. Plus his prices are very competitive! We will definitely be recommending GioLina to all our friends.",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "status": "awaiting-verified-source",
+        "embedUrl": null
+      }
     },
     {
       "id": "deanna-2022",
-      "name": "Deanna B",
+      "name": "Deanna & Anthony",
       "date": "2022-11-07",
       "quote": "Frank was amazing to work with! He was with us from the start of our day to the very end. The video he created for us is perfect—it tells our story in a beautiful cinematic way. He did everything with ease and a big smile the entire time. Such a pleasure to work with, you would be silly not to hire him!",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "type": "mediazilla",
+        "status": "awaiting-supplied-embed",
+        "embedUrl": null,
+        "couple": "Deanna M. & Anthony"
+      }
     },
     {
       "id": "chris-ann-2022",
-      "name": "Chris-Ann G",
+      "name": "Chris Ann & Jimmy",
       "date": "2022-04-25",
       "quote": "They were excellent to work with!! We had a few curve balls thrown at us and Frank and Monica worked with us and made our wedding day exceptional.",
-      "rating": 5
-    },
-    {
-      "id": "chris-2022",
-      "name": "Chris",
-      "date": "2022-04-25",
-      "quote": "They were recommended and were so helpful in planning out our day!! We had a few curve balls thrown at us but Frank and Monica worked with us to make sure we had a beautiful wedding!!! We highly recommend them and truly appreciate all they did.",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      }
     },
     {
       "id": "andrew-2022",
       "name": "Andrew",
       "date": "2022-01-02",
       "quote": "Best quality. Appropriately priced. Spent a great deal of time with us to get it just right.",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      }
     },
     {
       "id": "deanna-2021",
-      "name": "Deanna B",
+      "name": "Deanna & Josiah",
       "date": "2021-12-13",
       "quote": "Quality above and beyond what I could’ve ever imagined; GioLina Film’s ability to capture the raw genuine expressions of joy and love that surrounded my wedding day is something I’m truly grateful for. The GioLina team was professional, down-to-earth, and very comfortable to work with. I thought it couldn’t get any better after I saw my photographs but I was seriously blown away when I saw the short film they created of the day! The creativity and quality is so professional down to the tiniest details, and every one who watches it is always so impressed. It brings me straight back to that day and without fail ALWAYS makes me cry happy tears. I’m so glad I trusted them with my special day. Needless to say, I highly recommend GioLina Films!!",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "status": "awaiting-verified-source",
+        "embedUrl": null
+      }
     },
     {
       "id": "loriann-2021",
-      "name": "Loriann",
+      "name": "Laurie Ann",
       "date": "2021-12-13",
       "quote": "What a wonderful experience we had with this company from beginning to end! I highly recommend this company ❤️",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      }
     },
     {
       "id": "christina-2020",
-      "name": "Christina",
+      "name": "Christina & Danny",
       "date": "2020-03-10",
       "quote": "The ready to go productions team was nothing short of amazing from start to finish! We can’t wait to see our finished product!",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "status": "awaiting-verified-source",
+        "embedUrl": null
+      }
     },
     {
       "id": "stephanie-2019",
-      "name": "Stephanie",
+      "name": "Stephanie & Danny",
       "date": "2019-04-19",
       "quote": "If you want perfect pictures and an amazing video I would recommend Ready to Go Productions. I couldn’t have asked for a better photographer/videographer; they captured every moment of our wedding and we couldn’t be more pleased with our video and pictures! They were reasonably priced and have the best staff!",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      }
     },
     {
       "id": "lauren-2015",
-      "name": "Lauren",
+      "name": "Lauren & Tommy",
       "date": "2015-03-24",
       "quote": "Ready to Go productions were so great to work with! Frank is amazing at what he does. Professionalism and communication throughout the whole process was A++! Ready to Go offers a unique personal touch to the whole wedding video process—I couldn’t have asked for better! Our love story interview/same day edit video turned out amazing—we loved every minute of the whole process from filming to being surprised with the video at our wedding. We are so, so pleased! Can’t wait to see our final video!",
-      "rating": 5
-    },
-    {
-      "id": "annie-2014",
-      "name": "Annie",
-      "date": "2014-03-24",
-      "quote": "Frank was great to work with. The red carpet was a hit at our corporate event. He was very fun and professional. We would highly recommend him and his services for any event.",
-      "rating": 5
+      "rating": 5,
+      "photo": {
+        "status": "awaiting-correct-couple-photo",
+        "type": "static"
+      },
+      "matchingFilm": {
+        "status": "awaiting-verified-source",
+        "embedUrl": null
+      },
+      "media": {
+        "type": "mediazilla",
+        "src": "https://mediazilla.com/qo7a9pq90",
+        "status": "connected"
+      }
     }
   ]
 }

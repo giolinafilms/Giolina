@@ -1,0 +1,17 @@
+/* Static, natural-proportion masonry. No fixed grid rows or inherited empty spans. */
+.gl-photo-page .gl-photo-gallery{display:block;columns:3;column-gap:24px;width:min(1280px,calc(100% - 64px));margin-inline:auto;padding:20px 0 48px}
+.gl-photo-page .gl-photo-gallery a.e-gallery-item{display:block;break-inside:avoid;page-break-inside:avoid;margin:0 0 24px;padding:0;width:100%;height:auto;grid-column:auto;grid-row:auto;aspect-ratio:auto;overflow:visible}
+.gl-photo-page .gl-photo-gallery a.e-gallery-item img{display:block;position:static;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;transform:none}
+.gl-photo-page [data-photo-viewer-link]{cursor:zoom-in}
+.gl-photo-page [data-photo-viewer-link]:focus-visible{outline:2px solid #126c72;outline-offset:4px}
+.gl-photo-page .gl-photo-intro figure>a,.gl-photo-page .gl-photo-spread>a{display:block}
+.gl-photo-viewer{width:96vw;max-width:1600px;height:94dvh;max-height:94dvh;margin:auto;padding:16px;border:0;background:#111b1e;color:white;overflow:hidden;box-sizing:border-box}
+.gl-photo-viewer::backdrop{background:rgba(8,15,18,.88)}
+.gl-photo-viewer img{display:block;width:100%;height:calc(100% - 112px);object-fit:contain;touch-action:pan-y}
+.gl-photo-viewer header,.gl-photo-viewer nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px}
+.gl-photo-viewer button{min-height:44px;padding:10px 18px;border:1px solid #8fadb1;background:transparent;color:white;font:400 15px/1.4 Arial,sans-serif;cursor:pointer}
+.gl-photo-viewer button:hover,.gl-photo-viewer button:focus-visible{background:#234047;color:white}
+.gl-photo-viewer [data-photo-count]{font:400 14px/1.4 Arial,sans-serif}
+body.gl-photo-viewer-open{overflow:hidden}
+@media(max-width:1000px){.gl-photo-page .gl-photo-gallery{columns:2;column-gap:20px}.gl-photo-page .gl-photo-gallery a.e-gallery-item{margin-bottom:20px}}
+@media(max-width:700px){.gl-photo-page .gl-photo-gallery{width:calc(100% - 36px);columns:2;column-gap:12px;padding:12px 0 34px}.gl-photo-page .gl-photo-gallery a.e-gallery-item{margin-bottom:12px}.gl-photo-viewer{padding:10px;width:100vw;height:100dvh;max-height:100dvh}.gl-photo-viewer button{padding:10px 14px}}

@@ -47,3 +47,10 @@ html,body{margin:0}
  .gl-site-header .gl-site-social-icons{gap:6px;justify-self:end}
  .gl-site-header .gl-site-header-inquire{display:inline-flex;align-items:center;min-height:36px;grid-column:1/-1;justify-self:end;font-size:15px}
 }
+
+/* White navigation and quiet ivory hover contrast on the cyan bar. */
+.gl-site-header .gl-site-nav a{color:#fff!important;border-radius:2px;padding:10px 7px;transition:background-color .18s,color .18s}
+.gl-site-header .gl-site-nav a:hover,.gl-site-header .gl-site-nav a:focus-visible{color:#fff9e9!important;background:rgba(15,56,61,.19)}
+.gl-site-header .gl-site-nav-inner{gap:clamp(10px,1.9vw,28px);flex-wrap:wrap}
+.gl-site-header .gl-site-nav a:focus-visible{outline:2px solid #fff9e9;outline-offset:3px}
+@media(max-width:850px){.gl-site-header .gl-site-desktop-nav{display:none}.gl-site-header .gl-site-mobile-menu{display:block;margin:0;padding:0 22px}.gl-site-header .gl-site-mobile-menu summary{cursor:pointer;min-height:52px;display:flex;align-items:center;color:#fff;list-style:none}.gl-site-header .gl-site-mobile-menu summary::after{content:'+';margin-left:auto;font-size:25px}.gl-site-header .gl-site-mobile-menu[open] summary::after{content:'−'}.gl-site-header .gl-site-mobile-menu nav{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;padding-bottom:18px}.gl-site-header .gl-site-mobile-menu a{min-height:44px;display:flex;align-items:center}}
