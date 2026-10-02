@@ -26,3 +26,4 @@
 
 /* Keep a real photograph behind every dissolving frame, including failed loads. */
 .gl-image-rotation img{z-index:1}.gl-image-rotation img.is-fallback{z-index:0;opacity:1!important}
+.gl-image-rotation img[src*="photo-299da5e07f2f4921"],.gl-image-rotation img[data-src*="photo-299da5e07f2f4921"],.gl-image-rotation img[src*="photo-e4af9615d9109ffc"],.gl-image-rotation img[data-src*="photo-e4af9615d9109ffc"]{object-position:center 25%}
