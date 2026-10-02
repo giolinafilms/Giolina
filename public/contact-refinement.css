@@ -4,3 +4,8 @@
 
 /* Map-free inquiry introduction; preserve the existing form and layout. */
 .gl-contact-service-area{font:400 16px/1.65 Arial,sans-serif!important;color:#526266!important;margin:18px 0 24px!important;max-width:520px}.elementor-form button[type="submit"]{color:#12383b!important}
+
+/* Legible supporting copy, contact details and form hints. */
+.elementor-element-5b1d695e p,.elementor-icon-list-text,.elementor-icon-list-icon i{color:#526266!important}
+.elementor-field::placeholder{color:#526266!important;opacity:1}
+.gl-contact-schedule,.gl-contact-schedule .elementor-button-text{color:#12383b!important}
