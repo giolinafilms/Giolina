@@ -5,6 +5,8 @@ import {script,style} from './smugmug-ui.js';
 const BASE = '/__smugmug/';
 const COOKIE = '__Host-gl-smug';
 const API = 'https://api.smugmug.com';
+// SmugMug's official OAuth example uses the secure host; API reads use api.
+const OAUTH = 'https://secure.smugmug.com';
 const encoder = new TextEncoder();
 const headers = {
  'Cache-Control': 'no-store, private', 'X-Robots-Tag': 'noindex, nofollow',
@@ -71,7 +73,7 @@ async function boundedText(response, max) {
  return new TextDecoder().decode(bytes);
 }
 async function oauthRequest(endpoint,env,session,extra) {
- const url=API+'/services/oauth/1.0a/'+endpoint;
+ const url=OAUTH+'/services/oauth/1.0a/'+endpoint;
  let response;
  try {response=await fetch(url,{method:'GET',headers:{Accept:'application/x-www-form-urlencoded',Authorization:await oauthHeader(url,env,session,extra)},redirect:'manual',signal:AbortSignal.timeout(20000)});}catch(error){if(['TimeoutError','AbortError'].includes(error.name))throw error;throw new Error('oauth_network_failed');}
  if(response.status>=300 && response.status<400){const error=new Error('oauth_redirect');error.status=response.status;throw error;}
@@ -139,7 +141,7 @@ export async function handleSmugMug(request,env) {
   if(url.pathname===BASE+'start') {
    const credentials=await oauthRequest('getRequestToken',env,{}, {oauth_callback:'oob'});
    const next={...credentials,kind:'request',csrf:session.csrf,expires:Date.now()+5*60000};
-   const auth=new URL(API+'/services/oauth/1.0a/authorize');
+   const auth=new URL(OAUTH+'/services/oauth/1.0a/authorize');
    auth.searchParams.set('oauth_token',credentials.token);auth.searchParams.set('Access','Full');auth.searchParams.set('Permissions','Read');
    return json({authorizationUrl:auth.href},200,cookie(await seal(next,env,url.origin),300));
   }
