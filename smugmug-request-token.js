@@ -3,7 +3,7 @@ import OAuth from './vendor/oauth-1.0a.cjs';
 // Request-token proof only. No access-token exchange, archive API or token storage.
 const PREVIEW='smugmug-discovery-giolina.dawn-math-f4b1.workers.dev';
 const BASE='/__smugmug/';
-const TOKEN_URL='https://api.smugmug.com/services/oauth/1.0a/getRequestToken';
+const TOKEN_URL='https://secure.smugmug.com/services/oauth/1.0a/getRequestToken';
 const AUTHORIZE_URL='https://api.smugmug.com/services/oauth/1.0a/authorize';
 const COOKIE='__Host-gl-smug-token-test';
 const encoder=new TextEncoder();
