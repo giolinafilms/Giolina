@@ -1,6 +1,6 @@
 /* Scoped refinements; homepage hero, rotation/controller and form integration untouched. */
-.gl-redesign .gl-home-introduction{box-sizing:border-box;width:min(1600px,100%);max-width:1600px;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);padding:48px 32px 30px}
-.gl-redesign .gl-home-intro-copy{max-width:600px}.gl-redesign .gl-home-intro-copy>p:not(.gl-eyebrow){max-width:440px}
+.gl-redesign .gl-home-introduction{box-sizing:border-box;width:min(1600px,100%);max-width:1600px;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);padding:40px 32px 24px}
+.gl-redesign .gl-home-intro-copy{max-width:600px}.gl-redesign .gl-home-intro-copy>p:not(.gl-eyebrow){max-width:480px}
 .gl-redesign .gl-home-intro-photograph{margin:0;min-width:0}.gl-redesign .gl-home-intro-photograph img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center}
 .gl-redesign .gl-home-feature-photo{box-sizing:border-box;padding-inline:32px}
 .gl-review-credibility{font:400 13px/1.6 Arial,sans-serif;color:#526266;letter-spacing:.03em;margin:12px auto 22px!important}
@@ -10,4 +10,4 @@
 .gl-review-list .gl-review-with-film{display:block;grid-column:auto}
 .gl-rtg-connection{border-top:1px solid #d8e5e5;padding-block:32px;margin-top:28px;color:#526266;font:400 15px/1.7 Arial,sans-serif}.gl-rtg-connection a{color:#126c72;display:inline-block;margin-top:10px;border-bottom:1px solid #a6cacc;padding-block:6px}
 .gl-contact-photos .gl-image-rotation{background:#f1f5f3}.gl-contact-photos .gl-image-rotation img{object-fit:contain!important;object-position:center center!important}
-@media(max-width:700px){.gl-redesign .gl-home-introduction{grid-template-columns:minmax(0,1fr);padding:32px 22px 24px;gap:24px}.gl-redesign .gl-home-feature-photo{padding-inline:22px}.gl-review-list .gl-review-card blockquote,.gl-experience .gl-exp-review blockquote{font-size:17px!important}.gl-review-list .gl-review-attribution h2{font-size:34px}}
+@media(max-width:700px){.gl-redesign .gl-home-introduction{grid-template-columns:minmax(0,1fr);padding:28px 22px 22px;gap:22px}.gl-redesign .gl-home-feature-photo{padding-inline:22px}.gl-review-list .gl-review-card blockquote,.gl-experience .gl-exp-review blockquote{font-size:17px!important}.gl-review-list .gl-review-attribution h2{font-size:34px}}

@@ -491,3 +491,8 @@ This user-approved shortened log contains design changes and test results only.
 - Photography only: balanced intro text vertically beside the existing portrait, reduced section spacing and modestly reduced the portrait maximum width without altering its source or proportions. Kept Allura and brand cyan; refined heading spacing and responsive caption sizing.
 - Centered Stephanie & Danny copy and CTA beside the image with equal desktop columns and tighter spacing; preserved the existing mobile single-column layout.
 - Build, route/asset/link checks and diff whitespace checks passed. Desktop hosted verification performed after preview deployment. Mobile responsive rules reviewed; this browser has no viewport resize capability, so mobile visual verification remains unavailable. No other page or playback changes.
+
+
+## 2026-10-03 — Homepage final spacing checkpoint
+
+Hosted hero copy is already placed low in the frame; preserved. Gateway alignment, brand accents, image sources and per-image focal positions retained. Tightened only the introduction padding and desktop column gap; widened the supporting-copy measure slightly to balance the photograph. Mobile introduction retains its single-column layout with slightly tighter padding/gap. Build/check and diff checks passed; published to the existing preview branch only. Hosted desktop checked after deployment; mobile CSS reviewed (browser viewport resize unavailable).
