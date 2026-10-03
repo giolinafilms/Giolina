@@ -1,6 +1,6 @@
 /* Readability and keyboard affordances; layout, media and brand surfaces stay intact. */
 :root{--gl-accessible-teal:#128087}
-body:not(.gl-production-body):not(.gl-celebration-page) :is(#gl-introduction-title,#gl-client-films-title,#gl-film-closing-heading,.gl-love-intro h2,.gl-love-recap-intro h3,.gl-photo-intro h1,.gl-photo-spread figcaption,.gl-photo-close h2,.gl-reviews h1,.gl-review-stars,.gl-exp-credit,.gl-exp-mina,.gl-exp-cta h2 span){color:var(--gl-accessible-teal)!important}
+body:not(.gl-production-body):not(.gl-celebration-page) :is(#gl-introduction-title,#gl-client-films-title,#gl-film-closing-heading,.gl-love-intro h2,.gl-love-recap-intro h3,.gl-photo-intro h1,.gl-photo-spread figcaption,.gl-photo-close h2,.gl-reviews h1,.gl-exp-credit,.gl-exp-mina,.gl-exp-cta h2 span){color:var(--gl-accessible-teal)!important}
 body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header :is(.gl-site-nav a,.gl-site-mobile-menu summary){color:#12383b!important}
 body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:#12383b!important;background:rgba(255,255,255,.18)}
 .gl-site-header .gl-site-social-icons a[aria-label="Vimeo"],.gl-site-footer-social a[aria-label="Vimeo"]{color:#12383b!important}
@@ -22,3 +22,6 @@ body:not(.gl-production-body) :is(.gl-film-preview>button,.gl-short-stage,.gl-re
  .gl-site-header .gl-site-header-inquire,.gl-site-footer nav a{min-height:44px;display:inline-flex;align-items:center}
  .gl-production-footer a{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}
 }
+
+/* Small rating marks need the deeper teal on cream and mist review cards. */
+.gl-reviews .gl-review-stars{color:#126c72!important}
