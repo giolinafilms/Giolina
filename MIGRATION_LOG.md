@@ -571,3 +571,7 @@ Manual/launch blockers recorded in docs/PRE_LAUNCH_CHECKLIST.md: actual phone/mo
 
 ## 2026-10-03 — final visual/content checkpoint
 Reviewed the current hosted preview. Corrected 15 RTG generic labels using actual provider metadata; no film/layout/playback changes. See docs/FINAL_VISUAL_QA.md for review limits and outstanding decisions. Preview only.
+
+
+## 2026-10-03 — URL reconciliation checkpoint
+Compared the live WordPress 22-page sitemap to generated routes; no published page URL silently lost. Recovered two exact original sitemap JPEGs and added their redirects plus the captured Elementor placeholder URL. Redirect map now contains 101 entries. No main-page design or production setting changed. See docs/REDIRECT_MAP.md.
