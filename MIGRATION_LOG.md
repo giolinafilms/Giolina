@@ -392,3 +392,12 @@ This user-approved shortened log contains design changes and test results only.
 - Removed the only eager cinematography iframe: top GioLina wedding reel 548643452 now shows its same original Vimeo poster (1135878106), at the same 16:9 size, with the existing site Play Film button and shared Vimeo modal. No Client Wedding Films layout, typography or other page redesign.
 - Initial cinematography HTML contains no video or iframe elements; no third-party player SDK is loaded. Only the selected poster updates when browsing short films. Vimeo/MediaZilla/native video are created on Play Film; unmuted autoplay, fresh-start playback, fullscreen and one-active-modal teardown retained.
 - MediaZilla uses its documented autoplay=1 with autoplay/fullscreen permissions. Sound/autoplay remain subject to browser policy; no unsupported API or synthetic click workaround.
+# October 3 — Cinematography cleanup / Love in a Minute preview
+
+- Preserved all existing film sources and the Client Wedding Films grid structure.
+- Corrected the MediaZilla Nicole & Philip label and exported a couple first-dance frame from that exact film. Nicolette & Tyler now uses the first visible drone opening frame after its brief black fade.
+- Falling in Love retains the existing square uploaded video; its new film-frame poster is contained without distortion or cropping.
+- Refined only Love in a Minute typography, spacing and brand-cyan interaction states; removed the repeated selected-film title beneath the carousel.
+- Opening carousel remains Falling in Love, then Week 2. Existing Bianca & Bobby recap moved to the small Anniversary films group, joined by the available Sara & Phil and Nicole & Philip recap uploads. No long-form films added or removed.
+- Selected recap films reuse the existing click-created modal and native player teardown. No iframe/video player exists before a Play Film click. Opening and recap modal navigation stay within their own collection.
+- Recovered after the connection interruption; missing poster exports completed before final validation and preview-only publication.

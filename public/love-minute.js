@@ -3,7 +3,6 @@ if (browser) {
  const films = JSON.parse(document.querySelector('#gl-short-data').textContent);
  const stage = browser.querySelector('[data-short-stage]');
  const poster = stage.querySelector('img');
- const title = browser.querySelector('[data-short-title]');
  const count = browser.querySelector('[data-short-count]');
  const picker = browser.querySelector('select');
  const choices = [...browser.querySelectorAll('[data-short-index]')];
@@ -14,6 +13,8 @@ if (browser) {
  document.body.append(dialog);
  const screen = dialog.querySelector('.gl-short-screen');
  let index = 0;
+ let playingIndex = 0;
+ const openingCount = choices.length;
  function stop() {
   const video = screen.querySelector('video');
   if (video) {
@@ -25,16 +26,17 @@ if (browser) {
  }
  function dismiss() { stop(); dialog.close(); }
  function select(next) {
-  index = (next + films.length) % films.length;
+  index = (next + openingCount) % openingCount;
   const film = films[index];
   poster.src = film.poster; poster.alt = film.title;
-  title.textContent = film.title; count.textContent = `${index + 1} / ${films.length}`;
+  count.textContent = `${index + 1} / ${openingCount}`;
   stage.setAttribute('aria-label', `Play Film — ${film.title}`);
   picker.value = String(index);
   choices.forEach((choice, i) => choice.setAttribute('aria-pressed', String(i === index)));
   if (dialog.open) play();
  }
- function play() {
+ function play(next = index) {
+  playingIndex = next;
   // Tear down every previous portfolio player before creating selected media.
   document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
    if (active !== dialog) {
@@ -49,7 +51,7 @@ if (browser) {
    }
   });
   stop();
-  const film = films[index];
+  const film = films[playingIndex];
   dialog.querySelector('h2').textContent = film.title;
   screen.style.aspectRatio = `${film.width} / ${film.height}`;
   screen.style.width = `min(100%, calc((82dvh - 130px) * ${film.width / film.height}))`;
@@ -70,13 +72,18 @@ if (browser) {
   document.body.classList.add('gl-film-open');
   dialog.querySelector('.gl-film-close').focus();
  }
- stage.addEventListener('click', play);
+ stage.addEventListener('click', () => play());
+ document.querySelectorAll('[data-short-film]').forEach(button => button.addEventListener('click', () => play(Number(button.dataset.shortFilm))));
+ function advancePlaying(direction) {
+  if (playingIndex < openingCount) select(playingIndex + direction);
+  else play(openingCount + (playingIndex - openingCount + direction + films.length - openingCount) % (films.length - openingCount));
+ }
  choices.forEach(choice => choice.addEventListener('click', () => select(Number(choice.dataset.shortIndex))));
  picker.addEventListener('change', () => select(Number(picker.value)));
  browser.querySelector('[data-short-prev]').addEventListener('click', () => select(index - 1));
  browser.querySelector('[data-short-next]').addEventListener('click', () => select(index + 1));
- dialog.querySelector('[data-short-prev]').addEventListener('click', () => select(index - 1));
- dialog.querySelector('[data-short-next]').addEventListener('click', () => select(index + 1));
+ dialog.querySelector('[data-short-prev]').addEventListener('click', () => advancePlaying(-1));
+ dialog.querySelector('[data-short-next]').addEventListener('click', () => advancePlaying(1));
  stage.addEventListener('keydown', event => {
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
    event.preventDefault(); select(index + (event.key === 'ArrowLeft' ? -1 : 1));
