@@ -483,3 +483,11 @@ This user-approved shortened log contains design changes and test results only.
 - The authentic RTG logo was absent from current/recovered workspace assets and Git filename history; earlier log references described an unpublished local asset that is no longer present. Removed the internal “Original RTG logo” placeholder and outdated approval comment rather than substituting GioLina or inventing a logo.
 - Kept a clean uppercase RTG text wordmark with restrained silver styling. Added wrapping-safe mobile header spacing and 44px navigation tap targets.
 - All RTG video inventory, including Atlas/Preferred, page content, playback code and unrelated pages remain unchanged. Mobile CSS inspected separately; direct mobile visual controls remain unavailable.
+
+
+## 2026-10-03 — Footer QA and Photography final polish
+
+- Hosted footer checked on Home, Cinematography, Photography, Sweet Sixteen, Reviews, Experience, About Us and Contact Us. Shared footer already has the compact spacing, bottom-right logo and required brand/copyright lines; left unchanged. Mobile one-column stacking and right-aligned logo retained. No separate footer change commit was needed.
+- Photography only: balanced intro text vertically beside the existing portrait, reduced section spacing and modestly reduced the portrait maximum width without altering its source or proportions. Kept Allura and brand cyan; refined heading spacing and responsive caption sizing.
+- Centered Stephanie & Danny copy and CTA beside the image with equal desktop columns and tighter spacing; preserved the existing mobile single-column layout.
+- Build, route/asset/link checks and diff whitespace checks passed. Desktop hosted verification performed after preview deployment. Mobile responsive rules reviewed; this browser has no viewport resize capability, so mobile visual verification remains unavailable. No other page or playback changes.
