@@ -341,3 +341,9 @@ This user-approved shortened log contains design changes and test results only.
 - Full Presentation retains exact client-delivery destination FY22EfWIt8 and secure new-tab link. Added Love in a Minute heading/section structure only, with no videos/cards/MP4 uploads. Existing final inquiry retained.
 - No production, DNS/email/domain, clients portal, SmugMug, shared player/header, or other page changes. Build/check and hosted verification tracked in this task's final handoff.
 - Validation before publication: Astro build passed (30 pages); existing route/asset/link/Worker checks passed (29 routes, 1110 asset references). Focused checks passed for ordered sections, one exact hero source, eight long-cut cards, byte-identical Jazz/Trevor card, and empty Love in a Minute media structure.
+
+## 2026-10-03 — Step 2, Group 1
+
+- Jazz/Trevor now uses exact supplied image(20261003-043827).png bytes at jazz-trevor-poster.png, parked poster and existing lazy-on-click MediaZilla dialog with exact gjx8Km0Irn source.
+- Added Bianca/Bobby long cut 9jzGeDjrO7 using existing couple still; Experience SDE source/file unchanged. Alexandria/James fAkBCNBFRB uses exact Reviews photo and second position previously occupied by Nicole/Phillip, which is retained lower. No other page/shared player/protected configuration changed.
+- Group publication follows passing build/check; hosted checks reported at its checkpoint. Love in a Minute remains empty; no new MP4 uploads.
