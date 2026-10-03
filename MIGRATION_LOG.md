@@ -463,3 +463,10 @@ This user-approved shortened log contains design changes and test results only.
 - Feature now spans its full page container, with an immersive landscape photo and compact centered cyan title/link treatment immediately beneath it. Mobile uses a gentler 3:2 crop preserving the centered couple.
 - Preserved Client Delivery Experience, View Full Presentation, exact https://mediazilla.com/FY22EfWIt8 destination and new-tab behavior.
 - No other content, long-form film cards, posters or playback scripts changed in this checkpoint.
+
+# October 3 — Focused Love in a Minute spacing
+
+- Continued from deployed 40bd8a8. The requested anniversary heading/supporting line were already exact and are preserved.
+- Tightened opening copy/navigation spacing, recap divider/introduction spacing, and the transition to the closing area. Preserved the existing desktop composition and mobile stack with separate mobile spacing values.
+- Only Love in a Minute stylesheet and this log changed. All content JSON, films, titles, posters, player scripts and unrelated sections remain byte-identical.
+- Direct mobile visual controls remain unavailable; mobile CSS is checked separately, with hosted desktop verification after preview deployment.
