@@ -13,6 +13,7 @@ for(const path of mainPagePaths){
  const desc=meta.filter(m=>m.name==='description');
  assert(desc.length===1&&desc[0].content&&!descriptions.has(desc[0].content),`description ${path}`);descriptions.add(desc[0].content);
  assert(!/quiz|lorem ipsum/i.test(desc[0].content),`stale description ${path}`);
+ assert(!/temporary-photo-\d+\.svg|\$____|lorem ipsum/i.test(html),`unfinished public gallery/pricing ${path}`);
  assert.equal([...html.matchAll(/<h1\b/g)].length,1,`H1 ${path}`);
  const canonicals=[...html.matchAll(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/g)];
  assert.equal(canonicals.length,1);assert.equal(canonicals[0][1],new URL(path,canonicalOrigin).href);

@@ -17,4 +17,22 @@ Preview only. Production canonical origin remains https://giolinafilms.com. No p
 
 ## Functional/manual review
 
-Functional QA results will be recorded after the final hosted pass. Real phone testing, a separately authorized form submission and confirmation of any ambiguous client cards remain manual checks.
+- [x] Hosted navigation and footer links across nine main pages; no desktop horizontal overflow at 1348px.
+- [x] All 62 distinct local image URLs used by main pages return HTTP 200.
+- [x] Contact required-email/message validation blocks an empty submission; Formspree configuration unchanged.
+- [x] Scheduler loads 30-minute Consultation Call and availability, without making a booking.
+- [x] Vimeo, MediaZilla, Love in a Minute, Sweet Sixteen and RTG film playback checked; observed videos playing unmuted; selected-player replacement/close cleanup checked.
+- [x] Removed six blank future-gallery cards and unfilled Experience starting-price lines; no real media removed or prices invented.
+- [ ] Test all nine main pages on real iPhone/Android portrait and tablet. Browser has no supported mobile viewport; responsive source review is not a visual/device pass.
+- [ ] Perform a separately authorized genuine Contact submission and verify receipt/auto-response; no test email was sent here.
+- [ ] Confirm whether the two Nicole & Philip Client Wedding Films cards (Vimeo 425185852 and MediaZilla XDcajHQdhs) are different cuts or a duplicate. No source/title guesses made.
+- [ ] Supply/approve Frank's portrait for the About Us reserved position.
+- [ ] Supply/approve actual RTG poster frames for Vimeo 102347867 and 87439618; neutral placeholders remain.
+- [ ] Lauren & Tommy anniversary short is unavailable; no substitute added. Collection is functional without it.
+- [ ] Review brand-cyan script contrast on white: current #19b5bc is 2.50:1, below the 3:1 large-text target, intentionally unchanged following the approved exact-color instruction.
+
+## Assessment
+
+Not ready for production yet. The preview is suitable for final review; functional checks pass within the limits above. Complete the manual/content decisions and the separate production tracking/indexing configuration before any approved launch. No Search Console or DNS action has been taken.
+
+Checkpoint commits before this checklist's final publication: 62a81a8efe45d504eec1cacda6a0e11c830e4033 (page SEO), 9559efa4a3183def383b8dac41b335fb45f2469a (technical readiness). Final QA commit is in repository history.
