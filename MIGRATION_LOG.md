@@ -516,3 +516,8 @@ Build/check and diff checks passed; all four hosted pages verified after preview
 ## 2026-10-03 — Homepage script heading color
 
 Changed only Your wedding. Seen with care. to established brand cyan (#19b5bc), using the existing brand variable. Allura, wording, sizes and spacing preserved. Build/check passed; hosted color verified after preview deployment. Mobile uses the same color and existing 42–56px responsive script sizes; mobile viewport visual QA unavailable. Exact cyan on white is 2.50:1, below the 3:1 large-text contrast threshold; retained the exact requested brand color and reported the limitation.
+
+
+## 2026-10-03 — About Us polish checkpoint
+
+Inspected hosted family/story area. Tightened story section padding and column gap, brought the heading/kicker spacing closer to copy, and centered the family-video caption beneath its unchanged square poster. Existing blue accents and typography already consistent; preserved. Frank bio, page structure, family film source and playback unchanged. Build/check passed; hosted desktop verified after preview deployment. Mobile CSS reviewed; mobile visual viewport unavailable.
