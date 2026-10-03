@@ -246,3 +246,14 @@ This user-approved shortened log contains design changes and test results only.
 - User approved prepared website code and eleven supplied photos for the public project repository on the Preview branch. Legacy RTG logo publication remains deferred.
 - Build and route/asset checks passed. Hosted QA results follow after publication. Missing Jazz/Trevor presentation source, Giovanni/Michaelina media, real Frank portrait, Sweet Sixteen hero/photos and ambiguous lower homepage placement remain open.
 - SmugMug authentication and production/DNS/email/canonical/clients portal configuration unchanged.
+
+
+## 2026-10-03 — Hosted Preview verification of approved editorial/media update
+
+- Published content commit 78b755ad5434e3f7cf3200829063e6e5934c90d0 on preview/homepage-photography-rotation. Native Cloudflare Workers Build succeeded for the existing giolina target. Hosted branch URL: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/ .
+- Hosted desktop checks confirmed enlarged logo above white-on-cyan navigation, all eleven review photographs loaded, genuine testimonial text retained, three approved review Vimeo actions, normal Contact scheduler wrapping (539px text width / 36px heading), square Contact photos, no map, new-tab scheduler attributes, neutral Cinematography promo poster, named client grouping and no Jen/Mike content.
+- Sweet Sixteen loads with exactly the three supplied showcase IDs. Ready To Go Productions loads with its separate charcoal/silver identity and seventeen supplied film actions; Experience links to it. Julia/Mina photo is connected on Experience. Frank's supplied biography and Founder & Creative Director role are live. Photography CTA reads Let's talk photography. No horizontal overflow on inspected pages at the available 1363px desktop viewport.
+- Lauren/Tommy action opens the correct Vimeo 122910081 iframe in a 1084x609.75 responsive dialog. Vimeo explicitly restricts this cloud browser, so actual film playback is unverified. Responsive phone/tablet CSS was inspected; actual mobile/tablet visual QA and hover motion remain unverified because this browser has no viewport resizing/hover API.
+- Thumbnail metadata was unavailable for supplied clips 385087191 and 102347867 (403), and 87439618 (404). Exact film IDs remain connected with neutral poster areas; these metadata statuses do not establish playback availability.
+- Outstanding assets: exact Jazz/Trevor Feature Presentation source; genuine Giovanni/Michaelina origin-story still/video; real Frank portrait; Sweet Sixteen hero/poster and photography. The original RTG logo remains deferred under the earlier no-retry upload instruction. The ambiguous lower homepage personal-perspective placement was left unchanged to preserve the hero.
+- No Production, DNS, email, canonical domain, clients portal, SmugMug authentication, hero playback controller or rotation timing changes.
