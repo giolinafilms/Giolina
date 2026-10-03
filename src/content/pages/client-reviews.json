@@ -1,15 +1,15 @@
 {
   "path": "/client-reviews/",
-  "title": "Reviews - GioLina Films",
+  "title": "Couple Reviews | GioLina Films",
   "seo": [
-    "<meta content=\"Premier Wedding Photographer and Videographer in New Jersey. We're here to make your event unforgettable with exceptional service. Start planning your incredible event with our quiz!\" name=\"description\"/>",
-    "<meta content=\"en_US\" property=\"og:locale\"/>",
-    "<meta content=\"article\" property=\"og:type\"/>",
-    "<meta content=\"Reviews\" property=\"og:title\"/>",
-    "<meta content=\"https://giolinafilms.com/client-reviews/\" property=\"og:url\"/>",
-    "<meta content=\"GioLina Films\" property=\"og:site_name\"/>",
-    "<meta content=\"summary_large_image\" name=\"twitter:card\"/>",
-    "<meta content=\"Client reviews and wedding stories from couples who chose GioLina Films.\" property=\"og:description\"/>"
+    "<meta name=\"description\" content=\"Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.\"/>",
+    "<meta property=\"og:locale\" content=\"en_US\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Couple Reviews | GioLina Films\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/client-reviews/\"/>",
+    "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta property=\"og:description\" content=\"Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -59,13 +59,13 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/client-reviews/",
           "url": "https://giolinafilms.com/client-reviews/",
-          "name": "Reviews - GioLina Films",
+          "name": "Couple Reviews | GioLina Films",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "datePublished": "2021-09-23T16:09:27+00:00",
           "dateModified": "2023-09-06T23:53:50+00:00",
-          "description": "Premier Wedding Photographer and Videographer in New Jersey. We're here to make your event unforgettable with exceptional service. Start planning your incredible event with our quiz!",
+          "description": "Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/client-reviews/#breadcrumb"
           },

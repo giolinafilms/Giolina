@@ -222,3 +222,6 @@
 .gl-contact-photos{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;max-width:420px;margin:32px 0 0}
 .gl-contact-photos img{display:block;width:100%;height:auto;max-width:100%;margin:0}
 @media(max-width:767px){.gl-contact-photos{max-width:100%;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}}
+
+/* Semantic section labels without changing the approved composition. */
+.migration-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}

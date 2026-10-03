@@ -542,3 +542,8 @@ Safe improvements: moved About Us MP4 metadata ahead of media data with stream-c
 ### Performance verification follow-up — duplicate Photography viewer
 
 Hosted verification of the optimized image exposed two simultaneous photo dialogs: the legacy migration lightbox and the current Photography viewer both handled the same link. Scoped the legacy selector to exclude data-photo-viewer-link so each current gallery click has only its intended viewer. The Photography viewer now removes its image src on close, avoiding retained selected-image contents in a closed dialog. No visible design, navigation or video changes. Build/check passed; hosted gallery verified with one dialog/one selected image on open, zero open dialogs and cleared image source after close.
+
+
+## 2026-10-03 — Page-level SEO checkpoint
+
+Audited nine main pages. Replaced stale generic quiz descriptions, fixed quoted/run-together Home/About wording and supplied Experience's missing description. Set natural, page-specific titles where needed; aligned Open Graph title/description/type and existing WebPage schema descriptions. Preserved established Sweet Sixteen/RTG description wording and all page content, media and layout. Removed irrelevant inherited Twitter reading-time labels. Added a visually hidden H2 for RTG's selected-production section before corporate H3 headings, repairing the level skip without changing the design. All nine built pages have one H1, one useful unique description and a unique title; appropriate image alt attributes and key internal navigation present. Preview noindex protections and production canonical domain unchanged. Build/check and diff checks passed; hosted metadata verified after preview deployment.

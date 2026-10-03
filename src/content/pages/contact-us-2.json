@@ -1,17 +1,15 @@
 {
   "path": "/contact-us-2/",
-  "title": "Contact Us - GioLina Films",
+  "title": "Wedding Inquiries | GioLina Films",
   "seo": [
-    "<meta content=\"Premier Wedding Photographer and Videographer in New Jersey. We're here to make your event unforgettable with exceptional service. Start planning your incredible event with our quiz!\" name=\"description\"/>",
-    "<meta content=\"en_US\" property=\"og:locale\"/>",
-    "<meta content=\"article\" property=\"og:type\"/>",
-    "<meta content=\"Contact Us\" property=\"og:title\"/>",
-    "<meta content=\"Premier Wedding Photographer and Videographer in New Jersey. We're here to make your event unforgettable with exceptional service. Start planning your incredible event with our quiz!\" property=\"og:description\"/>",
-    "<meta content=\"https://giolinafilms.com/contact-us-2/\" property=\"og:url\"/>",
-    "<meta content=\"GioLina Films\" property=\"og:site_name\"/>",
-    "<meta content=\"summary_large_image\" name=\"twitter:card\"/>",
-    "<meta content=\"Est. reading time\" name=\"twitter:label1\"/>",
-    "<meta content=\"1 minute\" name=\"twitter:data1\"/>"
+    "<meta name=\"description\" content=\"Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.\"/>",
+    "<meta property=\"og:locale\" content=\"en_US\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Wedding Inquiries | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/contact-us-2/\"/>",
+    "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -61,13 +59,13 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/contact-us-2/",
           "url": "https://giolinafilms.com/contact-us-2/",
-          "name": "Contact Us - GioLina Films",
+          "name": "Wedding Inquiries | GioLina Films",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "datePublished": "2021-06-28T02:58:22+00:00",
           "dateModified": "2024-02-28T16:23:37+00:00",
-          "description": "Premier Wedding Photographer and Videographer in New Jersey. We're here to make your event unforgettable with exceptional service. Start planning your incredible event with our quiz!",
+          "description": "Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/contact-us-2/#breadcrumb"
           },

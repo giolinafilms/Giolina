@@ -1,17 +1,16 @@
 {
   "path": "/experience-2/",
-  "title": "Experience - GioLina Films",
+  "title": "The Wedding Experience | GioLina Films",
   "seo": [
-    "<meta content=\"en_US\" property=\"og:locale\"/>",
-    "<meta content=\"article\" property=\"og:type\"/>",
-    "<meta content=\"Experience\" property=\"og:title\"/>",
-    "<meta content=\"GIOLINA FILMS Experience Reviews from our clients, the process, frequently asked questions, and what exactly makes a GioLina films couple. HOW IT WORKS OUR PROCESS Frank was great to work with. The red carpet was a hit at our corporate event. He was very fun and professional. We would highly recommend him and his services […]\" property=\"og:description\"/>",
-    "<meta content=\"https://giolinafilms.com/experience-2/\" property=\"og:url\"/>",
-    "<meta content=\"GioLina Films\" property=\"og:site_name\"/>",
-    "<meta content=\"https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png\" property=\"og:image\"/>",
-    "<meta content=\"summary_large_image\" name=\"twitter:card\"/>",
-    "<meta content=\"Est. reading time\" name=\"twitter:label1\"/>",
-    "<meta content=\"3 minutes\" name=\"twitter:data1\"/>"
+    "<meta property=\"og:locale\" content=\"en_US\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"The Wedding Experience | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/experience-2/\"/>",
+    "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"description\" content=\"Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -60,7 +59,7 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/experience-2/",
           "url": "https://giolinafilms.com/experience-2/",
-          "name": "Experience - GioLina Films",
+          "name": "The Wedding Experience | GioLina Films",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
@@ -84,7 +83,8 @@
                 "https://giolinafilms.com/experience-2/"
               ]
             }
-          ]
+          ],
+          "description": "Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care."
         },
         {
           "@type": "ImageObject",
