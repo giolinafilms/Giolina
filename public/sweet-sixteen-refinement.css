@@ -30,3 +30,28 @@
 @media(max-width:850px){.gl-celebration-photo-ready .gl-celebration-hero-copy{column-gap:30px}.gl-celebration-photo-ready .gl-celebration-intro,.gl-celebration-photo-ready .gl-celebration-work-grid{gap:30px}.gl-celebration-experience ol{gap:22px}}
 @media(max-width:700px){.gl-celebration-photo-ready .gl-celebration-hero-media{aspect-ratio:2048/1366;max-height:none}.gl-celebration-photo-ready .gl-celebration-hero-copy{display:block;padding-block:28px}.gl-celebration-photo-ready .gl-celebration-hero h1{font-size:clamp(31px,8.5vw,42px);margin-bottom:18px}.gl-celebration-photo-ready .gl-celebration-hero-copy>p:not(.gl-landing-kicker){margin-bottom:20px}.gl-celebration-photo-ready .gl-celebration-intro,.gl-celebration-photo-ready .gl-celebration-work-grid{grid-template-columns:minmax(0,1fr);gap:28px}.gl-celebration-photo-ready .gl-celebration-intro,.gl-celebration-experience{padding-block:38px}.gl-celebration-photo-ready .gl-celebration-intro-photo img{max-height:580px}.gl-celebration-experience ol{grid-template-columns:minmax(0,1fr);gap:22px}.gl-celebration-experience h2{font-size:30px}.gl-celebration-work .gl-landing-section-heading h2{font-size:42px}.gl-celebration-showcase{gap:28px}}
 @media(prefers-reduced-motion:reduce){.gl-celebration-photo-rotation img{transition:none}}
+/* Final blush treatment, scoped exclusively to Sweet Sixteen. */
+.gl-celebration-page .gl-celebration{--landing-accent:#76525c;--landing-paper:#fff8f9}
+.gl-celebration-page .gl-site-header .gl-site-nav{background:#f3d9df;color:#49353b}
+.gl-celebration-page .gl-site-header .gl-site-nav a,.gl-celebration-page .gl-site-header .gl-site-mobile-menu summary{color:#49353b!important}
+.gl-celebration-page .gl-site-header .gl-site-nav a:hover,.gl-celebration-page .gl-site-header .gl-site-nav a:focus-visible{background:#e7bdc7;color:#3a272d!important}
+.gl-celebration-page .gl-site-header .gl-site-nav a:focus-visible{outline-color:#49353b}
+.gl-celebration-page .gl-site-header .gl-site-header-inquire{border-color:#ddb0bc}
+.gl-celebration .gl-landing-button{background:#f3d9df!important;border-color:#ddb0bc;color:#49353b!important}
+.gl-celebration .gl-landing-button:hover{background:#e7bdc7!important;filter:none}
+.gl-celebration .gl-landing-kicker,.gl-celebration-hero-copy .gl-landing-kicker{color:#76525c!important}
+.gl-celebration .gl-landing-text-link{border-color:#ddb0bc}
+.gl-celebration .gl-celebration-experience li,.gl-celebration .gl-celebration-faq details,.gl-celebration .gl-landing-inquiry{border-color:#ead0d7}
+.gl-celebration .gl-film-preview>button span{border-color:#ddb0bc;background:#f3d9df;color:#49353b}
+.gl-celebration .gl-film-preview>button:hover span{background:#e7bdc7;color:#49353b}
+/* The old permanent fallback showed through the portrait's transparent side gutters.
+   Every frame now shares the same filled/clipped viewport; inactive photos are hidden. */
+.gl-celebration-photo-rotation{aspect-ratio:4/5;background:#fff8f9;isolation:isolate;contain:paint}
+.gl-celebration-photo-rotation img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;object-fit:cover;object-position:50% 50%;transform:none;opacity:0;z-index:0;pointer-events:none}
+.gl-celebration-photo-rotation img.is-fallback{opacity:0;z-index:0}
+.gl-celebration-photo-rotation img.is-current{opacity:1;z-index:1}
+.gl-celebration-photo-rotation img[data-src*="GLP_0292"],.gl-celebration-photo-rotation img[src*="GLP_0292"]{object-position:50% 75%}
+.gl-celebration-showcase .gl-film-preview{aspect-ratio:16/9;overflow:hidden}
+.gl-celebration-showcase .gl-film-preview>img{display:block;width:100%;height:100%;object-fit:cover;opacity:1}
+/* Real Gabby video poster contains baked-in letterboxing. Crop just that border. */
+.gl-celebration-showcase .gl-film-preview>img[alt="Gabby’s UnSweet 16"]{transform:scale(1.36);transform-origin:50% 50%}
