@@ -17,7 +17,7 @@
 .rtg-opening{display:grid;grid-template-columns:.78fr 1.3fr;align-items:center;gap:56px;width:min(1280px,calc(100% - 64px));margin:0 auto;padding:68px 0 62px}
 .gl-production-body .rtg-opening h1{font-size:clamp(66px,7.2vw,104px);font-weight:500;line-height:.97;margin:0 0 30px;letter-spacing:-.065em}
 .rtg-opening-copy{padding-left:22px;border-left:2px solid #956575}
-.rtg-opening-line{font-size:18px;line-height:1.7;color:#c4c8cf;margin:0 0 28px}
+.gl-production-body .rtg-opening-line{font-size:18px;line-height:1.7;color:#c4c8cf;margin:0 0 28px}
 .gl-production-body .gl-landing-button{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:13px 22px;background:#c8cbd0;border:1px solid #c8cbd0;color:#19212b!important;font:400 14px/1.4 Arial,sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
 .gl-production-body .gl-landing-button:hover{background:#e0d6d8;border-color:#e0d6d8}
 .rtg-opening-film{min-width:0;padding:26px;background:#303747;box-shadow:16px 16px 0 var(--rtg-wine)}
@@ -50,7 +50,7 @@
 .gl-production-body .rtg-reel-track .rtg-caption h3{font-size:15px;line-height:1.5}
 .rtg-reel-track:focus-visible{outline:2px solid #e8d7c6;outline-offset:5px}
 .gl-production-body .gl-neutral-film-poster{height:100%;background:#303747;border:1px solid #4c5668}
-.gl-production-body .gl-rtg-intro{background:#202c3d;padding:52px 0}
+.gl-production-body .gl-rtg-intro{background:#29364a;padding:46px 0}
 .gl-production-body .gl-rtg-intro .gl-landing-wrap{display:grid;grid-template-columns:.85fr 1.2fr;gap:0 64px;padding-block:0}
 .gl-production-body .gl-rtg-intro .gl-landing-kicker{grid-column:1;color:#b5bdc9}
 .gl-production-body .gl-rtg-intro h2{grid-column:1;font-size:clamp(32px,3.5vw,46px);line-height:1.15;grid-row:2/span 2;margin:0}
@@ -60,10 +60,10 @@
 .gl-production-body .gl-rtg-services article{border-color:#56606d}
 .gl-production-body .gl-rtg-services h3{font-size:19px;line-height:1.4}
 .gl-production-body .gl-rtg-services p{color:#c6cad2;font-size:15px}
-.gl-production-body .gl-rtg-giolina{background:#30313a;padding:36px 0}
+.gl-production-body .gl-rtg-giolina{background:var(--rtg-silver);color:#25282e;padding:36px 0}
 .gl-production-body .gl-rtg-giolina .gl-landing-wrap{padding-block:0}
-.gl-production-body .gl-rtg-giolina h2{font-size:28px}
-.gl-production-body .gl-rtg-giolina p{max-width:800px;font-size:15px;color:#c9cdd3}
+.gl-production-body .gl-rtg-giolina h2{font-size:28px;color:#25282e}
+.gl-production-body .gl-rtg-giolina p{max-width:800px;font-size:15px;color:#343c48}
 .gl-production-body .gl-landing-text-link{color:#e7d5da;border-color:#a4808d}
 .gl-production-body .gl-landing-inquiry{padding:48px 24px;background:#442832;border:0}
 .gl-production-body .gl-landing-inquiry h2{font:400 clamp(30px,4vw,48px)/1.15 Arial,sans-serif;letter-spacing:-.035em}
@@ -80,7 +80,7 @@
 @media(max-width:700px){
  .gl-production-header{padding:20px;align-items:flex-start;flex-direction:column;gap:12px}.gl-production-wordmark{font-size:20px;max-width:300px}.gl-production-header nav{gap:12px 20px}
  .rtg-opening{width:calc(100% - 40px);padding:36px 0 42px;grid-template-columns:minmax(0,1fr);gap:30px}
- .gl-production-body .rtg-opening h1{font-size:clamp(62px,19vw,88px);margin-bottom:22px}.rtg-opening-copy{padding-left:16px}.rtg-opening-line{font-size:16px;margin-bottom:20px}
+ .gl-production-body .rtg-opening h1{font-size:clamp(54px,17vw,76px);margin-bottom:22px}.rtg-opening-copy{padding-left:16px}.gl-production-body .rtg-opening-line{font-size:16px;margin-bottom:20px}
  .rtg-opening-film{padding:18px;box-shadow:8px 8px 0 var(--rtg-wine);margin-right:8px}.rtg-caption{gap:12px;margin-top:12px}.gl-production-body .rtg-caption :is(h2,h3){font-size:17px}
  .rtg-spotlight{padding:34px 20px 38px}.rtg-section-heading{margin-bottom:24px}.rtg-spotlight-pair{grid-template-columns:minmax(0,1fr);gap:30px}.rtg-spotlight-pair .rtg-work-card:nth-child(2){padding-top:0}
  .rtg-reel{padding:34px 20px 38px}.rtg-reel-header{align-items:start;flex-direction:column;gap:18px;margin-bottom:22px}.rtg-reel-controls{align-self:flex-end}.rtg-reel-track>.rtg-work-card{flex-basis:100%}
@@ -89,3 +89,8 @@
  .gl-production-body .gl-landing-inquiry{padding:36px 20px}.gl-production-body .gl-film-toolbar h2{font-size:18px}.gl-production-body .gl-film-toolbar{align-items:start}.gl-production-body .gl-film-close{flex:none;padding:10px 12px}
 }
 @media(prefers-reduced-motion:reduce){.gl-production-body *{scroll-behavior:auto!important;transition:none!important}}
+
+/* A restrained silver pause between the navy story and wine inquiry. */
+.gl-production-body .gl-rtg-giolina .gl-landing-kicker{color:#48525f}
+.gl-production-body .gl-rtg-giolina .gl-landing-text-link{color:#442832;border-color:#7f5867}
+.gl-production-body .gl-rtg-giolina .gl-landing-text-link:is(:hover,:focus-visible){color:#25282e;border-color:#25282e}

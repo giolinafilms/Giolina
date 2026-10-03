@@ -583,3 +583,8 @@ Documented scoped giolinafilms.com/apex-www route-based cutover, full DNS/mail p
 
 ## 2026-10-03 — RTG portfolio redesign
 RTG-only midnight/wine/charcoal/silver visual identity. Atlas opening feature, Mirror Booth and Preferred spotlight pair, remaining 16 films in an accessible poster-only horizontal reel. All 19 exact film blocks, titles/sources/posters retained once; no categorization. Mobile one full card per reel view. Shared player scripts unchanged; RTG modal styling now matches production identity. Authentic RTG logo unavailable (workspace filenames and captured asset manifest checked), existing silver wordmark retained. Build/check passed. Hosted desktop/playback verification follows publication; mobile visual/device pass unavailable in current browser, responsive rules reviewed.
+
+
+## 2026-10-03 — RTG aesthetic polish
+
+Preview-only refinement of the existing RTG redesign: restore the opening CTA breathing room, lift the navy story panel slightly, use a restrained silver heritage panel as a visual pause, and reduce the mobile hero type. All 19 films, sources, posters, groups, shared player logic and SEO metadata are untouched. Build and route/SEO checks required before publishing; hosted desktop verification follows. Real-device/mobile visual QA remains outstanding because the connected browser does not offer viewport emulation.
