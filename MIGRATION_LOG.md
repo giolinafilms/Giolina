@@ -496,3 +496,8 @@ This user-approved shortened log contains design changes and test results only.
 ## 2026-10-03 — Homepage final spacing checkpoint
 
 Hosted hero copy is already placed low in the frame; preserved. Gateway alignment, brand accents, image sources and per-image focal positions retained. Tightened only the introduction padding and desktop column gap; widened the supporting-copy measure slightly to balance the photograph. Mobile introduction retains its single-column layout with slightly tighter padding/gap. Build/check and diff checks passed; published to the existing preview branch only. Hosted desktop checked after deployment; mobile CSS reviewed (browser viewport resize unavailable).
+
+
+## 2026-10-03 — Contact polish checkpoint
+
+Reduced excess top/bottom section padding and gap before contact details; improved faint supporting-copy and contact-link contrast. Existing square rotating frames retained, with a more specific contain rule so portrait, square, 4:3 and landscape sources remain complete and unstretched despite later legacy overrides. Submit label now uses dark ink on brand cyan. Formspree action/configuration, field markup, scripts and email routing unchanged; scheduling remains below form and opens in a new tab. Required-field browser validation checked without sending an email. Build/check passed. Hosted desktop verified after deployment; mobile responsive CSS reviewed, visual viewport verification unavailable.

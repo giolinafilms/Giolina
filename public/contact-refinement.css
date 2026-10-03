@@ -6,3 +6,18 @@
 .gl-contact-options{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
 .gl-contact-options h2{box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;font:400 clamp(28px,2.7vw,36px)/1.2 Georgia,serif!important;letter-spacing:0!important;color:#126c72!important;margin:0 0 16px!important;white-space:normal;word-break:normal;overflow-wrap:normal}
 .gl-contact-options p{max-width:100%;word-break:normal;overflow-wrap:break-word}
+
+/* Contact-only polish: readable copy and complete photographs in stable frames. */
+.elementor-1752 .elementor-element.elementor-element-6edffec7{padding-block:56px 64px}
+.elementor-1752 .elementor-element.elementor-element-5b1d695e{font-size:20px;line-height:1.6;color:#526266}
+.elementor-1752 .elementor-element.elementor-element-1b3ec8a2{margin-top:14px}
+.elementor-1752 .elementor-element.elementor-element-23925cc5 .elementor-icon-list-item>a{font-size:14px;color:#126c72}
+.elementor-1752 .elementor-element.elementor-element-6936af46 .elementor-button[type="submit"]{color:#12383b}
+.gl-contact-photos .gl-image-rotation[data-selected-portfolio-images] img{object-fit:contain!important;object-position:center!important}
+.gl-contact-photos{margin-top:24px}
+@media(max-width:767px){
+ .elementor-1752 .elementor-element.elementor-element-6edffec7{padding-block:28px 40px}
+ .elementor-1752 .elementor-element.elementor-element-5b1d695e{font-size:17px}
+ .elementor-1752 .elementor-element.elementor-element-1b3ec8a2{margin-top:10px}
+ .gl-contact-photos{margin-top:20px}
+}
