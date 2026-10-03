@@ -10,7 +10,7 @@ if(links.length){
  buttons[0].addEventListener('click',()=>viewer.close());buttons[1].addEventListener('click',()=>show(active-1));buttons[2].addEventListener('click',()=>show(active+1));
  viewer.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(active+(e.key==='ArrowLeft'?-1:1));}});
  viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});
- viewer.addEventListener('close',()=>{document.body.classList.remove('gl-photo-viewer-open');trigger?.focus({preventScroll:true});});
+ viewer.addEventListener('close',()=>{image.removeAttribute('src');document.body.classList.remove('gl-photo-viewer-open');trigger?.focus({preventScroll:true});});
  image.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')swipe={x:e.clientX,y:e.clientY,id:e.pointerId};});
  image.addEventListener('pointerup',e=>{if(!swipe||e.pointerId!==swipe.id)return;const dx=e.clientX-swipe.x,dy=e.clientY-swipe.y;swipe=null;if(Math.abs(dx)>50&&Math.abs(dy)<70)show(active+(dx<0?1:-1));});
  image.addEventListener('pointercancel',()=>swipe=null);
