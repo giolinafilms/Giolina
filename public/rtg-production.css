@@ -30,3 +30,8 @@
 .gl-production-footer p{margin:0 0 8px}
 @media(max-width:850px){.gl-rtg-film-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gl-rtg-film-grid article:nth-child(5n+1){grid-column:auto}}
 @media(max-width:700px){.gl-production-header{padding:22px;align-items:flex-start;flex-direction:column;gap:16px}.gl-production-header nav{gap:24px}.gl-production-body .gl-rtg-opening{padding-block:42px 30px}.gl-rtg-films{width:calc(100% - 44px);padding-bottom:36px}.gl-rtg-film-grid{grid-template-columns:minmax(0,1fr);gap:22px}}
+
+.gl-production-wordmark{display:flex;align-items:center;gap:18px;max-width:460px}.gl-production-wordmark img{display:block;width:104px;height:auto;flex:none}.gl-production-header nav{flex-wrap:wrap;align-items:center}.gl-production-return{padding:8px 12px;border:1px solid #626b72;border-radius:2px}.gl-production-return:hover{background:#30373c}
+@media(max-width:700px){.gl-production-wordmark{font-size:14px;gap:14px}.gl-production-wordmark img{width:84px}.gl-production-header nav{gap:12px 22px}.gl-production-return{min-height:44px;display:flex;align-items:center}}
+
+.gl-production-logo-slot{width:104px;min-height:78px;display:grid;place-items:center;flex:none;padding:10px;border:1px solid #626b72;font:400 11px/1.5 Arial,sans-serif;letter-spacing:.04em;text-align:center;color:#bcc4ca}@media(max-width:700px){.gl-production-logo-slot{width:84px;min-height:64px}}
