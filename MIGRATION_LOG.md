@@ -401,3 +401,9 @@ This user-approved shortened log contains design changes and test results only.
 - Opening carousel remains Falling in Love, then Week 2. Existing Bianca & Bobby recap moved to the small Anniversary films group, joined by the available Sara & Phil and Nicole & Philip recap uploads. No long-form films added or removed.
 - Selected recap films reuse the existing click-created modal and native player teardown. No iframe/video player exists before a Play Film click. Opening and recap modal navigation stay within their own collection.
 - Recovered after the connection interruption; missing poster exports completed before final validation and preview-only publication.
+# October 3 — Focused Love in a Minute font / composition test
+
+- Compared the existing header logo with the available script treatment. Reused Allura for the complete Love in a Minute title, with natural lettering and the existing brand cyan; no sitewide font/color changes.
+- Desktop opening now pairs a left-aligned title/copy column with the existing video browser at the right, reducing the detached vertical gap. At tablet/mobile widths it stacks with a smaller script title and compact spacing.
+- Only this section's CSS changed. All content JSON, films, posters, recap collection, Client Wedding Films grid and player scripts remain byte-for-byte unchanged.
+- Build/check and hosted desktop verification required before handoff. Direct mobile visual verification remains unavailable in the current browser controls; responsive layout rules are retained and inspected without claiming a device test.
