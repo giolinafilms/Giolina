@@ -332,3 +332,12 @@ This user-approved shortened log contains design changes and test results only.
 - Desktop iframe is 518x291.375 (16:9), interactive, correct exact source, no page horizontal overflow (1348px scroll width / 1363px viewport). Screenshot captured in context. Phone CSS retains single-column grid at <=700px and fluid 100% iframe dimensions; actual mobile visual test unavailable because browser exposes no resize/emulation API.
 - Fullscreen control exists and iframe allowfullscreen attribute supplied, but browser click/key attempts did not produce confirmed document.fullscreenElement. Fullscreen behavior remains unverified, not passed or proven broken. No player implementation or unrelated content altered to work around browser test limitations.
 - Preview: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/portfolio-2/ . No production, DNS, domain/email, client portal or SmugMug changes.
+
+## 2026-10-03 — Step 1: Cinematography structure
+
+- Continued from verified remote Preview 5a970da8a33e5d74c6b252238a20c4b20acfd3b4. Scope limited to /portfolio-2/, a page-specific stylesheet, and this log.
+- Opening now displays existing GioLina reel 548643452 as an edge-to-edge responsive 16:9 native Vimeo player with controls, no large text overlay, no background autoplay/controller. User describes 2:37; official oEmbed reports 158 seconds. Homepage hero unchanged.
+- Client Wedding Films retains seven verified long Vimeo cuts (durations 642, 650, 510, 886, 506, 456, 572 seconds) and the byte-identical working Jazz & Trevor MediaZilla card/source. Removed the 47-second Falling in Love brand promo and 207-second Bianca/Bobby Same Day Edit from this page only; other pages/sources retained.
+- Full Presentation retains exact client-delivery destination FY22EfWIt8 and secure new-tab link. Added Love in a Minute heading/section structure only, with no videos/cards/MP4 uploads. Existing final inquiry retained.
+- No production, DNS/email/domain, clients portal, SmugMug, shared player/header, or other page changes. Build/check and hosted verification tracked in this task's final handoff.
+- Validation before publication: Astro build passed (30 pages); existing route/asset/link/Worker checks passed (29 routes, 1110 asset references). Focused checks passed for ordered sections, one exact hero source, eight long-cut cards, byte-identical Jazz/Trevor card, and empty Love in a Minute media structure.
