@@ -365,3 +365,10 @@ This user-approved shortened log contains design changes and test results only.
 - Standardized Play Film labels across client cards; existing lazy players retained.
 - Experience Bianca & Bobby SDE, Love in a Minute placeholder, Sweet Sixteen and Ready To Go remain unchanged.
 - Source review caveats: supplied Mira link is Amira+Ryan_Highlights (2:33); supplied Cole link title is nicolePhil_HIGHLIGHTS_v02. Exact requested links/labels retained pending owner review.
+
+### Step 2.5 — Cinematography verification and player cleanup
+- Confirmed two separate existing assignments: Cole & Philip → MediaZilla XDcajHQdhs (actual male-couple ceremony despite internal nicolePhil_HIGHLIGHTS_v02 title); Nicole & Philip → Vimeo 425185852. No names, sources, cards, posters or films changed.
+- MediaZilla autoplay is explicitly disabled with the documented autoplay=0 option. The official embed/autoplay guides do not document a reliable muted-start option; retain explicit click-to-play instead of guessing parameters or cross-origin player hacks.
+- Both portfolio player handlers remove the iframe immediately on Close, backdrop click or Escape. Opening a player also removes/closes any other active portfolio player, preserving body scroll lock and focus across providers.
+- Existing shared centered responsive modal, dark backdrop, fullscreen permissions and wider Nicolette aspect ratio retained. No page redesign or changes to Love in a Minute, Sweet Sixteen or Ready To Go. Preview branch only.
+- Reference: https://support.mediazilla.com/en/articles/5479841-why-doesn-t-my-video-or-presentation-autoplay

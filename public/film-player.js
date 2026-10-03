@@ -12,7 +12,15 @@ if (filmTriggers.length) {
  filmTriggers.forEach(trigger => trigger.addEventListener('click', event => {
   const id = trigger.dataset.vimeoId;
   if (!/^\d+$/.test(id)) return;
-  event.preventDefault(); opener = trigger;
+  event.preventDefault();
+  // Only one portfolio player may remain active, including across providers.
+  document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
+   if (active !== dialog) {
+    active.querySelector('.gl-film-screen')?.replaceChildren();
+    active.close();
+   }
+  });
+  opener = trigger;
   const title = trigger.dataset.filmTitle || 'GioLina wedding film';
   dialog.querySelector('h2').textContent = title;
   const frame = document.createElement('iframe');
@@ -22,10 +30,14 @@ if (filmTriggers.length) {
   screen.replaceChildren(frame);
   dialog.showModal(); document.body.classList.add('gl-film-open'); close.focus();
  }));
- close.addEventListener('click', () => dialog.close());
- dialog.addEventListener('click', event => { if(event.target === dialog) dialog.close(); });
+ const stopAndClose = () => { screen.replaceChildren(); dialog.close(); };
+ close.addEventListener('click', stopAndClose);
+ dialog.addEventListener('cancel', () => screen.replaceChildren());
+ dialog.addEventListener('click', event => { if(event.target === dialog) stopAndClose(); });
  dialog.addEventListener('close', () => {
   screen.replaceChildren(); // Stop sound/playback immediately, including Escape close.
-  document.body.classList.remove('gl-film-open'); opener?.focus();
+  if (!document.querySelector('.gl-film-dialog[open]')) {
+   document.body.classList.remove('gl-film-open'); opener?.focus();
+  }
  });
 }
