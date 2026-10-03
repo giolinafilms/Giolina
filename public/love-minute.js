@@ -5,7 +5,6 @@ if (browser) {
  const poster = stage.querySelector('img');
  const count = browser.querySelector('[data-short-count]');
  const picker = browser.querySelector('select');
- const choices = [...browser.querySelectorAll('[data-short-index]')];
  const dialog = document.createElement('dialog');
  dialog.className = 'gl-film-dialog gl-short-dialog';
  dialog.setAttribute('aria-labelledby', 'gl-short-modal-title');
@@ -14,7 +13,7 @@ if (browser) {
  const screen = dialog.querySelector('.gl-short-screen');
  let index = 0;
  let playingIndex = 0;
- const openingCount = choices.length;
+ const openingCount = picker.options.length;
  function stop() {
   const video = screen.querySelector('video');
   if (video) {
@@ -29,10 +28,11 @@ if (browser) {
   index = (next + openingCount) % openingCount;
   const film = films[index];
   poster.src = film.poster; poster.alt = film.title;
+  poster.width = film.width; poster.height = film.height;
+  stage.style.setProperty('--gl-short-aspect', `${film.width} / ${film.height}`);
   count.textContent = `${index + 1} / ${openingCount}`;
   stage.setAttribute('aria-label', `Play Film — ${film.title}`);
   picker.value = String(index);
-  choices.forEach((choice, i) => choice.setAttribute('aria-pressed', String(i === index)));
   if (dialog.open) play();
  }
  function play(next = index) {
@@ -78,7 +78,6 @@ if (browser) {
   if (playingIndex < openingCount) select(playingIndex + direction);
   else play(openingCount + (playingIndex - openingCount + direction + films.length - openingCount) % (films.length - openingCount));
  }
- choices.forEach(choice => choice.addEventListener('click', () => select(Number(choice.dataset.shortIndex))));
  picker.addEventListener('change', () => select(Number(picker.value)));
  browser.querySelector('[data-short-prev]').addEventListener('click', () => select(index - 1));
  browser.querySelector('[data-short-next]').addEventListener('click', () => select(index + 1));
