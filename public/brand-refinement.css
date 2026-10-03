@@ -35,3 +35,11 @@
 .gl-about-story a:focus-visible,.gl-photo-page a:focus-visible,.gl-film-toolbar button:focus-visible{outline:2px solid var(--gl-brand-cyan,#19b5bc);outline-offset:4px}
 @media(max-width:900px){.gl-photo-page .gl-photo-intro{gap:32px}.gl-photo-page .gl-photo-intro>div{padding-top:20px}.gl-love-intro .gl-love-logo{width:110px;margin-bottom:18px}}
 @media(max-width:700px){.gl-photo-page .gl-photo-intro{padding:24px 0;gap:24px}.gl-photo-page .gl-photo-intro>div{padding-top:0}.gl-photo-page .gl-photo-intro h1{font-size:clamp(44px,10vw,56px)}.gl-photo-page .gl-photo-spread figcaption{font-size:42px;line-height:1.2}.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{grid-template-columns:minmax(0,1fr);gap:14px}.gl-full-presentation.gl-delivery-feature a{justify-self:start}.gl-photo-page .gl-photo-album.gl-delivery-feature{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}.gl-photo-page .gl-photo-album.gl-delivery-feature img{max-height:none}.gl-photo-page .gl-photo-album.gl-delivery-feature a{justify-self:center}.gl-about-origin{padding-block:32px;gap:26px}.gl-about-family{max-width:400px}.gl-family-dialog{padding:12px}.gl-love-intro .gl-love-logo{width:105px;margin-bottom:16px}}
+
+/* Compact editorial delivery feature and proportional Love in a Minute logo. */
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-block:30px}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature h2{font:400 clamp(26px,3vw,34px)/1.25 Georgia,serif;margin:0}
+.gl-full-presentation.gl-delivery-feature a{align-self:center;justify-self:center}
+.gl-love-intro .gl-love-logo{width:270px;margin-bottom:24px}
+@media(max-width:900px){.gl-love-intro .gl-love-logo{width:220px;margin-bottom:20px}}
+@media(max-width:700px){.gl-love-intro .gl-love-logo{width:190px;margin-bottom:18px}.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{gap:12px;padding-block:26px}}
