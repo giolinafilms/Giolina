@@ -501,3 +501,5 @@ Hosted hero copy is already placed low in the frame; preserved. Gateway alignmen
 ## 2026-10-03 — Contact polish checkpoint
 
 Reduced excess top/bottom section padding and gap before contact details; improved faint supporting-copy and contact-link contrast. Existing square rotating frames retained, with a more specific contain rule so portrait, square, 4:3 and landscape sources remain complete and unstretched despite later legacy overrides. Submit label now uses dark ink on brand cyan. Formspree action/configuration, field markup, scripts and email routing unchanged; scheduling remains below form and opens in a new tab. Required-field browser validation checked without sending an email. Build/check passed. Hosted desktop verified after deployment; mobile responsive CSS reviewed, visual viewport verification unavailable.
+
+Contact hosted check follow-up: legacy nested icon-list spans retained their gray text styling; explicitly applied the same readable 14px brand-deep color to the inner labels. Scheduler link reaches its existing HoneyBook wrapper, but the embedded booking UI did not render in this browser. No booking or form submission was sent.
