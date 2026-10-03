@@ -456,3 +456,10 @@ This user-approved shortened log contains design changes and test results only.
 - Tightened image/copy composition without changing the photographs or hero heading.
 - Five existing films remain in the same order, in a deliberate 2 + 2 + 1 arrangement. All cards now share the same width, 16:9 poster frame and caption spacing; the fifth is centered at the matching width. Posters use a clean crop without stretching, while original playback aspect ratios and all source URLs remain unchanged.
 - Mobile retains one complete card per row; shared playback scripts are unchanged.
+
+# October 3 — Client Delivery Experience landscape hero
+
+- Replaced the floating small image with the existing full-resolution 2560 × 1707 landscape asset /assets/132cabf69ffc85cc.jpg: the couple centered beneath the venue's gold arches.
+- Feature now spans its full page container, with an immersive landscape photo and compact centered cyan title/link treatment immediately beneath it. Mobile uses a gentler 3:2 crop preserving the centered couple.
+- Preserved Client Delivery Experience, View Full Presentation, exact https://mediazilla.com/FY22EfWIt8 destination and new-tab behavior.
+- No other content, long-form film cards, posters or playback scripts changed in this checkpoint.

@@ -53,3 +53,11 @@
 .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a:is(:hover,:focus-visible){color:#12383b;border-color:#12383b;background:#edf8f8}
 .gl-cinema-step-one #gl-film-closing-heading{color:var(--gl-brand-cyan,#19b5bc)}
 @media(max-width:700px){.gl-cinema-step-one #gl-client-films-title{font-size:46px}.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{padding-block:24px;margin-bottom:24px;gap:14px}}
+
+/* An immersive landscape feature with its title/link in a compact cyan finish. */
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{width:100%;max-width:none;display:block;padding:0;margin:24px 0 28px;background:var(--gl-brand-cyan,#19b5bc);box-shadow:none;clip-path:none;overflow:hidden}
+.gl-cinema-step-one .gl-delivery-image{width:100%;max-width:none;aspect-ratio:2/1;height:auto;max-height:680px;object-fit:cover;object-position:50% 58%}
+.gl-delivery-copy{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 24px 24px}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a:focus-visible{outline:2px solid #12383b;outline-offset:5px}
+@media(max-width:700px){.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{padding:0;margin-block:20px 24px}.gl-cinema-step-one .gl-delivery-image{aspect-ratio:3/2;max-height:none;object-position:center}.gl-delivery-copy{gap:8px;padding:20px 24px 22px}}
