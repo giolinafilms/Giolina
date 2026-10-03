@@ -63,3 +63,6 @@ html,body{margin:0}
 .gl-site-footer-bottom .gl-site-footer-logo{width:155px;justify-self:end}
 .gl-site-footer .gl-site-footer-copyright{font-size:12px;color:#667176;margin:4px 0 0}
 @media(max-width:650px){.gl-site-footer{padding:28px 24px 20px}.gl-site-footer-inner{grid-template-columns:minmax(0,1fr);gap:20px}.gl-site-footer .gl-site-footer-bottom{grid-template-columns:minmax(0,1fr);gap:14px}.gl-site-footer-bottom .gl-site-footer-logo{width:125px;justify-self:end}}
+
+/* Give long navigation labels room within the narrow mobile footer. */
+@media(max-width:380px){.gl-site-footer nav{grid-template-columns:minmax(0,1fr);row-gap:10px}}

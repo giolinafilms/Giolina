@@ -521,3 +521,8 @@ Changed only Your wedding. Seen with care. to established brand cyan (#19b5bc), 
 ## 2026-10-03 — About Us polish checkpoint
 
 Inspected hosted family/story area. Tightened story section padding and column gap, brought the heading/kicker spacing closer to copy, and centered the family-video caption beneath its unchanged square poster. Existing blue accents and typography already consistent; preserved. Frank bio, page structure, family film source and playback unchanged. Build/check passed; hosted desktop verified after preview deployment. Mobile CSS reviewed; mobile visual viewport unavailable.
+
+
+## 2026-10-03 — Mobile responsive QA checkpoint
+
+Reviewed responsive rules for homepage script, Love in a Minute, anniversary recaps, delivery hero, Sweet Sixteen films, Photography hero/gallery and footer. Reduced Love in a Minute's 62px minimum script size to a fluid 48–68px phone treatment. Below 381px, moved selected-film picker onto its own row so its label has full width; controls retain existing tap targets. At the same narrow breakpoint footer navigation becomes one column to avoid long-label crowding. Existing one-card reel, single-column recap/Sweet Sixteen layouts, natural poster ratios, gallery centering and mobile delivery crop preserved. No desktop changes, content/media changes or player architecture changes. Build/check and diff checks passed. Hosted assets verified after preview deployment; actual mobile visual verification remains unavailable because this browser exposes no viewport/emulation control.
