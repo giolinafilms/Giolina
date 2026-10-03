@@ -511,3 +511,8 @@ Reviews: reduced repeated header/divider and closing gaps; brought name/star att
 Experience: reduced oversized desktop hero heading to avoid a long broken script line; balanced the existing hero columns and tightened hero, statement, process, quote, FAQ and closing spacing, with independent mobile rules. Julia & Mina quote/photo, Bianca & Bobby SDE, Francesca & Chris and existing engagement film markup/sources/playback untouched.
 Contact scheduler finished loading successfully: GioLina Films / Consultation Call / 30 minutes / availability calendar visible. No booking made. Contact form validation checked; no email submission sent, so delivery was not end-to-end tested.
 Build/check and diff checks passed; all four hosted pages verified after preview deployments. Mobile CSS reviewed; actual mobile viewport visual QA unavailable in the current browser. No production or unrelated page changes.
+
+
+## 2026-10-03 — Homepage script heading color
+
+Changed only Your wedding. Seen with care. to established brand cyan (#19b5bc), using the existing brand variable. Allura, wording, sizes and spacing preserved. Build/check passed; hosted color verified after preview deployment. Mobile uses the same color and existing 42–56px responsive script sizes; mobile viewport visual QA unavailable. Exact cyan on white is 2.50:1, below the 3:1 large-text contrast threshold; retained the exact requested brand color and reported the limitation.
