@@ -588,3 +588,8 @@ RTG-only midnight/wine/charcoal/silver visual identity. Atlas opening feature, M
 ## 2026-10-03 — RTG aesthetic polish
 
 Preview-only refinement of the existing RTG redesign: restore the opening CTA breathing room, lift the navy story panel slightly, use a restrained silver heritage panel as a visual pause, and reduce the mobile hero type. All 19 films, sources, posters, groups, shared player logic and SEO metadata are untouched. Build and route/SEO checks required before publishing; hosted desktop verification follows. Real-device/mobile visual QA remains outstanding because the connected browser does not offer viewport emulation.
+
+
+## 2026-10-03 — Sitewide visual consistency checkpoint
+
+Reviewed hosted desktop openings and selected lower sections across all nine main pages, plus current mobile responsive rules. Preserved the approved cyan/script wedding treatment, readable darker teal names, blush Sweet Sixteen system, RTG production palette, film inventory and shared footer composition. Corrected legacy dark-blue header/footer hover/focus colors to the established readable teal; Sweet Sixteen shared interactions use existing rose. Social-platform icon colors remain unchanged. No page content, headings, metadata, canonical URLs, alt text, GA4, schema, sitemap/robots or redirect changes. Real-device/mobile visual QA and the owner’s laptop review remain outstanding; authentic RTG logo and Frank portrait remain unavailable, and the two pre-existing RTG films without provider poster metadata still need manual review. Build and route/SEO checks required before publishing; hosted verification follows.

@@ -68,3 +68,7 @@
 .gl-celebration-photo-ready .gl-celebration-intro h2{font-size:clamp(38px,4.2vw,56px);line-height:1.15}
 .gl-celebration-intro>div{max-width:590px}
 @media(max-width:700px){.gl-celebration-showcase{grid-template-columns:minmax(0,1fr);gap:26px}.gl-celebration-showcase>article:last-child{grid-column:auto;width:100%}.gl-celebration-photo-ready .gl-celebration-intro{gap:26px;padding-block:32px}}
+
+/* Keep shared header/footer interactions inside the celebration palette. */
+.gl-celebration-page .gl-site-header a:focus-visible,.gl-celebration-page .gl-site-header summary:focus-visible,.gl-celebration-page .gl-site-footer a:focus-visible{outline-color:#76525c}
+.gl-celebration-page .gl-site-header .gl-site-header-inquire:hover,.gl-celebration-page .gl-site-footer a:hover{color:#76525c}
