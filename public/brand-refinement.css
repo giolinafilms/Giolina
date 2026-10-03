@@ -43,3 +43,13 @@
 .gl-love-intro .gl-love-logo{width:270px;margin-bottom:24px}
 @media(max-width:900px){.gl-love-intro .gl-love-logo{width:220px;margin-bottom:20px}}
 @media(max-width:700px){.gl-love-intro .gl-love-logo{width:190px;margin-bottom:18px}.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{gap:12px;padding-block:26px}}
+
+/* Wedding heading accents and full-width editorial delivery band. */
+.gl-cinema-step-one #gl-client-films-title{font:400 clamp(48px,5.5vw,70px)/1.15 Allura,cursive;letter-spacing:0;color:var(--gl-brand-cyan,#19b5bc)}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{background:var(--gl-brand-cyan,#19b5bc);box-shadow:0 0 0 100vmax var(--gl-brand-cyan,#19b5bc);clip-path:inset(0 -100vmax);border:0;padding:28px 0 30px;margin-bottom:28px;gap:16px}
+.gl-delivery-image{display:block;width:min(500px,100%);height:auto;aspect-ratio:3/2;object-fit:cover}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature h2{color:#12383b;margin:0}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a{color:#12383b;border-color:#12383b;margin:0;padding:6px 0;min-height:40px;background:transparent}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a:is(:hover,:focus-visible){color:#12383b;border-color:#12383b;background:#edf8f8}
+.gl-cinema-step-one #gl-film-closing-heading{color:var(--gl-brand-cyan,#19b5bc)}
+@media(max-width:700px){.gl-cinema-step-one #gl-client-films-title{font-size:46px}.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{padding-block:24px;margin-bottom:24px;gap:14px}}

@@ -1,3 +1,8 @@
+### 2026-10-03 — Title-led Cinematography checkpoint
+- Client Wedding Films title only uses script/cyan; cards, names, layout unchanged. Centered delivery feature retains FY22EfWIt8 new-tab link, adds existing kiss image and full-width cyan band with readable charcoal text. Removed short-section logo; enlarged script title and tightened spacing. Added requested positive RTG context and recap intro/support.
+- Editorial titles in source order: Falling in Love, Together, Before the Vows, In the Details, Into the Night, The Celebration, Among Friends, The Whole Day. Exact film/poster bytes, natural ratios and playback JS preserved.
+- Lauren/Tommy workspace and upload search repeated: only named PNG/poster WebP, no anniversary short; no substitute.
+
 ### 2026-10-03 — Complete available short-film inventory checkpoint
 - Main Love in a Minute browser: Falling in Love, Week 2, Week 3, Week 5, Week 7, Week 9, Week 11, Week 14. Original first two sources/posters unchanged. Simple native film selector with previous/next, count, keyboard and existing swipe navigation; one selected poster only on desktop/mobile. Mobile stage follows source ratio, with contain sizing retained.
 - Preserved existing recap presentation and exact Bianca & Bobby, Sara & Phil, Nicole & Philip sources/posters; adjusted indices only for expanded main group. Modal navigation stays within the selected group.

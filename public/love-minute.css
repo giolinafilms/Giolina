@@ -50,3 +50,12 @@
 .gl-short-picker:focus-visible{outline:2px solid var(--gl-brand-cyan,#19b5bc);outline-offset:4px}
 .gl-short-controls{flex:none}
 @media(max-width:700px){.gl-short-navigation{flex-wrap:nowrap;gap:10px}.gl-short-picker{font-size:16px}.gl-cinema-step-one .gl-love-minute .gl-short-stage,.gl-cinema-step-one .gl-love-minute .gl-short-stage:is(:hover,:focus,:active){aspect-ratio:var(--gl-short-aspect,1/1)}}
+
+/* Title-led composition with closer editorial grouping. */
+.gl-cinema-step-one .gl-love-minute{padding-top:28px;column-gap:38px}
+.gl-cinema-step-one .gl-love-intro h2{font-size:clamp(82px,8.7vw,114px);line-height:.98}
+.gl-love-subtitle{margin-top:18px}.gl-love-editorial{margin-top:16px}
+.gl-love-recaps{margin-top:32px;padding-top:28px}.gl-love-recap-intro{margin-bottom:20px}
+.gl-love-history{margin-top:24px;max-width:850px}
+@media(max-width:900px){.gl-love-intro{margin-bottom:24px}.gl-cinema-step-one .gl-love-intro h2{font-size:clamp(66px,9.5vw,94px)}}
+@media(max-width:700px){.gl-cinema-step-one .gl-love-minute{padding-top:24px}.gl-cinema-step-one .gl-love-intro h2{font-size:clamp(62px,14vw,80px);line-height:1.04}.gl-love-intro{margin-bottom:20px}.gl-love-recaps{margin-top:26px;padding-top:24px}.gl-love-recap-grid{gap:24px}.gl-love-history{margin-top:20px}}
