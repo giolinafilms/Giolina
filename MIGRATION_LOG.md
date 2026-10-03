@@ -579,3 +579,7 @@ Compared the live WordPress 22-page sitemap to generated routes; no published pa
 
 ## 2026-10-03 — production cutover plan only
 Documented scoped giolinafilms.com/apex-www route-based cutover, full DNS/mail preservation, release/indexing/GA4 gates and immediate WordPress rollback. Public DNS remains GoDaddy; giolina.co including clients.giolina.co is excluded. No production, DNS, Search Console or email action executed. Recommendation NOT READY pending documented gates.
+
+
+## 2026-10-03 — RTG portfolio redesign
+RTG-only midnight/wine/charcoal/silver visual identity. Atlas opening feature, Mirror Booth and Preferred spotlight pair, remaining 16 films in an accessible poster-only horizontal reel. All 19 exact film blocks, titles/sources/posters retained once; no categorization. Mobile one full card per reel view. Shared player scripts unchanged; RTG modal styling now matches production identity. Authentic RTG logo unavailable (workspace filenames and captured asset manifest checked), existing silver wordmark retained. Build/check passed. Hosted desktop/playback verification follows publication; mobile visual/device pass unavailable in current browser, responsive rules reviewed.
