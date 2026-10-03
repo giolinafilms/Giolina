@@ -449,3 +449,10 @@ This user-approved shortened log contains design changes and test results only.
 - Moved the existing proportional logo to the bottom-right, with a smaller separate mobile treatment.
 - Added “GioLina Photography and Cinematography” and subtle © 2026 GioLina Films. All rights reserved. beneath it.
 - Scoped changes to the GioLina footer; RTG footer and content remain unchanged.
+
+# October 3 — Softer Sweet Sixteen / aligned film cards
+
+- Removed both heavy charcoal heading rectangles. Retained the phrases and restrained script, using a readable rose from the blush palette on the existing light surface.
+- Tightened image/copy composition without changing the photographs or hero heading.
+- Five existing films remain in the same order, in a deliberate 2 + 2 + 1 arrangement. All cards now share the same width, 16:9 poster frame and caption spacing; the fifth is centered at the matching width. Posters use a clean crop without stretching, while original playback aspect ratios and all source URLs remain unchanged.
+- Mobile retains one complete card per row; shared playback scripts are unchanged.

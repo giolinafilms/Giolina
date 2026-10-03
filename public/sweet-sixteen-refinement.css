@@ -57,10 +57,14 @@
 /* First-name captions share the center of their own film card. */
 .gl-celebration-showcase>article>h3{width:100%;text-align:center;margin:16px 0 0}
 
-/* Five real films: two paired rows and one centered wider feature. */
-.gl-celebration-showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px;align-items:start;margin-block:32px}
-.gl-celebration-showcase>article:last-child{grid-column:1/-1;width:min(720px,100%);justify-self:center}
-.gl-celebration-showcase .gl-film-preview>img{object-fit:contain;transform:none}
-/* Light blush stays legible on the site's existing charcoal. */
-.gl-celebration-intro h2,.gl-celebration-work .gl-landing-section-heading h2{color:#f3d9df;background:#303337;padding:18px 22px;width:fit-content;border-radius:2px}
-@media(max-width:700px){.gl-celebration-showcase{grid-template-columns:minmax(0,1fr);gap:28px}.gl-celebration-showcase>article:last-child{grid-column:auto;width:100%}.gl-celebration-intro h2,.gl-celebration-work .gl-landing-section-heading h2{padding:16px 18px}}
+/* Equal poster frames and a centered fifth card form a deliberate 2 + 2 + 1. */
+.gl-celebration-showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px;align-items:start;margin-block:32px}
+.gl-celebration-showcase>article:last-child{grid-column:1/-1;width:calc((100% - 28px)/2);justify-self:center}
+.gl-celebration-showcase .gl-film-preview{aspect-ratio:16/9!important;background:#fff8f9}
+.gl-celebration-showcase .gl-film-preview>img{object-fit:cover;object-position:center;transform:none}
+/* Rose typography on a soft paper surface, without a boxed heading. */
+.gl-celebration-photo-ready .gl-celebration-intro{gap:48px;padding-block:42px}
+.gl-celebration-intro h2,.gl-celebration-work .gl-landing-section-heading h2{color:#b7677e;background:transparent;padding:0;width:auto;border-radius:0;margin-bottom:22px}
+.gl-celebration-photo-ready .gl-celebration-intro h2{font-size:clamp(38px,4.2vw,56px);line-height:1.15}
+.gl-celebration-intro>div{max-width:590px}
+@media(max-width:700px){.gl-celebration-showcase{grid-template-columns:minmax(0,1fr);gap:26px}.gl-celebration-showcase>article:last-child{grid-column:auto;width:100%}.gl-celebration-photo-ready .gl-celebration-intro{gap:26px;padding-block:32px}}
