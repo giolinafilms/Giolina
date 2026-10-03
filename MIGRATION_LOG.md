@@ -476,3 +476,10 @@ This user-approved shortened log contains design changes and test results only.
 - Added Atlas Holiday Corporate Party (https://mediazilla.com/GvmFXRQFOE) and Preferred Holiday Corporate Party (https://mediazilla.com/hpCgs75ypG) after the existing RTG inventory; no duplicates or reorganization.
 - Local posters are the actual MediaZilla video stills. Atlas source is 1920 × 1012; Preferred is 1920 × 1080. Cards preserve those proportions, and an RTG-only modal rule preserves Atlas's wider ratio.
 - Reused the existing click-created MediaZilla modal/player module without changing shared playback code. Existing RTG structure, dark/metallic treatment, Vimeo inventory and unrelated pages preserved.
+
+# October 3 — Contained RTG header cleanup
+
+- Inspected hosted RTG header. Charcoal/silver identity and simple GioLina return link were already correct and retained.
+- The authentic RTG logo was absent from current/recovered workspace assets and Git filename history; earlier log references described an unpublished local asset that is no longer present. Removed the internal “Original RTG logo” placeholder and outdated approval comment rather than substituting GioLina or inventing a logo.
+- Kept a clean uppercase RTG text wordmark with restrained silver styling. Added wrapping-safe mobile header spacing and 44px navigation tap targets.
+- All RTG video inventory, including Atlas/Preferred, page content, playback code and unrelated pages remain unchanged. Mobile CSS inspected separately; direct mobile visual controls remain unavailable.

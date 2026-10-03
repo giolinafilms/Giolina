@@ -40,3 +40,8 @@
 .gl-production-body .gl-rtg-corporate .gl-film-preview img{object-fit:contain}
 .gl-production-body .gl-rtg-corporate h3{font-size:18px;line-height:1.4;margin:12px 0 0;letter-spacing:0}
 .gl-production-body .gl-film-dialog:has(iframe[src^="https://mediazilla.com/GvmFXRQFOE"]) .gl-film-screen{aspect-ratio:480/253!important}
+
+/* Clean RTG branding while the authentic image asset is unavailable. */
+.gl-production-header .gl-production-wordmark{display:block;width:auto;max-width:100%;font-size:clamp(18px,2.1vw,24px);line-height:1.25;letter-spacing:.09em}
+.gl-production-header nav a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:700px){.gl-production-header{gap:14px}.gl-production-header .gl-production-wordmark{font-size:20px}.gl-production-header nav{max-width:100%;gap:8px 20px}}
