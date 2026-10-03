@@ -54,4 +54,7 @@
 .gl-celebration-showcase .gl-film-preview{aspect-ratio:16/9;overflow:hidden}
 .gl-celebration-showcase .gl-film-preview>img{display:block;width:100%;height:100%;object-fit:cover;opacity:1}
 /* Real Gabby video poster contains baked-in letterboxing. Crop just that border. */
-.gl-celebration-showcase .gl-film-preview>img[alt="Gabby’s UnSweet 16"]{transform:scale(1.36);transform-origin:50% 50%}
+.gl-celebration-showcase .gl-film-preview>img[alt="Gabby"]{transform:scale(1.36);transform-origin:50% 50%}
+
+/* First-name captions share the center of their own film card. */
+.gl-celebration-showcase>article>h3{width:100%;text-align:center;margin:16px 0 0}
