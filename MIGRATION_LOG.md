@@ -385,3 +385,10 @@ This user-approved shortened log contains design changes and test results only.
 - One eager Vimeo iframe remains: the top GioLina wedding reel (548643452), intentionally kept because its existing native controls/presentation must not change in this performance-only pass. The page is therefore not entirely player-free before interaction; adding client cards does not add eager players.
 - Deferred the cinematography page's small Vimeo click-handler script to avoid parser blocking. Explicitly abort native short-video loading and release media buffers before removal on close or film switch, including cross-provider cleanup. Iframe removal continues to destroy embedded provider players.
 - No poster, title, film order, CSS, layout, or other page content changes.
+
+
+### 2026-10-03 — Falling in Love replacement and playback/loading consistency
+- First Love in a Minute source now derives solely from uploaded final_Week_01_1080x1080(1).mp4 (42.208833s, original 1080x1080), encoded H.264/AAC faststart at 720x720. Public title Falling in Love and all existing short-film poster sources, titles and order retained; Week 2 and Bianca & Bobby entries unchanged.
+- Removed the only eager cinematography iframe: top GioLina wedding reel 548643452 now shows its same original Vimeo poster (1135878106), at the same 16:9 size, with the existing site Play Film button and shared Vimeo modal. No Client Wedding Films layout, typography or other page redesign.
+- Initial cinematography HTML contains no video or iframe elements; no third-party player SDK is loaded. Only the selected poster updates when browsing short films. Vimeo/MediaZilla/native video are created on Play Film; unmuted autoplay, fresh-start playback, fullscreen and one-active-modal teardown retained.
+- MediaZilla uses its documented autoplay=1 with autoplay/fullscreen permissions. Sound/autoplay remain subject to browser policy; no unsupported API or synthetic click workaround.
