@@ -1,0 +1,24 @@
+/* Readability and keyboard affordances; layout, media and brand surfaces stay intact. */
+:root{--gl-accessible-teal:#128087}
+body:not(.gl-production-body):not(.gl-celebration-page) :is(#gl-introduction-title,#gl-client-films-title,#gl-film-closing-heading,.gl-love-intro h2,.gl-love-recap-intro h3,.gl-photo-intro h1,.gl-photo-spread figcaption,.gl-photo-close h2,.gl-reviews h1,.gl-review-stars,.gl-exp-credit,.gl-exp-mina,.gl-exp-cta h2 span){color:var(--gl-accessible-teal)!important}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header :is(.gl-site-nav a,.gl-site-mobile-menu summary){color:#12383b!important}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:#12383b!important;background:rgba(255,255,255,.18)}
+.gl-site-header .gl-site-social-icons a[aria-label="Vimeo"],.gl-site-footer-social a[aria-label="Vimeo"]{color:#12383b!important}
+.gl-contact-schedule{color:#12383b!important}
+.gl-experience .gl-exp-number{color:#657260}
+[data-contact-form] :is(label,input,textarea){color:#526266!important}
+[data-contact-form] :is(input,textarea)::placeholder{color:#526266!important;opacity:1}
+[data-contact-form] :is(input,textarea){border-color:#78888a!important}
+body:not(.gl-production-body) :is(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline:3px solid #126c72!important;outline-offset:4px}
+.gl-celebration-page :is(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline-color:#76525c!important}
+/* Inset rings stay visible when poster frames clip their contents. */
+body:not(.gl-production-body) :is(.gl-film-preview>button,.gl-short-stage,.gl-recap-stage):focus-visible{outline-offset:-6px;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 6px #126c72}
+.gl-celebration-page .gl-film-preview>button:focus-visible{box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 6px #76525c}
+.gl-photo-viewer button:focus-visible{outline-color:#fff!important}
+.gl-production-body .gl-film-preview>button:focus-visible{outline:3px solid #e8d7c6;outline-offset:-6px;box-shadow:inset 0 0 0 3px #192431,inset 0 0 0 6px #e8d7c6}
+.gl-short-controls button,.gl-short-modal-nav button,.gl-film-close{min-width:44px;min-height:44px}
+@media(max-width:850px){
+ .gl-site-header .gl-site-social-icons a,.gl-site-footer-social a{width:44px;min-width:44px;height:44px;min-height:44px}
+ .gl-site-header .gl-site-header-inquire,.gl-site-footer nav a{min-height:44px;display:inline-flex;align-items:center}
+ .gl-production-footer a{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}
+}

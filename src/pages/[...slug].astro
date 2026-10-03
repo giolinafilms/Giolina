@@ -31,11 +31,12 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {page.path === "/sweet-sixteen/" && <link rel="stylesheet" href="/sweet-sixteen-refinement.css" />}
 {isRtg && <link rel="stylesheet" href="/rtg-production.css" />}
 {!isRtg && page.path !== "/sweet-sixteen/" && <link rel="stylesheet" href="/brand-refinement.css" />}
+<link rel="stylesheet" href="/accessibility.css" />
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
 {isRtg ? <RtgHeader /> : <SiteHeader path={page.path} />}
-<main id="content"><Fragment set:html={page.content} /></main>
+<main id="content" tabindex="-1"><Fragment set:html={page.content} /></main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 <script src="/migration.js" is:inline></script>
 <script src="/film-player.js" defer={page.path === "/portfolio-2/"} is:inline></script>
