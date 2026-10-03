@@ -17,7 +17,12 @@ if (mediazillaTriggers.length) {
   // Only one portfolio player may remain active, including across providers.
   document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
    if (active !== dialog) {
-    active.querySelector('video')?.pause();
+    const video = active.querySelector('video');
+    if (video) {
+     video.pause();
+     video.removeAttribute('src');
+     video.load(); // Release the old media request and decoded buffers.
+    }
     active.querySelector('.gl-film-screen, .gl-short-screen')?.replaceChildren();
     active.close();
    }

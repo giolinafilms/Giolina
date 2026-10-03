@@ -35,7 +35,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <main id="content"><Fragment set:html={page.content} /></main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 <script src="/migration.js" is:inline></script>
-<script src="/film-player.js" is:inline></script>
+<script src="/film-player.js" defer={page.path === "/portfolio-2/"} is:inline></script>
 <script src="/scheduler-links.js" defer is:inline></script>
 </body>
 </html>

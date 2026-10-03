@@ -378,3 +378,10 @@ This user-approved shortened log contains design changes and test results only.
 - Locked opening: Falling in Love, existing Vimeo 545724644 (47s), then square Week 2 using the exact supplied original (35.4s), encoded to web H.264/AAC with faststart and original square ratio.
 - Only selected media is created after Play Film; natural-ratio centered dialog with Close/Escape/backdrop and next/previous teardown. Extended cross-provider cleanup to include native short-video players.
 - All three expected client recuts and six editorial sources resolved to user-supplied files and materialized. No Mary Kate & Mark or Lauren & Tommy anniversary substitute. Original files preserved outside git; browser copies/posters only added to preview repo.
+
+
+### 2026-10-03 — Cinematography loading/performance audit
+- Client Wedding Films and Love in a Minute create no Vimeo/MediaZilla iframe or native video before Play Film. Client posters remain lazy-loaded; short-film browsing changes only the selected poster. Provider players are created synchronously in click handlers with autoplay/sound and fullscreen permission retained.
+- One eager Vimeo iframe remains: the top GioLina wedding reel (548643452), intentionally kept because its existing native controls/presentation must not change in this performance-only pass. The page is therefore not entirely player-free before interaction; adding client cards does not add eager players.
+- Deferred the cinematography page's small Vimeo click-handler script to avoid parser blocking. Explicitly abort native short-video loading and release media buffers before removal on close or film switch, including cross-provider cleanup. Iframe removal continues to destroy embedded provider players.
+- No poster, title, film order, CSS, layout, or other page content changes.

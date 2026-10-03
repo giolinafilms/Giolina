@@ -15,7 +15,12 @@ if (browser) {
  const screen = dialog.querySelector('.gl-short-screen');
  let index = 0;
  function stop() {
-  screen.querySelector('video')?.pause();
+  const video = screen.querySelector('video');
+  if (video) {
+   video.pause();
+   video.removeAttribute('src');
+   video.load(); // Abort loading before detaching the previous film.
+  }
   screen.replaceChildren();
  }
  function dismiss() { stop(); dialog.close(); }
@@ -33,7 +38,12 @@ if (browser) {
   // Tear down every previous portfolio player before creating selected media.
   document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
    if (active !== dialog) {
-    active.querySelector('video')?.pause();
+    const video = active.querySelector('video');
+    if (video) {
+     video.pause();
+     video.removeAttribute('src');
+     video.load(); // Release the old media request and decoded buffers.
+    }
     active.querySelector('.gl-film-screen, .gl-short-screen')?.replaceChildren();
     active.close();
    }
