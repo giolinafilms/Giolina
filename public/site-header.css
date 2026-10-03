@@ -54,3 +54,12 @@ html,body{margin:0}
 .gl-site-header .gl-site-nav-inner{gap:clamp(10px,1.9vw,28px);flex-wrap:wrap}
 .gl-site-header .gl-site-nav a:focus-visible{outline:2px solid #fff9e9;outline-offset:3px}
 @media(max-width:850px){.gl-site-header .gl-site-desktop-nav{display:none}.gl-site-header .gl-site-mobile-menu{display:block;margin:0;padding:0 22px}.gl-site-header .gl-site-mobile-menu summary{cursor:pointer;min-height:52px;display:flex;align-items:center;color:#fff;list-style:none}.gl-site-header .gl-site-mobile-menu summary::after{content:'+';margin-left:auto;font-size:25px}.gl-site-header .gl-site-mobile-menu[open] summary::after{content:'−'}.gl-site-header .gl-site-mobile-menu nav{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;padding-bottom:18px}.gl-site-header .gl-site-mobile-menu a{min-height:44px;display:flex;align-items:center}}
+
+/* A compact finish; the existing brand mark closes the footer at right. */
+.gl-site-footer{padding:32px 32px 22px}
+.gl-site-footer-inner{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:36px}
+.gl-site-footer-inner>nav{max-width:540px}
+.gl-site-footer .gl-site-footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;margin-top:24px;padding-top:16px}
+.gl-site-footer-bottom .gl-site-footer-logo{width:155px;justify-self:end}
+.gl-site-footer .gl-site-footer-copyright{font-size:12px;color:#667176;margin:4px 0 0}
+@media(max-width:650px){.gl-site-footer{padding:28px 24px 20px}.gl-site-footer-inner{grid-template-columns:minmax(0,1fr);gap:20px}.gl-site-footer .gl-site-footer-bottom{grid-template-columns:minmax(0,1fr);gap:14px}.gl-site-footer-bottom .gl-site-footer-logo{width:125px;justify-self:end}}

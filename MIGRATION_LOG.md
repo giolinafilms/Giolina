@@ -442,3 +442,10 @@ This user-approved shortened log contains design changes and test results only.
 - Arranged five films in paired rows with a centered final wide feature, stacking one card per row below 700px. Two requested headings use existing light blush on existing charcoal for readable contrast; hero heading unchanged.
 - Julianna still reports Vimeo's exact restriction: “Because of its privacy settings, this video cannot be played here.” No substitute source or privacy workaround.
 - All shared playback scripts unchanged. Direct mobile visual controls remain unavailable; responsive CSS is inspected separately.
+
+# October 3 — Compact global footer checkpoint
+
+- Pulled existing navigation/contact links upward into a compact two-column finish, retaining every destination.
+- Moved the existing proportional logo to the bottom-right, with a smaller separate mobile treatment.
+- Added “GioLina Photography and Cinematography” and subtle © 2026 GioLina Films. All rights reserved. beneath it.
+- Scoped changes to the GioLina footer; RTG footer and content remain unchanged.
