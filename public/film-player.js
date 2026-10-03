@@ -16,7 +16,8 @@ if (filmTriggers.length) {
   // Only one portfolio player may remain active, including across providers.
   document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
    if (active !== dialog) {
-    active.querySelector('.gl-film-screen')?.replaceChildren();
+    active.querySelector('video')?.pause();
+    active.querySelector('.gl-film-screen, .gl-short-screen')?.replaceChildren();
     active.close();
    }
   });

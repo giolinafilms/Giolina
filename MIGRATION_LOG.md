@@ -372,3 +372,9 @@ This user-approved shortened log contains design changes and test results only.
 - Both portfolio player handlers remove the iframe immediately on Close, backdrop click or Escape. Opening a player also removes/closes any other active portfolio player, preserving body scroll lock and focus across providers.
 - Existing shared centered responsive modal, dark backdrop, fullscreen permissions and wider Nicolette aspect ratio retained. No page redesign or changes to Love in a Minute, Sweet Sixteen or Ready To Go. Preview branch only.
 - Reference: https://support.mediazilla.com/en/articles/5479841-why-doesn-t-my-video-or-presentation-autoplay
+
+### Step 3 — Group A: Love in a Minute opening
+- Filled the existing section with the requested heading/editorial copy and restrained Ready To Go history line. One parked selected poster, compact horizontal desktop choices and single-card mobile selector/swipe controls; no multi-video grid.
+- Locked opening: Falling in Love, existing Vimeo 545724644 (47s), then square Week 2 using the exact supplied original (35.4s), encoded to web H.264/AAC with faststart and original square ratio.
+- Only selected media is created after Play Film; natural-ratio centered dialog with Close/Escape/backdrop and next/previous teardown. Extended cross-provider cleanup to include native short-video players.
+- All three expected client recuts and six editorial sources resolved to user-supplied files and materialized. No Mary Kate & Mark or Lauren & Tommy anniversary substitute. Original files preserved outside git; browser copies/posters only added to preview repo.
