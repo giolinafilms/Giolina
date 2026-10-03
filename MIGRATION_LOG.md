@@ -470,3 +470,9 @@ This user-approved shortened log contains design changes and test results only.
 - Tightened opening copy/navigation spacing, recap divider/introduction spacing, and the transition to the closing area. Preserved the existing desktop composition and mobile stack with separate mobile spacing values.
 - Only Love in a Minute stylesheet and this log changed. All content JSON, films, titles, posters, player scripts and unrelated sections remain byte-identical.
 - Direct mobile visual controls remain unavailable; mobile CSS is checked separately, with hosted desktop verification after preview deployment.
+
+# October 3 — Two RTG corporate films only
+
+- Added Atlas Holiday Corporate Party (https://mediazilla.com/GvmFXRQFOE) and Preferred Holiday Corporate Party (https://mediazilla.com/hpCgs75ypG) after the existing RTG inventory; no duplicates or reorganization.
+- Local posters are the actual MediaZilla video stills. Atlas source is 1920 × 1012; Preferred is 1920 × 1080. Cards preserve those proportions, and an RTG-only modal rule preserves Atlas's wider ratio.
+- Reused the existing click-created MediaZilla modal/player module without changing shared playback code. Existing RTG structure, dark/metallic treatment, Vimeo inventory and unrelated pages preserved.

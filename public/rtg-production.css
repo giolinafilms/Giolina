@@ -35,3 +35,8 @@
 @media(max-width:700px){.gl-production-wordmark{font-size:14px;gap:14px}.gl-production-wordmark img{width:84px}.gl-production-header nav{gap:12px 22px}.gl-production-return{min-height:44px;display:flex;align-items:center}}
 
 .gl-production-logo-slot{width:104px;min-height:78px;display:grid;place-items:center;flex:none;padding:10px;border:1px solid #626b72;font:400 11px/1.5 Arial,sans-serif;letter-spacing:.04em;text-align:center;color:#bcc4ca}@media(max-width:700px){.gl-production-logo-slot{width:84px;min-height:64px}}
+
+/* Corporate additions retain the existing RTG grid and source proportions. */
+.gl-production-body .gl-rtg-corporate .gl-film-preview img{object-fit:contain}
+.gl-production-body .gl-rtg-corporate h3{font-size:18px;line-height:1.4;margin:12px 0 0;letter-spacing:0}
+.gl-production-body .gl-film-dialog:has(iframe[src^="https://mediazilla.com/GvmFXRQFOE"]) .gl-film-screen{aspect-ratio:480/253!important}
