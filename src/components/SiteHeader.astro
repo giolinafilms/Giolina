@@ -17,6 +17,16 @@ const socials = [
 ];
 ---
 <header class="gl-site-header">
+ <div class="gl-site-masthead">
+  <img src="/assets/e845a4337da29ba0.png" width="800" height="411" alt="GioLina — photography and cinematography" fetchpriority="high" />
+  <p>Cinematic wedding filmmaking &amp; photography</p>
+  <div class="gl-site-header-actions">
+   <nav class="gl-site-social-icons" aria-label="Social media">
+    {socials.map(social => <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}><span class="gl-site-social-glyph" aria-hidden="true">{social.glyph}</span></a>)}
+   </nav>
+   <a class="gl-site-header-inquire" href="/contact-us-2/">Inquire about your day</a>
+  </div>
+ </div>
  <div class="gl-site-nav">
   <nav class="gl-site-nav-inner gl-site-desktop-nav" aria-label="Main navigation">
    {links.map(link => <a href={link.href} aria-current={link.paths.includes(path) ? 'page' : undefined}>{link.label}</a>)}
@@ -27,15 +37,5 @@ const socials = [
     {links.map(link => <a href={link.href} aria-current={link.paths.includes(path) ? 'page' : undefined}>{link.label}</a>)}
    </nav>
   </details>
- </div>
- <div class="gl-site-masthead">
-  <img src="/assets/e845a4337da29ba0.png" width="800" height="411" alt="GioLina — photography and cinematography" fetchpriority="high" />
-  <p>Cinematic wedding filmmaking &amp; photography</p>
-  <div class="gl-site-header-actions">
-   <nav class="gl-site-social-icons" aria-label="Social media">
-    {socials.map(social => <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}><span class="gl-site-social-glyph" aria-hidden="true">{social.glyph}</span></a>)}
-   </nav>
-   <a class="gl-site-header-inquire" href="/contact-us-2/">Inquire about your day</a>
-  </div>
  </div>
 </header>

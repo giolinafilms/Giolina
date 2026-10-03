@@ -1,0 +1,32 @@
+/* A separate production identity, scoped to the RTG route only. */
+.gl-production-body{margin:0;background:#121416;color:#e6e8e9;font:400 17px/1.7 Arial,sans-serif}
+.gl-production-body *{box-sizing:border-box}
+.gl-production-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px max(24px,calc((100vw - 1200px)/2));border-bottom:1px solid #3b4146;background:#171a1d}
+.gl-production-header a,.gl-production-footer a{color:#e6e8e9;text-decoration:none}
+.gl-production-wordmark{font:600 16px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;max-width:330px}
+.gl-production-header nav{display:flex;gap:28px;font-size:14px}
+.gl-production-header a:hover,.gl-production-footer a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.gl-production-body a:focus-visible,.gl-production-body button:focus-visible{outline:2px solid #e5e9ec;outline-offset:5px}
+.gl-production-body .gl-rtg-page{--landing-ink:#e6e8e9;--landing-accent:#c7cdd2;--landing-paper:#1d2125;background:#121416;color:#e6e8e9}
+.gl-production-body .gl-rtg-page :is(h1,h2,h3){font-family:Arial,sans-serif;letter-spacing:-.03em;color:#eef0f1}
+.gl-production-body .gl-rtg-opening{display:block;max-width:1200px;padding-block:66px 42px}
+.gl-production-body .gl-rtg-opening h1{font:500 clamp(48px,6vw,84px)/1.07 Arial,sans-serif;margin:0 0 24px}
+.gl-production-body .gl-rtg-opening .gl-landing-kicker{color:#b4bcc3}
+.gl-production-body .gl-landing-button{background:#ccd2d7;color:#15191d!important;border-color:#ccd2d7}
+.gl-production-body .gl-rtg-intro,.gl-production-body .gl-rtg-giolina{background:#1b1f23}
+.gl-production-body .gl-rtg-intro h2,.gl-production-body .gl-rtg-services h2{font-size:34px}
+.gl-production-body .gl-rtg-services article{border-color:#485057}
+.gl-production-body .gl-rtg-services p,.gl-production-body .gl-rtg-intro p{color:#c2c9ce}
+.gl-rtg-films{width:min(1200px,calc(100% - 64px));margin:0 auto;padding-bottom:58px}
+.gl-rtg-film-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px;align-items:start}
+.gl-rtg-film-grid article{min-width:0}.gl-rtg-film-grid article:nth-child(5n+1){grid-column:span 2}
+.gl-production-body .gl-film-preview{width:100%;aspect-ratio:16/9;background:#252b30}
+.gl-production-body .gl-film-preview img{width:100%;height:100%;display:block;object-fit:cover;opacity:1;visibility:visible}
+.gl-production-body .gl-film-preview button span{border-color:#d4dbe0;color:#fff;background:#13191b9c}
+.gl-production-body .gl-film-preview:hover img{opacity:1;visibility:visible;transform:none}
+.gl-production-body .gl-rtg-giolina h2{font-size:28px}.gl-production-body .gl-rtg-giolina p{max-width:780px;font-size:16px;color:#c2c9ce}
+.gl-production-body .gl-landing-inquiry{border-color:#40484f}.gl-production-body .gl-landing-inquiry h2{font-family:Arial,sans-serif}
+.gl-production-footer{padding:30px 24px;text-align:center;border-top:1px solid #3b4146;color:#b8c0c7;font-size:14px}
+.gl-production-footer p{margin:0 0 8px}
+@media(max-width:850px){.gl-rtg-film-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gl-rtg-film-grid article:nth-child(5n+1){grid-column:auto}}
+@media(max-width:700px){.gl-production-header{padding:22px;align-items:flex-start;flex-direction:column;gap:16px}.gl-production-header nav{gap:24px}.gl-production-body .gl-rtg-opening{padding-block:42px 30px}.gl-rtg-films{width:calc(100% - 44px);padding-bottom:36px}.gl-rtg-film-grid{grid-template-columns:minmax(0,1fr);gap:22px}}

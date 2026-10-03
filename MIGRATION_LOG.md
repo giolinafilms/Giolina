@@ -234,3 +234,15 @@ This user-approved shortened log contains design changes and test results only.
 - Homepage hero copy aligned lower-left with fluid 32–80px desktop inset and existing 24px phone inset. Preserved serif wording/line breaks, all media, Vimeo ID and hero playback/controller unchanged.
 - Hosted regression sweep covered Home, Cinematography, Photography, Reviews, Experience, About and both new landing pages. No additional collapsed headings or horizontal overflow at available desktop width. Full Wedding Presentation remains disabled because exact Jazz & Trevor source is absent; no URL guessed. Lauren & Tommy source remains private on MediaZilla.
 - Build passed (30 pages); route/link/asset checks passed. Hosted post-deploy validation follows. Actual tablet/mobile visual checks unavailable in current browser; responsive CSS sizing inspected but not reported as visual verification. Production, DNS, email/canonical domain, clients portal and SmugMug auth untouched.
+
+
+## 2026-10-02 — Approved editorial and supplied-media Preview update
+
+- Logo row placed above blue navigation with a slightly larger mark; Photography display font used selectively on requested major headlines.
+- Cinematography opening simplified, promotional film separated from named client films, neutral existing detail photograph used for the promo poster.
+- All 11 confirmed review names and supplied static photos connected; testimonial text preserved exactly. Christina/Danny lettering removed from the supplied photo. Reviews show only the three approved Vimeo films. Julia/Mina photo integrated on Experience.
+- Frank bio updated to supplied paragraph. Contact rotating frames now square with focal positioning; rotating-image timing and homepage hero implementation preserved.
+- Sweet Sixteen uses the three supplied showcase clips. RTG has a distinct charcoal/silver production identity and 17 unique supplied Vimeo films, with a smaller GioLina connection lower on the page.
+- User approved prepared website code and eleven supplied photos for the public project repository on the Preview branch. Legacy RTG logo publication remains deferred.
+- Build and route/asset checks passed. Hosted QA results follow after publication. Missing Jazz/Trevor presentation source, Giovanni/Michaelina media, real Frank portrait, Sweet Sixteen hero/photos and ambiguous lower homepage placement remain open.
+- SmugMug authentication and production/DNS/email/canonical/clients portal configuration unchanged.
