@@ -434,3 +434,11 @@ This user-approved shortened log contains design changes and test results only.
 - Photography's two existing headings now use restrained Allura in brand cyan. Reduced opening spacing without changing its photograph, centered the Stephanie & Danny image/copy/link as one group, and tightened the centered client-delivery presentation row.
 - Available recap assets remain Bianca & Bobby, Sara & Phil and Nicole & Philip; no unrelated films or invented assets added.
 - Direct mobile visual controls remain unavailable; mobile/tablet single-column rules and tap targets inspected. Hosted desktop, family-film playback and existing providers require verification after native Cloudflare preview deployment.
+
+# October 3 — Sweet Sixteen five-film checkpoint
+
+- Retained Gianna and all existing Vimeo IDs; added the exact supplied Julia and Gina Marie MediaZilla destinations using the existing click-created player module.
+- Replaced Gabby's bridge poster with a portrait captured from her actual film; replaced Julianna's placeholder with her actual Vimeo poster. Julia/Gina Marie posters are actual provider video stills. Gina Marie retains 12:5 presentation.
+- Arranged five films in paired rows with a centered final wide feature, stacking one card per row below 700px. Two requested headings use existing light blush on existing charcoal for readable contrast; hero heading unchanged.
+- Julianna still reports Vimeo's exact restriction: “Because of its privacy settings, this video cannot be played here.” No substitute source or privacy workaround.
+- All shared playback scripts unchanged. Direct mobile visual controls remain unavailable; responsive CSS is inspected separately.

@@ -53,8 +53,14 @@
 .gl-celebration-photo-rotation img[data-src*="GLP_0292"],.gl-celebration-photo-rotation img[src*="GLP_0292"]{object-position:50% 75%}
 .gl-celebration-showcase .gl-film-preview{aspect-ratio:16/9;overflow:hidden}
 .gl-celebration-showcase .gl-film-preview>img{display:block;width:100%;height:100%;object-fit:cover;opacity:1}
-/* Real Gabby video poster contains baked-in letterboxing. Crop just that border. */
-.gl-celebration-showcase .gl-film-preview>img[alt="Gabby"]{transform:scale(1.36);transform-origin:50% 50%}
 
 /* First-name captions share the center of their own film card. */
 .gl-celebration-showcase>article>h3{width:100%;text-align:center;margin:16px 0 0}
+
+/* Five real films: two paired rows and one centered wider feature. */
+.gl-celebration-showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px;align-items:start;margin-block:32px}
+.gl-celebration-showcase>article:last-child{grid-column:1/-1;width:min(720px,100%);justify-self:center}
+.gl-celebration-showcase .gl-film-preview>img{object-fit:contain;transform:none}
+/* Light blush stays legible on the site's existing charcoal. */
+.gl-celebration-intro h2,.gl-celebration-work .gl-landing-section-heading h2{color:#f3d9df;background:#303337;padding:18px 22px;width:fit-content;border-radius:2px}
+@media(max-width:700px){.gl-celebration-showcase{grid-template-columns:minmax(0,1fr);gap:28px}.gl-celebration-showcase>article:last-child{grid-column:auto;width:100%}.gl-celebration-intro h2,.gl-celebration-work .gl-landing-section-heading h2{padding:16px 18px}}
