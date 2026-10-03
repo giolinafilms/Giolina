@@ -19,6 +19,7 @@ if (mediazillaTriggers.length) {
   const frame = document.createElement('iframe');
   frame.src = source.href; frame.title = title;
   frame.allow = 'autoplay; fullscreen; picture-in-picture'; frame.allowFullscreen = true;
+  screen.style.aspectRatio = trigger.dataset.filmAspect === '12/5' ? '12/5' : '16/9';
   screen.replaceChildren(frame);
   dialog.showModal(); document.body.classList.add('gl-film-open'); close.focus();
  }));

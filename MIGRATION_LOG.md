@@ -347,3 +347,9 @@ This user-approved shortened log contains design changes and test results only.
 - Jazz/Trevor now uses exact supplied image(20261003-043827).png bytes at jazz-trevor-poster.png, parked poster and existing lazy-on-click MediaZilla dialog with exact gjx8Km0Irn source.
 - Added Bianca/Bobby long cut 9jzGeDjrO7 using existing couple still; Experience SDE source/file unchanged. Alexandria/James fAkBCNBFRB uses exact Reviews photo and second position previously occupied by Nicole/Phillip, which is retained lower. No other page/shared player/protected configuration changed.
 - Group publication follows passing build/check; hosted checks reported at its checkpoint. Love in a Minute remains empty; no new MP4 uploads.
+
+## 2026-10-03 — Step 2, Group 2
+
+- Group 1 deployed and hosted verified: 9d5fe66; exact parked posters loaded, all three dialog sources matched, zero client iframes before interaction, Alexandria second and Nicole retained lower.
+- Added exact supplied Mira/Ryan YsniVckI1U, Nicolette/Tyler d42vD8oAIH, Cole/Philip XDcajHQdhs. Posters copied from each actual MediaZilla source, visually inspected for people/no baked-in names. Contain poster fitting preserves original pixels; Nicolette native source is 1920x800 and modal uses 12:5 without stretching. Optional aspect support defaults all other existing MediaZilla dialogs to unchanged 16:9.
+- Source caveats for review: Mira URL identifies Amira+Ryan_Highlights, duration 153.195 seconds; Cole URL identifies nicolePhil_HIGHLIGHTS_v02. Exact user links and requested labels retained; no inferred identity or replacement source. No Love in a Minute content or MP4 uploads.
