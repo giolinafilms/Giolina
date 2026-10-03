@@ -9,8 +9,11 @@
     "<meta property=\"og:description\" content=\"Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/portfolio/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta property=\"og:image\" content=\"https://giolina.co/wp-content/uploads/2021/12/302_Gallo_selects_the_rockleigh_nj_Readytogo.nyc--scaled.jpg\"/>",
-    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/299da5e07f2f4921.jpg\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta property=\"og:image:width\" content=\"1707\"/>",
+    "<meta property=\"og:image:height\" content=\"2560\"/>",
+    "<meta property=\"og:image:type\" content=\"image/jpeg\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -59,42 +62,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/portfolio/",
           "url": "https://giolinafilms.com/portfolio/",
           "name": "Wedding Photography | GioLina Films",
+          "description": "Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "primaryImageOfPage": {
             "@id": "https://giolinafilms.com/portfolio/#primaryimage"
           },
-          "image": {
-            "@id": "https://giolinafilms.com/portfolio/#primaryimage"
-          },
-          "thumbnailUrl": "https://giolina.co/wp-content/uploads/2021/12/302_Gallo_selects_the_rockleigh_nj_Readytogo.nyc--scaled.jpg",
-          "datePublished": "2021-11-30T14:18:16+00:00",
-          "dateModified": "2023-09-05T18:22:10+00:00",
-          "description": "Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/portfolio/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/portfolio/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
         },
         {
           "@type": "ImageObject",
-          "inLanguage": "en-US",
           "@id": "https://giolinafilms.com/portfolio/#primaryimage",
-          "url": "https://giolina.co/wp-content/uploads/2021/12/302_Gallo_selects_the_rockleigh_nj_Readytogo.nyc--scaled.jpg",
-          "contentUrl": "https://giolina.co/wp-content/uploads/2021/12/302_Gallo_selects_the_rockleigh_nj_Readytogo.nyc--scaled.jpg"
+          "url": "https://giolinafilms.com/assets/299da5e07f2f4921.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/299da5e07f2f4921.jpg",
+          "width": 1707,
+          "height": 2560
         },
         {
           "@type": "BreadcrumbList",
@@ -109,56 +117,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Photography Portfolio"
+              "name": "Wedding Photography",
+              "item": "https://giolinafilms.com/portfolio/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

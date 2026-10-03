@@ -9,9 +9,9 @@
     "<meta property=\"og:description\" content=\"Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/about-us/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta property=\"og:image\" content=\"https://giolinafilms.com/wp-content/uploads/2023/09/112ABCBD-1D0F-4FDA-88AF-C21A2E7883CE_1_105_c-1-e1695099554389.jpeg\"/>",
-    "<meta property=\"og:image:width\" content=\"818\"/>",
-    "<meta property=\"og:image:height\" content=\"826\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/cefe0daaa70fe868.jpg\"/>",
+    "<meta property=\"og:image:width\" content=\"2560\"/>",
+    "<meta property=\"og:image:height\" content=\"1707\"/>",
     "<meta property=\"og:image:type\" content=\"image/jpeg\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
   ],
@@ -57,44 +57,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/about-us/",
           "url": "https://giolinafilms.com/about-us/",
           "name": "About GioLina | Frank Scudero",
+          "description": "Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "primaryImageOfPage": {
             "@id": "https://giolinafilms.com/about-us/#primaryimage"
           },
-          "image": {
-            "@id": "https://giolinafilms.com/about-us/#primaryimage"
-          },
-          "thumbnailUrl": "https://giolinafilms.com/wp-content/uploads/2023/09/112ABCBD-1D0F-4FDA-88AF-C21A2E7883CE_1_105_c-1-e1695099554389.jpeg",
-          "datePublished": "2023-01-03T19:10:44+00:00",
-          "dateModified": "2023-09-19T05:04:43+00:00",
-          "description": "Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/about-us/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/about-us/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
         },
         {
           "@type": "ImageObject",
-          "inLanguage": "en-US",
           "@id": "https://giolinafilms.com/about-us/#primaryimage",
-          "url": "https://giolinafilms.com/wp-content/uploads/2023/09/112ABCBD-1D0F-4FDA-88AF-C21A2E7883CE_1_105_c-1-e1695099554389.jpeg",
-          "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/09/112ABCBD-1D0F-4FDA-88AF-C21A2E7883CE_1_105_c-1-e1695099554389.jpeg",
-          "width": 818,
-          "height": 826
+          "url": "https://giolinafilms.com/assets/cefe0daaa70fe868.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/cefe0daaa70fe868.jpg",
+          "width": 2560,
+          "height": 1707
         },
         {
           "@type": "BreadcrumbList",
@@ -109,56 +112,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "About Us"
+              "name": "About GioLina",
+              "item": "https://giolinafilms.com/about-us/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

@@ -9,9 +9,9 @@
     "<meta property=\"og:description\" content=\"Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/portfolio-2/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta property=\"og:image\" content=\"https://giolinafilms.com/wp-content/uploads/2023/01/24-tiesto-wedding.jpg\"/>",
-    "<meta property=\"og:image:width\" content=\"800\"/>",
-    "<meta property=\"og:image:height\" content=\"1200\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/cinematography-reel-poster.jpg\"/>",
+    "<meta property=\"og:image:width\" content=\"1280\"/>",
+    "<meta property=\"og:image:height\" content=\"720\"/>",
     "<meta property=\"og:image:type\" content=\"image/jpeg\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
   ],
@@ -61,44 +61,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/portfolio-2/",
           "url": "https://giolinafilms.com/portfolio-2/",
           "name": "Wedding Cinematography | GioLina Films",
+          "description": "Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "primaryImageOfPage": {
             "@id": "https://giolinafilms.com/portfolio-2/#primaryimage"
           },
-          "image": {
-            "@id": "https://giolinafilms.com/portfolio-2/#primaryimage"
-          },
-          "thumbnailUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/24-tiesto-wedding.jpg",
-          "datePublished": "2021-11-30T15:19:20+00:00",
-          "dateModified": "2023-09-05T22:02:28+00:00",
-          "description": "Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/portfolio-2/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/portfolio-2/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
         },
         {
           "@type": "ImageObject",
-          "inLanguage": "en-US",
           "@id": "https://giolinafilms.com/portfolio-2/#primaryimage",
-          "url": "https://giolinafilms.com/wp-content/uploads/2023/01/24-tiesto-wedding.jpg",
-          "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/24-tiesto-wedding.jpg",
-          "width": 800,
-          "height": 1200
+          "url": "https://giolinafilms.com/assets/cinematography-reel-poster.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/cinematography-reel-poster.jpg",
+          "width": 1280,
+          "height": 720
         },
         {
           "@type": "BreadcrumbList",
@@ -113,56 +116,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Video Portfolio"
+              "name": "Wedding Cinematography",
+              "item": "https://giolinafilms.com/portfolio-2/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

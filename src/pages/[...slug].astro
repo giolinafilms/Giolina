@@ -4,6 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import RtgHeader from '../components/RtgHeader.astro';
 import RtgFooter from '../components/RtgFooter.astro';
+import {canonicalOrigin, analytics} from '../config/site.mjs';
 export function getStaticPaths() {
  return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
 }
@@ -17,7 +18,8 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
 <title>{page.title}</title>
-<link rel="canonical" href={new URL(page.path,'https://giolinafilms.com').href} />
+<link rel="canonical" href={new URL(page.path,canonicalOrigin).href} />
+<script type="application/json" id="gl-analytics-config" set:html={JSON.stringify(analytics)} />
 {(page.schema ?? []).map((schema)=><script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<","\\u003c")} />)}
 {page.seo.map((tag)=><Fragment set:html={tag} />)}
 {page.css.map((href)=><link rel="stylesheet" href={href} />)}

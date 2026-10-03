@@ -9,9 +9,9 @@
     "<meta property=\"og:description\" content=\"Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta property=\"og:image\" content=\"https://giolinafilms.com/wp-content/uploads/2023/01/0724_Gallo_selects_the_rockleigh_nj_Readytogo.nyc-scaled-1.jpg\"/>",
-    "<meta property=\"og:image:width\" content=\"1707\"/>",
-    "<meta property=\"og:image:height\" content=\"2560\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/8434dc8d16bb070d.jpg\"/>",
+    "<meta property=\"og:image:width\" content=\"2560\"/>",
+    "<meta property=\"og:image:height\" content=\"1707\"/>",
     "<meta property=\"og:image:type\" content=\"image/jpeg\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
   ],
@@ -32,47 +32,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/",
           "url": "https://giolinafilms.com/",
           "name": "GioLina Films — Wedding Cinematography & Photography",
+          "description": "Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
-          },
-          "about": {
-            "@id": "https://giolinafilms.com/#organization"
           },
           "primaryImageOfPage": {
             "@id": "https://giolinafilms.com/#primaryimage"
           },
-          "image": {
-            "@id": "https://giolinafilms.com/#primaryimage"
-          },
-          "thumbnailUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/weddingring.png",
-          "datePublished": "2023-01-03T19:11:13+00:00",
-          "dateModified": "2026-01-21T00:36:56+00:00",
-          "description": "Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
         },
         {
           "@type": "ImageObject",
-          "inLanguage": "en-US",
           "@id": "https://giolinafilms.com/#primaryimage",
-          "url": "https://giolinafilms.com/wp-content/uploads/2023/01/weddingring.png",
-          "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/weddingring.png",
-          "width": 800,
-          "height": 1066
+          "url": "https://giolinafilms.com/assets/8434dc8d16bb070d.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/8434dc8d16bb070d.jpg",
+          "width": 2560,
+          "height": 1707
         },
         {
           "@type": "BreadcrumbList",
@@ -81,56 +81,9 @@
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Home"
+              "name": "Home",
+              "item": "https://giolinafilms.com/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

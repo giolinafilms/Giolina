@@ -1,2 +1,4 @@
+# Preview: every response and page carries noindex.
+# Allow crawlers to read that directive; production policy requires separate approval.
 User-agent: *
-Disallow: /
+Allow: /

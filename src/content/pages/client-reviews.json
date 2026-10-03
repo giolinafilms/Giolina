@@ -9,7 +9,11 @@
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/client-reviews/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
-    "<meta property=\"og:description\" content=\"Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.\"/>"
+    "<meta property=\"og:description\" content=\"Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/alexandria-james.png\"/>",
+    "<meta property=\"og:image:width\" content=\"442\"/>",
+    "<meta property=\"og:image:height\" content=\"180\"/>",
+    "<meta property=\"og:image:type\" content=\"image/png\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -56,28 +60,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/client-reviews/",
           "url": "https://giolinafilms.com/client-reviews/",
           "name": "Couple Reviews | GioLina Films",
+          "description": "Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
-          "datePublished": "2021-09-23T16:09:27+00:00",
-          "dateModified": "2023-09-06T23:53:50+00:00",
-          "description": "Read what couples share about their GioLina experience, from thoughtful preparation to wedding films and photographs they return to.",
+          "primaryImageOfPage": {
+            "@id": "https://giolinafilms.com/client-reviews/#primaryimage"
+          },
           "breadcrumb": {
             "@id": "https://giolinafilms.com/client-reviews/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/client-reviews/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://giolinafilms.com/client-reviews/#primaryimage",
+          "url": "https://giolinafilms.com/assets/alexandria-james.png",
+          "contentUrl": "https://giolinafilms.com/assets/alexandria-james.png",
+          "width": 442,
+          "height": 180
         },
         {
           "@type": "BreadcrumbList",
@@ -92,56 +115,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Reviews"
+              "name": "Couple Reviews",
+              "item": "https://giolinafilms.com/client-reviews/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

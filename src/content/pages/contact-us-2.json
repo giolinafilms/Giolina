@@ -9,7 +9,11 @@
     "<meta property=\"og:description\" content=\"Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/contact-us-2/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/e4af9615d9109ffc.jpg\"/>",
+    "<meta property=\"og:image:width\" content=\"1707\"/>",
+    "<meta property=\"og:image:height\" content=\"2560\"/>",
+    "<meta property=\"og:image:type\" content=\"image/jpeg\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -56,28 +60,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/contact-us-2/",
           "url": "https://giolinafilms.com/contact-us-2/",
           "name": "Wedding Inquiries | GioLina Films",
+          "description": "Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
-          "datePublished": "2021-06-28T02:58:22+00:00",
-          "dateModified": "2024-02-28T16:23:37+00:00",
-          "description": "Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.",
+          "primaryImageOfPage": {
+            "@id": "https://giolinafilms.com/contact-us-2/#primaryimage"
+          },
           "breadcrumb": {
             "@id": "https://giolinafilms.com/contact-us-2/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/contact-us-2/"
-              ]
-            }
-          ]
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://giolinafilms.com/contact-us-2/#primaryimage",
+          "url": "https://giolinafilms.com/assets/e4af9615d9109ffc.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/e4af9615d9109ffc.jpg",
+          "width": 1707,
+          "height": 2560
         },
         {
           "@type": "BreadcrumbList",
@@ -92,56 +115,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Contact Us"
+              "name": "Wedding Inquiries",
+              "item": "https://giolinafilms.com/contact-us-2/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]

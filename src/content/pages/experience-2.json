@@ -8,9 +8,12 @@
     "<meta property=\"og:description\" content=\"Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/experience-2/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
-    "<meta property=\"og:image\" content=\"https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/e4af9615d9109ffc.jpg\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
-    "<meta name=\"description\" content=\"Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.\"/>"
+    "<meta name=\"description\" content=\"Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.\"/>",
+    "<meta property=\"og:image:width\" content=\"1707\"/>",
+    "<meta property=\"og:image:height\" content=\"2560\"/>",
+    "<meta property=\"og:image:type\" content=\"image/jpeg\"/>"
   ],
   "css": [
     "/assets/1a38b91f31f3183a.css",
@@ -56,44 +59,47 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://giolinafilms.com/#organization",
+          "name": "GioLina Films",
+          "url": "https://giolinafilms.com/",
+          "email": "info@giolina.co",
+          "telephone": "866-306-0308"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://giolinafilms.com/#website",
+          "url": "https://giolinafilms.com/",
+          "name": "GioLina Films",
+          "publisher": {
+            "@id": "https://giolinafilms.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/experience-2/",
           "url": "https://giolinafilms.com/experience-2/",
           "name": "The Wedding Experience | GioLina Films",
+          "description": "Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
           "primaryImageOfPage": {
             "@id": "https://giolinafilms.com/experience-2/#primaryimage"
           },
-          "image": {
-            "@id": "https://giolinafilms.com/experience-2/#primaryimage"
-          },
-          "thumbnailUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-          "datePublished": "2023-01-03T19:10:47+00:00",
-          "dateModified": "2023-09-06T23:51:55+00:00",
           "breadcrumb": {
             "@id": "https://giolinafilms.com/experience-2/#breadcrumb"
           },
-          "inLanguage": "en-US",
-          "potentialAction": [
-            {
-              "@type": "ReadAction",
-              "target": [
-                "https://giolinafilms.com/experience-2/"
-              ]
-            }
-          ],
-          "description": "Discover the GioLina wedding experience: personal preparation, calm direction and space to enjoy your day, with films and photographs made with care."
+          "inLanguage": "en-US"
         },
         {
           "@type": "ImageObject",
-          "inLanguage": "en-US",
           "@id": "https://giolinafilms.com/experience-2/#primaryimage",
-          "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-          "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-          "width": 2937,
-          "height": 1508
+          "url": "https://giolinafilms.com/assets/e4af9615d9109ffc.jpg",
+          "contentUrl": "https://giolinafilms.com/assets/e4af9615d9109ffc.jpg",
+          "width": 1707,
+          "height": 2560
         },
         {
           "@type": "BreadcrumbList",
@@ -108,56 +114,9 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Experience"
+              "name": "The Wedding Experience",
+              "item": "https://giolinafilms.com/experience-2/"
             }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://giolinafilms.com/#website",
-          "url": "https://giolinafilms.com/",
-          "name": "GioLina Films",
-          "description": "Photography and Cinematography",
-          "publisher": {
-            "@id": "https://giolinafilms.com/#organization"
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://giolinafilms.com/?s={search_term_string}"
-              },
-              "query-input": {
-                "@type": "PropertyValueSpecification",
-                "valueRequired": true,
-                "valueName": "search_term_string"
-              }
-            }
-          ],
-          "inLanguage": "en-US"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://giolinafilms.com/#organization",
-          "name": "GioLina Films",
-          "url": "https://giolinafilms.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "inLanguage": "en-US",
-            "@id": "https://giolinafilms.com/#/schema/logo/image/",
-            "url": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "contentUrl": "https://giolinafilms.com/wp-content/uploads/2023/01/giolina-3-e1695097482827.png",
-            "width": 2937,
-            "height": 1508,
-            "caption": "GioLina Films"
-          },
-          "image": {
-            "@id": "https://giolinafilms.com/#/schema/logo/image/"
-          },
-          "sameAs": [
-            "https://www.facebook.com/GioLinaFilms",
-            "https://www.instagram.com/GioLinaFilms/"
           ]
         }
       ]
