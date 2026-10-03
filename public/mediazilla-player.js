@@ -26,9 +26,9 @@ if (mediazillaTriggers.length) {
   const title = trigger.dataset.filmTitle || 'GioLina wedding film';
   dialog.querySelector('h2').textContent = title;
   const frame = document.createElement('iframe');
-  // MediaZilla defaults to autoplay; its public embed guide does not
-  // document a reliable muted-start option. Require an explicit player click.
-  source.searchParams.set('autoplay', '0');
+  // Create a fresh player only after the visitor clicks Play Film.
+  // Use MediaZilla's documented autoplay flag; browser audio policy still applies.
+  source.searchParams.set('autoplay', '1');
   frame.src = source.href; frame.title = title;
   frame.allow = 'autoplay; fullscreen; picture-in-picture'; frame.allowFullscreen = true;
   screen.style.aspectRatio = trigger.dataset.filmAspect === '12/5' ? '12/5' : '16/9';

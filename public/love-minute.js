@@ -45,7 +45,7 @@ if (browser) {
   screen.style.width = `min(100%, calc((82dvh - 130px) * ${film.width / film.height}))`;
   if (film.vimeo) {
    const frame = document.createElement('iframe');
-   frame.src = `https://player.vimeo.com/video/${film.vimeo}?autoplay=1&muted=1&dnt=1&title=0&byline=0&portrait=0`;
+   frame.src = `https://player.vimeo.com/video/${film.vimeo}?autoplay=1&muted=0&dnt=1&title=0&byline=0&portrait=0#t=0s`;
    frame.title = film.title; frame.allow = 'autoplay; fullscreen; picture-in-picture'; frame.allowFullscreen = true;
    screen.append(frame);
   } else {

@@ -25,7 +25,7 @@ if (filmTriggers.length) {
   const title = trigger.dataset.filmTitle || 'GioLina wedding film';
   dialog.querySelector('h2').textContent = title;
   const frame = document.createElement('iframe');
-  frame.src = `https://player.vimeo.com/video/${id}?autoplay=1&dnt=1&title=0&byline=0&portrait=0`;
+  frame.src = `https://player.vimeo.com/video/${id}?autoplay=1&muted=0&dnt=1&title=0&byline=0&portrait=0#t=0s`;
   frame.title = title; frame.allow = 'autoplay; fullscreen; picture-in-picture';
   frame.allowFullscreen = true;
   screen.replaceChildren(frame);
