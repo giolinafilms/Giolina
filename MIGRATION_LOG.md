@@ -353,3 +353,8 @@ This user-approved shortened log contains design changes and test results only.
 - Group 1 deployed and hosted verified: 9d5fe66; exact parked posters loaded, all three dialog sources matched, zero client iframes before interaction, Alexandria second and Nicole retained lower.
 - Added exact supplied Mira/Ryan YsniVckI1U, Nicolette/Tyler d42vD8oAIH, Cole/Philip XDcajHQdhs. Posters copied from each actual MediaZilla source, visually inspected for people/no baked-in names. Contain poster fitting preserves original pixels; Nicolette native source is 1920x800 and modal uses 12:5 without stretching. Optional aspect support defaults all other existing MediaZilla dialogs to unchanged 16:9.
 - Source caveats for review: Mira URL identifies Amira+Ryan_Highlights, duration 153.195 seconds; Cole URL identifies nicolePhil_HIGHLIGHTS_v02. Exact user links and requested labels retained; no inferred identity or replacement source. No Love in a Minute content or MP4 uploads.
+
+### Step 2 — Group 3
+- Group 2 deployed successfully and hosted player links/aspect ratios verified.
+- Added Megan & Ralph using the exact supplied PNG and Lauren & Tommy with the supplied MediaZilla links. Lauren uses the actual film source poster.
+- Parked posters, Play Film overlays and player-on-interaction preserved. No MP4 uploads or changes to deferred sections.
