@@ -503,3 +503,11 @@ Hosted hero copy is already placed low in the frame; preserved. Gateway alignmen
 Reduced excess top/bottom section padding and gap before contact details; improved faint supporting-copy and contact-link contrast. Existing square rotating frames retained, with a more specific contain rule so portrait, square, 4:3 and landscape sources remain complete and unstretched despite later legacy overrides. Submit label now uses dark ink on brand cyan. Formspree action/configuration, field markup, scripts and email routing unchanged; scheduling remains below form and opens in a new tab. Required-field browser validation checked without sending an email. Build/check passed. Hosted desktop verified after deployment; mobile responsive CSS reviewed, visual viewport verification unavailable.
 
 Contact hosted check follow-up: legacy nested icon-list spans retained their gray text styling; explicitly applied the same readable 14px brand-deep color to the inner labels. Scheduler link reaches its existing HoneyBook wrapper, but the embedded booking UI did not render in this browser. No booking or form submission was sent.
+
+
+## 2026-10-03 — Reviews / Experience consistency checkpoint
+
+Reviews: reduced repeated header/divider and closing gaps; brought name/star attribution and matching-film blocks closer to their review. All 11 approved reviews, photographs and existing three film selections retained verbatim. Natural-height columns and restrained WeddingWire/Knot treatment preserved.
+Experience: reduced oversized desktop hero heading to avoid a long broken script line; balanced the existing hero columns and tightened hero, statement, process, quote, FAQ and closing spacing, with independent mobile rules. Julia & Mina quote/photo, Bianca & Bobby SDE, Francesca & Chris and existing engagement film markup/sources/playback untouched.
+Contact scheduler finished loading successfully: GioLina Films / Consultation Call / 30 minutes / availability calendar visible. No booking made. Contact form validation checked; no email submission sent, so delivery was not end-to-end tested.
+Build/check and diff checks passed; all four hosted pages verified after preview deployments. Mobile CSS reviewed; actual mobile viewport visual QA unavailable in the current browser. No production or unrelated page changes.

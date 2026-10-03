@@ -4,3 +4,23 @@
 
 /* Keep cyan CTAs while meeting small-text contrast needs. */
 .gl-experience .gl-exp-button{color:#12383b!important}
+
+/* Refine the existing composition without changing process, quotes or films. */
+.gl-experience .gl-exp-hero{padding-block:56px 64px;gap:6%}
+.gl-experience .gl-exp-statement{padding-block:56px}
+.gl-experience .gl-exp-process,.gl-experience .gl-exp-faq{padding-block:64px}
+.gl-experience .gl-exp-section-title{margin-bottom:32px}
+.gl-experience .gl-exp-review{padding-bottom:64px}
+.gl-experience .gl-exp-cta{padding-block:64px 72px}
+@media(min-width:768px){
+ .gl-experience .gl-exp-intro h1{font-size:clamp(56px,6vw,84px);line-height:1.05}
+ .gl-experience .gl-exp-intro h1 span{font-size:1.1em}
+}
+@media(max-width:767px){
+ .gl-experience .gl-exp-hero{padding-block:36px 44px;gap:28px}
+ .gl-experience .gl-exp-statement{padding-block:36px}
+ .gl-experience .gl-exp-process,.gl-experience .gl-exp-faq{padding-block:44px}
+ .gl-experience .gl-exp-section-title{margin-bottom:26px}
+ .gl-experience .gl-exp-review{padding-bottom:44px}
+ .gl-experience .gl-exp-cta{padding-block:44px 50px}
+}

@@ -4,3 +4,15 @@
 /* Natural-height editorial columns: do not stretch short reviews to a taller neighbour. */
 .gl-review-list{display:block;column-count:2;column-gap:28px}.gl-review-list .gl-review-card{display:block;break-inside:avoid;page-break-inside:avoid;margin:0 0 28px;height:auto;min-height:0;width:100%;vertical-align:top}.gl-review-card .gl-review-copy{height:auto;min-height:0}.gl-review-card .gl-review-matching-film:empty{display:none}
 @media(max-width:700px){.gl-review-list{column-count:1;column-gap:0}.gl-review-list .gl-review-card{margin-bottom:22px}}
+
+/* Keep attribution attached to its review and trim repeated section spacing. */
+.gl-reviews .gl-reviews-header{padding-bottom:28px}
+.gl-reviews .gl-reviews-header::after{margin-top:24px}
+.gl-reviews .gl-review-list{padding-bottom:48px}
+.gl-reviews .gl-review-photo{margin-bottom:22px}
+.gl-reviews .gl-review-attribution,.gl-reviews .gl-review-matching-film{margin-top:20px}
+@media(max-width:700px){
+ .gl-reviews .gl-reviews-header{padding-bottom:24px}
+ .gl-reviews .gl-review-list{padding-bottom:30px}
+ .gl-reviews .gl-review-attribution,.gl-reviews .gl-review-matching-film{margin-top:18px}
+}
