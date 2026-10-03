@@ -28,6 +28,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <link rel="stylesheet" href="/portfolio-editorial-refinement.css" />
 {page.path === "/sweet-sixteen/" && <link rel="stylesheet" href="/sweet-sixteen-refinement.css" />}
 {isRtg && <link rel="stylesheet" href="/rtg-production.css" />}
+{!isRtg && page.path !== "/sweet-sixteen/" && <link rel="stylesheet" href="/brand-refinement.css" />}
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>

@@ -407,3 +407,13 @@ This user-approved shortened log contains design changes and test results only.
 - Desktop opening now pairs a left-aligned title/copy column with the existing video browser at the right, reducing the detached vertical gap. At tablet/mobile widths it stacks with a smaller script title and compact spacing.
 - Only this section's CSS changed. All content JSON, films, posters, recap collection, Client Wedding Films grid and player scripts remain byte-for-byte unchanged.
 - Build/check and hosted desktop verification required before handoff. Direct mobile visual verification remains unavailable in the current browser controls; responsive layout rules are retained and inspected without claiming a device test.
+# October 3 — Controlled family story / wedding-brand refinement
+
+- Inspected the hosted Photography, About and Cinematography preview before publication; continued from commit 710834d without rebuilding completed sections.
+- Added the exact supplied 14.013-second, 720-square Giovanni + Michaelina family film to both About route variants. The hosted MP4 is byte-identical to the upload; a real poster frame shows both children. The existing Frank bio and other story copy are preserved.
+- Family film follows the existing click-created modal pattern: no video/player before Play Film, sound enabled, a new player starts at the beginning, and close/Escape fully pause/unload/remove it. Existing Vimeo, MediaZilla and Love in a Minute scripts remain unchanged.
+- Added the actual GioLina logo as a small composition accent above the current Love in a Minute title. Preserved all opening/recap sources, titles, order and corrected client posters.
+- Added targeted brand cyan / existing readable teal accents to wedding section titles, couple names, links, buttons and interaction states. Normal paragraphs remain charcoal and couple names retain serif lettering. The stylesheet is excluded from Sweet Sixteen and RTG.
+- Photography's two existing headings now use restrained Allura in brand cyan. Reduced opening spacing without changing its photograph, centered the Stephanie & Danny image/copy/link as one group, and tightened the centered client-delivery presentation row.
+- Available recap assets remain Bianca & Bobby, Sara & Phil and Nicole & Philip; no unrelated films or invented assets added.
+- Direct mobile visual controls remain unavailable; mobile/tablet single-column rules and tap targets inspected. Hosted desktop, family-film playback and existing providers require verification after native Cloudflare preview deployment.
