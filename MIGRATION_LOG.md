@@ -575,3 +575,7 @@ Reviewed the current hosted preview. Corrected 15 RTG generic labels using actua
 
 ## 2026-10-03 — URL reconciliation checkpoint
 Compared the live WordPress 22-page sitemap to generated routes; no published page URL silently lost. Recovered two exact original sitemap JPEGs and added their redirects plus the captured Elementor placeholder URL. Redirect map now contains 101 entries. No main-page design or production setting changed. See docs/REDIRECT_MAP.md.
+
+
+## 2026-10-03 — production cutover plan only
+Documented scoped giolinafilms.com/apex-www route-based cutover, full DNS/mail preservation, release/indexing/GA4 gates and immediate WordPress rollback. Public DNS remains GoDaddy; giolina.co including clients.giolina.co is excluded. No production, DNS, Search Console or email action executed. Recommendation NOT READY pending documented gates.

@@ -1,6 +1,6 @@
 # Final visual/content QA — 3 October 2026
 
-Preview only. Reviewed the hosted nine main-page desktop openings, current content/asset references, shared footers and responsive rules. No redesign or playback code changed. Full-page screenshot capture timed out on the long Cinema/Photography pages; their lower sections require final manual visual review. Mobile visual/device verification remains outstanding because the connected browser offers no supported viewport/emulation capability.
+Preview only. Reviewed the hosted nine main-page desktop openings, current content/asset references, shared footers and responsive rules. No redesign or playback code changed. Full-page screenshot capture timed out on the long Cinema/Photography pages; Cinema lower sections were subsequently inspected by normal scrolling; Photography lower sections still require final manual visual review. Mobile visual/device verification remains outstanding because the connected browser offers no supported viewport/emulation capability.
 
 ## Safe correction
 
@@ -31,3 +31,7 @@ Replaced 15 existing RTG generic numbered player/alt/accessibility labels with c
 - Two Client Wedding Films cards are Nicole & Philip: Vimeo 425185852 and MediaZilla XDcajHQdhs. Confirm different cuts/duplicate before removing or renaming either.
 - Approved brand cyan #19b5bc on white is approximately 2.50:1. Contrast decision remains outstanding; no unapproved sitewide palette change.
 - Genuine contact delivery test and real-device mobile QA remain outstanding.
+
+## Hosted checkpoint verification
+
+`2a9e320cc85acaf03bd56f3babf4f1cd8b2796fd`: Cloudflare build succeeded; hosted RTG labels match corrected source; zero players before selection, one Vimeo player after click, video observed playing unmuted, zero players after close. Cinema Love in a Minute/anniversary/closing/footer were reviewed through normal scrolling; approved styling preserved.

@@ -7,7 +7,7 @@ Preview only. Production canonical origin remains https://giolinafilms.com. No p
 - [x] Nine main pages: unique title/description, one H1, appropriate alt attributes and key-page navigation.
 - [x] Current assets in main-page social/structured metadata; JSON-LD syntax and graph IDs checked.
 - [x] Nine-main-page sitemap prepared; not submitted.
-- [x] Six known legacy page equivalents, two sitemap endpoints and 90 captured upload URLs mapped; no guesses.
+- [x] Six known legacy page equivalents, two sitemap endpoints, 90 captured uploads and three live-sitemap image references mapped (101 redirects); no guessed destinations.
 - [x] Preview meta and response noindex protections retained. robots allows crawlers to read them.
 - [x] GA4 G-KD1ES061DH preserved in inactive configuration.
 - [ ] Approve production indexing configuration separately; current preview cannot be used as an indexable production deployment.
@@ -36,3 +36,12 @@ Preview only. Production canonical origin remains https://giolinafilms.com. No p
 Not ready for production yet. The preview is suitable for final review; functional checks pass within the limits above. Complete the manual/content decisions and the separate production tracking/indexing configuration before any approved launch. No Search Console or DNS action has been taken.
 
 Checkpoint commits before this checklist's final publication: 62a81a8efe45d504eec1cacda6a0e11c830e4033 (page SEO), 9559efa4a3183def383b8dac41b335fb45f2469a (technical readiness). Final QA commit is in repository history.
+
+## Final preparation pass — 3 October 2026
+
+- [x] Current live WordPress page sitemap: all 22 page URLs preserved or redirected; hosted checks passed for all 213 previously configured routes/redirects/destinations.
+- [x] Two original sitemap JPEGs recovered; their old paths and the captured Elementor placeholder path now redirect correctly. New destinations match captured bytes on the hosted preview.
+- [x] Fifteen RTG generic numbered player labels replaced with verified provider titles; no film source/order/playback changes.
+- [x] Cutover and rollback procedure documented; not executed.
+
+See [visual audit](FINAL_VISUAL_QA.md), [complete redirect map](REDIRECT_MAP.md) and [production cutover plan](PRODUCTION_CUTOVER_PLAN.md). Remaining mobile/content/production configuration gates above still apply.
