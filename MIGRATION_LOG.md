@@ -358,3 +358,10 @@ This user-approved shortened log contains design changes and test results only.
 - Group 2 deployed successfully and hosted player links/aspect ratios verified.
 - Added Megan & Ralph using the exact supplied PNG and Lauren & Tommy with the supplied MediaZilla links. Lauren uses the actual film source poster.
 - Parked posters, Play Film overlays and player-on-interaction preserved. No MP4 uploads or changes to deferred sections.
+
+### Step 2 — Group 4
+- Group 3 deployed and hosted exact poster/labels/player sources verified.
+- Corrected Nicole & Philip and Seleena & Dashmir. Replaced Seleena poster with the actual-film couple kiss at approximately 5:30, without baked-in titles or player chrome.
+- Standardized Play Film labels across client cards; existing lazy players retained.
+- Experience Bianca & Bobby SDE, Love in a Minute placeholder, Sweet Sixteen and Ready To Go remain unchanged.
+- Source review caveats: supplied Mira link is Amira+Ryan_Highlights (2:33); supplied Cole link title is nicolePhil_HIGHLIGHTS_v02. Exact requested links/labels retained pending owner review.
