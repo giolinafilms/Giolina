@@ -1,12 +1,12 @@
 {
   "path": "/contact-us-2/",
-  "title": "Wedding Inquiries | GioLina Films",
+  "title": "Contact GioLina | Staten Island & NYC Wedding Inquiries",
   "seo": [
-    "<meta name=\"description\" content=\"Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.\"/>",
+    "<meta name=\"description\" content=\"Plan your Staten Island or NYC wedding with GioLina. Ask about wedding photography, cinematography or Sweet Sixteen coverage, or schedule a conversation.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"Wedding Inquiries | GioLina Films\"/>",
-    "<meta property=\"og:description\" content=\"Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.\"/>",
+    "<meta property=\"og:title\" content=\"Contact GioLina | Staten Island &amp; NYC Wedding Inquiries\"/>",
+    "<meta property=\"og:description\" content=\"Plan your Staten Island or NYC wedding with GioLina. Ask about wedding photography, cinematography or Sweet Sixteen coverage, or schedule a conversation.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/contact-us-2/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
@@ -65,7 +65,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -81,8 +91,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/contact-us-2/",
           "url": "https://giolinafilms.com/contact-us-2/",
-          "name": "Wedding Inquiries | GioLina Films",
-          "description": "Tell GioLina about your wedding or celebration. Ask about photography and cinematography, or schedule a conversation to discuss your plans.",
+          "name": "Contact GioLina | Staten Island & NYC Wedding Inquiries",
+          "description": "Plan your Staten Island or NYC wedding with GioLina. Ask about wedding photography, cinematography or Sweet Sixteen coverage, or schedule a conversation.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },

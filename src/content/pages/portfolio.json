@@ -1,12 +1,12 @@
 {
   "path": "/portfolio/",
-  "title": "Wedding Photography | GioLina Films",
+  "title": "Staten Island & NYC Wedding Photography | GioLina",
   "seo": [
-    "<meta name=\"description\" content=\"Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.\"/>",
+    "<meta name=\"description\" content=\"Wedding photography for Staten Island and NYC couples, with care for the quiet moments and the whole celebration. Explore GioLina photographs and a full gallery.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"Wedding Photography | GioLina Films\"/>",
-    "<meta property=\"og:description\" content=\"Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.\"/>",
+    "<meta property=\"og:title\" content=\"Staten Island &amp; NYC Wedding Photography | GioLina\"/>",
+    "<meta property=\"og:description\" content=\"Wedding photography for Staten Island and NYC couples, with care for the quiet moments and the whole celebration. Explore GioLina photographs and a full gallery.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/portfolio/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/299da5e07f2f4921.jpg\"/>",
@@ -67,7 +67,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -83,8 +93,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/portfolio/",
           "url": "https://giolinafilms.com/portfolio/",
-          "name": "Wedding Photography | GioLina Films",
-          "description": "Wedding photography by GioLina, from quiet moments to the whole celebration. Explore our photographs and a complete wedding gallery.",
+          "name": "Staten Island & NYC Wedding Photography | GioLina",
+          "description": "Wedding photography for Staten Island and NYC couples, with care for the quiet moments and the whole celebration. Explore GioLina photographs and a full gallery.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },

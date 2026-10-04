@@ -1,12 +1,12 @@
 {
   "path": "/portfolio-2/",
-  "title": "Wedding Cinematography | GioLina Films",
+  "title": "Wedding Cinematography & Videography in Staten Island & NYC | GioLina",
   "seo": [
-    "<meta name=\"description\" content=\"Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.\"/>",
+    "<meta name=\"description\" content=\"Explore GioLina wedding cinematography and videography for Staten Island and New York City couples, from complete wedding films to intimate short edits.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"Wedding Cinematography | GioLina Films\"/>",
-    "<meta property=\"og:description\" content=\"Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.\"/>",
+    "<meta property=\"og:title\" content=\"Wedding Cinematography &amp; Videography in Staten Island &amp; NYC | GioLina\"/>",
+    "<meta property=\"og:description\" content=\"Explore GioLina wedding cinematography and videography for Staten Island and New York City couples, from complete wedding films to intimate short edits.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/portfolio-2/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/cinematography-reel-poster.jpg\"/>",
@@ -66,7 +66,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -82,8 +92,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/portfolio-2/",
           "url": "https://giolinafilms.com/portfolio-2/",
-          "name": "Wedding Cinematography | GioLina Films",
-          "description": "Explore GioLina wedding films, same-day moments and short edits. Personal cinematography that preserves the people, feeling and story of your day.",
+          "name": "Wedding Cinematography & Videography in Staten Island & NYC | GioLina",
+          "description": "Explore GioLina wedding cinematography and videography for Staten Island and New York City couples, from complete wedding films to intimate short edits.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },

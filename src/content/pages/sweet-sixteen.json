@@ -1,12 +1,12 @@
 {
   "path": "/sweet-sixteen/",
-  "title": "Sweet Sixteen Photography & Cinematography | GioLina",
+  "title": "Sweet Sixteen Photography & Films in Staten Island & NYC | GioLina",
   "seo": [
-    "<meta name=\"description\" content=\"Boutique Sweet Sixteen photography and cinematography from GioLina. Personal preparation, polished coverage and films and photographs made for your celebration.\"/>",
+    "<meta name=\"description\" content=\"Sweet Sixteen photography and cinematography in Staten Island and NYC. GioLina brings personal preparation and polished coverage to your celebration.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"Sweet Sixteen Photography &amp; Cinematography | GioLina\"/>",
-    "<meta property=\"og:description\" content=\"Boutique Sweet Sixteen photography and cinematography from GioLina. Personal preparation, polished coverage and films and photographs made for your celebration.\"/>",
+    "<meta property=\"og:title\" content=\"Sweet Sixteen Photography &amp; Films in Staten Island &amp; NYC | GioLina\"/>",
+    "<meta property=\"og:description\" content=\"Sweet Sixteen photography and cinematography in Staten Island and NYC. GioLina brings personal preparation and polished coverage to your celebration.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/sweet-sixteen/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
@@ -31,7 +31,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -47,8 +57,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/sweet-sixteen/",
           "url": "https://giolinafilms.com/sweet-sixteen/",
-          "name": "Sweet Sixteen Photography & Cinematography | GioLina",
-          "description": "Boutique Sweet Sixteen photography and cinematography from GioLina. Personal preparation, polished coverage and films and photographs made for your celebration.",
+          "name": "Sweet Sixteen Photography & Films in Staten Island & NYC | GioLina",
+          "description": "Sweet Sixteen photography and cinematography in Staten Island and NYC. GioLina brings personal preparation and polished coverage to your celebration.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },

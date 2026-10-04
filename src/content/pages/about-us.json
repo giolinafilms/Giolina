@@ -1,12 +1,12 @@
 {
   "path": "/about-us/",
-  "title": "About GioLina | Frank Scudero",
+  "title": "About GioLina | Staten Island & NYC Wedding Storytellers",
   "seo": [
-    "<meta name=\"description\" content=\"Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.\"/>",
+    "<meta name=\"description\" content=\"Meet Frank Scudero and the family story behind GioLina, a boutique wedding photography and cinematography brand serving Staten Island and New York City.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"About GioLina | Frank Scudero\"/>",
-    "<meta property=\"og:description\" content=\"Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.\"/>",
+    "<meta property=\"og:title\" content=\"About GioLina | Staten Island &amp; NYC Wedding Storytellers\"/>",
+    "<meta property=\"og:description\" content=\"Meet Frank Scudero and the family story behind GioLina, a boutique wedding photography and cinematography brand serving Staten Island and New York City.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/about-us/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/cefe0daaa70fe868.jpg\"/>",
@@ -62,7 +62,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -78,8 +88,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/about-us/",
           "url": "https://giolinafilms.com/about-us/",
-          "name": "About GioLina | Frank Scudero",
-          "description": "Meet Frank Scudero and discover the family story behind GioLina, a boutique wedding photography and cinematography brand named for Giovanni and Michaelina.",
+          "name": "About GioLina | Staten Island & NYC Wedding Storytellers",
+          "description": "Meet Frank Scudero and the family story behind GioLina, a boutique wedding photography and cinematography brand serving Staten Island and New York City.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },

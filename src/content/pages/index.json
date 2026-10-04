@@ -1,12 +1,12 @@
 {
   "path": "/",
-  "title": "GioLina Films — Wedding Cinematography & Photography",
+  "title": "Staten Island & NYC Wedding Films + Photography | GioLina",
   "seo": [
-    "<meta name=\"description\" content=\"Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.\"/>",
+    "<meta name=\"description\" content=\"Wedding cinematography, videography and photography for Staten Island and NYC couples. GioLina captures your celebration with a thoughtful, personal approach.\"/>",
     "<meta property=\"og:locale\" content=\"en_US\"/>",
     "<meta property=\"og:type\" content=\"website\"/>",
-    "<meta property=\"og:title\" content=\"GioLina Films — Wedding Cinematography &amp; Photography\"/>",
-    "<meta property=\"og:description\" content=\"Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.\"/>",
+    "<meta property=\"og:title\" content=\"Staten Island &amp; NYC Wedding Films + Photography | GioLina\"/>",
+    "<meta property=\"og:description\" content=\"Wedding cinematography, videography and photography for Staten Island and NYC couples. GioLina captures your celebration with a thoughtful, personal approach.\"/>",
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/\"/>",
     "<meta property=\"og:site_name\" content=\"GioLina Films\"/>",
     "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/8434dc8d16bb070d.jpg\"/>",
@@ -37,7 +37,17 @@
           "name": "GioLina Films",
           "url": "https://giolinafilms.com/",
           "email": "info@giolina.co",
-          "telephone": "866-306-0308"
+          "telephone": "866-306-0308",
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Staten Island"
+            },
+            {
+              "@type": "City",
+              "name": "New York City"
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -53,8 +63,8 @@
           "@type": "WebPage",
           "@id": "https://giolinafilms.com/",
           "url": "https://giolinafilms.com/",
-          "name": "GioLina Films — Wedding Cinematography & Photography",
-          "description": "Wedding cinematography and photography with a personal approach. GioLina creates thoughtful films and photographs for couples in New York and New Jersey.",
+          "name": "Staten Island & NYC Wedding Films + Photography | GioLina",
+          "description": "Wedding cinematography, videography and photography for Staten Island and NYC couples. GioLina captures your celebration with a thoughtful, personal approach.",
           "isPartOf": {
             "@id": "https://giolinafilms.com/#website"
           },
