@@ -43,3 +43,5 @@
  .gl-contact-final .gl-contact-options{padding:20px!important;margin-top:24px!important}
 }
 @media(max-width:420px){.gl-contact-final .gl-inquiry-fields{grid-template-columns:minmax(0,1fr)}.gl-contact-direct{gap:4px 20px}.gl-contact-final h1{font-size:34px}}
+.gl-contact-final :is(input:not([type=checkbox]),select){height:48px!important;padding:11px 12px!important;border-width:1px!important}
+.gl-contact-final .gl-contact-schedule{background:transparent!important;padding:0!important;border:0!important;border-radius:0!important;text-decoration:underline!important;letter-spacing:normal;color:#12383b!important}
