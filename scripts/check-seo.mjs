@@ -32,6 +32,34 @@ for(const path of mainPagePaths){
  assert(!/googletagmanager\.com|google-analytics\.com/.test(html),'preview analytics must remain disabled');
 }
 const sitemap=readFileSync('dist/sitemap.xml','utf8');
+// Guard the new film catalog against stale source/title metadata and broken assets.
+const videoSitemap=readFileSync('dist/video-sitemap.xml','utf8');
+assert(videoSitemap.includes('xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"'));
+const decodeXml=value=>value.replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&apos;',"'");
+let videoCount=0;
+for(const [path,count] of [['/portfolio-2/',27],['/sweet-sixteen/',5],['/ready-to-go-productions/',17]]){
+ const html=readFileSync('dist'+path+'index.html','utf8');
+ const schemas=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match=>JSON.parse(match[1]));
+ const catalogs=schemas.filter(schema=>schema['@type']==='ItemList');assert.equal(catalogs.length,1);
+ const catalog=catalogs[0];assert.equal(catalog.numberOfItems,count);assert.equal(catalog.itemListElement.length,count);
+ const sources=new Set(),ids=new Set();
+ for(const {item,position} of catalog.itemListElement){
+  assert.equal(item['@type'],'MediaObject');assert(position>0);assert(item.name&&item.description&&item.thumbnailUrl);
+  assert(!/— film \d+/.test(item.name));assert(!item.uploadDate&&!item.duration,'unverified film dates/durations');
+  const source=item.contentUrl??item.embedUrl;assert(source&&!sources.has(source));sources.add(source);
+  assert(!ids.has(item['@id']));ids.add(item['@id']);
+  for(const url of [item.thumbnailUrl,item.contentUrl].filter(Boolean))if(url.startsWith(canonicalOrigin+'/assets/'))assert(existsSync('dist'+new URL(url).pathname));
+ }
+ const entry=[...videoSitemap.matchAll(/<url>(.*?)<\/url>/gs)].map(match=>match[1]).find(value=>value.includes(`<loc>${canonicalOrigin+path}</loc>`));assert(entry);
+ const videos=[...entry.matchAll(/<video:video>(.*?)<\/video:video>/gs)];assert.equal(videos.length,count);videoCount+=count;
+ videos.forEach((video,index)=>{
+  const item=catalog.itemListElement[index].item;
+  for(const [tag,expected] of [['title',item.name],['description',item.description],['thumbnail_loc',item.thumbnailUrl],[item.contentUrl?'content_loc':'player_loc',item.contentUrl??item.embedUrl]]){
+   assert.equal(decodeXml(video[1].match(new RegExp(`<video:${tag}>(.*?)</video:${tag}>`,'s'))?.[1]??''),expected);
+  }
+ });
+}
+assert.equal(videoCount,49);
 const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
 assert.deepEqual(urls,mainPagePaths.map(p=>canonicalOrigin+p));
 assert.equal(new Set(urls).size,urls.length);

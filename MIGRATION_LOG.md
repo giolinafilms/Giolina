@@ -604,3 +604,7 @@ Hosted follow-up: small review rating marks need deeper #126c72 on cream/mist su
 ## Local SEO checkpoint — October 4, 2026
 
 Refined unique titles, meta descriptions, Open Graph and WebPage descriptions for Home, Cinematography, Photography, Sweet Sixteen, About Us and Contact Us. Added confirmed Staten Island / New York City service areas to GioLina Organization metadata on those pages. Existing descriptive navigation already links the service pages and inquiry route; no visible copy or links needed changing. Canonicals, headings, design, preview noindex and GA4 configuration preserved. Build and repository SEO checks passed before preview publishing.
+
+## Video SEO checkpoint — October 4, 2026
+
+Added a build-time ItemList / MediaObject catalog and separate video sitemap for 49 existing films: Cinematography/Love in a Minute 27, Sweet Sixteen 5, RTG 17. Titles, descriptions, posters and exact content/embed destinations derive from existing visible inventory; no player or visible design changes. Unknown upload dates and durations are omitted. Two RTG placeholder-title/poster films remain visible but are excluded from SEO entries. See docs/VIDEO_SEO_READINESS.md for publication-date and production crawlability limitations. Main sitemap, robots, canonical origin, preview protections and all playback scripts preserved. Build, SEO checks and XML/local asset validation passed before preview publishing.
