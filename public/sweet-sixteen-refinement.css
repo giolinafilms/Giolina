@@ -158,3 +158,13 @@
 .gl-celebration-page :is(#sweet-films,#sweet-photography){scroll-margin-top:24px}
 @media(prefers-reduced-motion:no-preference){html:has(.gl-celebration){scroll-behavior:smooth}}
 @media(max-width:700px){.gl-celebration-page .gl-sweet-browse{width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap,.gl-sweet-photography{grid-template-columns:minmax(0,1fr);gap:20px;width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation-copy{padding:0 4px 10px;text-align:center}.gl-celebration-page .gl-sweet-presentation h2{font-size:27px}.gl-sweet-film-inquiry{aspect-ratio:auto;min-height:220px;padding:24px}.gl-sweet-photography{padding-block:28px}.gl-sweet-photography h2{font-size:32px}.gl-sweet-photo-presentation h2{font-size:25px}.gl-sweet-planning .gl-celebration-faq-grid{gap:20px}.gl-sweet-planning .gl-sweet-faq-photo{display:none}}
+/* Replaceable photography layout preview; wedding images are explicitly identified. */
+.gl-celebration-page .gl-sweet-photography{display:block;padding:32px 0}
+.gl-sweet-photo-collage{column-count:3;column-gap:20px;scroll-margin-top:24px}
+.gl-sweet-collage-heading{column-span:all;margin-bottom:24px}
+.gl-sweet-collage-heading h2{margin-bottom:10px}
+.gl-sweet-collage-heading>p:last-child{font:400 15px/1.6 Arial,sans-serif;color:#76525c;max-width:70ch;margin:0}
+.gl-sweet-photo-collage>figure{break-inside:avoid;margin:0 0 20px}
+.gl-sweet-photo-collage>figure>img{display:block;width:100%;height:auto;object-fit:contain;transform:none;border:0}
+@media(max-width:1050px){.gl-sweet-photo-collage{column-count:2}}
+@media(max-width:700px){.gl-sweet-photo-collage{column-count:2;column-gap:14px}.gl-sweet-photo-collage>figure{margin-bottom:14px}.gl-sweet-collage-heading{margin-bottom:18px}.gl-sweet-collage-heading>p:last-child{font-size:14px}}

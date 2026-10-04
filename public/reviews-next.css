@@ -28,3 +28,6 @@
 .gl-reviews .gl-review-story h2{font-size:36px;line-height:1.2}
 .gl-review-story blockquote{font-size:17px;line-height:1.65}
 @media(max-width:700px){.gl-reviews .gl-review-list .gl-review-card{padding:20px;margin-bottom:22px}.gl-review-media,.gl-review-story{grid-template-columns:minmax(0,1fr);gap:16px}.gl-review-story{margin-top:18px}.gl-reviews .gl-review-story h2{font-size:32px}}
+/* No empty film slot: a solo photograph is centered at a normal media-card size. */
+.gl-reviews .gl-review-media>.gl-review-photo:only-child{grid-column:1/-1;justify-self:center;width:calc((100% - 20px)/2);max-width:520px}
+@media(max-width:700px){.gl-reviews .gl-review-media>.gl-review-photo:only-child{width:100%;max-width:440px}}
