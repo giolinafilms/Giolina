@@ -27,9 +27,9 @@ Preview only. Production canonical origin remains https://giolinafilms.com. No p
 - [ ] Perform a separately authorized genuine Contact submission and verify receipt/auto-response; no test email was sent here.
 - [ ] Confirm whether the two Nicole & Philip Client Wedding Films cards (Vimeo 425185852 and MediaZilla XDcajHQdhs) are different cuts or a duplicate. No source/title guesses made.
 - [ ] Supply/approve Frank's portrait for the About Us reserved position.
-- [ ] Supply/approve actual RTG poster frames for Vimeo 102347867 and 87439618; neutral placeholders remain.
+- [ ] RTG Vimeo 102347867 rejects preview embedding due to privacy settings; 87439618 requires Vimeo sign-in. Owner must confirm public access and actual film titles/posters. Both existing cards remain intact.
 - [ ] Lauren & Tommy anniversary short is unavailable; no substitute added. Collection is functional without it.
-- [ ] Review brand-cyan script contrast on white: current #19b5bc is 2.50:1, below the 3:1 large-text target, intentionally unchanged following the approved exact-color instruction.
+- [x] Previous accessibility pass resolved cyan text contrast: established readable teal #128087 on white (4.71:1); deeper #126c72 remains on cream. Decorative brand cyan is preserved where appropriate.
 
 ## Assessment
 
@@ -45,3 +45,21 @@ Checkpoint commits before this checklist's final publication: 62a81a8efe45d504ee
 - [x] Cutover and rollback procedure documented; not executed.
 
 See [visual audit](FINAL_VISUAL_QA.md), [complete redirect map](REDIRECT_MAP.md) and [production cutover plan](PRODUCTION_CUTOVER_PLAN.md). Remaining mobile/content/production configuration gates above still apply.
+
+## Functional and content checkpoint — 4 October 2026
+
+Baseline reviewed: `933f2336cc1be4848bd635a7a686e59fa1d0a40d`, branch `preview/homepage-photography-rotation`.
+Preview: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/ .
+
+- Build/check passed: 29 audited routes, 1120 asset references, nine main SEO pages, 101 redirects and 49 catalogued films.
+- All nine main hosted pages and 40 distinct internal navigation/CTA/image-link targets returned HTTP 200. Navigation and footer destinations were preserved.
+- Actual one-click playback verified with unmuted advancing video for Vimeo Christina & Danny and Nicole & Philip, MediaZilla Nicolette & Tyler and RTG Atlas, local Falling in Love / Together, and Sweet Sixteen Gianna. Modal close removes the iframe/video; local Next film replaces the selected player without adding a second player. RTG reel Next advances after its smooth scroll settles; Sweet Sixteen FAQ expands.
+- Vimeo fullscreen button entered and exited its fullscreen control state. MediaZilla exposes a fullscreen button and iframe permission, but its fullscreen interaction could not be completed reliably in this cloud browser; real-device review remains required. No workaround added.
+- Empty Contact submission blocked without a page reload; endpoint unchanged. Scheduling CTA opened the actual 30-minute consultation calendar in a separate tab. No genuine inquiry or booking was submitted.
+- RTG film 6 (102347867): hosted player says “Because of its privacy settings, this video cannot be played here.” Film 10 (87439618): hosted player says “Sign in to Vimeo to watch this video.” These are provider access blockers, not missing modal wiring. No inventory removal, substitute or access-setting change.
+- Visible public titles include eight editorial shorts (Falling in Love, Together, Before the Vows, In the Details, Into the Night, The Celebration, Among Friends, The Whole Day) and three recaps (Bianca & Bobby, Sara & Phil, Nicole & Philip). No visible short filenames/week-number labels. Five Sweet Sixteen films remain Gianna, Gabby, Julianna, Julia and Gina Marie.
+- Nicole & Philip currently labels two distinct sources: Vimeo 425185852 and MediaZilla XDcajHQdhs. Earlier records called the latter Cole & Philip, but a subsequent explicit instruction approved Nicole & Philip. Source records conflict; correct client identity must be confirmed by Frank. No invented name or unilateral reversal.
+- Nicolette & Tyler, Seleena & Dashmir, Lauren & Tommy and Bianca & Bobby source/poster assignments remain unchanged from approved records. Matching filenames/assignments alone cannot prove client identity; final owner review is required. Lauren & Tommy anniversary short remains unavailable.
+- No application, design, media, SEO, route or playback change was needed. This checkpoint corrects stale documentation and records newly verified provider restrictions.
+
+Assessment remains **NOT READY FOR PRODUCTION** until provider access/client identity, genuine inquiry delivery, real-device/laptop review, legacy-route decisions and separately authorized production indexing/analytics gates are resolved. Production was not launched; giolinafilms.com DNS/routing, clients.giolina.co and email/Google Workspace were not changed.
