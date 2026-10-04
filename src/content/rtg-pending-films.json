@@ -1,0 +1,18 @@
+[
+  {
+    "vimeoId": "102347867",
+    "previousLabel": "Ready To Go Productions — film 6",
+    "observedRestriction": "Vimeo: Because of its privacy settings, this video cannot be played here.",
+    "checkedOn": "2026-10-04",
+    "status": "Hidden from public browsing pending owner identification and Vimeo access settings",
+    "originalCardHtml": "<article class=\"rtg-work-card\"><div class=\"gl-film-preview \"><div class=\"gl-neutral-film-poster\" data-pending-thumbnail=\"102347867\" aria-hidden=\"true\"></div><button type=\"button\" data-vimeo-id=\"102347867\" data-film-title=\"Ready To Go Productions — film 6\" aria-label=\"Play film — Ready To Go Productions — film 6\"><span>Play film</span></button></div><div class=\"rtg-caption\"><span class=\"rtg-index\">08</span><h3>Ready To Go Productions — film 6</h3></div></article>"
+  },
+  {
+    "vimeoId": "87439618",
+    "previousLabel": "Ready To Go Productions — film 10",
+    "observedRestriction": "Vimeo: Sign in to Vimeo to watch this video.",
+    "checkedOn": "2026-10-04",
+    "status": "Hidden from public browsing pending owner identification and Vimeo access settings",
+    "originalCardHtml": "<article class=\"rtg-work-card\"><div class=\"gl-film-preview \"><div class=\"gl-neutral-film-poster\" data-pending-thumbnail=\"87439618\" aria-hidden=\"true\"></div><button type=\"button\" data-vimeo-id=\"87439618\" data-film-title=\"Ready To Go Productions — film 10\" aria-label=\"Play film — Ready To Go Productions — film 10\"><span>Play film</span></button></div><div class=\"rtg-caption\"><span class=\"rtg-index\">12</span><h3>Ready To Go Productions — film 10</h3></div></article>"
+  }
+]

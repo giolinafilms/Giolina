@@ -94,3 +94,8 @@
 .gl-production-body .gl-rtg-giolina .gl-landing-kicker{color:#48525f}
 .gl-production-body .gl-rtg-giolina .gl-landing-text-link{color:#442832;border-color:#7f5867}
 .gl-production-body .gl-rtg-giolina .gl-landing-text-link:is(:hover,:focus-visible){color:#25282e;border-color:#25282e}
+/* Reconciliation: clarify the existing microsite without changing its portfolio layout. */
+.gl-production-body .rtg-opening-context{font-size:16px;line-height:1.7;color:#d0d2d7;margin:0 0 22px;max-width:42ch}
+.gl-production-body .rtg-service-examples{font-size:13px;line-height:1.7}
+.gl-production-body .rtg-service-examples a{display:inline-block;padding-block:8px;color:#ead5dd;text-underline-offset:4px}
+.gl-production-body .rtg-work-card[id]{scroll-margin-top:24px}
