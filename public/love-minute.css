@@ -11,7 +11,8 @@
 .gl-love-recaps,.gl-love-history{grid-column:1/-1}
 .gl-short-navigation{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
 .gl-cinema-step-one .gl-love-minute button{box-shadow:none;background-image:none;text-shadow:none;text-transform:none;letter-spacing:0;transition:color .18s ease,border-color .18s ease,background-color .18s ease}
-.gl-cinema-step-one .gl-love-minute :is(.gl-short-stage,.gl-recap-stage),.gl-cinema-step-one .gl-love-minute :is(.gl-short-stage,.gl-recap-stage):is(:hover,:focus,:active){border:0}
+/* Poster buttons are image viewports; override inherited Elementor button padding. */
+.gl-cinema-step-one .gl-love-minute :is(.gl-short-stage,.gl-recap-stage),.gl-cinema-step-one .gl-love-minute :is(.gl-short-stage,.gl-recap-stage):is(:hover,:focus,:active){border:0;padding:0!important}
 .gl-short-stage,.gl-recap-stage{display:block;position:relative;box-sizing:border-box;width:100%;padding:0;border:0;cursor:pointer;touch-action:pan-y;overflow:hidden}
 .gl-cinema-step-one .gl-love-minute .gl-short-stage,.gl-cinema-step-one .gl-love-minute .gl-short-stage:is(:hover,:focus,:active){height:clamp(360px,42vw,520px);background:#f3f1ec;color:#273235}
 .gl-short-stage img{display:block;width:100%;height:100%;object-fit:contain}
