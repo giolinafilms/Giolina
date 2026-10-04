@@ -102,3 +102,23 @@
 .gl-celebration-page .gl-film-toolbar .gl-film-close{background:#f3d9df;border-color:#ddb0bc;color:#49353b}
 .gl-celebration-page .gl-film-toolbar .gl-film-close:is(:hover,:focus,:active){background:#e7bdc7;border-color:#76525c;color:#49353b}
 .gl-celebration-page .gl-film-toolbar .gl-film-close:focus-visible{outline:2px solid #76525c;outline-offset:4px}
+/* Complete the existing two-service entry, questions and presentation features. */
+.gl-celebration-page .gl-celebration-work .gl-landing-section-heading h2{font:400 clamp(28px,3.2vw,40px)/1.2 Georgia,serif;color:#76525c}
+.gl-celebration-page .gl-sweet-entry-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px}
+.gl-celebration-page .gl-sweet-entry-points a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:18px 24px;background:#f3d9df;border:1px solid #ddb0bc;color:#49353b;font:400 clamp(22px,2.5vw,30px)/1.25 Georgia,serif;text-decoration:none}
+.gl-celebration-page .gl-sweet-entry-points a:is(:hover,:focus-visible){background:#e7bdc7;color:#49353b}
+.gl-celebration-page .gl-sweet-entry-points a:focus-visible{outline:2px solid #76525c;outline-offset:4px}
+.gl-celebration-page :is(#sweet-films,#sweet-photography){scroll-margin-top:24px}
+.gl-celebration-page .gl-sweet-faq-photo{margin:24px 0 0;max-width:360px}
+.gl-celebration-page .gl-sweet-faq-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 35%}
+.gl-celebration-page .gl-sweet-presentation{padding:0;border:0}
+.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap{width:100%;max-width:none;padding:0}
+.gl-celebration-page .gl-sweet-presentation figure{width:100%;aspect-ratio:2/1;max-height:680px}
+.gl-celebration-page .gl-sweet-presentation-copy{width:100%;max-width:none;margin:0;background:#f3d9df;padding:26px 24px 30px}
+@media(max-width:700px){
+ .gl-celebration-page .gl-sweet-entry-points{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:20px}
+ .gl-celebration-page .gl-sweet-entry-points a{font-size:24px;min-height:58px;padding:16px 20px}
+ .gl-celebration-page .gl-sweet-faq-photo{max-width:300px;margin:20px auto 0}
+ .gl-celebration-page .gl-sweet-presentation figure{aspect-ratio:3/2;max-height:none}
+ .gl-celebration-page .gl-sweet-presentation-copy{padding:22px 22px 26px}
+}

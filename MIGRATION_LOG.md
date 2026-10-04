@@ -665,3 +665,10 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 - Photography: completed Stephanie & Danny as a full-width landscape image and centered cyan editorial caption, matching Client Delivery Experience. Exact existing client-gallery destination/new-tab behavior retained.
 - Love in a Minute: existing RTG context was already present; added the missing subtle Explore Ready To Go Productions link only. All opening films and anniversary films retained. Lauren & Tommy short remains unavailable after checkpoint 2 search.
 - Scoped responsive rules stack About and retain the full source photograph on mobile. Actual mobile hosted visual verification remains unavailable in this browser; requires device review.
+
+### 2026-10-04 — QC checkpoint 4: Sweet Sixteen completion and hosted sizing correction
+- Replaced the old Two Ways heading with explicit blush Cinematography / Photography entry links to real film/photo anchors. Existing photograph rotation, three production stages and all five films/sources unchanged.
+- Removed only the redundant portrait FAQ. Combined photo/cinema, preparation, agreed coverage/deliverables, pricing and inquiry questions retained.
+- Added the actual supplied pink-gown Sweet Sixteen photograph to the questions area. Finished the presentation as a full-width landscape hero with a blush centered caption. Disabled CTA and honest link-coming-soon notice retained because the final destination is unavailable.
+- The existing 2 + 2 + 1 film arrangement and single-column mobile rules already matched the requested presentation and were left alone.
+- Hosted verification of checkpoint 3 caught an inherited 375px maximum on Photography's hero figure. Removed that limit; no image source or gallery link change.

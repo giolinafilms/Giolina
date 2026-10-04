@@ -81,7 +81,7 @@ body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-
 .gl-cinema-step-one .gl-film-closing a:focus-visible{outline:2px solid #12383b;outline-offset:5px}
 .gl-love-minute .gl-love-history a{display:inline-block;min-height:44px;padding-block:10px;color:#128087;text-decoration:underline;text-underline-offset:4px}
 .gl-photo-page .gl-photo-album.gl-delivery-feature{display:block;width:100%;max-width:none;margin:24px 0 28px;padding:0;background:var(--gl-brand-cyan,#19b5bc);color:#12383b;text-align:center}
-.gl-photo-page .gl-photo-album.gl-delivery-feature figure{width:100%;margin:0}
+.gl-photo-page .gl-photo-album.gl-delivery-feature figure{width:100%;max-width:none;margin:0}
 .gl-photo-page .gl-photo-album.gl-delivery-feature img{display:block;width:100%;height:auto;max-height:680px;aspect-ratio:2/1;object-fit:cover;object-position:center 48%}
 .gl-photo-page .gl-photo-album.gl-delivery-feature>div{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 24px 26px}
 .gl-photo-page .gl-photo-album.gl-delivery-feature :is(h2,p){color:#12383b;margin:0}
