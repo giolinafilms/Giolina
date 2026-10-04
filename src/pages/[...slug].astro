@@ -1,5 +1,6 @@
 ---
 import pages from '../content/pages.mjs';
+import EventsNav from '../components/EventsNav.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import RtgHeader from '../components/RtgHeader.astro';
@@ -10,6 +11,7 @@ export function getStaticPaths() {
  return pages.map(page => ({params:{slug:page.path==='/'?undefined:page.path.replace(/^\/+|\/+$/g,'')},props:{page}}));
 }
 const {page}=Astro.props;
+const isEvents = page.path.startsWith('/events/');
 const isRtg = page.path === "/ready-to-go-productions/";
 ---
 <!doctype html>
@@ -33,10 +35,12 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {isRtg && <link rel="stylesheet" href="/rtg-production.css" />}
 {!isRtg && page.path !== "/sweet-sixteen/" && <link rel="stylesheet" href="/brand-refinement.css" />}
 <link rel="stylesheet" href="/accessibility.css" />
+{isEvents && <link rel="stylesheet" href="/events-phase1.css" />}
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
 {isRtg ? <RtgHeader /> : <SiteHeader path={page.path} />}
+{isEvents && <EventsNav path={page.path} />}
 <main id="content" tabindex="-1"><Fragment set:html={page.content} /></main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 <script src="/migration.js" is:inline></script>

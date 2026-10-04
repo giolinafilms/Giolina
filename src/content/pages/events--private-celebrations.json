@@ -1,0 +1,26 @@
+{
+  "path": "/events/private-celebrations/",
+  "title": "Private Celebrations | GioLina Events — Staten Island & NYC",
+  "seo": [
+    "<meta name=\"description\" content=\"Baptisms, communions, birthdays, anniversaries and smaller parties. Personal celebrations, covered with care and a little extra energy.\">"
+  ],
+  "css": [],
+  "bodyClass": "gl-events-body",
+  "content": "<article class=\"ge-page ge-detail ge-accent-magenta\"><section class=\"ge-detail-hero ge-wrap\" aria-labelledby=\"events-detail-title\"><a class=\"ge-back\" href=\"/events/\">← GioLina Events</a><p class=\"ge-kicker\">GioLina Events · Staten Island & NYC</p><h1 id=\"events-detail-title\">Private Celebrations</h1><h2>From intimate to all-out.</h2><p class=\"ge-intro\">Baptisms, communions, birthdays, anniversaries and smaller parties. Personal celebrations, covered with care and a little extra energy.</p><a class=\"ge-button\" href=\"/contact-us-2/\">Tell us about your event <span aria-hidden=\"true\">↗</span></a></section><section class=\"ge-detail-scope ge-wrap\" aria-labelledby=\"events-scope\"><h2 id=\"events-scope\">A place to begin.</h2><ul><li><span class=\"ge-number\">01</span>Family milestones</li><li><span class=\"ge-number\">02</span>Birthdays &amp; anniversaries</li><li><span class=\"ge-number\">03</span>Intimate gatherings</li></ul><p>Share the date, location and what matters most to you. We’ll discuss the photo and film coverage that fits your event.</p><a class=\"ge-text-link\" href=\"/contact-us-2/\">Start a conversation →</a></section></article>",
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/events/private-celebrations/#webpage",
+      "url": "https://giolinafilms.com/events/private-celebrations/",
+      "name": "Private Celebrations | GioLina Events — Staten Island & NYC",
+      "description": "Baptisms, communions, birthdays, anniversaries and smaller parties. Personal celebrations, covered with care and a little extra energy.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://giolinafilms.com/#website",
+        "name": "GioLina Films",
+        "url": "https://giolinafilms.com/"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+---
+const {path} = Astro.props;
+const links = [
+ ['Events Home','/events/'],['Private Celebrations','/events/private-celebrations/'],
+ ['Corporate','/events/corporate/'],['Live Events','/events/live-events/'],
+ ['Specialty Experiences','/events/specialty/'],['Photo + Film','/events/photo-film/'],
+ ['Contact','/contact-us-2/']
+];
+const current = links.find(([,href])=>href===path)?.[0] || 'Events Home';
+---
+<div class="ge-navigation">
+ <div class="ge-navigation-inner">
+  <a class="ge-identity" href="/events/">GioLina <strong>Events</strong></a>
+  <nav class="ge-desktop-navigation" aria-label="Events navigation">
+   {links.map(([label,href])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}
+  </nav>
+  <details class="ge-mobile-navigation">
+   <summary>Explore Events <span>{current}</span></summary>
+   <nav aria-label="Events mobile navigation">
+    {links.map(([label,href])=><a href={href} aria-current={path===href?'page':undefined}>{label}</a>)}
+   </nav>
+  </details>
+ </div>
+</div>

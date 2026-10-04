@@ -1,0 +1,26 @@
+{
+  "path": "/events/live-events/",
+  "title": "Live Events | GioLina Events — Staten Island & NYC",
+  "seo": [
+    "<meta name=\"description\" content=\"Bands, performances, productions and stage events. Coverage built around the energy in the room and the moments that deserve another look.\">"
+  ],
+  "css": [],
+  "bodyClass": "gl-events-body",
+  "content": "<article class=\"ge-page ge-detail ge-accent-amber\"><section class=\"ge-detail-hero ge-wrap\" aria-labelledby=\"events-detail-title\"><a class=\"ge-back\" href=\"/events/\">← GioLina Events</a><p class=\"ge-kicker\">GioLina Events · Staten Island & NYC</p><h1 id=\"events-detail-title\">Live Events</h1><h2>The moment has a pulse.</h2><p class=\"ge-intro\">Bands, performances, productions and stage events. Coverage built around the energy in the room and the moments that deserve another look.</p><a class=\"ge-button\" href=\"/contact-us-2/\">Tell us about your event <span aria-hidden=\"true\">↗</span></a></section><section class=\"ge-detail-scope ge-wrap\" aria-labelledby=\"events-scope\"><h2 id=\"events-scope\">A place to begin.</h2><ul><li><span class=\"ge-number\">01</span>Bands &amp; performances</li><li><span class=\"ge-number\">02</span>Stage events</li><li><span class=\"ge-number\">03</span>Live productions</li></ul><p>Share the date, location and what matters most to you. We’ll discuss the photo and film coverage that fits your event.</p><a class=\"ge-text-link\" href=\"/contact-us-2/\">Start a conversation →</a></section></article>",
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/events/live-events/#webpage",
+      "url": "https://giolinafilms.com/events/live-events/",
+      "name": "Live Events | GioLina Events — Staten Island & NYC",
+      "description": "Bands, performances, productions and stage events. Coverage built around the energy in the room and the moments that deserve another look.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://giolinafilms.com/#website",
+        "name": "GioLina Films",
+        "url": "https://giolinafilms.com/"
+      }
+    }
+  ]
+}

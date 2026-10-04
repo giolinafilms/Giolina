@@ -1,0 +1,26 @@
+{
+  "path": "/events/photo-film/",
+  "title": "Photo + Film | GioLina Events — Staten Island & NYC",
+  "seo": [
+    "<meta name=\"description\" content=\"Event photography, cinematography, recap films and social-ready content. A considered way to keep the details, people and atmosphere together.\">"
+  ],
+  "css": [],
+  "bodyClass": "gl-events-body",
+  "content": "<article class=\"ge-page ge-detail ge-accent-blue\"><section class=\"ge-detail-hero ge-wrap\" aria-labelledby=\"events-detail-title\"><a class=\"ge-back\" href=\"/events/\">← GioLina Events</a><p class=\"ge-kicker\">GioLina Events · Staten Island & NYC</p><h1 id=\"events-detail-title\">Photo + Film</h1><h2>Keep the feeling. Share the energy.</h2><p class=\"ge-intro\">Event photography, cinematography, recap films and social-ready content. A considered way to keep the details, people and atmosphere together.</p><a class=\"ge-button\" href=\"/contact-us-2/\">Tell us about your event <span aria-hidden=\"true\">↗</span></a></section><section class=\"ge-detail-scope ge-wrap\" aria-labelledby=\"events-scope\"><h2 id=\"events-scope\">A place to begin.</h2><ul><li><span class=\"ge-number\">01</span>Event photography</li><li><span class=\"ge-number\">02</span>Cinematography &amp; recap films</li><li><span class=\"ge-number\">03</span>Social-ready content</li></ul><p>Share the date, location and what matters most to you. We’ll discuss the photo and film coverage that fits your event.</p><a class=\"ge-text-link\" href=\"/contact-us-2/\">Start a conversation →</a></section></article>",
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/events/photo-film/#webpage",
+      "url": "https://giolinafilms.com/events/photo-film/",
+      "name": "Photo + Film | GioLina Events — Staten Island & NYC",
+      "description": "Event photography, cinematography, recap films and social-ready content. A considered way to keep the details, people and atmosphere together.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://giolinafilms.com/#website",
+        "name": "GioLina Films",
+        "url": "https://giolinafilms.com/"
+      }
+    }
+  ]
+}
