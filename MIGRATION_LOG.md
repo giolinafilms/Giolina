@@ -712,3 +712,6 @@ About name-story hierarchy is now Gio & Michaelina / GioLina / The Story of Our 
 
 ### 2026-10-04 large reconciliation final interaction check
 Hosted QA found the current homepage gateway uses gl-destination-card rather than the older gateway wrapper; targeted the actual nested View Films/View Photographs/Discover the Experience CTA for champagne interaction treatment. Sweet Sixteen navigation retains blush by default and uses champagne on readable rose backing for interaction. No player/form/routing code changed.
+
+### 2026-10-04 large reconciliation completion
+All requested items reconciled against current preview in docs/RECONCILIATION_UX_2026-10-04.md. Hosted desktop: review modules, white/champagne header and footer/gateway focus, burgundy RTG context, cinema width and names, Sweet cinema-first flow/inquiry panel/Julia destination, About hierarchy, unchanged Contact/gallery checked. Vimeo/MediaZilla playback and unload passed. Current metadata and film assignments unchanged; production/DNS/client portal/mail/Search Console untouched. Missing photo presentation URL, RTG logo, Lauren short, provider restrictions, uncertain Julie/Nina identity, actual mobile and delivery/booking tests are reported explicitly.
