@@ -98,3 +98,7 @@
  .gl-celebration-page .gl-sweet-presentation-copy{margin-top:22px}
  .gl-celebration-page .gl-sweet-presentation h2{font-size:28px}
 }
+/* Keep the shared modal's controls in the page's blush system. */
+.gl-celebration-page .gl-film-toolbar .gl-film-close{background:#f3d9df;border-color:#ddb0bc;color:#49353b}
+.gl-celebration-page .gl-film-toolbar .gl-film-close:is(:hover,:focus,:active){background:#e7bdc7;border-color:#76525c;color:#49353b}
+.gl-celebration-page .gl-film-toolbar .gl-film-close:focus-visible{outline:2px solid #76525c;outline-offset:4px}
