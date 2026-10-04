@@ -70,3 +70,8 @@ html,body{margin:0}
 /* Keep shared navigation typography independent of inherited legacy page styles. */
 .gl-site-header .gl-site-nav a{font:400 15px/1.4 Arial,sans-serif!important}
 .gl-site-footer .gl-site-footer-inner>nav[aria-label="Footer navigation"] a{font:400 16px/1.4 Arial,sans-serif!important}
+
+/* Footer links must not inherit padded page-level scheduler CTA rules. */
+.gl-site-footer .gl-site-footer-contact p a{padding-inline:0!important;margin-inline:0!important;display:inline-flex;align-items:center;min-height:32px;max-width:100%;white-space:normal!important}
+.gl-site-footer .gl-site-footer-contact .gl-site-footer-social{padding:0;justify-content:flex-start}
+@media(max-width:850px){.gl-site-footer .gl-site-footer-contact p a{min-height:44px}}

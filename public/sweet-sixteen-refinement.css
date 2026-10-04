@@ -178,3 +178,6 @@
 .gl-sweet-photo-presentation .gl-sweet-presentation-cta:focus-visible{outline:2px solid #9b5064;outline-offset:5px}
 #sweet-photo-presentation{scroll-margin-top:24px}
 @media(max-width:420px){.gl-celebration-page .gl-sweet-entry-points{gap:2px 8px}.gl-celebration-page .gl-sweet-entry-points a{font-size:14px}}
+
+/* Keep the inquiry separate from the primary presentation action. */
+.gl-sweet-photo-presentation .gl-landing-text-link{display:flex;width:fit-content;max-width:100%;min-height:44px;align-items:center;justify-content:center;margin:16px auto 0;text-align:center}
