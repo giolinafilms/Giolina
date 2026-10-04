@@ -658,3 +658,10 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 - Real RTG logo remains unavailable. Current workspace and reachable Git filename history contain only the rtg-logo-inventory.jpg contact sheet, not a usable RTG logo. Clean text fallback preserved.
 - Lauren & Tommy search across current workspace filenames, local video inventory and all reachable Git filename history found only public/assets/lauren-tommy.png and public/assets/lauren-tommy-poster.webp. No anniversary MP4/MOV found; no long-form film substituted.
 - Build/check required before publishing. Production, DNS, mail, client portal and Google services untouched.
+
+### 2026-10-04 — QC checkpoint 3: wedding editorial features
+- About: preserved the family story, local Giovanni + Michaelina video and Frank biography. Integrated Frank's text into the story column beside the family film; removed the large empty reserved-portrait box, with no substitute portrait invented. RTG history was already secondary near the bottom and left in place. Finished the We’d Love to Get to Know You cyan heading band.
+- Cinematography: finished the closing cyan band with dark readable lettering and a distinct white inquiry CTA. Existing approved love-story wording, all client-film cards, posters/sources, SEO and playback architecture preserved.
+- Photography: completed Stephanie & Danny as a full-width landscape image and centered cyan editorial caption, matching Client Delivery Experience. Exact existing client-gallery destination/new-tab behavior retained.
+- Love in a Minute: existing RTG context was already present; added the missing subtle Explore Ready To Go Productions link only. All opening films and anniversary films retained. Lauren & Tommy short remains unavailable after checkpoint 2 search.
+- Scoped responsive rules stack About and retain the full source photograph on mobile. Actual mobile hosted visual verification remains unavailable in this browser; requires device review.

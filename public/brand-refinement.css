@@ -62,3 +62,37 @@
 .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature h2{font-size:clamp(28px,3.2vw,42px);line-height:1.2}
 .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a:focus-visible{outline:2px solid #12383b;outline-offset:5px}
 @media(max-width:700px){.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{padding:0;margin-block:20px 24px}.gl-cinema-step-one .gl-delivery-image{aspect-ratio:3/2;max-height:none;object-position:center}.gl-delivery-copy{gap:8px;padding:20px 24px 22px}}
+/* QC reconciliation: complete the requested editorial treatments only. */
+.gl-about-story .gl-about-origin{grid-template-columns:1.08fr 1fr;align-items:center;gap:48px;padding-block:42px}
+.gl-about-story .gl-about-founder-copy{border-top:1px solid #c5dfe1;margin-top:26px;padding-top:22px}
+.gl-about-story .gl-about-founder-copy h2{font-size:30px;margin-bottom:10px}
+.gl-about-story .gl-about-founder-copy .gl-about-role{margin-bottom:14px!important}
+.gl-about-story .gl-about-family{max-width:none}
+.gl-about-story .gl-about-closing{background:var(--gl-brand-cyan,#19b5bc);border:0;padding:36px 24px 40px;color:#12383b}
+.gl-about-story .gl-about-closing h2{color:#12383b}
+.gl-about-story .gl-about-closing a{background:#fff;color:#12383b;border:1px solid #12383b}
+.gl-about-story .gl-about-closing a:is(:hover,:focus-visible){background:#edf8f8;color:#12383b}
+.gl-about-story .gl-about-closing a:focus-visible{outline-color:#12383b}
+.gl-cinema-step-one .gl-film-closing{background:var(--gl-brand-cyan,#19b5bc);color:#12383b;padding:36px 24px 40px}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-film-closing #gl-film-closing-heading{color:#12383b!important}
+.gl-cinema-step-one .gl-film-closing :is(p,.gl-film-closing-eyebrow){color:#12383b}
+.gl-cinema-step-one .gl-film-closing a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;background:#fff;color:#12383b;border:1px solid #12383b;text-decoration:none}
+.gl-cinema-step-one .gl-film-closing a:is(:hover,:focus-visible){color:#12383b;background:#edf8f8;border-color:#12383b}
+.gl-cinema-step-one .gl-film-closing a:focus-visible{outline:2px solid #12383b;outline-offset:5px}
+.gl-love-minute .gl-love-history a{display:inline-block;min-height:44px;padding-block:10px;color:#128087;text-decoration:underline;text-underline-offset:4px}
+.gl-photo-page .gl-photo-album.gl-delivery-feature{display:block;width:100%;max-width:none;margin:24px 0 28px;padding:0;background:var(--gl-brand-cyan,#19b5bc);color:#12383b;text-align:center}
+.gl-photo-page .gl-photo-album.gl-delivery-feature figure{width:100%;margin:0}
+.gl-photo-page .gl-photo-album.gl-delivery-feature img{display:block;width:100%;height:auto;max-height:680px;aspect-ratio:2/1;object-fit:cover;object-position:center 48%}
+.gl-photo-page .gl-photo-album.gl-delivery-feature>div{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 24px 26px}
+.gl-photo-page .gl-photo-album.gl-delivery-feature :is(h2,p){color:#12383b;margin:0}
+.gl-photo-page .gl-photo-album.gl-delivery-feature #gl-photo-album-title{color:#12383b;font-size:clamp(28px,3.2vw,42px);line-height:1.2}
+.gl-photo-page .gl-photo-album.gl-delivery-feature a{color:#12383b;border-color:#12383b;background:transparent;min-height:44px;display:inline-flex;align-items:center;padding:8px 12px;margin:0}
+.gl-photo-page .gl-photo-album.gl-delivery-feature a:is(:hover,:focus-visible){color:#12383b;background:#edf8f8;border-color:#12383b}
+@media(max-width:700px){
+ .gl-about-story .gl-about-origin{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:28px}
+ .gl-about-story .gl-about-founder-copy{margin-top:22px;padding-top:20px}
+ .gl-about-story .gl-about-family{width:100%;max-width:440px;margin-inline:auto}
+ .gl-about-story .gl-about-closing,.gl-cinema-step-one .gl-film-closing{padding:28px 22px 32px}
+ .gl-photo-page .gl-photo-album.gl-delivery-feature img{aspect-ratio:3/2;max-height:none}
+ .gl-photo-page .gl-photo-album.gl-delivery-feature>div{padding:20px 22px 24px}
+}
