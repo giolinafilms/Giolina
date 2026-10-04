@@ -25,3 +25,22 @@ body:not(.gl-production-body):not(.gl-celebration-page) :is(.gl-film-preview>but
 
 /* Small rating marks need the deeper teal on cream and mist review cards. */
 .gl-reviews .gl-review-stars{color:#126c72!important}
+/* One champagne interaction accent, with readable backing on light surfaces. */
+:root{--gl-hover-champagne:#f0dfbf}
+body:not(.gl-production-body) .gl-site-header .gl-site-nav{background:#128087}
+body:not(.gl-production-body) .gl-site-header :is(.gl-site-nav a,.gl-site-mobile-menu summary){color:#fff!important}
+body:not(.gl-production-body) .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b}
+.gl-site-header .gl-site-header-inquire:is(:hover,:focus-visible),.gl-site-footer a:is(:hover,:focus-visible),.gl-redesign .gl-home-gateway .gl-text-link:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b;outline-offset:4px}
+.gl-site-footer a:is(:hover,:focus-visible){border-radius:2px}
+.gl-cinema-step-one .gl-love-history a:is(:hover,:focus-visible),.gl-about-story .gl-about-rtg-link:is(:hover,:focus-visible){color:#852e46;background:#f8eef1;border-color:#852e46}
+.gl-redesign .gl-home-inquiry{background:#128087;border-color:#128087}
+.gl-redesign .gl-home-inquiry h2{color:#fff}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{background:#128087}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature h2{color:#fff!important}
+.gl-cinema-step-one .gl-full-presentation.gl-delivery-feature a{color:#fff;border-color:#fff}
+.gl-cinema-step-one .gl-film-closing{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:28px;row-gap:8px;padding:28px max(32px,calc((100% - 1120px)/2));background:#128087;text-align:left}
+.gl-cinema-step-one .gl-film-closing .gl-film-closing-eyebrow{display:none}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-film-closing #gl-film-closing-heading{font:400 36px/1.25 Georgia,serif;color:#fff!important;margin:0}
+.gl-cinema-step-one .gl-film-closing p{color:#fff;margin:0;font-size:15px;line-height:1.5}
+.gl-cinema-step-one .gl-film-closing a{grid-column:2;grid-row:1/3;margin:0}
+@media(max-width:700px){.gl-cinema-step-one .gl-film-closing{grid-template-columns:minmax(0,1fr);padding:30px 22px;text-align:center;gap:16px}.gl-cinema-step-one .gl-film-closing #gl-film-closing-heading{font-size:28px}.gl-cinema-step-one .gl-film-closing a{grid-column:1;grid-row:auto;justify-self:center}}

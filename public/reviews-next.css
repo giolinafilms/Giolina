@@ -16,3 +16,15 @@
  .gl-reviews .gl-review-list{padding-bottom:30px}
  .gl-reviews .gl-review-attribution,.gl-reviews .gl-review-matching-film{margin-top:18px}
 }
+/* Each couple owns one complete editorial module, including their matching film. */
+.gl-reviews .gl-review-list{column-count:1;max-width:1120px;padding-bottom:40px}
+.gl-reviews .gl-review-list .gl-review-card{padding:24px;margin-bottom:28px;background:#fbfdfd;border-color:#d5e6e7;box-shadow:none}
+.gl-review-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.gl-review-media>.gl-review-photo,.gl-review-media>.gl-review-matching-film{margin:0;aspect-ratio:16/9;width:100%;border:0}
+.gl-review-media .gl-review-photo img{object-fit:cover}
+.gl-review-media>.gl-review-photo:only-child{max-width:520px}
+.gl-review-story{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.5fr);gap:28px;margin-top:22px}
+.gl-reviews .gl-review-story .gl-review-attribution{margin:0}
+.gl-reviews .gl-review-story h2{font-size:36px;line-height:1.2}
+.gl-review-story blockquote{font-size:17px;line-height:1.65}
+@media(max-width:700px){.gl-reviews .gl-review-list .gl-review-card{padding:20px;margin-bottom:22px}.gl-review-media,.gl-review-story{grid-template-columns:minmax(0,1fr);gap:16px}.gl-review-story{margin-top:18px}.gl-reviews .gl-review-story h2{font-size:32px}}
