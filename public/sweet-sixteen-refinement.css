@@ -72,3 +72,29 @@
 /* Keep shared header/footer interactions inside the celebration palette. */
 .gl-celebration-page .gl-site-header a:focus-visible,.gl-celebration-page .gl-site-header summary:focus-visible,.gl-celebration-page .gl-site-footer a:focus-visible{outline-color:#76525c}
 .gl-celebration-page .gl-site-header .gl-site-header-inquire:hover,.gl-celebration-page .gl-site-footer a:hover{color:#76525c}
+
+/* Sweet Sixteen production stages: clear numbers, rose accents, readable copy. */
+.gl-celebration-page .gl-celebration-experience h2{color:#76525c;max-width:720px}
+.gl-celebration-page .gl-celebration-experience ol{gap:30px}
+.gl-celebration-page .gl-celebration-experience li,.gl-celebration-page .gl-celebration-experience li+li{padding-top:60px;border-top:2px solid #ead0d7}
+.gl-celebration-page .gl-celebration-experience li::before,.gl-celebration-page .gl-celebration-experience li+li::before{top:10px;font:400 32px/1.2 Georgia,serif;color:#76525c;letter-spacing:0}
+.gl-celebration-page .gl-celebration-experience h3{font:400 25px/1.25 Georgia,serif;color:#49353b;margin:0 0 16px}
+.gl-celebration-page .gl-celebration-experience li p{line-height:1.75;margin:0}
+/* A static editorial preview; destination is deliberately unset until supplied. */
+.gl-celebration-page .gl-sweet-presentation{background:#fff8f9;padding:48px 0;border-top:1px solid #ead0d7}
+.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap{max-width:980px;text-align:center}
+.gl-celebration-page .gl-sweet-presentation figure{margin:0;aspect-ratio:16/9;overflow:hidden;background:#f3d9df}
+.gl-celebration-page .gl-sweet-presentation img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:none}
+.gl-celebration-page .gl-sweet-presentation-copy{max-width:650px;margin:28px auto 0}
+.gl-celebration-page .gl-sweet-presentation h2{font:400 clamp(28px,3vw,38px)/1.2 Georgia,serif;color:#76525c;margin:0 0 20px}
+.gl-celebration-page .gl-sweet-presentation .gl-landing-kicker{margin-bottom:12px}
+.gl-celebration-page .gl-sweet-presentation-cta{display:inline-flex;justify-content:center;align-items:center;min-height:48px;max-width:100%;padding:12px 24px;border:1px solid #ddb0bc;background:#f3d9df;color:#49353b;font:400 15px/1.5 Arial,sans-serif;cursor:default;opacity:1}
+.gl-celebration-page #sweet-presentation-status{margin:12px 0 0;color:#76525c;font:400 14px/1.6 Arial,sans-serif}
+@media(max-width:700px){
+ .gl-celebration-page .gl-celebration-experience ol{gap:26px}
+ .gl-celebration-page .gl-celebration-experience h3{font-size:23px}
+ .gl-celebration-page .gl-sweet-presentation{padding:30px 0}
+ .gl-celebration-page .gl-sweet-presentation figure{aspect-ratio:3/2}
+ .gl-celebration-page .gl-sweet-presentation-copy{margin-top:22px}
+ .gl-celebration-page .gl-sweet-presentation h2{font-size:28px}
+}
