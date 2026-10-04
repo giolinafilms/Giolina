@@ -27,9 +27,9 @@ body:not(.gl-production-body):not(.gl-celebration-page) :is(.gl-film-preview>but
 .gl-reviews .gl-review-stars{color:#126c72!important}
 /* One champagne interaction accent, with readable backing on light surfaces. */
 :root{--gl-hover-champagne:#f0dfbf}
-body:not(.gl-production-body) .gl-site-header .gl-site-nav{background:#128087}
-body:not(.gl-production-body) .gl-site-header :is(.gl-site-nav a,.gl-site-mobile-menu summary){color:#fff!important}
-body:not(.gl-production-body) .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header .gl-site-nav{background:#128087}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header :is(.gl-site-nav a,.gl-site-mobile-menu summary){color:#fff!important}
+body:not(.gl-production-body):not(.gl-celebration-page) .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b}
 .gl-site-header .gl-site-header-inquire:is(:hover,:focus-visible),.gl-site-footer a:is(:hover,:focus-visible),.gl-redesign .gl-home-gateway .gl-text-link:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b;outline-offset:4px}
 .gl-site-footer a:is(:hover,:focus-visible){border-radius:2px}
 .gl-cinema-step-one .gl-love-history a:is(:hover,:focus-visible),.gl-about-story .gl-about-rtg-link:is(:hover,:focus-visible){color:#852e46;background:#f8eef1;border-color:#852e46}

@@ -126,3 +126,35 @@
 .gl-sweet-presentation a.gl-sweet-presentation-cta{cursor:pointer;text-decoration:none;min-height:48px;display:inline-flex;align-items:center;justify-content:center}
 .gl-sweet-presentation a.gl-sweet-presentation-cta:is(:hover,:focus-visible){background:#fff1f4;color:#49353b}
 .gl-sweet-presentation a.gl-sweet-presentation-cta:focus-visible{outline:2px solid #9b5064;outline-offset:5px}
+/* Two clear entry bands lead to cinema first, photography second. */
+.gl-celebration-page .gl-sweet-browse{width:min(1040px,calc(100% - 64px));padding:12px 0 28px}
+.gl-celebration-page .gl-sweet-entry-points{grid-template-columns:minmax(0,1fr);gap:14px;margin:0}
+.gl-celebration-page .gl-celebration-work{padding:32px 0}
+.gl-celebration-showcase>article:last-of-type{grid-column:auto;width:100%;justify-self:stretch}
+.gl-sweet-film-inquiry{aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px;background:#f3d9df;border:1px solid #ddb0bc}
+.gl-sweet-film-inquiry h3{font:400 25px/1.3 Georgia,serif;margin:0 0 18px}
+.gl-sweet-film-inquiry .gl-landing-button{font-size:14px;padding:10px 14px}
+.gl-celebration-page .gl-sweet-presentation{background:#fff8f9;padding:28px 0}
+.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:32px;width:min(1120px,calc(100% - 64px));padding:0;margin:auto}
+.gl-celebration-page .gl-sweet-presentation figure{aspect-ratio:3/2;max-height:360px}
+.gl-celebration-page .gl-sweet-presentation-copy{background:transparent;padding:16px;margin:0;text-align:left}
+.gl-celebration-page .gl-sweet-presentation h2{font-size:30px}
+.gl-sweet-photo-jump{display:block;margin-top:20px;font-size:15px}
+.gl-sweet-photography{padding:36px 0;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:36px;align-items:center}
+.gl-sweet-photography h2{font:400 40px/1.2 Georgia,serif;color:#76525c}
+.gl-sweet-photography .gl-celebration-photo-rotation{max-height:500px;aspect-ratio:4/3}
+.gl-sweet-photo-presentation{padding:24px 0 32px;text-align:center;border-top:1px solid #ead0d7}
+.gl-sweet-photo-presentation h2{font:400 28px/1.3 Georgia,serif;color:#76525c;margin:0 0 18px}
+.gl-sweet-photo-presentation button{min-height:48px;padding:12px 24px;background:#f3d9df;color:#49353b;border:1px solid #ddb0bc}
+.gl-sweet-photo-presentation>p:last-child{font-size:14px;margin-top:12px;color:#76525c}
+.gl-sweet-planning{background:#fff8f9;padding:28px 0}
+.gl-celebration-page .gl-sweet-planning .gl-celebration-experience{padding-block:12px 28px}
+.gl-sweet-planning .gl-celebration-experience>div{margin-bottom:20px}
+.gl-sweet-planning .gl-celebration-experience details summary{cursor:pointer;min-height:48px}
+.gl-sweet-planning .gl-celebration-experience details h3{display:inline;font-size:22px}
+.gl-sweet-planning .gl-celebration-experience details p{margin-top:14px}
+.gl-sweet-planning .gl-celebration-faq{padding:28px 0 12px;border-top:1px solid #ead0d7}
+.gl-sweet-planning .gl-sweet-faq-photo{max-width:220px;margin-top:16px}
+.gl-celebration-page :is(#sweet-films,#sweet-photography){scroll-margin-top:24px}
+@media(prefers-reduced-motion:no-preference){html:has(.gl-celebration){scroll-behavior:smooth}}
+@media(max-width:700px){.gl-celebration-page .gl-sweet-browse{width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap,.gl-sweet-photography{grid-template-columns:minmax(0,1fr);gap:20px;width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation-copy{padding:0 4px 10px;text-align:center}.gl-celebration-page .gl-sweet-presentation h2{font-size:27px}.gl-sweet-film-inquiry{aspect-ratio:auto;min-height:220px;padding:24px}.gl-sweet-photography{padding-block:28px}.gl-sweet-photography h2{font-size:32px}.gl-sweet-photo-presentation h2{font-size:25px}.gl-sweet-planning .gl-celebration-faq-grid{gap:20px}.gl-sweet-planning .gl-sweet-faq-photo{display:none}}
