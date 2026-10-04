@@ -31,3 +31,8 @@
 /* No empty film slot: a solo photograph is centered at a normal media-card size. */
 .gl-reviews .gl-review-media>.gl-review-photo:only-child{grid-column:1/-1;justify-self:center;width:calc((100% - 20px)/2);max-width:520px}
 @media(max-width:700px){.gl-reviews .gl-review-media>.gl-review-photo:only-child{width:100%;max-width:440px}}
+/* Softer, less saturated header-family teal, with readable white attribution and copy. */
+.gl-reviews .gl-review-list .gl-review-card{background:#347c81;border-color:#347c81}
+.gl-reviews .gl-review-card :is(.gl-review-attribution h2,.gl-review-stars,blockquote,blockquote p){color:#fff!important}
+.gl-reviews #deanna-2021 .gl-review-photo{aspect-ratio:3/2}
+.gl-reviews #deanna-2021 .gl-review-photo img{object-position:center}

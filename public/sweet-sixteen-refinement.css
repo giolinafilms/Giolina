@@ -168,3 +168,13 @@
 .gl-sweet-photo-collage>figure>img{display:block;width:100%;height:auto;object-fit:contain;transform:none;border:0}
 @media(max-width:1050px){.gl-sweet-photo-collage{column-count:2}}
 @media(max-width:700px){.gl-sweet-photo-collage{column-count:2;column-gap:14px}.gl-sweet-photo-collage>figure{margin-bottom:14px}.gl-sweet-collage-heading{margin-bottom:18px}.gl-sweet-collage-heading>p:last-child{font-size:14px}}
+/* Light editorial jump navigation; presentation now has its supplied destination. */
+.gl-celebration-page .gl-sweet-entry-points{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 14px}
+.gl-celebration-page .gl-sweet-entry-points a{display:inline-flex;align-items:center;min-height:44px;padding:8px 2px;font:400 16px/1.4 Arial,sans-serif;color:#76525c;background:transparent;border:0;border-radius:0;text-decoration:underline;text-underline-offset:5px}
+.gl-celebration-page .gl-sweet-entry-points a:is(:hover,:focus-visible){color:#49353b;background:#fff1f4}
+.gl-celebration-page .gl-sweet-entry-points>span{color:#76525c}
+.gl-sweet-photo-presentation .gl-sweet-presentation-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;background:#f3d9df;color:#49353b;border:1px solid #ddb0bc;text-decoration:none}
+.gl-sweet-photo-presentation .gl-sweet-presentation-cta:is(:hover,:focus-visible){background:#fff1f4;color:#49353b}
+.gl-sweet-photo-presentation .gl-sweet-presentation-cta:focus-visible{outline:2px solid #9b5064;outline-offset:5px}
+#sweet-photo-presentation{scroll-margin-top:24px}
+@media(max-width:420px){.gl-celebration-page .gl-sweet-entry-points{gap:2px 8px}.gl-celebration-page .gl-sweet-entry-points a{font-size:14px}}

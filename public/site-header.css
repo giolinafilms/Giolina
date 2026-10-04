@@ -67,5 +67,3 @@ html,body{margin:0}
 /* Give long navigation labels room within the narrow mobile footer. */
 @media(max-width:380px){.gl-site-footer nav{grid-template-columns:minmax(0,1fr);row-gap:10px}}
 
-/* The new Events entry keeps white/champagne contrast on the blush header. */
-.gl-celebration-page .gl-site-header .gl-site-nav a[href="/events/"]{color:#fff!important;background:#76525c}
