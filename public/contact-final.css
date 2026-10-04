@@ -1,0 +1,45 @@
+/* Contact-only refinement: one image and one inquiry panel. */
+.gl-contact-final{max-width:1240px;margin:0 auto;padding:48px 32px 64px;color:#252b2c}
+.gl-contact-final .gl-contact-intro{max-width:900px;margin-bottom:32px}
+.gl-contact-final h1{font-size:clamp(34px,3.5vw,48px);line-height:1.15;letter-spacing:.06em;margin:0 0 18px}
+.gl-contact-final .gl-contact-intro p{font-size:18px;line-height:1.65;margin:0 0 12px}
+.gl-contact-final .gl-contact-intro .gl-contact-local{font-size:15px;color:#526266}
+.gl-contact-final a{color:#126c72;text-underline-offset:5px}
+.gl-contact-direct{display:flex;gap:24px;flex-wrap:wrap;font-size:15px;padding-top:4px}
+.gl-contact-composition{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:stretch}
+.gl-contact-inquiry{grid-column:2;grid-row:1;min-width:0}
+.gl-contact-final .gl-contact-image{grid-column:1;grid-row:1;position:relative;margin:0;min-width:0;overflow:hidden;background:#d9e6e6}
+.gl-contact-image .gl-image-rotation{position:absolute;inset:0;aspect-ratio:auto}
+.gl-contact-image .gl-image-rotation img{object-fit:cover!important;max-width:none;padding:0;border:0;margin:0}
+.gl-contact-final [data-contact-status]{font-size:16px;line-height:1.5;margin:0 0 22px;color:#394b4e}
+.gl-contact-final .gl-inquiry-fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 20px}
+.gl-contact-final .gl-inquiry-field{min-width:0}
+.gl-contact-final label,.gl-contact-final legend{display:block;font-size:14px;line-height:1.5;margin:0 0 7px;font-weight:500;color:#394b4e}
+.gl-contact-final label span{font-weight:400;font-size:12px;color:#526266}
+.gl-contact-final :is(input:not([type=checkbox]),select,textarea){display:block;width:100%;max-width:100%;box-sizing:border-box;border:1px solid #78888a;border-radius:3px;background:#fff;color:#394b4e;font-family:inherit;font-size:16px;line-height:1.4;padding:11px 12px;min-height:48px}
+.gl-contact-final textarea{resize:vertical;min-height:112px}
+.gl-contact-final :is(input,select,textarea):focus-visible{outline:2px solid #126c72;outline-offset:3px;border-color:#126c72!important}
+.gl-contact-final :is(a,button):focus-visible{outline:2px solid #126c72;outline-offset:5px}
+.gl-contact-final .gl-inquiry-services{grid-column:1/-1;border:0;padding:0;margin:0;min-width:0}
+.gl-inquiry-services>div{display:flex;flex-wrap:wrap;gap:4px 20px}
+.gl-contact-final .gl-inquiry-services label{display:flex;align-items:center;gap:8px;min-height:44px;margin:0;font-size:15px;font-weight:400;cursor:pointer}
+.gl-contact-final input[type=checkbox]{width:18px;height:18px;min-height:0;accent-color:#126c72;margin:0;flex-shrink:0}
+.gl-inquiry-message{grid-column:1/-1}
+.gl-contact-final .gl-inquiry-submit{width:100%;min-height:50px;margin-top:22px;border:0;border-radius:3px;background:#19b5bc;color:#12383b;font:500 14px/1.4 inherit;letter-spacing:.14em;cursor:pointer}
+.gl-contact-final .gl-inquiry-submit:hover{background:#17a7ae}
+.gl-contact-final .gl-inquiry-submit:disabled{opacity:.75;cursor:wait}
+.gl-contact-final .gl-contact-options{margin-top:26px!important;padding:24px!important;background:#edf8f8!important;border-top:1px solid #19b5bc}
+.gl-contact-final .gl-contact-options h2{font-size:clamp(23px,2.1vw,28px)!important;line-height:1.25;letter-spacing:0;text-transform:none;margin:0 0 12px;font-weight:400}
+.gl-contact-final .gl-contact-options p{font-size:15px;line-height:1.6;margin:0 0 10px;color:#394b4e}
+.gl-contact-final .gl-contact-schedule{display:inline-flex;align-items:center;min-height:44px;font-size:15px;text-decoration:underline}
+@media(max-width:767px){
+ .gl-contact-final{padding:30px 20px 42px}
+ .gl-contact-final .gl-contact-intro{margin-bottom:26px}
+ .gl-contact-final .gl-contact-intro p{font-size:16px}
+ .gl-contact-composition{grid-template-columns:minmax(0,1fr);gap:26px}
+ .gl-contact-inquiry{grid-column:1;grid-row:1}
+ .gl-contact-final .gl-contact-image{grid-column:1;grid-row:2;height:clamp(280px,90vw,420px)}
+ .gl-contact-final .gl-inquiry-fields{gap:17px 14px}
+ .gl-contact-final .gl-contact-options{padding:20px!important;margin-top:24px!important}
+}
+@media(max-width:420px){.gl-contact-final .gl-inquiry-fields{grid-template-columns:minmax(0,1fr)}.gl-contact-direct{gap:4px 20px}.gl-contact-final h1{font-size:34px}}

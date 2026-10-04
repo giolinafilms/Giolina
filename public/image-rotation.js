@@ -2,9 +2,10 @@
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
 for(const area of document.querySelectorAll('[data-rotate-images]')){
  const frames=[...area.querySelectorAll('img')];let active=0,timer,visible=false,running=false;
+ const interval=Math.max(4500,Number(area.dataset.rotateInterval)||4500);
  area.dataset.currentFrame='1';
  const prepare=async image=>{if(!image.src)image.src=image.dataset.src;try{await image.decode();return true;}catch{return false;}};
- const schedule=()=>{clearTimeout(timer);if(!visible||document.hidden||motion.matches)return;timer=setTimeout(advance,4500);};
+ const schedule=()=>{clearTimeout(timer);if(!visible||document.hidden||motion.matches)return;timer=setTimeout(advance,interval);};
  const advance=async()=>{
   if(running)return;running=true;const next=(active+1)%frames.length;
   const ready=await prepare(frames[next]);
