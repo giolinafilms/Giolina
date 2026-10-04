@@ -98,6 +98,8 @@ if (browser) {
  dialog.addEventListener('click', event => { if (event.target === dialog) dismiss(); });
  dialog.addEventListener('cancel', stop);
  dialog.addEventListener('close', () => {
+  // A queued close event must not unload a newly reopened player.
+  if (dialog.open) return;
   stop();
   if (!document.querySelector('.gl-film-dialog[open]')) {
    document.body.classList.remove('gl-film-open'); stage.focus();

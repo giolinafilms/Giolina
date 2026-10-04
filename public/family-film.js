@@ -35,6 +35,8 @@ if (trigger) {
  dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
  dialog.addEventListener('cancel', () => unload(screen));
  dialog.addEventListener('close', () => {
+  // A queued close event must not unload a newly reopened player.
+  if (dialog.open) return;
   unload(screen);
   if (!document.querySelector('.gl-film-dialog[open]')) {
    document.body.classList.remove('gl-film-open'); trigger.focus();

@@ -45,6 +45,8 @@ if (mediazillaTriggers.length) {
  dialog.addEventListener('cancel', () => screen.replaceChildren());
  dialog.addEventListener('click', event => { if (event.target === dialog) stopAndClose(); });
  dialog.addEventListener('close', () => {
+  // A queued close event must not unload a newly reopened player.
+  if (dialog.open) return;
   screen.replaceChildren();
   if (!document.querySelector('.gl-film-dialog[open]')) {
    document.body.classList.remove('gl-film-open'); opener?.focus();

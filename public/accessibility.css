@@ -48,3 +48,5 @@ body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-
 .gl-redesign .gl-destination-card .gl-text-link{width:fit-content;padding-inline:10px;border-radius:2px}
 .gl-redesign .gl-destination-card:is(:hover,:focus-visible) .gl-text-link{color:var(--gl-hover-champagne)!important;background:#12383b}
 .gl-celebration-page .gl-site-header .gl-site-nav a:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#76525c}
+/* Events now carries the production history forward; use GioLina link interaction. */
+.gl-about-story .gl-about-rtg-link[href="/events/"]:is(:hover,:focus-visible),.gl-cinema-step-one .gl-love-history a[href="/events/"]:is(:hover,:focus-visible){color:var(--gl-hover-champagne)!important;background:#12383b;border-color:#12383b}
