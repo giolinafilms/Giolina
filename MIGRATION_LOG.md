@@ -709,3 +709,6 @@ Sweet Sixteen now has stacked service jump bands and cinema-first content. Five 
 
 ### 2026-10-04 large reconciliation checkpoint 3
 About name-story hierarchy is now Gio & Michaelina / GioLina / The Story of Our Name, with one H1, the full-name explanation, Frank's existing bio, and the exact family-video control retained. Team and experience sections are stacked editorial blocks with restrained copy widths. Actual GioLina mark anchors the team; clean RTG text fallback anchors secondary experience because an authentic RTG logo is still unavailable. SEO page metadata/routes/player scripts unchanged.
+
+### 2026-10-04 large reconciliation final interaction check
+Hosted QA found the current homepage gateway uses gl-destination-card rather than the older gateway wrapper; targeted the actual nested View Films/View Photographs/Discover the Experience CTA for champagne interaction treatment. Sweet Sixteen navigation retains blush by default and uses champagne on readable rose backing for interaction. No player/form/routing code changed.
