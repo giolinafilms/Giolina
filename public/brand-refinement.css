@@ -96,3 +96,12 @@ body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-
  .gl-photo-page .gl-photo-album.gl-delivery-feature img{aspect-ratio:3/2;max-height:none}
  .gl-photo-page .gl-photo-album.gl-delivery-feature>div{padding:20px 22px 24px}
 }
+/* Restrained complete-gallery feature: photograph and information belong together. */
+.gl-photo-page .gl-photo-album.gl-delivery-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;width:min(1120px,calc(100% - 64px));margin:36px auto;padding:28px 0;background:#fff;border-top:1px solid #cde5e6}
+.gl-photo-page .gl-photo-album.gl-delivery-feature img{aspect-ratio:3/2;max-height:none;object-position:center 48%}
+.gl-photo-page .gl-photo-album.gl-delivery-feature>div{justify-content:center;padding:20px}
+.gl-photo-page .gl-photo-album.gl-delivery-feature #gl-photo-album-title{color:#128087;font-size:clamp(28px,2.5vw,36px)}
+.gl-photo-page .gl-photo-album.gl-delivery-feature p{color:#222}
+.gl-photo-page .gl-photo-album.gl-delivery-feature .gl-promo-kicker{color:#128087}
+.gl-photo-page .gl-photo-album.gl-delivery-feature a{background:#edf8f8;min-height:48px;padding:10px 16px}
+@media(max-width:700px){.gl-photo-page .gl-photo-album.gl-delivery-feature{grid-template-columns:minmax(0,1fr);gap:20px;width:calc(100% - 44px);margin:28px auto;padding:24px 0}.gl-photo-page .gl-photo-album.gl-delivery-feature>div{padding:4px 10px 12px}}

@@ -694,3 +694,6 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 - Anniversary intro distinguishes couple-specific revisits and the life built since: A quick look back at the wedding — and a little look at everything that came after. Supporting explanation remains concise.
 - Inspected late-film contact sheets and exported final meaningful fully visible closing frames before fade-out: Bianca & Bobby at 56.112s, Sara & Phil at 58.032s, Nicole & Philip at 58.074s. Optimized 1280x720 WebP assets now used on cards and in player-poster data; video bytes unchanged.
 - Lauren & Tommy short remains unavailable in current/reachable repository inventory. No long-form film substituted.
+
+### 2026-10-04 incremental checkpoint 3
+Refined only the Stephanie & Danny complete-gallery feature into a centered photograph/information editorial pair. Restrained cyan is confined to typography, a rule, and the link treatment. Exact gallery destination/new-tab behavior and the separate photography closing section remain unchanged. Mobile stacks the same feature within normal gutters.
