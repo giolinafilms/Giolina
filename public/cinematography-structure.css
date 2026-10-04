@@ -10,3 +10,7 @@
 .gl-cinema-step-one .gl-full-presentation.gl-delivery-feature{margin-top:0}
 .gl-cinema-step-one .gl-love-minute{box-sizing:border-box;width:min(1120px,calc(100% - 64px));margin:0 auto 36px;padding:16px 0 48px;border-bottom:1px solid #c8dfe0}
 @media(max-width:700px){.gl-cinema-step-one .gl-cinema-clients{padding-top:32px}.gl-cinema-step-one .gl-film-portfolio-heading,.gl-cinema-step-one .gl-film-collection,.gl-cinema-step-one .gl-love-minute{width:calc(100% - 40px)}.gl-cinema-step-one .gl-film-collection{padding:24px 0 28px}.gl-cinema-step-one .gl-love-minute{padding-bottom:32px;margin-bottom:24px}}
+/* Incremental review: a modestly inset hero, without changing its player. */
+.gl-cinema-step-one .gl-cinema-hero{width:min(1280px,calc(100% - 64px));margin:24px auto 32px;background:transparent}
+.gl-cinema-step-one .gl-cinema-hero-player{width:84%;margin-inline:auto}
+@media(max-width:700px){.gl-cinema-step-one .gl-cinema-hero{width:calc(100% - 36px);margin:18px auto 24px}.gl-cinema-step-one .gl-cinema-hero-player{width:100%}}

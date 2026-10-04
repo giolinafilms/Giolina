@@ -680,3 +680,10 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 - SEO metadata keys preserved. Client Wedding Films markup/source inventory unchanged. No Cole & Philip visible label; duplicate Nicole & Philip assignments require owner confirmation, not guessed changes.
 - Final remaining blockers and all 11 requested statuses recorded in docs/QC_RECONCILIATION_2026-10-04.md. Film 6 privacy, Film 10 sign-in, Julianna privacy; RTG logo/Lauren recap unavailable; Formspree delivery unverified; real mobile visual QA unavailable. Current approved Julia & Mina name preserved pending checklist-name clarification.
 - Hosted Photography screenshot saved for review. No production, DNS/routing, email, clients.giolina.co, SmugMug or Google services changed. Stop after final documentation publish verification.
+
+### 2026-10-04 — Post-QC incremental checkpoint 1: source reconciliation and lower-page flow
+- Hosted homepage Vimeo 548643452 verified advancing, paused false, muted true, hero class revealed, readiness/seek/play succeeded. Reported failure was not reproduced; established poster-first/muted background behavior preserved, no speculative rewrite.
+- Confirmed prior explicit source mapping in migration history (October 2): Nicole & Philip = Vimeo 425185852; Cole & Philip = MediaZilla XDcajHQdhs (actual male-couple ceremony despite misleading internal title). Restored only Cole label/alt/ARIA for that source. Both legitimate films/posters retained; no deletion/merge/source replacement.
+- Modestly inset Cinematography top film to 84% of its centered 1280px/guttered main wrapper. Mobile retains full usable width with 18px gutters. Playback unchanged.
+- Removed the oversized landscape photograph immediately after Client Wedding Films within the delivery feature. Preserved legitimate Bianca & Bobby film/content and Client Delivery Experience destination/title/link. Lower sequence now flows directly from client films to compact delivery heading/CTA, Love in a Minute and closing.
+- Build/check before preview publish; protected systems and SEO unchanged.
