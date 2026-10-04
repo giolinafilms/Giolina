@@ -732,3 +732,10 @@ Media comes from identified existing RTG work and explicitly labelled Sweet Sixt
 Production build and repository/SEO checks pass, including all eight film catalogs (65 per-page entries, deduplicated within each page). Preview-only publication; hosted navigation, media loading and playback are checked after deployment. Responsive styles use single-column media and a compact Events navigation at mobile breakpoints; a physical mobile/laptop review remains recommended. New event-specific photography and wider portfolio examples are still needed. RTG Films 6 / 10 remain excluded; authentic RTG logo is unavailable and unnecessary for the historical text treatment.
 
 Hosted Phase 2 verification: Corporate shows four correct films with zero initial iframes; one Atlas activation creates exactly one MediaZilla player, which reports playing and unmuted. Final Events-only finishing check promotes featured-film titles to H2 and removes inherited wedding-cyan film-button accents/focus in favor of cream, periwinkle and amber. Playback scripts remain unchanged.
+
+
+## 2026-10-04 — Selective breadcrumb and transition UX
+
+Added an opt-in semantic SiteBreadcrumb component and enabled only GioLina > Sweet Sixteen near that page’s top. Compact blush styling, underlined ancestor link, current page plain text, and 44px link target. Documented future deeper-route usage without creating routes or adding top-level breadcrumb bars. Events navigation/breadcrumbs remain unchanged.
+
+Existing Sweet Sixteen `#sweet-films` / `#sweet-photography` entry links and end-of-cinema Photography transition are retained. Added a real Ask About Sweet Sixteen Coverage link directly after the Photography presentation, pointing to `/contact-us-2/?occasion=sweet-sixteen`; the unavailable presentation link remains disabled. Audited existing wedding-page closing inquiries, photography gallery and Events return/contact links; no additional redundant links were added. SEO, media sources, playback and Contact configuration are preserved. Preview only.

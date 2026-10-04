@@ -1,0 +1,24 @@
+---
+// Explicit opt-in for sub-experiences and genuine deeper routes only.
+// The final item is always plain current-page text, never a redundant link.
+const {items, tone = 'wedding'} = Astro.props;
+---
+<nav class:list={['gl-breadcrumb', {'gl-breadcrumb-blush': tone === 'blush'}]} aria-label="Breadcrumb">
+ <ol>
+  {items.map((item, index) => <li>
+   {index > 0 && <span class="gl-breadcrumb-separator" aria-hidden="true">›</span>}
+   {index === items.length - 1 ? <span aria-current="page">{item.label}</span> : <a href={item.href}>{item.label}</a>}
+  </li>)}
+ </ol>
+</nav>
+<style>
+ .gl-breadcrumb{--breadcrumb-accent:#126c72;width:min(1160px,calc(100% - 64px));margin-inline:auto;padding:4px 0;font:400 13px/1.4 Arial,Helvetica,sans-serif;color:#526266}
+ .gl-breadcrumb-blush{--breadcrumb-accent:#76525c}
+ .gl-breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;margin:0;padding:0}
+ .gl-breadcrumb li{display:flex;align-items:center;gap:10px;white-space:nowrap;min-height:44px}
+ .gl-breadcrumb a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:var(--breadcrumb-accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+ .gl-breadcrumb a:hover{background:#f0dfbf;color:#49353b}
+ .gl-breadcrumb a:focus-visible{outline:3px solid var(--breadcrumb-accent);outline-offset:2px;background:#f0dfbf;color:#49353b}
+ .gl-breadcrumb-separator{color:#687477}
+ @media(max-width:700px){.gl-breadcrumb{width:calc(100% - 44px);font-size:12px}.gl-breadcrumb ol,.gl-breadcrumb li{gap:8px}}
+</style>

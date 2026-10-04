@@ -1,6 +1,7 @@
 ---
 import pages from '../content/pages.mjs';
 import EventsNav from '../components/EventsNav.astro';
+import SiteBreadcrumb from '../components/SiteBreadcrumb.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import RtgHeader from '../components/RtgHeader.astro';
@@ -41,7 +42,9 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <a class="migration-skip" href="#content">Skip to content</a>
 {isRtg ? <RtgHeader /> : <SiteHeader path={page.path} />}
 {isEvents && <EventsNav path={page.path} />}
-<main id="content" tabindex="-1"><Fragment set:html={page.content} /></main>
+<main id="content" tabindex="-1">
+{!isEvents && page.breadcrumbs?.length && <SiteBreadcrumb items={page.breadcrumbs} tone={page.path === "/sweet-sixteen/" ? "blush" : "wedding"} />}
+<Fragment set:html={page.content} /></main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 <script src="/migration.js" is:inline></script>
 <script src="/film-player.js" defer={page.path === "/portfolio-2/"} is:inline></script>
