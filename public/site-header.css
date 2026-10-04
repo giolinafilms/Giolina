@@ -67,3 +67,6 @@ html,body{margin:0}
 /* Give long navigation labels room within the narrow mobile footer. */
 @media(max-width:380px){.gl-site-footer nav{grid-template-columns:minmax(0,1fr);row-gap:10px}}
 
+/* Keep shared navigation typography independent of inherited legacy page styles. */
+.gl-site-header .gl-site-nav a{font:400 15px/1.4 Arial,sans-serif!important}
+.gl-site-footer .gl-site-footer-inner>nav[aria-label="Footer navigation"] a{font:400 16px/1.4 Arial,sans-serif!important}
