@@ -25,7 +25,7 @@
 .gl-contact-final .gl-inquiry-services label{display:flex;align-items:center;gap:8px;min-height:44px;margin:0;font-size:15px;font-weight:400;cursor:pointer}
 .gl-contact-final input[type=checkbox]{width:18px;height:18px;min-height:0;accent-color:#126c72;margin:0;flex-shrink:0}
 .gl-inquiry-message{grid-column:1/-1}
-.gl-contact-final .gl-inquiry-submit{width:100%;min-height:50px;margin-top:22px;border:0;border-radius:3px;background:#19b5bc;color:#12383b;font:500 14px/1.4 inherit;letter-spacing:.14em;cursor:pointer}
+.gl-contact-final .gl-inquiry-submit{width:100%;min-height:50px;margin-top:22px;border:0;border-radius:3px;background:#19b5bc;color:#12383b;font-family:inherit;font-size:14px;font-weight:500;line-height:1.4;letter-spacing:.14em;cursor:pointer}
 .gl-contact-final .gl-inquiry-submit:hover{background:#17a7ae}
 .gl-contact-final .gl-inquiry-submit:disabled{opacity:.75;cursor:wait}
 .gl-contact-final .gl-contact-options{margin-top:26px!important;padding:24px!important;background:#edf8f8!important;border-top:1px solid #19b5bc}
