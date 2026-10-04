@@ -697,3 +697,6 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 
 ### 2026-10-04 incremental checkpoint 3
 Refined only the Stephanie & Danny complete-gallery feature into a centered photograph/information editorial pair. Restrained cyan is confined to typography, a rule, and the link treatment. Exact gallery destination/new-tab behavior and the separate photography closing section remain unchanged. Mobile stacks the same feature within normal gutters.
+
+### 2026-10-04 incremental checkpoint 4
+Recovered all five named supplied photographs. Optimized WebP derivatives assign GLP_0014 to Gianna, RTG_0178 to Gabby, GIO_0682 to Julia, and Ginamarie_SweetSixteen-11 to Gina Marie; Julianna's approved poster is untouched. Swapped only Gina Marie/Julianna positions: Gianna, Gabby, Gina Marie, Julia, Julianna. All film sources and player architecture are unchanged. GIO_0252 (Julia) now supplies the existing presentation hero. Enabled View Presentation to the supplied MediaZilla 62aYiGyhwV destination in a new tab. Existing presentation composition and blush palette remain.
