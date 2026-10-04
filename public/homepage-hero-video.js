@@ -1,13 +1,19 @@
 import Player from '/vimeo-hero-player.mjs';
 
-// One iframe, native muted autoplay, and a one-way reveal. No pause cycle.
+// The poster owns the opening. Create one background player after the hold.
 const frame = document.querySelector('.gl-hero-video iframe[data-hero-start="5"]');
 const hero = frame?.closest('.gl-hero');
-if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
- const player = new Player(frame);
+if (hero && !hero.dataset.videoInitialized && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  const state = hero.dataset;
+ state.videoInitialized = 'true';
+ state.videoState = 'poster';
+ state.videoHold = 'waiting';
+ const initialize = () => {
+ state.videoHold = 'complete';
  state.videoState = 'initializing';
- let holdComplete = false;
+ frame.src = frame.dataset.heroSrc;
+ const player = new Player(frame);
+ const holdComplete = true;
  let revealAllowed = false;
  let revealed = false;
  let previousSeconds = null;
@@ -52,19 +58,14 @@ if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   // A delayed/rejected play promise must not hide advancing native autoplay.
   player.play().then(() => { state.videoPlay = 'succeeded'; })
    .catch(error => { state.videoPlay = 'rejected'; recordError(error); });
-  if (!holdComplete) void seekOpening();
- }).catch(error => { state.videoState = 'initialization-error'; recordError(error); });
- const paint = performance.getEntriesByType('paint').find(entry => entry.name === 'first-contentful-paint');
- const delay = Math.max(0, 5000 - (performance.now() - (paint?.startTime ?? performance.now())));
- setTimeout(async () => {
-  holdComplete = true;
-  state.videoHold = 'complete';
-  await ready;
-  // Best effort to reveal at 00:05 without pausing the running background.
   await seekOpening();
   previousSeconds = null;
   revealAllowed = true;
- }, delay);
-} else if (hero) {
+ }).catch(error => { state.videoState = 'initialization-error'; recordError(error); });
+ };
+ const paint = performance.getEntriesByType('paint').find(entry => entry.name === 'first-contentful-paint');
+ const delay = Math.max(0, 5000 - (performance.now() - (paint?.startTime ?? performance.now())));
+ setTimeout(initialize, delay);
+} else if (hero && !hero.dataset.videoInitialized) {
  hero.dataset.videoState = 'reduced-motion';
 }
