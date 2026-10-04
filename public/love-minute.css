@@ -99,3 +99,14 @@
  .gl-love-minute .gl-short-picker{flex-basis:100%}
  .gl-love-minute .gl-short-controls{margin-left:auto}
 }
+/* A clear title selector and a separate, readable navigation row. */
+.gl-cinema-step-one .gl-love-minute .gl-short-navigation{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:stretch;margin-bottom:18px}
+.gl-cinema-step-one .gl-love-minute .gl-short-picker{width:100%;max-width:none;min-height:52px;border:1px solid #a4cccf;background:#fff;color:#273235;padding:12px 42px 12px 16px;font:400 19px/1.4 Georgia,serif}
+.gl-cinema-step-one .gl-love-minute .gl-short-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
+.gl-cinema-step-one .gl-love-minute .gl-short-controls button{min-height:46px;padding:10px 18px;border:1px solid #a4cccf;background:#edf8f8;color:#12383b;font:400 15px/1.4 Arial,sans-serif}
+.gl-cinema-step-one .gl-love-minute .gl-short-controls button:is(:hover,:focus-visible){background:#d6f1f2;color:#12383b}
+.gl-cinema-step-one .gl-love-minute .gl-short-controls button:focus-visible,.gl-cinema-step-one .gl-love-minute .gl-short-picker:focus-visible{outline:2px solid #128087;outline-offset:4px}
+.gl-love-intro .gl-love-editorial{font-size:17px;line-height:1.6;max-width:36ch;margin-bottom:20px}
+.gl-love-intro .gl-love-subtitle{font:400 15px/1.7 Arial,sans-serif;text-transform:none;letter-spacing:0;color:#273235;max-width:50ch;margin-top:18px}
+.gl-love-recap-intro .gl-love-recap-explanation{font:400 15px/1.7 Arial,sans-serif;color:#526266;max-width:66ch;margin-top:12px}
+@media(max-width:700px){.gl-love-intro .gl-love-editorial{font-size:16px;margin-bottom:16px}.gl-cinema-step-one .gl-love-minute .gl-short-picker{font-size:18px}.gl-cinema-step-one .gl-love-minute .gl-short-controls button{padding:10px 14px}.gl-love-intro .gl-love-subtitle{margin-top:14px}}

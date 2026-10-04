@@ -687,3 +687,10 @@ Experience old caption replaced with Planned with care. Present for the moment. 
 - Modestly inset Cinematography top film to 84% of its centered 1280px/guttered main wrapper. Mobile retains full usable width with 18px gutters. Playback unchanged.
 - Removed the oversized landscape photograph immediately after Client Wedding Films within the delivery feature. Preserved legitimate Bianca & Bobby film/content and Client Delivery Experience destination/title/link. Lower sequence now flows directly from client films to compact delivery heading/CTA, Love in a Minute and closing.
 - Build/check before preview publish; protected systems and SEO unchanged.
+
+### 2026-10-04 — Post-QC incremental checkpoint 2: short-film explanation/navigation/posters
+- Love in a Minute now explains promotional/editorial shorts: Big moments. Quick stories. One minute at a time. Supporting line identifies GioLina/RTG production years without implying couple-specific anniversary stories. Existing RTG context/link preserved.
+- Full-width selected-title dropdown now has a distinct Previous / count / Next row directly below. Mobile stays one card with existing swipe behavior. No video source, public film title, opening order, player code or recap inventory changes.
+- Anniversary intro distinguishes couple-specific revisits and the life built since: A quick look back at the wedding — and a little look at everything that came after. Supporting explanation remains concise.
+- Inspected late-film contact sheets and exported final meaningful fully visible closing frames before fade-out: Bianca & Bobby at 56.112s, Sara & Phil at 58.032s, Nicole & Philip at 58.074s. Optimized 1280x720 WebP assets now used on cards and in player-poster data; video bytes unchanged.
+- Lauren & Tommy short remains unavailable in current/reachable repository inventory. No long-form film substituted.
