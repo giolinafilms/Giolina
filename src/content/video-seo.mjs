@@ -1,6 +1,6 @@
 import {canonicalOrigin} from '../config/site.mjs';
 
-const videoPages = new Set(['/portfolio-2/', '/sweet-sixteen/', '/ready-to-go-productions/']);
+const videoPages = new Set(['/portfolio-2/', '/sweet-sixteen/', '/ready-to-go-productions/', '/events/private-celebrations/', '/events/corporate/', '/events/live-events/', '/events/specialty/', '/events/photo-film/']);
 const decode = value => value.replace(/&(?:amp|quot|apos|lt|gt|#39);/g, entity => ({'&amp;':'&','&quot;':'"','&apos;':"'",'&#39;':"'",'&lt;':'<','&gt;':'>'}[entity]));
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], decode(match[2])]));
 const absolute = value => new URL(value, canonicalOrigin).href;
@@ -10,7 +10,9 @@ const absolute = value => new URL(value, canonicalOrigin).href;
 export function videoCatalog(page) {
  if (!videoPages.has(page.path)) return [];
  const films = [];
- const description = title => page.path === '/sweet-sixteen/'
+ const description = title => page.path.startsWith('/events/')
+  ? `${title} — a selected event film in the GioLina Events collection.`
+  : page.path === '/sweet-sixteen/'
   ? `${title} — a Sweet Sixteen film from GioLina’s photography and cinematography collection.`
   : page.path === '/ready-to-go-productions/'
    ? `${title} — a selected film in the Ready To Go Productions portfolio.`
@@ -51,7 +53,7 @@ export function videoCatalogSchema(page) {
  // MediaObject describes verified media without claiming VideoObject rich-result
  // eligibility. First-publication dates are unknown; never infer them from commits.
  return [{'@context':'https://schema.org', '@type':'ItemList', '@id':url+'#film-catalog',
-  name:page.path === '/ready-to-go-productions/' ? 'Ready To Go Productions films' : page.path === '/sweet-sixteen/' ? 'Sweet Sixteen films' : 'GioLina wedding films and Love in a Minute',
+  name:page.path.startsWith('/events/') ? 'GioLina Events — selected films' : page.path === '/ready-to-go-productions/' ? 'Ready To Go Productions films' : page.path === '/sweet-sixteen/' ? 'Sweet Sixteen films' : 'GioLina wedding films and Love in a Minute',
   numberOfItems:films.length, itemListElement:films.map((film,index) => ({'@type':'ListItem', position:index+1,
    item:{'@type':'MediaObject', '@id':url+'#film-'+encodeURIComponent(film.contentUrl ?? film.embedUrl),
     ...film, isPartOf:{'@id':url}}}))}];

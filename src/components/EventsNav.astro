@@ -22,3 +22,5 @@ const current = links.find(([,href])=>href===path)?.[0] || 'Events Home';
   </details>
  </div>
 </div>
+
+<nav class="ge-breadcrumb ge-wrap" aria-label="Breadcrumb"><a href="/">← Back to GioLina</a><span aria-hidden="true">/</span>{path === "/events/" ? <span aria-current="page">Events</span> : <><a href="/events/">Events</a><span aria-hidden="true">/</span><span aria-current="page">{current}</span></>}</nav>

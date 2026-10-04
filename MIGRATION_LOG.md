@@ -721,3 +721,12 @@ Added an eight-image, optimized, replaceable Sweet Sixteen photography collage u
 
 ### 2026-10-04 — GioLina Events Phase 1
 Added Events to the shared desktop/mobile header and footer, preserving RTG compatibility. Six separate Events routes share a scoped navy/cream/electric-blue identity, restrained magenta/amber accents and accessible secondary desktop/mobile navigation. The overview introduces five editorial gateways; concise subpage foundations support later content/media curation. All Events Contact links use the existing Contact route; no form/player changes or new media. Added unique titles/descriptions, canonical WebPage metadata and sitemap entries; preview noindex and disabled GA4 remain. Production/DNS/mail/client portal/Search Console untouched.
+
+
+## 2026-10-04 — GioLina Events Phase 2
+
+Built out all five Phase 1 category routes with distinct coverage copy, featured films, curated supporting work, historical RTG context, and Contact CTAs. Added an understated Back to GioLina breadcrumb to all six Events pages. The landing structure, wedding pages, legacy RTG inventory, Contact setup, and playback scripts remain unchanged.
+
+Media comes from identified existing RTG work and explicitly labelled Sweet Sixteen milestone examples. Existing Sweet Sixteen portraits support Private Celebrations and Photo + Film; they are not labelled as baptisms, communions or corporate photography. No unrelated placeholder images, unidentified films, fabricated logo, dates, durations, pricing, or promised turnaround. Build-time Events film catalogs and video sitemap derive from the visible cards.
+
+Production build and repository/SEO checks pass, including all eight film catalogs (65 per-page entries, deduplicated within each page). Preview-only publication; hosted navigation, media loading and playback are checked after deployment. Responsive styles use single-column media and a compact Events navigation at mobile breakpoints; a physical mobile/laptop review remains recommended. New event-specific photography and wider portfolio examples are still needed. RTG Films 6 / 10 remain excluded; authentic RTG logo is unavailable and unnecessary for the historical text treatment.
