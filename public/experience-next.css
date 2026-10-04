@@ -24,3 +24,23 @@
  .gl-experience .gl-exp-review{padding-bottom:44px}
  .gl-experience .gl-exp-cta{padding-block:44px 50px}
 }
+/* QC reconciliation: complete the requested Experience refinements only. */
+.gl-experience .gl-exp-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:5%}
+.gl-experience .gl-exp-hero-photo{transform:rotate(3.5deg)}
+.gl-experience .gl-exp-statement{background:#edf8f8;border-block:1px solid #d3e8e9}
+.gl-experience .gl-exp-statement h2 em{color:#128087!important}
+.gl-experience .gl-exp-review{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:5%}
+.gl-experience .gl-exp-review figure{width:100%;margin:0}
+.gl-experience .gl-exp-review figure img{width:100%;height:auto}
+.gl-experience .gl-exp-sde-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gl-experience .gl-exp-engagement{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center}
+.gl-experience .gl-exp-engagement h2{margin-bottom:14px}
+.gl-experience .gl-exp-engagement>article{min-width:0}
+.gl-experience .gl-exp-cta .gl-exp-wrap{width:min(1120px,calc(100% - 64px));margin-inline:auto}
+@media(max-width:767px){
+ .gl-experience .gl-exp-hero,.gl-experience .gl-exp-review,.gl-experience .gl-exp-sde-grid,.gl-experience .gl-exp-engagement{grid-template-columns:minmax(0,1fr)}
+ .gl-experience .gl-exp-hero-photo{width:calc(100% - 18px);max-width:520px;transform:rotate(2deg)}
+ .gl-experience .gl-exp-review{gap:26px}
+ .gl-experience .gl-exp-engagement{gap:22px}
+ .gl-experience .gl-exp-cta .gl-exp-wrap{width:calc(100% - 44px)}
+}
