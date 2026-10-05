@@ -1,4 +1,4 @@
-import {adminProposalPreview} from './proposal-share.mjs';
+import {adminProposalPreview,adminPackagePreview} from './proposal-share.mjs';
 import {authenticate} from './auth.mjs';
 import {api,json} from './api.mjs';
 import {shell,locked} from './shell.mjs';
@@ -15,6 +15,7 @@ export async function handlePrivate(request,env){
  if(path.startsWith('/api/portal'))return response(JSON.stringify({error:'Client sign-in and client API access are not enabled in Phase 1.'}),'application/json',501);
  if(path.startsWith('/api/admin/')){try{const result=await api(request,env,user,path.slice('/api/admin/'.length));const h=new Headers(result.headers);for(const [k,v]of Object.entries(headers))h.set(k,v);return new Response(result.body,{status:result.status,headers:h});}catch{return response(JSON.stringify({error:'Private operation could not be completed.'}),'application/json',500);}}
  if(!['GET','HEAD'].includes(request.method))return response('Method not allowed','text/plain',405);
+ const template=path.match(/^\/admin\/packages\/([^/]+)\/preview$/);if(template)return adminPackagePreview(request,env,template[1]);
  const proposal=path.match(/^\/admin\/proposals\/([^/]+)\/preview$/);if(proposal)return adminProposalPreview(request,env,proposal[1]);
  if(path==='/admin/app.js')return response(request.method==='HEAD'?null:client,'text/javascript;charset=utf-8');
  if(path==='/admin/app.css')return response(request.method==='HEAD'?null:styles,'text/css;charset=utf-8');

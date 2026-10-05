@@ -102,7 +102,7 @@ test('Phase 2 inquiry conversion, PDF baseline isolation, trusted DEMO selection
  assert.equal((await call('setup-active-packages','POST',{})).status,200);await call('setup-active-packages','POST',{});const packs=(await call('packages')).data;assert.equal(packs.length,8);assert.equal(packs.find(p=>p.id==='baseline-wedding-cinema').priceCents,315000);assert.equal(packs.find(p=>p.id==='baseline-sweet-photo').priceCents,165000);
  const original=packs[0],{id,version,createdAt,updatedAt,baseline,sourceCategory,...editable}=original;assert.equal((await call('packages/'+id,'PUT',{version,data:editable})).status,400);assert.equal((await call('packages','POST',{data:{...editable,name:'DEMO editable copy'}})).status,201);
  const made=await call('projects/'+project.id+'/proposal','POST',{version:project.version,packageIds:['baseline-wedding-cinema','baseline-wedding-micro-cinema','baseline-wedding-photo']});assert.equal(made.status,201);let p=made.data;assert.equal(p.totalCents,545000);assert.equal(p.clientSelection,true);assert(p.catalogSnapshot.length>3);
- const published=await call('proposals/'+p.id+'/share','POST',{version:p.version,action:'create'});assert.equal(published.status,200);const url=published.data.url+'/selection';
+ const published=await call('proposals/'+p.id+'/share','POST',{version:p.version,action:'create'});assert.equal(published.status,200);const opened=await worker.fetch(new Request(published.data.url),env);assert.equal(opened.status,200);assert((await call('activity')).data.some(a=>a.action==='demo-proposal-viewed'));const url=published.data.url+'/selection';
  const read=()=>worker.fetch(new Request(url),env);let response=await read();assert.equal(response.status,200);let selection=await response.json();assert.equal(selection.totalCents,545000);
  const post=async body=>{const r=await worker.fetch(new Request(url,{method:'POST',headers:{Origin:env.CRM_ORIGIN,'Content-Type':'application/json','X-GioLina-Request':'demo-selection'},body:JSON.stringify(body)}),env);return {status:r.status,data:await r.json()};};
  assert.equal((await post({selected:[1,2],version:selection.version,price:1})).status,400);assert.equal((await post({selected:[0,1,2],version:selection.version})).status,400);assert.equal((await post({selected:[1,2,3],version:selection.version})).status,400);assert.equal((await post({selected:[1,2],version:999})).status,409);
@@ -111,4 +111,17 @@ test('Phase 2 inquiry conversion, PDF baseline isolation, trusted DEMO selection
  const source=(await call('services/hb-0-01')).data;const {id:si,version:sv,createdAt:sc,updatedAt:su,...sd}=source;await call('services/'+si,'PUT',{version:sv,data:{...sd,clientDescription:'CHANGED MASTER COPY',priceCents:999999}});
  const {id:pi,version:pv,createdAt:pc,updatedAt:pu,subtotalCents:ps,totalCents:pt,catalogSnapshot:cs,...pd}=p;const changed=await call('proposals/'+pi,'PUT',{version:pv,data:{...pd,notes:'Private note'}});assert.equal(changed.status,200);assert.equal(changed.data.catalogSnapshot.find(s=>s.id==='hb-0-01').priceCents,315000);
  assert.equal((await call('proposals/'+pi+'/share','POST',{version:changed.data.version,action:'disable'})).status,200);assert.equal((await read()).status,404);
+});
+
+test('lead association respects contact boundaries and carries pre-project proposal history',async()=>{
+ const {call}=fixture();await call('seed','POST',{});await call('setup-active-packages','POST',{});
+ const c=(await call('contacts','POST',{data:{name:'DEMO Existing',email:'existing@example.test',demo:true}})).data;
+ const project=(await call('projects','POST',{data:{name:'DEMO Existing project',contactId:c.id,eventType:'Sweet Sixteen',status:'Inquiry',demo:true}})).data;
+ const lead=(await call('leads','POST',{data:{name:'DEMO pre-project lead',email:c.email,eventType:'Sweet Sixteen',status:'New',demo:true}})).data;
+ const draft=(await call('leads/'+lead.id+'/proposal','POST',{version:lead.version,packageIds:['baseline-sweet-photo']})).data;assert(draft.id);assert.equal(draft.projectId,null);
+ const other=(await call('contacts','POST',{data:{name:'DEMO Other',email:'other@example.test',demo:true}})).data;
+ const wrong=(await call('projects','POST',{data:{name:'DEMO wrong project',contactId:other.id,eventType:'Sweet Sixteen',status:'Inquiry',demo:true}})).data;
+ assert.equal((await call('leads/'+lead.id+'/convert','POST',{version:lead.version,projectId:wrong.id})).status,400);
+ assert.equal((await call('leads/'+lead.id+'/convert','POST',{version:lead.version,projectId:project.id})).status,201);
+ const linked=(await call('proposals/'+draft.id)).data;assert.equal(linked.projectId,project.id);assert.equal(linked.contactId,c.id);assert.equal(linked.version,2);assert.equal((await call('projects')).data.length,2);
 });
