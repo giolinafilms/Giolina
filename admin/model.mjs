@@ -2,13 +2,13 @@ import {presentationFields,validImage,filmEmbed} from './presentation.mjs';
 import {templateCategories} from './templates.mjs';
 import {catalogCategories} from './catalog.mjs';
 export {projectStages as lifecycle} from './workflow.mjs';
-import {projectStages as lifecycle} from './workflow.mjs';
+import {projectStages as lifecycle,businessLifecycle} from './workflow.mjs';
 export const leadStages=['New','Contacted','Consultation Scheduled','Proposal Needed','Proposal Sent','Follow-Up','Booked','Lost / Declined'];
 export const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
 export const definitions={
  contacts:{required:['name','email'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',address:'long',preferredContactMethod:'contact-method',leadSource:'text',importantDates:'long',notes:'long',demo:'boolean',archived:'boolean'}},
- leads:{required:['name','eventType','status'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',location:'long',serviceIds:'array',leadSource:'text',tags:'text',inquiryDate:'date',projectId:'project',message:'long',status:'lead-status',followUpAt:'date',assignedFollowUp:'text',notes:'long',demo:'boolean',archived:'boolean'}},
- projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',additionalContactIds:'contact-array',coverImage:'image',leadSource:'text',tags:'text',eventType:'event',eventDate:'date',venue:'text',location:'long',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',paymentNotes:'long',proposalStatus:'text',contractStatus:'text',importantDates:'long',nextSteps:'long',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
+ leads:{required:['name','eventType','status'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',location:'long',serviceIds:'array',leadSource:'text',tags:'text',inquiryDate:'date',projectId:'project',message:'long',lifecycle:'workflow-state',status:'lead-status',followUpAt:'date',assignedFollowUp:'text',notes:'long',demo:'boolean',archived:'boolean'}},
+ projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',additionalContactIds:'contact-array',coverImage:'image',leadSource:'text',tags:'text',eventType:'event',eventDate:'date',venue:'text',location:'long',lifecycle:'workflow-state',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',paymentNotes:'long',proposalStatus:'text',contractStatus:'text',importantDates:'long',nextSteps:'long',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
  services:{required:['name'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',clientDescription:'long',description:'long',inclusions:'long',addOns:'long',notes:'long',category:'text',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',sourceName:'text',sourceDescription:'long',sourcePriceCents:'money',sourceCoverageHours:'number',sourceCategory:'text',...presentationFields,archived:'boolean'}},
  packages:{required:['name','serviceIds'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',sortOrder:'number',description:'long',clientDescription:'long',notes:'long',serviceIds:'array',optionalServiceIds:'array',priceCents:'money',rules:'long',...presentationFields,archived:'boolean'}},
  'appointment-types':{required:['name','durationMinutes'],fields:{name:'text',durationMinutes:'number',bufferMinutes:'number',description:'long',archived:'boolean'}},
@@ -46,6 +46,7 @@ export function validate(kind,input){
   if(type==='template-category'&&!templateCategories.includes(s))throw new Error('Invalid template category');
   if(type==='proposal-status'&&!['Draft','Ready for review','Accepted (test only)','Declined','Expired'].includes(s))throw new Error('Invalid proposal status');
   if(type==='lead-status'&&![...leadStages,...lifecycle].includes(s))throw new Error('Invalid lead stage');
+  if(type==='workflow-state'&&!businessLifecycle.includes(s))throw new Error('Invalid lifecycle');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');
   if(type==='appointment-status'&&!['Scheduled','Cancelled','Completed'].includes(s))throw new Error('Invalid appointment status');
   if(type==='weekday'&&!['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].includes(s))throw new Error('Invalid weekday');
@@ -59,6 +60,7 @@ export function validate(kind,input){
  if(kind==='contracts'&&(out.paymentSchedule||[]).reduce((sum,r)=>sum+r.amountCents,0)>(out.priceCents??0))throw new Error('Payment schedule exceeds confirmed contract price');
  if(kind==='invoices'){const paidCents=(out.paymentHistory||[]).reduce((sum,r)=>sum+r.amountCents,0);if(!Number.isSafeInteger(paidCents)||paidCents>out.amountCents||(out.depositCents||0)>out.amountCents||(out.installments||[]).reduce((sum,r)=>sum+r.amountCents,0)>out.amountCents)throw new Error('Payment records exceed the planned total');out.paidCents=paidCents;out.remainingCents=out.amountCents-paidCents;out.paymentState=paidCents===out.amountCents?'Manually recorded as paid':paidCents?'Partial manual payment':'Planned / unpaid';}
  if(kind==='proposals'){if(!out.projectId&&!out.contactId&&!out.leadId)throw new Error('Select a client, lead or project');if(out.clientSelection&&!out.demo)throw new Error('Client selection is DEMO-only');if(out.status==='Accepted (test only)'&&!out.demo)throw new Error('Acceptance is test-only');const totals=proposalTotals(out.lineItems,out.discountCents||0);out.subtotalCents=totals.subtotalCents;out.totalCents=totals.totalCents;}
+ if(['leads','projects'].includes(kind)&&out.lifecycle==='Archived')out.archived=true;
  if(kind==='leads'&&!out.contactId&&!out.email)throw new Error('Email or existing contact is required');
  if(kind==='packages'&&(!out.serviceIds?.length||new Set(out.serviceIds).size!==out.serviceIds.length))throw new Error('Choose at least one included service without duplicates');
  if(kind==='packages'&&(out.optionalServiceIds||[]).some(id=>out.serviceIds.includes(id)))throw new Error('A service cannot be included and optional at the same time');
