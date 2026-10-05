@@ -13,6 +13,7 @@ async function appointmentLocks(db,org,id,data){
  if(end-start>480*60000||end-start<5*60000)throw new Error('Appointments must last 5–480 minutes');
  const localDay=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(start));
  const availability=await list(db,org,'availability');if(availability.some(a=>a.blockedDate===localDay&&!a.archived))throw new Error('That date is blocked');
+ const zone='America/New_York',weekday=new Intl.DateTimeFormat('en-US',{timeZone:zone,weekday:'long'}).format(new Date(start));const windows=availability.filter(a=>!a.archived&&!a.blockedDate);if(windows.length){const dateEnd=new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(end));const clock=time=>new Intl.DateTimeFormat('en-GB',{timeZone:zone,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(time));if(dateEnd!==localDay||!windows.some(a=>a.dayOfWeek===weekday&&a.startTime<=clock(start-buffer)&&a.endTime>=clock(end+buffer)))throw new Error('Appointment and buffer must fit configured availability hours');}
  const minutes=[];for(let slot=Math.floor((start-buffer)/60000);slot<Math.ceil((end+buffer)/60000);slot++)minutes.push(slot);
  statements.push(db.prepare('INSERT INTO appointment_locks(organization_id,minute,appointment_id) SELECT ?,value,? FROM json_each(?)').bind(org,id,JSON.stringify(minutes)));
  return statements;
@@ -32,6 +33,9 @@ export async function api(request,env,user,path){
   const now=new Date().toISOString();
   const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalogSeed))];
   operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalogSeed.length+' source-backed service versions.'},201);
+ }
+ if(path==='setup-appointment-types'&&request.method==='POST'){
+  const names=['Wedding Consultation','Sweet Sixteen Consultation','General Consultation','Client Meeting','Production Meeting','Custom'];const now=new Date().toISOString();const defaults=names.map((name,i)=>({id:'default-appointment-'+i,name,durationMinutes:30,bufferMinutes:0,description:'Editable private scheduler default; confirm duration and buffers before use.'}));await db.batch([db.prepare("INSERT OR IGNORE INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'appointment-types',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(defaults)),audit(db,user,'setup-types','appointment-types','defaults')]);return json({message:'Appointment types ready. Existing edits preserved.'});
  }
  const [kind,id,action]=path.split('/');if(!Object.hasOwn(definitions,kind))return json({error:'Not found'},404);
  if(request.method==='GET'){if(id){const record=await get(db,org,kind,id);return json(record||{error:'Not found'},record?200:404);}return json(await list(db,org,kind));}
