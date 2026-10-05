@@ -40,3 +40,5 @@
 /* Ten percent white softens the original teal; dark body copy keeps normal-text contrast. */
 .gl-reviews .gl-review-list .gl-review-card{background:#48898e;border-color:#48898e}
 .gl-reviews .gl-review-card :is(blockquote,blockquote p){color:#061416!important}
+/* Match the attribution rule's specificity without changing white names or stars. */
+.gl-reviews .gl-review-list .gl-review-card .gl-review-copy blockquote,.gl-reviews .gl-review-list .gl-review-card .gl-review-copy blockquote p{color:#061416!important}
