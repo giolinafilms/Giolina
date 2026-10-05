@@ -60,3 +60,9 @@ Account configuration cannot be completed through the available tools in this se
 ## Phase 2 decisions
 
 Administrator account/Access setup; complete saved-service export and authoritative current versions; appointment types/hours/buffers; client identity and project grants; private R2 document storage; transactional email provider; payment processor such as Stripe; secure e-signature provider. Contracts/pricing terms require Frank's supplied approved content. HoneyBook stays active; no historic-client import, live emails, payments, signatures, public booking switch or domain cutover in Phase 1.
+
+## Working CRM checkpoint 1 — Services & Packages
+
+Catalog categories cover Weddings, Sweet Sixteen, Events/Corporate, general add-ons/fees and Needs classification. They organize the existing 47 versions without replacing source categories. Known imported IDs expose immutable source name/description/price/hours/page metadata from the supplied catalog. Working price/description and separate client-facing copy remain editable. Legacy saved records acquire view defaults without a data migration or price rewrite.
+
+Added full read views, category/state/review filtering, separate deactivate/activate and archive/restore, and touch-friendly included/optional service checkboxes. Packages require included services, reject overlapping included/optional IDs, and preserve manual pricing. Inactive/archived services are excluded from new selection while existing selections stay visible. No new packages, inferred prices or missing business terms are invented. Hosted authenticated QA and device visual checks remain pending.

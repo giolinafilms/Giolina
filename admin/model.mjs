@@ -1,11 +1,12 @@
+import {catalogCategories} from './catalog.mjs';
 export const lifecycle=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
 export const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
 export const definitions={
  contacts:{required:['name','email'],fields:{name:'text',email:'email',phone:'text',notes:'long',demo:'boolean',archived:'boolean'}},
  leads:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',followUpAt:'date',notes:'long',demo:'boolean',archived:'boolean'}},
  projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
- services:{required:['name'],fields:{name:'text',category:'text',description:'long',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',archived:'boolean'}},
- packages:{required:['name','serviceIds'],fields:{name:'text',description:'long',serviceIds:'array',optionalServiceIds:'array',priceCents:'money',rules:'long',archived:'boolean'}},
+ services:{required:['name'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',clientDescription:'long',description:'long',inclusions:'long',addOns:'long',notes:'long',category:'text',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',sourceName:'text',sourceDescription:'long',sourcePriceCents:'money',sourceCoverageHours:'number',sourceCategory:'text',archived:'boolean'}},
+ packages:{required:['name','serviceIds'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',description:'long',clientDescription:'long',notes:'long',serviceIds:'array',optionalServiceIds:'array',priceCents:'money',rules:'long',archived:'boolean'}},
  'appointment-types':{required:['name','durationMinutes'],fields:{name:'text',durationMinutes:'number',bufferMinutes:'number',description:'long',archived:'boolean'}},
  availability:{required:['name','dayOfWeek','startTime','endTime'],fields:{name:'text',dayOfWeek:'weekday',startTime:'time',endTime:'time',blockedDate:'date',notes:'long',archived:'boolean'}},
  appointments:{required:['name','contactId','appointmentTypeId','startAt','endAt'],fields:{name:'text',contactId:'contact',projectId:'project',appointmentTypeId:'appointment-type',startAt:'datetime',endAt:'datetime',status:'appointment-status',notes:'long',demo:'boolean'}},
@@ -30,6 +31,7 @@ export function validate(kind,input){
   if(typeof value!=='string'||value.length>(type==='long'?20000:500))throw new Error('Invalid '+key);
   const s=value.trim();if(!s){out[key]=null;continue;}if(type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))throw new Error('Invalid email');
   if(type==='url'){const u=new URL(s);if(u.protocol!=='https:')throw new Error('Delivery link must use HTTPS');}
+  if(type==='catalog-category'&&!catalogCategories.includes(s))throw new Error('Invalid catalog category');
   if(type==='event'&&!eventTypes.includes(s))throw new Error('Invalid event type');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');
   if(type==='appointment-status'&&!['Scheduled','Cancelled','Completed'].includes(s))throw new Error('Invalid appointment status');
@@ -40,6 +42,9 @@ export function validate(kind,input){
   out[key]=s;
  }
  for(const key of def.required)if(out[key]===undefined||out[key]===null)throw new Error(key+' is required');
+ if(kind==='packages'&&(!out.serviceIds?.length||new Set(out.serviceIds).size!==out.serviceIds.length))throw new Error('Choose at least one included service without duplicates');
+ if(kind==='packages'&&(out.optionalServiceIds||[]).some(id=>out.serviceIds.includes(id)))throw new Error('A service cannot be included and optional at the same time');
+ if(['services','packages'].includes(kind)&&out.active==null)out.active=true;
  if(kind==='appointment-types'&&out.bufferMinutes!=null&&(!Number.isInteger(out.bufferMinutes)||out.bufferMinutes>240))throw new Error('Buffer must be 0–240 whole minutes');
  if(kind==='appointment-types'&&(out.durationMinutes<5||out.durationMinutes>480||!Number.isInteger(out.durationMinutes)))throw new Error('Duration must be 5–480 minutes');
  if(kind==='appointments'&&!out.status)out.status='Scheduled';

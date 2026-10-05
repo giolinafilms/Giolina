@@ -789,3 +789,9 @@ Reject inherited JavaScript property names as record kinds/fields in addition to
 Frank saved a path-limited Access application for the four private preview paths, Allow email `info@giolina.co`, One-time PIN only and 24-hour app session. Confirmed team domain/AUD from dashboard. Created `giolina-crm-preview` (database `4f3fda7b-35ed-4a10-b457-b8fec46677c5`) and dashboard console reported successful execution of the existing foundation SQL.
 
 Added non-secret auth settings and CRM_DB only under native `previews` in wrangler.jsonc. Added an explicit matching preview-only migration config for future schema operations. Top-level public Worker settings preserved. Hosted authenticated login, catalog import and persistence remain pending verification.
+
+## 2026-10-05 — Working CRM checkpoint 1: Services & Packages
+
+Expanded the existing private catalog with category/state/review filters, full record views, activation/deactivation, client-facing copy separate from original source wording, and preserved original source price/hours/name metadata. Kept all 47 source versions and source categories; uncertain saved entries remain Needs classification. Existing edited catalog rows are not reseeded or overwritten.
+
+Packages use touch-friendly included/optional service selections, validate references and keep manual pricing. Local tests cover source metadata preservation when price changes, repeat-import edit preservation and package form submission. Hosted authenticated QA pending; no public site changes. Remaining CRM checkpoints await this checkpoint's hosted check.

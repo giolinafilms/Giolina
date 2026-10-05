@@ -2,6 +2,8 @@
 const routes=[['dashboard','Dashboard'],['leads','Leads / Inquiries'],['contacts','Contacts'],['projects','Projects'],['services','Services & Packages'],['proposals','Proposals'],['contracts','Contracts'],['invoices','Invoices / Payments'],['calendar','Calendar / Scheduler'],['messages','Messages'],['templates','Email Templates'],['files','Files'],['automations','Automations'],['client-portal','Client Portal'],['settings','Settings']];
 const stages=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
 const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
+const catalogCategories=['Weddings / Cinematography','Weddings / Photography','Weddings / Add-ons','Weddings / Micro Weddings','Sweet Sixteen / Cinematography','Sweet Sixteen / Photography','Sweet Sixteen / Add-ons','Events & Corporate / Photography','Events & Corporate / Cinematography','Events & Corporate / Other','General / Add-ons & Fees','Needs classification'];
+const sourceFields=['sourceName','sourceDescription','sourcePriceCents','sourceCoverageHours','sourceCategory','source','sourcePages'];
 const state={meta:null,records:{},kind:null,editing:null};
 const main=document.querySelector('main'),dialog=document.querySelector('dialog'),fields=document.querySelector('#fields');
 function el(tag,text,attrs={}){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;for(const [k,v]of Object.entries(attrs))node.setAttribute(k,v);return node;}
@@ -10,7 +12,7 @@ async function request(path,method='GET',body){const response=await fetch('/api/
 async function records(kind,refresh=false){if(refresh||!state.records[kind])state.records[kind]=await request(kind);return state.records[kind];}
 function button(text,callback,primary=false){const node=el('button',text,{type:'button',...(primary?{class:'primary'}:{})});node.addEventListener('click',()=>Promise.resolve(callback()).catch(e=>notice(e.message)));return node;}
 function money(value){return value==null?'Price needs confirmation':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value/100);}
-function label(field){return ({priceCents:'Price (USD)',amountCents:'Amount (USD)',serviceIds:'Included services',optionalServiceIds:'Optional add-ons',contactId:'Contact',projectId:'Project',packageId:'Package',appointmentTypeId:'Appointment type',reviewRequired:'Requires source review',startAt:'Starts (your device timezone)',endAt:'Ends (your device timezone)',sourcePages:'Source pages',followUpAt:'Follow-up date',dueAt:'Due date',storageKey:'Private storage reference (upload not enabled)',externalProviderId:'Future signature provider reference'})[field]||field.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase());}
+function label(field){return ({clientDescription:'Client-facing description',description:'Working description',catalogCategory:'Catalog category',active:'Available for new packages',sourceDescription:'Original source description',sourcePriceCents:'Original source price (USD)',sourceName:'Original source name',priceCents:'Price (USD)',amountCents:'Amount (USD)',serviceIds:'Included services',optionalServiceIds:'Optional add-ons',contactId:'Contact',projectId:'Project',packageId:'Package',appointmentTypeId:'Appointment type',reviewRequired:'Requires source review',startAt:'Starts (your device timezone)',endAt:'Ends (your device timezone)',sourcePages:'Source pages',followUpAt:'Follow-up date',dueAt:'Due date',storageKey:'Private storage reference (upload not enabled)',externalProviderId:'Future signature provider reference'})[field]||field.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase());}
 function header(title,copy,actions=[]){const top=el('div',undefined,{class:'topline'}),text=el('div');text.append(el('h1',title),el('p',copy,{class:'quiet'}));top.append(text);const group=el('div',undefined,{class:'actions'});group.append(...actions);top.append(group);main.replaceChildren(top);}
 function panel(title,text){const p=el('section',undefined,{class:'panel'});p.append(el('h2',title),el('p',text));main.append(p);return p;}
 const referenceKinds={contact:'contacts',project:'projects',package:'packages','appointment-type':'appointment-types'};
@@ -20,31 +22,35 @@ async function edit(kind,record=null,duplicate=false){
  document.querySelector('#editor-help').textContent='Private preview record. No email, signature or payment is sent. Dates use your device timezone; the scheduler displays America/New_York.';
  const def=state.meta.definitions[kind];
  for(const [field,type]of Object.entries(def.fields)){
-  const wrap=el('label',label(field)+(def.required.includes(field)?' *':''),{class:type==='long'||type==='array'?'wide':''});let input;
+  const fieldLabel=label(field)+(def.required.includes(field)?' *':'');const wrap=el(type==='array'?'fieldset':'label',type==='array'?undefined:fieldLabel,{class:type==='long'||type==='array'?'wide':''});if(type==='array')wrap.append(el('legend',fieldLabel));let input;
   if(type==='long')input=el('textarea');
   else if(type==='boolean')input=el('input',undefined,{type:'checkbox'});
-  else if(type==='array'||referenceKinds[type]||['event','status','weekday','appointment-status'].includes(type)){
+  else if(type==='array'){
+   input=el('div',undefined,{class:'service-picker'});input.dataset.field=field;
+   for(const row of (await records('services')).filter(r=>(!r.archived&&r.active!==false)||(record?.[field]||[]).includes(r.id))){const option=el('label',undefined,{class:'pick-option'}),check=el('input',undefined,{type:'checkbox',value:row.id});check.checked=(record?.[field]||[]).includes(row.id);option.append(check,el('span',row.name+' · '+money(row.priceCents)));input.append(option);}
+  }
+  else if(referenceKinds[type]||['catalog-category','event','status','weekday','appointment-status'].includes(type)){
    input=el('select');if(type==='array')input.multiple=true;else input.append(el('option','Select…',{value:''}));
-   const options=type==='array'?(await records('services')).filter(r=>!r.archived||(record?.[field]||[]).includes(r.id)).map(r=>[r.id,r.name+' · '+r.category+' · '+money(r.priceCents)]):referenceKinds[type]?(await records(referenceKinds[type])).filter(r=>!r.archived||r.id===record?.[field]).map(r=>[r.id,r.name]):(type==='event'?eventTypes:type==='status'?stages:type==='weekday'?['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']:['Scheduled','Cancelled','Completed']).map(v=>[v,v]);
+   const options=type==='array'?(await records('services')).filter(r=>!r.archived||(record?.[field]||[]).includes(r.id)).map(r=>[r.id,r.name+' · '+r.category+' · '+money(r.priceCents)]):referenceKinds[type]?(await records(referenceKinds[type])).filter(r=>!r.archived||r.id===record?.[field]).map(r=>[r.id,r.name]):(type==='catalog-category'?(state.meta.catalogCategories||catalogCategories):type==='event'?eventTypes:type==='status'?stages:type==='weekday'?['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']:['Scheduled','Cancelled','Completed']).map(v=>[v,v]);
    for(const [value,text]of options)input.append(el('option',text,{value}));
   }else input=el('input',undefined,{type:({money:'number',number:'number',date:'date',time:'time',datetime:'datetime-local',email:'email',url:'url'})[type]||'text'});
-  input.name=field;input.required=def.required.includes(field);if(type==='money'){input.step='0.01';input.min='0';}if(type==='number'){input.step=field==='coverageHours'?'0.5':'1';input.min='0';}
+  input.setAttribute('name',field);input.required=def.required.includes(field);if(type==='money'){input.step='0.01';input.min='0';}if(type==='number'){input.step=field==='coverageHours'?'0.5':'1';input.min='0';}
   const value=record?.[field];
-  if(type==='boolean')input.checked=!!value;else if(type==='array')for(const option of input.options)option.selected=(value||[]).includes(option.value);
+  if(type==='boolean')input.checked=field==='active'?value!==false:!!value;else if(type==='array'){}
   else if(type==='datetime'&&value){const d=new Date(value);input.value=new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,16);}
   else input.value=value==null?'':type==='money'?value/100:value;
   if(duplicate&&field==='name')input.value+=' (copy)';
   if(['messages','contracts','invoices'].includes(kind)&&field==='status'){input.value='Draft';input.readOnly=true;}
   if(kind==='automations'&&field==='enabled'){input.checked=false;input.disabled=true;}
-  wrap.append(input);if(type==='array')wrap.append(el('small','Select multiple items using Command/Ctrl on desktop. Source variants remain distinct.'));
+  wrap.append(input);if(type==='array')wrap.append(el('small','Select included items. Source variants remain distinct.'));
   if(type==='money')wrap.append(el('small','Leave blank if no confirmed price is available. Zero means free.'));
-  fields.append(wrap);
+  if(kind==='services'&&record&&sourceFields.includes(field)){input.disabled=true;wrap.append(el('small','Preserved source reference. Edit the working or client-facing fields above.'));}fields.append(wrap);
  }
  dialog.showModal();
 }
 document.querySelector('#record-form').addEventListener('submit',async event=>{
  event.preventDefault();const submit=event.submitter||event.target.querySelector('button[type=submit]');submit.disabled=true;
- try{const data={};for(const [field,type]of Object.entries(state.meta.definitions[state.kind].fields)){const input=fields.querySelector('[name="'+field+'"]');data[field]=type==='boolean'?input.checked:type==='array'?Array.from(input.selectedOptions,o=>o.value):input.value===''?null:type==='money'?Math.round(Number(input.value)*100):type==='number'?Number(input.value):type==='datetime'?new Date(input.value).toISOString():input.value;}
+ try{const data={};for(const [field,type]of Object.entries(state.meta.definitions[state.kind].fields)){const input=fields.querySelector('[name="'+field+'"]');data[field]=type==='boolean'?input.checked:type==='array'?Array.from(input.querySelectorAll('input:checked'),o=>o.value):input.value===''?null:type==='money'?Math.round(Number(input.value)*100):type==='number'?Number(input.value):type==='datetime'?new Date(input.value).toISOString():input.value;}
   await request(state.kind+(state.editing?'/'+state.editing.id:''),state.editing?'PUT':'POST',{data,...(state.editing?{version:state.editing.version}:{})});delete state.records[state.kind];dialog.close();notice('Record saved to private preview database.');await render();
  }catch(e){document.querySelector('#form-error').textContent=e.message;}finally{submit.disabled=false;}
 });
@@ -52,17 +58,21 @@ for(const selector of ['#close-editor','#cancel-editor'])document.querySelector(
 function clean(record){const {id,version,createdAt,updatedAt,...data}=record;return data;}
 async function archive(kind,record){await request(kind+'/'+record.id,'PUT',{data:{...clean(record),archived:!record.archived},version:record.version});delete state.records[kind];await render();notice(record.archived?'Record restored.':'Record archived; history retained.');}
 async function collection(kind,target=main){
- const all=await records(kind),filter=el('input',undefined,{type:'search',placeholder:'Search names, notes, sources…','aria-label':'Search '+kind,class:'filter'});const area=el('div',undefined,{class:'table-wrap'});
- target.append(filter,area);
- function draw(){const q=filter.value.toLowerCase(),visible=all.filter(r=>JSON.stringify(r).toLowerCase().includes(q));area.replaceChildren();if(!visible.length){area.append(el('p','No matching records. Create your first private preview record.',{class:'empty'}));return;}
+ const all=await records(kind),filter=el('input',undefined,{type:'search',placeholder:'Search names, notes, sources…','aria-label':'Search '+kind,class:'filter'});const area=el('div',undefined,{class:'table-wrap'}),tools=el('div',undefined,{class:'filterbar'}),statusFilter=el('select',undefined,{'aria-label':'Filter record state'}),categoryFilter=el('select',undefined,{'aria-label':'Filter category'});
+ for(const [value,text]of [['current','Current records'],['active','Active'],['inactive','Inactive'],['archived','Archived'],['all','All records'],['review','Needs source review']])statusFilter.append(el('option',text,{value}));categoryFilter.append(el('option','All categories',{value:''}));for(const cat of [...new Set(all.map(r=>r.catalogCategory||r.category).filter(Boolean))].sort())categoryFilter.append(el('option',cat,{value:cat}));tools.append(filter,statusFilter);if(['services','packages'].includes(kind))tools.append(categoryFilter);target.append(tools,area);
+ function draw(){const q=filter.value.toLowerCase(),visible=all.filter(r=>JSON.stringify(r).toLowerCase().includes(q)&&(!categoryFilter.value||(r.catalogCategory||r.category)===categoryFilter.value)&&(statusFilter.value==='all'||statusFilter.value==='archived'?statusFilter.value==='all'||r.archived:statusFilter.value==='review'?r.reviewRequired&&!r.archived:!r.archived&&(statusFilter.value==='current'||statusFilter.value==='active'&&r.active!==false||statusFilter.value==='inactive'&&r.active===false)));area.replaceChildren();if(!visible.length){area.append(el('p','No matching records. Create your first private preview record.',{class:'empty'}));return;}
  const table=el('table'),head=el('thead'),tr=el('tr');for(const title of ['Record','Details','State','Actions'])tr.append(el('th',title,{scope:'col'}));head.append(tr);table.append(head);const body=el('tbody');
  for(const row of visible){const tr=el('tr'),name=el('td');name.append(el('strong',row.name));if(row.demo)name.append(el('span','DEMO',{class:'tag'}));const detail=el('td');detail.append(el('div',kind==='services'?money(row.priceCents)+(row.coverageHours?' · '+row.coverageHours+' hours':''):kind==='appointments'?new Date(row.startAt).toLocaleString('en-US',{timeZone:'America/New_York'})+' ET':row.eventDate||row.email||row.subject||row.description?.slice(0,90)||'—'));
- if(kind==='services'){detail.append(el('small',row.category+' · '+row.source+' · p. '+row.sourcePages,{class:'quiet'}));}
- const status=el('td',row.status|| (row.archived?'Archived':row.completed?'Completed':'Active'));if(row.reviewRequired)status.append(el('span','Confirm source',{class:'tag warn'}));const actions=el('td'),group=el('div',undefined,{class:'actions'});group.append(button('Edit',()=>edit(kind,row)));
+ if(kind==='services'){detail.append(el('small',(row.catalogCategory||row.category||'Uncategorized')+' · '+(row.source||'Custom service')+(row.sourcePages?' · p. '+row.sourcePages:''),{class:'quiet'}));}
+ const status=el('td');status.append(el('span',row.archived?'Archived':row.status||(row.active===false?'Inactive':row.completed?'Completed':'Active'),{class:'tag'}));if(row.reviewRequired)status.append(el('span','Confirm source',{class:'tag warn'}));const actions=el('td'),group=el('div',undefined,{class:'actions'});group.append(button('View',()=>viewRecord(kind,row)),button('Edit',()=>edit(kind,row)));if(['services','packages'].includes(kind)&&!row.archived)group.append(button(row.active===false?'Activate':'Deactivate',async()=>{await request(kind+'/'+row.id,'PUT',{data:{...clean(row),active:row.active===false},version:row.version});delete state.records[kind];await render();}));
  if(state.meta.definitions[kind].fields.archived)group.append(button('Duplicate',()=>edit(kind,row,true)),button(row.archived?'Restore':'Archive',()=>archive(kind,row)));
  if(kind==='leads'&&!row.archived)group.append(button('Create project',async()=>{await request('leads/'+row.id+'/convert','POST',{version:row.version});delete state.records.leads;delete state.records.projects;notice('Project created; original lead archived.');await render();}));
  actions.append(group);tr.append(name,detail,status,actions);body.append(tr);}table.append(body);area.append(table);}
- filter.addEventListener('input',draw);draw();
+ filter.addEventListener('input',draw);statusFilter.addEventListener('change',draw);categoryFilter.addEventListener('change',draw);draw();
+}
+async function viewRecord(kind,row){
+ let viewer=document.querySelector('#record-view');if(viewer)viewer.remove();viewer=el('dialog',undefined,{id:'record-view','aria-label':row.name});viewer.append(el('h2',row.name),el('p',row.archived?'Archived':row.active===false?'Inactive':'Active',{class:'badge'}));const dl=el('dl');
+ for(const [key,type]of Object.entries(state.meta.definitions[kind].fields)){let value=row[key];if(value==null||value==='')continue;if(type==='array'){const services=await records('services');value=value.map(id=>services.find(s=>s.id===id)?.name||id).join('\n');}else if(type==='money')value=money(value);else if(type==='boolean')value=value?'Yes':'No';dl.append(el('dt',label(key)),el('dd',String(value)));}viewer.append(dl,button('Close',()=>viewer.close()),button('Edit',()=>{viewer.close();return edit(kind,row);}));document.body.append(viewer);viewer.showModal();
 }
 async function dashboard(){
  const [leads,projects,appointments,tasks,activity]=await Promise.all(['leads','projects','appointments','tasks'].map(k=>records(k)).concat(request('activity')));header('Your workspace','Private development data. Sample records are explicitly marked DEMO.',[button('New inquiry',()=>edit('leads'),true),button('Add reminder',()=>edit('tasks'))]);

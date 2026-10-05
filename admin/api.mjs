@@ -1,8 +1,8 @@
 import {definitions,validate} from './model.mjs';
-import catalog from './data/catalog.json' with {type:'json'};
+import {catalogRecord,catalogSeed,catalogCategories} from './catalog.mjs';
 export function json(body,status=200){return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'}});}
-export async function list(db,org,kind){const r=await db.prepare('SELECT id,data,version,created_at,updated_at FROM records WHERE organization_id=? AND kind=? ORDER BY updated_at DESC LIMIT 500').bind(org,kind).all();return r.results.map(r=>({...JSON.parse(r.data),id:r.id,version:r.version,createdAt:r.created_at,updatedAt:r.updated_at}));}
-async function get(db,org,kind,id){const r=await db.prepare('SELECT * FROM records WHERE organization_id=? AND kind=? AND id=?').bind(org,kind,id).first();return r?{...JSON.parse(r.data),id:r.id,version:r.version}:null;}
+export async function list(db,org,kind){const r=await db.prepare('SELECT id,data,version,created_at,updated_at FROM records WHERE organization_id=? AND kind=? ORDER BY updated_at DESC LIMIT 500').bind(org,kind).all();return r.results.map(r=>{const row={...JSON.parse(r.data),id:r.id,version:r.version,createdAt:r.created_at,updatedAt:r.updated_at};return kind==='services'?catalogRecord(row):row;});}
+async function get(db,org,kind,id){const r=await db.prepare('SELECT * FROM records WHERE organization_id=? AND kind=? AND id=?').bind(org,kind,id).first();if(!r)return null;const row={...JSON.parse(r.data),id:r.id,version:r.version};return kind==='services'?catalogRecord(row):row;}
 function audit(db,user,action,kind,id){return db.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),user.organizationId,user.email,action,kind,id,new Date().toISOString(),JSON.stringify({}));}
 function insert(db,org,kind,id,data){const now=new Date().toISOString();return db.prepare('INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) VALUES(?,?,?,?,?,?)').bind(org,kind,id,JSON.stringify(data),now,now);}
 async function references(db,org,data){for(const [field,kind] of Object.entries({contactId:'contacts',projectId:'projects',packageId:'packages',appointmentTypeId:'appointment-types'})){if(data[field]&&!await get(db,org,kind,data[field]))throw new Error('Referenced '+kind+' record does not exist');}const ids=[...new Set([...(data.serviceIds||[]),...(data.optionalServiceIds||[])])];if(ids.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='services' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(ids)).first();if(result.count!==ids.length)throw new Error('Selected service does not exist');}}
@@ -25,13 +25,13 @@ export async function api(request,env,user,path){
   if(request.headers.get('Origin')!==new URL(request.url).origin||request.headers.get('X-GioLina-Request')!=='admin'||!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'Invalid request origin or content type'},403);
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
- if(path==='meta'&&request.method==='GET')return json({definitions,timezone:'America/New_York',stage:'preview',email:user.email});
+ if(path==='meta'&&request.method==='GET')return json({definitions,catalogCategories,timezone:'America/New_York',stage:'preview',email:user.email});
  if(path==='activity'&&request.method==='GET'){const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
   const now=new Date().toISOString();
-  const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalog))];
-  operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalog.length+' source-backed service versions.'},201);
+  const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalogSeed))];
+  operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalogSeed.length+' source-backed service versions.'},201);
  }
  const [kind,id,action]=path.split('/');if(!Object.hasOwn(definitions,kind))return json({error:'Not found'},404);
  if(request.method==='GET'){if(id){const record=await get(db,org,kind,id);return json(record||{error:'Not found'},record?200:404);}return json(await list(db,org,kind));}
@@ -43,7 +43,7 @@ export async function api(request,env,user,path){
   // A failed optimistic update aborts via the CHECK constraint rather than duplicating a project.
   try{await db.batch([db.prepare("INSERT INTO write_guards(token,valid) SELECT ?,COUNT(*) FROM records WHERE organization_id=? AND kind='leads' AND id=? AND version=?").bind(projectId,org,id,input.version),insert(db,org,'projects',projectId,data),update,audit(db,user,'lead-converted','projects',projectId),db.prepare('DELETE FROM write_guards WHERE token=?').bind(projectId)]);return json({id:projectId},201);}catch{return json({error:'Lead changed. Reload before converting.'},409);}
  }
- let data;try{data=validate(kind,input.data);await references(db,org,data)}catch(e){return json({error:e.message},400);}
+ let data;try{data=validate(kind,input.data);if(kind==='services'&&id){const {id:sourceId,...stamped}=catalogRecord({...data,id});data=stamped;}await references(db,org,data)}catch(e){return json({error:e.message},400);}
  if((id&&request.method!=='PUT')||(!id&&request.method!=='POST')||action)return json({error:'Unsupported record action'},405);
  const recordId=id||crypto.randomUUID();
  try{
