@@ -110,3 +110,8 @@
 .gl-love-intro .gl-love-subtitle{font:400 15px/1.7 Arial,sans-serif;text-transform:none;letter-spacing:0;color:#273235;max-width:50ch;margin-top:18px}
 .gl-love-recap-intro .gl-love-recap-explanation{font:400 15px/1.7 Arial,sans-serif;color:#526266;max-width:66ch;margin-top:12px}
 @media(max-width:700px){.gl-love-intro .gl-love-editorial{font-size:16px;margin-bottom:16px}.gl-cinema-step-one .gl-love-minute .gl-short-picker{font-size:18px}.gl-cinema-step-one .gl-love-minute .gl-short-controls button{padding:10px 14px}.gl-love-intro .gl-love-subtitle{margin-top:14px}}
+
+/* Finger dragging belongs to the film stage; vertical page scrolling stays native. */
+.gl-short-stage img{pointer-events:none;user-select:none;-webkit-user-drag:none;transition:transform .12s ease-out}
+.gl-short-stage{touch-action:pan-y pinch-zoom}
+@media(prefers-reduced-motion:reduce){.gl-short-stage img{transition:none}}

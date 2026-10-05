@@ -57,14 +57,16 @@ if (browser) {
   screen.style.width = `min(100%, calc((82dvh - 130px) * ${film.width / film.height}))`;
   if (film.vimeo) {
    const frame = document.createElement('iframe');
-   frame.src = `https://player.vimeo.com/video/${film.vimeo}?autoplay=1&muted=0&dnt=1&title=0&byline=0&portrait=0#t=0s`;
+   frame.src = `https://player.vimeo.com/video/${film.vimeo}?autoplay=1&muted=0&playsinline=1&loop=0&autopause=1&dnt=1&title=0&byline=0&portrait=0#t=0s`;
    frame.title = film.title; frame.allow = 'autoplay; fullscreen; picture-in-picture'; frame.allowFullscreen = true;
    screen.append(frame);
   } else {
    const video = document.createElement('video');
    video.controls = true; video.playsInline = true; video.preload = 'none';
+   video.muted = false; video.defaultMuted = false; video.volume = 1;
    video.poster = film.poster; video.src = film.src;
    screen.append(video);
+   if (!dialog.open) dialog.showModal();
    // The viewer explicitly chose Play Film; no videos exist while browsing.
    video.play().catch(() => {});
   }
@@ -72,7 +74,7 @@ if (browser) {
   document.body.classList.add('gl-film-open');
   dialog.querySelector('.gl-film-close').focus();
  }
- stage.addEventListener('click', () => play());
+ stage.addEventListener('click', event => { if (Date.now() < suppressClickUntil) { event.preventDefault(); return; } play(); });
  document.querySelectorAll('[data-short-film]').forEach(button => button.addEventListener('click', () => play(Number(button.dataset.shortFilm))));
  function advancePlaying(direction) {
   if (playingIndex < openingCount) select(playingIndex + direction);
@@ -88,12 +90,27 @@ if (browser) {
    event.preventDefault(); select(index + (event.key === 'ArrowLeft' ? -1 : 1));
   }
  });
- let touchStart;
- stage.addEventListener('touchstart', event => { touchStart = event.changedTouches[0].clientX; }, { passive: true });
- stage.addEventListener('touchend', event => {
-  const distance = event.changedTouches[0].clientX - touchStart;
-  if (Math.abs(distance) > 50) { event.preventDefault(); select(index + (distance < 0 ? 1 : -1)); }
- }, { passive: false });
+ let gesture = null, suppressClickUntil = 0;
+ stage.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'touch' || event.isPrimary === false) return;
+  gesture = {id:event.pointerId,x:event.clientX,y:event.clientY,dx:0,dy:0};
+  stage.setPointerCapture?.(event.pointerId);
+ });
+ stage.addEventListener('pointermove', event => {
+  if (!gesture || gesture.id !== event.pointerId) return;
+  gesture.dx = event.clientX-gesture.x; gesture.dy = event.clientY-gesture.y;
+  if (Math.abs(gesture.dx) > 12 && Math.abs(gesture.dx) > Math.abs(gesture.dy)*1.3) {
+   poster.style.transform = `translateX(${Math.max(-70,Math.min(70,gesture.dx*.3))}px)`;
+  }
+ });
+ stage.addEventListener('pointerup', event => {
+  if (!gesture || gesture.id !== event.pointerId) return;
+  const dx=event.clientX-gesture.x,dy=event.clientY-gesture.y;
+  gesture=null; poster.style.transform='';
+  if (Math.abs(dx)>12 || Math.abs(dy)>12) suppressClickUntil=Date.now()+500;
+  if (Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)*1.3) select(index+(dx<0?1:-1));
+ });
+ stage.addEventListener('pointercancel', () => {gesture=null;poster.style.transform='';suppressClickUntil=Date.now()+500;});
  dialog.querySelector('.gl-film-close').addEventListener('click', dismiss);
  dialog.addEventListener('click', event => { if (event.target === dialog) dismiss(); });
  dialog.addEventListener('cancel', stop);
