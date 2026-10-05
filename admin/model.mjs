@@ -1,3 +1,4 @@
+import {templateCategories} from './templates.mjs';
 import {catalogCategories} from './catalog.mjs';
 export const lifecycle=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
 export const leadStages=['New','Contacted','Consultation Scheduled','Proposal Needed','Proposal Sent','Follow-Up','Booked','Lost / Declined'];
@@ -11,7 +12,7 @@ export const definitions={
  'appointment-types':{required:['name','durationMinutes'],fields:{name:'text',durationMinutes:'number',bufferMinutes:'number',description:'long',archived:'boolean'}},
  availability:{required:['name','dayOfWeek','startTime','endTime'],fields:{name:'text',dayOfWeek:'weekday',startTime:'time',endTime:'time',blockedDate:'date',notes:'long',archived:'boolean'}},
  appointments:{required:['name','contactId','appointmentTypeId','startAt','endAt'],fields:{name:'text',contactId:'contact',projectId:'project',appointmentTypeId:'appointment-type',startAt:'datetime',endAt:'datetime',status:'appointment-status',notes:'long',demo:'boolean'}},
- templates:{required:['name','subject','body'],fields:{name:'text',subject:'text',body:'long',archived:'boolean'}},
+ templates:{required:['name','subject','body'],fields:{name:'text',category:'template-category',subject:'text',body:'long',archived:'boolean'}},
  tasks:{required:['name'],fields:{name:'text',projectId:'project',dueAt:'date',completed:'boolean',notes:'long',demo:'boolean'}},
  proposals:{required:['name','projectId','lineItems'],fields:{name:'text',projectId:'project',contactId:'contact',eventType:'event',lineItems:'line-items',discountCents:'money',notes:'long',status:'proposal-status',archived:'boolean'}},
  contracts:{required:['name','projectId'],fields:{name:'text',projectId:'project',notes:'long',status:'text',externalProviderId:'text'}},
@@ -36,6 +37,7 @@ export function validate(kind,input){
   if(type==='contact-method'&&!['Email','Phone','Text','Other'].includes(s))throw new Error('Invalid preferred contact method');
   if(type==='catalog-category'&&!catalogCategories.includes(s))throw new Error('Invalid catalog category');
   if(type==='event'&&!eventTypes.includes(s))throw new Error('Invalid event type');
+  if(type==='template-category'&&!templateCategories.includes(s))throw new Error('Invalid template category');
   if(type==='proposal-status'&&!['Draft','Ready for review'].includes(s))throw new Error('Proposal remains private; use Draft or Ready for review');
   if(type==='lead-status'&&![...leadStages,...lifecycle].includes(s))throw new Error('Invalid lead stage');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');

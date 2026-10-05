@@ -1,3 +1,4 @@
+import {templateDefaults,templateCategories,templateVariables} from './templates.mjs';
 import {definitions,validate} from './model.mjs';
 import {catalogRecord,catalogSeed,catalogCategories} from './catalog.mjs';
 export function json(body,status=200){return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'}});}
@@ -26,7 +27,7 @@ export async function api(request,env,user,path){
   if(request.headers.get('Origin')!==new URL(request.url).origin||request.headers.get('X-GioLina-Request')!=='admin'||!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'Invalid request origin or content type'},403);
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
- if(path==='meta'&&request.method==='GET')return json({definitions,catalogCategories,timezone:'America/New_York',stage:'preview',email:user.email});
+ if(path==='meta'&&request.method==='GET')return json({definitions,catalogCategories,templateCategories,templateVariables,timezone:'America/New_York',stage:'preview',email:user.email});
  if(path.split('?')[0]==='activity'&&request.method==='GET'){const project=new URL(request.url).searchParams.get('project');if(project){if(!await get(db,org,'projects',project))return json({error:'Project not found'},404);const r=await db.prepare("SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? AND (record_id=? OR record_id IN (SELECT id FROM records WHERE organization_id=? AND json_extract(data,'$.projectId')=?)) ORDER BY occurred_at ASC LIMIT 500").bind(org,project,org,project).all();return json(r.results);}const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
@@ -34,6 +35,7 @@ export async function api(request,env,user,path){
   const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalogSeed))];
   operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalogSeed.length+' source-backed service versions.'},201);
  }
+ if(path==='setup-email-templates'&&request.method==='POST'){const now=new Date().toISOString();await db.batch([db.prepare("INSERT OR IGNORE INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'templates',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(templateDefaults)),audit(db,user,'setup-templates','templates','defaults')]);return json({message:'Workflow drafts ready. Existing template edits preserved.'});}
  if(path==='setup-appointment-types'&&request.method==='POST'){
   const names=['Wedding Consultation','Sweet Sixteen Consultation','General Consultation','Client Meeting','Production Meeting','Custom'];const now=new Date().toISOString();const defaults=names.map((name,i)=>({id:'default-appointment-'+i,name,durationMinutes:30,bufferMinutes:0,description:'Editable private scheduler default; confirm duration and buffers before use.'}));await db.batch([db.prepare("INSERT OR IGNORE INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'appointment-types',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(defaults)),audit(db,user,'setup-types','appointment-types','defaults')]);return json({message:'Appointment types ready. Existing edits preserved.'});
  }
