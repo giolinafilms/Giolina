@@ -739,3 +739,7 @@ Hosted Phase 2 verification: Corporate shows four correct films with zero initia
 Added an opt-in semantic SiteBreadcrumb component and enabled only GioLina > Sweet Sixteen near that page’s top. Compact blush styling, underlined ancestor link, current page plain text, and 44px link target. Documented future deeper-route usage without creating routes or adding top-level breadcrumb bars. Events navigation/breadcrumbs remain unchanged.
 
 Existing Sweet Sixteen `#sweet-films` / `#sweet-photography` entry links and end-of-cinema Photography transition are retained. Added a real Ask About Sweet Sixteen Coverage link directly after the Photography presentation, pointing to `/contact-us-2/?occasion=sweet-sixteen`; the unavailable presentation link remains disabled. Audited existing wedding-page closing inquiries, photography gallery and Events return/contact links; no additional redundant links were added. SEO, media sources, playback and Contact configuration are preserved. Preview only.
+
+## 2026-10-04 — Authentic wordmark-only checkpoint
+
+Preserved authentic lettering from the best identified project logo source, e845a4337da29ba0.png (1024×526). Reusable transparent black/teal SVGs now omit only the lower Photography + Cinematography line. Header, footer and About decorative instances reuse these assets. Prose/navigation, header layout, playback and SEO remain unchanged. No invented vector tracing or AI reconstruction. Footer gap remains under investigation; no speculative spacing change.

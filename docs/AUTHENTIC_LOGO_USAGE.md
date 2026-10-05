@@ -1,3 +1,3 @@
-# Authentic GioLina mark
+# Authentic GioLina wordmark
 
-Use the transparent authentic black or teal SVG for decorative brand marks. These assets embed the unchanged 1024 × 526 original artwork and convert its white paper to alpha coverage inside the SVG. The teal version uses established #128087 ink. No letters are redrawn, no script replacement is used, and no CSS blend mode is required. Preserve proportions and the full Photography + Cinematography signature. Normal prose, navigation, SEO and GioLina Events headings remain text.
+Decorative brand marks use the authentic transparent black or #128087 teal SVG. The source is public/assets/e845a4337da29ba0.png, 1024 × 526 pixels. The SVG embeds those unchanged pixels, converts white paper to alpha and excludes only the lower Photography + Cinematography text. No lettering is traced, sharpened, upscaled or recreated. Preserve proportions. Normal prose, navigation, SEO and GioLina Events headings remain text. A higher-resolution original or genuine original vector would improve fine edges for larger/Retina uses.
