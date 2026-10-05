@@ -1,6 +1,7 @@
 import {proposalTotals} from './model.mjs';
 import {selectionTotals,defaultSelection} from './selection.mjs';
 import {proposalSnapshot,proposalDocument} from './proposal-view.mjs';
+import {templateLines} from './active-packages.mjs';
 import {catalogRecord} from './catalog.mjs';
 import {proposalStyles,proposalClient} from './assets.mjs';
 const ORG='giolina-preview';
@@ -20,9 +21,9 @@ if(input.action!=='disable'){const token=Array.from(crypto.getRandomValues(new U
 ops.push(db.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),ORG,user.email,'proposal-link-'+input.action,'proposals',id,now,JSON.stringify({revision:p.version})),db.prepare('DELETE FROM write_guards WHERE token=?').bind(guard));try{await db.batch(ops);}catch(err){return json({error:'Proposal changed. Reload before sharing.'},409);}return json({url,message:input.action==='disable'?'All links disabled.':'Test link ready. Published snapshot is fixed until you regenerate; old links are revoked.'});}
 export async function adminProposalPreview(request,env,id){try{const {snapshot}=await buildSnapshot(env.CRM_DB,id);return response(request.method==='HEAD'?null:proposalDocument(snapshot));}catch{return response('Proposal unavailable',404,'text/plain');}}
 export async function adminPackagePreview(request,env,id){try{
- const pack=await load(env.CRM_DB,'packages',id);if(!pack||pack.archived)return response('Template unavailable',404,'text/plain');
+ const pack=await load(env.CRM_DB,'packages',id);if(!pack)return response('Template unavailable',404,'text/plain');
  const rows=await env.CRM_DB.prepare("SELECT id,kind,data FROM records WHERE organization_id=? AND kind IN ('services','packages') LIMIT 1000").bind(ORG).all(),catalog=rows.results.map(r=>({...JSON.parse(r.data),id:r.id,kind:r.kind}));
- const items=[{name:pack.name,description:pack.clientDescription||pack.description||'',quantity:1,unitPriceCents:pack.priceCents,sourceKind:'packages',sourceId:id},...(pack.optionalServiceIds||[]).map(id=>{const source=catalog.find(r=>r.id===id&&r.kind==='services');if(!source||source.priceCents==null)throw new Error('Unpriced add-on');return {name:source.name,description:source.clientDescription||source.description||'',quantity:1,unitPriceCents:source.priceCents,sourceKind:'services',sourceId:id,optional:true};})];
+ const items=templateLines([pack],catalog.filter(r=>r.kind==='services'),pack.catalogCategory?.startsWith('Sweet')?'Sweet Sixteen':'Wedding');
  const snapshot=proposalSnapshot({name:pack.name,clientNames:'DEMO · Template preview',eventType:pack.catalogCategory?.startsWith('Sweet')?'Sweet Sixteen':pack.catalogCategory?.startsWith('Events & Corporate')?'Corporate':'Wedding',demo:true,version:pack.version,lineItems:items,...proposalTotals(items)}, {}, {}, catalog);
  return response(request.method==='HEAD'?null:proposalDocument(snapshot));
 }catch{return response('Template unavailable: confirm included service and add-on prices',400,'text/plain');}}

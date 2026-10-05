@@ -1,5 +1,5 @@
 import {catalogSeed as baselineServices} from './catalog.mjs';
-import {initializeBaselines} from './active-packages.mjs';
+import {initializeBaselines,curateCurrentTemplates,templateLines,currentTemplateIds} from './active-packages.mjs';
 import {presentation} from './presentation.mjs';
 import {seedDemoProposals} from './proposal-demos.mjs';
 import {selectionTotals,defaultSelection} from './selection.mjs';
@@ -40,6 +40,7 @@ export async function api(request,env,user,path){
  if(path==='setup-demo-proposals'&&request.method==='POST'){try{return json(await seedDemoProposals(db,org,user));}catch(e){return json({error:e.message},400);}}
  if(path==='meta'&&request.method==='GET')return json({projectStages:lifecycle,presentationDefaults:{weddingPhoto:presentation({catalogCategory:'Weddings / Photography'}),wedding:presentation({eventType:'Wedding'}),sweet:presentation({eventType:'Sweet Sixteen'}),event:presentation({eventType:'Corporate'})},definitions,catalogCategories,templateCategories,templateVariables,timezone:'America/New_York',stage:'preview',email:user.email});
  if(path.split('?')[0]==='activity'&&request.method==='GET'){const project=new URL(request.url).searchParams.get('project');if(project){if(!await get(db,org,'projects',project))return json({error:'Project not found'},404);const r=await db.prepare("SELECT action,record_kind,record_id,occurred_at,details FROM audit_events WHERE organization_id=? AND (record_id=? OR record_id IN (SELECT id FROM records WHERE organization_id=? AND json_extract(data,'$.projectId')=?)) ORDER BY occurred_at ASC LIMIT 500").bind(org,project,org,project).all();return json(r.results);}const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at,details FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
+ if(path==='curate-current-packages'&&request.method==='POST'){try{return json(await curateCurrentTemplates(db,org,user));}catch(e){return json({error:e.message},409);}}
  if(path==='setup-active-packages'&&request.method==='POST'){try{return json(await initializeBaselines(db,org,user));}catch(e){return json({error:e.message},400);}}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
@@ -68,10 +69,10 @@ export async function api(request,env,user,path){
  if(['leads','projects'].includes(kind)&&id&&action==='proposal'&&request.method==='POST'){
   const context=await get(db,org,kind,id);if(!context||context.version!==input.version)return json({error:'Context changed. Reload before creating a proposal.'},409);
   if(!Array.isArray(input.packageIds)||!input.packageIds.length||input.packageIds.length>8||new Set(input.packageIds).size!==input.packageIds.length)return json({error:'Choose 1–8 active package templates'},400);
+  if(await db.prepare('SELECT value FROM migration_state WHERE key=?').bind('current-selling-templates:'+org).first()&&input.packageIds.some(id=>!currentTemplateIds.includes(id)))return json({error:'Choose one of the three current selling templates'},400);
   const packs=await Promise.all(input.packageIds.map(id=>get(db,org,'packages',id))),category=context.eventType==='Wedding'?'Weddings /':context.eventType==='Sweet Sixteen'?'Sweet Sixteen /':context.eventType==='Corporate'?'Events & Corporate /':null;
   if(packs.some(p=>!p||p.archived||p.active===false||p.priceCents==null||!category||!p.catalogCategory?.startsWith(category)))return json({error:'Choose priced active packages for this event category'},400);
-  const services=await list(db,org,'services'),lines=packs.map(p=>({name:p.name,description:p.clientDescription||p.description||'',quantity:1,unitPriceCents:p.priceCents,sourceKind:'packages',sourceId:p.id,selectionGroupOptional:true,selectionGroup:context.eventType+' / '+(/photo/i.test(p.name+' '+p.serviceIds.join(' '))||p.serviceIds.some(id=>['hb-0-06','hb-0-07','hb-1-13','hb-1-14'].includes(id))?'Photography':'Cinematography')}));
-  for(const serviceId of [...new Set(packs.flatMap(p=>p.optionalServiceIds||[]))]){const raw=services.find(s=>s.id===serviceId),source=packs.every(p=>p.baseline)?baselineServices.find(s=>s.id===serviceId):raw;if(!raw||raw.archived||raw.active===false||source.priceCents==null)return json({error:'An offered add-on is unavailable or unpriced'},400);lines.push({name:source.name,description:source.clientDescription||source.description||'',quantity:1,unitPriceCents:source.priceCents,sourceKind:'services',sourceId:source.id,optional:true,allowedPackageIds:packs.filter(p=>(p.optionalServiceIds||[]).includes(serviceId)).map(p=>p.id)});}
+  let lines;try{lines=templateLines(packs,await list(db,org,'services'),context.eventType);}catch(e){return json({error:e.message},400);}
   const contact=await get(db,org,'contacts',context.contactId||''),projectId=kind==='projects'?context.id:context.projectId||null;
   const data={name:(context.demo?'DEMO draft — ':'Draft — ')+context.name,projectId,contactId:context.contactId||null,leadId:kind==='leads'?id:null,templateId:packs[0].id,clientSelection:!!context.demo,eventType:context.eventType,clientNames:contact?[contact.firstName||contact.name,contact.partnerName].filter(Boolean).join(' + '):[context.firstName||context.name,context.partnerName].filter(Boolean).join(' + '),eventDate:context.eventDate||null,venue:context.venue||null,status:'Draft',demo:!!context.demo,lineItems:lines};
   return api(new Request(new URL('/api/admin/proposals',request.url),{method:'POST',headers:request.headers,body:JSON.stringify({data})}),env,user,'proposals');
@@ -93,12 +94,12 @@ export async function api(request,env,user,path){
  const recordId=id||crypto.randomUUID();
  if(kind==='proposals'){
   const current=id?await get(db,org,kind,id):null;const needed=new Set(data.lineItems.filter(i=>i.sourceKind!=='custom').map(i=>i.sourceKind+':'+i.sourceId));
-  const baseline=data.templateId?.startsWith('baseline-');
+  if(data.templateId)needed.add('packages:'+data.templateId);const baseline=data.templateId?.startsWith('baseline-')||currentTemplateIds.includes(data.templateId);
   const sources=[...(await list(db,org,'packages')).map(r=>({...r,kind:'packages'})),...(await list(db,org,'services')).map(r=>({...r,...(baseline?baselineServices.find(s=>s.id===r.id):{}),kind:'services'}))];
   for(const source of sources)if(needed.has(source.kind+':'+source.id))for(const component of source.serviceIds||[])needed.add('services:'+component);
   data.catalogSnapshot=[...needed].map(key=>current?.catalogSnapshot?.find(r=>r.kind+':'+r.id===key)||sources.find(r=>r.kind+':'+r.id===key)).filter(Boolean).map(({notes,...row})=>row);
   const offered=data.catalogSnapshot.filter(s=>s.kind==='packages'&&data.lineItems.some(i=>i.sourceKind==='packages'&&i.sourceId===s.id));for(const item of data.lineItems)if(item.optional&&item.sourceKind==='services'&&!item.allowedPackageIds){const allowed=offered.filter(p=>(p.optionalServiceIds||[]).includes(item.sourceId)).map(p=>p.id);if(allowed.length)item.allowedPackageIds=allowed;}
-  if(data.templateId){const template=await get(db,org,'packages',data.templateId);if(template.archived||template.active===false) return json({error:'Choose an active template'},400);}
+  if(data.templateId){const template=await get(db,org,'packages',data.templateId);if((template.archived||template.active===false)&&(!current||current.templateId!==data.templateId)) return json({error:'Choose an active template'},400);}
  }
  if(kind==='invoices'){data.invoiceNumber='GL-DRAFT-'+recordId;data.issueAt||=new Date().toISOString().slice(0,10);}
  try{
