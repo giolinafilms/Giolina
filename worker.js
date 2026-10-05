@@ -1,8 +1,10 @@
+import {publicProposal} from './admin/proposal-share.mjs';
 import {handlePrivate} from './admin/router.mjs';
 import redirects from './src/config/redirects.mjs';
 
 export default {
  async fetch(request, env) {
+  const proposalResponse=await publicProposal(request,env);if(proposalResponse)return proposalResponse;
   const privateResponse=await handlePrivate(request,env);
   if(privateResponse)return privateResponse;
   const url=new URL(request.url);

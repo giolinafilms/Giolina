@@ -1,9 +1,10 @@
+import {adminProposalPreview} from './proposal-share.mjs';
 import {authenticate} from './auth.mjs';
 import {api,json} from './api.mjs';
 import {shell,locked} from './shell.mjs';
 import {client,styles} from './assets.mjs';
 export function privatePath(path){return /^\/(admin|portal)(\/|$)/.test(path)||/^\/api\/(admin|portal)(\/|$)/.test(path);}
-const headers={'Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'",'X-Frame-Options':'DENY'};
+const headers={'Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'",'X-Frame-Options':'DENY'};
 function lockedResponse(request){const nonce=crypto.randomUUID();const h={...headers,'Content-Type':'text/html;charset=utf-8','Content-Security-Policy':"default-src 'none'; style-src 'nonce-"+nonce+"'; img-src 'self'; frame-ancestors 'none'; base-uri 'none'"};return new Response(request.method==='HEAD'?null:locked.replaceAll('__ENTRY_NONCE__',nonce),{status:503,headers:h});}
 function response(body,type,status=200){return new Response(body,{status,headers:{...headers,'Content-Type':type}});}
 export async function handlePrivate(request,env){
@@ -14,6 +15,7 @@ export async function handlePrivate(request,env){
  if(path.startsWith('/api/portal'))return response(JSON.stringify({error:'Client sign-in and client API access are not enabled in Phase 1.'}),'application/json',501);
  if(path.startsWith('/api/admin/')){try{const result=await api(request,env,user,path.slice('/api/admin/'.length));const h=new Headers(result.headers);for(const [k,v]of Object.entries(headers))h.set(k,v);return new Response(result.body,{status:result.status,headers:h});}catch{return response(JSON.stringify({error:'Private operation could not be completed.'}),'application/json',500);}}
  if(!['GET','HEAD'].includes(request.method))return response('Method not allowed','text/plain',405);
+ const proposal=path.match(/^\/admin\/proposals\/([^/]+)\/preview$/);if(proposal)return adminProposalPreview(request,env,proposal[1]);
  if(path==='/admin/app.js')return response(request.method==='HEAD'?null:client,'text/javascript;charset=utf-8');
  if(path==='/admin/app.css')return response(request.method==='HEAD'?null:styles,'text/css;charset=utf-8');
  if(/^\/admin\/(dashboard\/|leads\/|contacts\/|projects\/|services\/|proposals\/|contracts\/|invoices\/|calendar\/|messages\/|templates\/|files\/|automations\/|client-portal\/|settings\/)?$/.test(path)||/^\/portal\/$/.test(path))return response(request.method==='HEAD'?null:shell,'text/html;charset=utf-8');
