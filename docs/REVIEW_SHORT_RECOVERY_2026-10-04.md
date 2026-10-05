@@ -1,5 +1,22 @@
 # Review short recovery and footer follow-up
 
+## Complete follow-up investigation
+
+Additional checks: all available branches (`preview/homepage-photography-rotation` and its origin tracking branch), `git log --all`, string-change history (`-S`) for each source, earlier/deleted Reviews JSON and review collection maps, full provider URL extraction from ef9e620 / 91e05a3 / 4855200 / 6567c48 / 78b755a / d2544c8 implementations, unreachable-object inspection (none found), and workspace files outside the repo including uploaded Pasted text(5/6/7).txt, previous publisher scripts, captured copy, build/deployment/redirect records and local media. No archived build, source map, deleted local video or additional source-bearing branch supplied a verified matching short. No production site was accessed for recovery.
+
+Exact source provenance:
+
+| Couple | Candidate / provenance | Rejection / status | Old short frame | Still required |
+| --- | --- | --- | --- | --- |
+| Christina & Danny | Vimeo 425184212 in original ef9e62013879fb40217159b18a98300fccdb3e8b portfolio source, later Reviews assignment d2544c80a5476b8b57213933c4c8b03cdcfde35a (`src/content/pages/client-reviews.json`, alias reviews.json) | Long film, about 10:42; not the requested quick edit | Current Vimeo 904546777 thumbnail belongs to long film; christina-danny.png is a supplied photograph, not an identified short frame | Accessible matching short provider link/ID or original short file |
+| Deanna & Anthony | Vimeo 768293139 in original ef9e620 portfolio and d2544c8 Reviews; GioLina_Final_Audit.md explicitly says Deanna M. & Anthony MediaZilla source was pending, without its ID | Long film, about 9:33. A pending source mention does not identify a short | Current Vimeo 1542524456 thumbnail belongs to long film; deanna-anthony.png is a couple photograph | Exact Deanna & Anthony short link/ID/file; do not send Deanna & Josiah media |
+| Stephanie & Danny | Vimeo 331322129 in original ef9e620 portfolio and d2544c8 Reviews | Long film, about 8:30; not the requested quick edit | Current Vimeo 776661679 thumbnail belongs to long film; stephanie-danny.jpg is a photograph | Accessible matching short link/ID or original short file |
+| Lauren & Tommy | MediaZilla qo7a9pq90 in 6567c4842d4dfe9f68eb9c54528f78cb57aa2ef5 Reviews; removed/replaced by Vimeo 122910081 in 78b755ad5434e3f7cf3200829063e6e5934c90d0. Separate no74p3dU5 long-form source added to portfolio-2.json by c471d641c1a0b1eaee10019587faf12b4866bf3b | qo7a9pq90 rechecked live: title Lauren + Tommy intro video, but This media is private. No playable content, duration or image can be verified. 122910081 is about 7:29; no74p3dU5 is the separate historical long-film reference, not verified as a short | Early short lead used a title-only poster, not an extractable short frame; current Vimeo 512067982 and lauren-tommy-poster.webp are not confirmed short-derived frames | Accessible sharing/embed for qo7a9pq90, or original matching short file/alternate verified short source |
+
+Broad nearby-name searches returned additional IDs that were explicitly rejected after checking their own source labels: 425185852 = Nicole & Philip; fAkBCNBFRB = Alexandria & James; FY22EfWIt8 = Ally/Alexandria & James full presentation; gjx8Km0Irn = Jazz & Trevor; Hoq2eguL6 = Megan & Ralph. These appear in portfolio-2.json/MIGRATION_LOG.md, not verified matching short mappings. A nearby Stephanie 331322129 reference around Lauren and Christina 425184212 reference around Stephanie were also excluded as cross-entry matches.
+
+Responsive footer follow-up now uses temporary same-origin hosted frames at 1280×800, 1024×768, 768×1024 and 390×844. Eight main-page document heights match the actual footer bottom within subpixel rounding at tablet landscape, tablet portrait and mobile widths; contact email, phone and scheduler share the same x-coordinate. No giant trailing DOM region reproduced in Chrome, so no root cause or tablet Safari fix is claimed. Actual iPad/Safari reproduction remains required. The temporary inspection page is removed before the final checkpoint.
+
 Searched current source/data, all reachable Git history (487 historical text blobs), earlier Reviews implementations, deleted/replaced mappings, migration notes, local media filenames, prior conversation source mappings and the saved editorial patch. Only matching verified short sources may replace the existing associations.
 
 | Couple | Result | Existing source retained | Poster |
