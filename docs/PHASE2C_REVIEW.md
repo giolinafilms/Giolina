@@ -16,7 +16,7 @@ Continued from clean Events hotfix 98221ad and preserved Phase 2B final review 4
 
 41 tests pass, including client package choices/persistence, JWT/Access, CSRF, organization isolation, baseline immutability, template preview escaping, cross-project invoice exclusion, draft-only storage and advanced-field retention. Public build and route/SEO checks pass. All six Events legacy redirects and removal of visible Events navigation/CTAs remain checked.
 
-Hosted walkthrough follows deployment. Physical Admin phone/tablet and client iPhone/iPad/Safari acceptance remain open; browser checks do not certify physical devices.
+Hosted commit 3fb41b3 passed the native preview build. Verified grouped navigation and Project Overview/Communications/Activity; existing Payment Reminder template flags missing balance/due date without guessing. Saved one synthetic DEMO communications draft, reloaded and verified persistence, Draft status, project association and created activity. Advanced project fields remain disclosed and editing was cancelled without changing the project. Visual walkthrough found grouped sidebar links wrapping inline; follow-up CSS makes each link a separate row and uses two phone columns for the six Project tabs. No screenshot is committed. Physical Admin phone/tablet and client iPhone/iPad/Safari acceptance remain open; browser checks do not certify physical devices.
 
 ## Review destinations
 
