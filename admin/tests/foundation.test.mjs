@@ -82,3 +82,12 @@ test('presentation inputs reject active content; sections and optional pricing a
  for(const field of ['heroImage','thumbnail'])assert.throws(()=>validate('services',{name:'X',[field]:'javascript:alert(1)'}));assert.throws(()=>validate('services',{name:'X',filmUrl:'https://evil.test/embed'}));assert.throws(()=>validate('services',{name:'X',galleryImages:['https://evil.test/pixel']}));assert.throws(()=>validate('proposals',{name:'X',contactId:'c',lineItems:[{name:'X',quantity:1,unitPriceCents:100}],sectionOrder:['services','services','investment']}));assert.throws(()=>validate('proposals',{name:'X',contactId:'c',status:'Accepted (test only)',lineItems:[{name:'X',quantity:1,unitPriceCents:100}]}));
  const row=validate('proposals',{name:'X',contactId:'c',lineItems:[{name:'Base',quantity:2,unitPriceCents:100},{name:'Option',quantity:1,unitPriceCents:900,optional:true}],discountCents:20});assert.equal(row.totalCents,180);
 });
+
+test('invoice drafts derive totals and stable unique numbers without payment activation',async()=>{
+ const {call}=fixture();const c=(await call('contacts','POST',{data:{name:'Demo',email:'demo@example.test'}})).data;const p=(await call('projects','POST',{data:{name:'Demo',contactId:c.id,eventType:'Wedding',status:'Planning'}})).data;
+ const data={name:'Itemized draft',projectId:p.id,status:'Draft',lineItems:[{name:'Coverage',quantity:2,unitPriceCents:10000,sourceKind:'custom'}],discountCents:2000,taxCents:900,amountCents:1,paymentHistory:[{date:'2026-10-05',amountCents:5000,reference:'Manual demo'}]};
+ const a=await call('invoices','POST',{data});assert.equal(a.status,201);assert.equal(a.data.subtotalCents,20000);assert.equal(a.data.amountCents,18900);assert.equal(a.data.remainingCents,13900);assert.match(a.data.invoiceNumber,/^GL-DRAFT-/);assert.match(a.data.issueAt,/^\d{4}-\d{2}-\d{2}$/);
+ const b=await call('invoices','POST',{data});assert.notEqual(a.data.invoiceNumber,b.data.invoiceNumber);const edit=await call('invoices/'+a.data.id,'PUT',{data,version:1});assert.equal(edit.data.invoiceNumber,a.data.invoiceNumber);
+ for(const bad of [{taxCents:-1},{discountCents:20001},{status:'Sent'},{invoiceNumber:'forged'},{lineItems:[{...data.lineItems[0],optional:true}]},{paymentHistory:[{date:'2026-10-05',amountCents:18901,reference:'Too much'}]}])assert.equal((await call('invoices','POST',{data:{...data,...bad}})).status,400);
+ assert.equal(validate('invoices',{name:'Legacy',projectId:p.id,amountCents:500,lineItems:[]}).remainingCents,500);
+});

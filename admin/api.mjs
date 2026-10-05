@@ -2,7 +2,7 @@ import {presentation} from './presentation.mjs';
 import {seedDemoProposals} from './proposal-demos.mjs';
 import {shareAPI} from './proposal-share.mjs';
 import {templateDefaults,templateCategories,templateVariables} from './templates.mjs';
-import {definitions,validate} from './model.mjs';
+import {definitions,validate,lifecycle} from './model.mjs';
 import {catalogRecord,catalogSeed,catalogCategories} from './catalog.mjs';
 export function json(body,status=200){return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'}});}
 export async function list(db,org,kind){const r=await db.prepare('SELECT id,data,version,created_at,updated_at FROM records WHERE organization_id=? AND kind=? ORDER BY updated_at DESC LIMIT 500').bind(org,kind).all();return r.results.map(r=>{const row={...JSON.parse(r.data),id:r.id,version:r.version,createdAt:r.created_at,updatedAt:r.updated_at};return kind==='services'?catalogRecord(row):row;});}
@@ -32,7 +32,7 @@ export async function api(request,env,user,path){
  }
  if(/^proposals\/[^/]+\/share$/.test(path))return shareAPI(request,env,user,path.split('/')[1]);
  if(path==='setup-demo-proposals'&&request.method==='POST'){try{return json(await seedDemoProposals(db,org,user));}catch(e){return json({error:e.message},400);}}
- if(path==='meta'&&request.method==='GET')return json({presentationDefaults:{weddingPhoto:presentation({catalogCategory:'Weddings / Photography'}),wedding:presentation({eventType:'Wedding'}),sweet:presentation({eventType:'Sweet Sixteen'}),event:presentation({eventType:'Corporate'})},definitions,catalogCategories,templateCategories,templateVariables,timezone:'America/New_York',stage:'preview',email:user.email});
+ if(path==='meta'&&request.method==='GET')return json({projectStages:lifecycle,presentationDefaults:{weddingPhoto:presentation({catalogCategory:'Weddings / Photography'}),wedding:presentation({eventType:'Wedding'}),sweet:presentation({eventType:'Sweet Sixteen'}),event:presentation({eventType:'Corporate'})},definitions,catalogCategories,templateCategories,templateVariables,timezone:'America/New_York',stage:'preview',email:user.email});
  if(path.split('?')[0]==='activity'&&request.method==='GET'){const project=new URL(request.url).searchParams.get('project');if(project){if(!await get(db,org,'projects',project))return json({error:'Project not found'},404);const r=await db.prepare("SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? AND (record_id=? OR record_id IN (SELECT id FROM records WHERE organization_id=? AND json_extract(data,'$.projectId')=?)) ORDER BY occurred_at ASC LIMIT 500").bind(org,project,org,project).all();return json(r.results);}const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
@@ -60,6 +60,7 @@ export async function api(request,env,user,path){
  let data;try{data=validate(kind,input.data);if(kind==='services'&&id){const {id:sourceId,...stamped}=catalogRecord({...data,id});data=stamped;}await references(db,org,data)}catch(e){return json({error:e.message},400);}
  if((id&&request.method!=='PUT')||(!id&&request.method!=='POST')||action)return json({error:'Unsupported record action'},405);
  const recordId=id||crypto.randomUUID();
+ if(kind==='invoices'){data.invoiceNumber='GL-DRAFT-'+recordId;data.issueAt||=new Date().toISOString().slice(0,10);}
  try{
   let operations=[];
   if(id){const current=await get(db,org,kind,id);if(!current)return json({error:'Not found'},404);if(current.version!==input.version)return json({error:'Record changed. Reload before saving.'},409);

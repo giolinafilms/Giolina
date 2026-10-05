@@ -1,13 +1,14 @@
 import {presentationFields,validImage,filmEmbed} from './presentation.mjs';
 import {templateCategories} from './templates.mjs';
 import {catalogCategories} from './catalog.mjs';
-export const lifecycle=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
+export {projectStages as lifecycle} from './workflow.mjs';
+import {projectStages as lifecycle} from './workflow.mjs';
 export const leadStages=['New','Contacted','Consultation Scheduled','Proposal Needed','Proposal Sent','Follow-Up','Booked','Lost / Declined'];
 export const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
 export const definitions={
  contacts:{required:['name','email'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',address:'long',preferredContactMethod:'contact-method',leadSource:'text',importantDates:'long',notes:'long',demo:'boolean',archived:'boolean'}},
  leads:{required:['name','eventType','status'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',location:'long',serviceIds:'array',leadSource:'text',message:'long',status:'lead-status',followUpAt:'date',assignedFollowUp:'text',notes:'long',demo:'boolean',archived:'boolean'}},
- projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',additionalContactIds:'contact-array',eventType:'event',eventDate:'date',venue:'text',location:'long',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',paymentNotes:'long',proposalStatus:'text',contractStatus:'text',importantDates:'long',nextSteps:'long',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
+ projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',additionalContactIds:'contact-array',coverImage:'image',leadSource:'text',tags:'text',eventType:'event',eventDate:'date',venue:'text',location:'long',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',paymentNotes:'long',proposalStatus:'text',contractStatus:'text',importantDates:'long',nextSteps:'long',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
  services:{required:['name'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',clientDescription:'long',description:'long',inclusions:'long',addOns:'long',notes:'long',category:'text',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',sourceName:'text',sourceDescription:'long',sourcePriceCents:'money',sourceCoverageHours:'number',sourceCategory:'text',...presentationFields,archived:'boolean'}},
  packages:{required:['name','serviceIds'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',description:'long',clientDescription:'long',notes:'long',serviceIds:'array',optionalServiceIds:'array',priceCents:'money',rules:'long',...presentationFields,archived:'boolean'}},
  'appointment-types':{required:['name','durationMinutes'],fields:{name:'text',durationMinutes:'number',bufferMinutes:'number',description:'long',archived:'boolean'}},
@@ -17,7 +18,7 @@ export const definitions={
  tasks:{required:['name'],fields:{name:'text',projectId:'project',dueAt:'date',completed:'boolean',notes:'long',demo:'boolean'}},
  proposals:{required:['name','lineItems'],fields:{name:'text',projectId:'project',contactId:'contact',leadId:'lead',eventType:'event',clientNames:'text',eventDate:'date',venue:'text',heroImage:'image',introduction:'long',sectionOrder:'section-order',demo:'boolean',lineItems:'line-items',discountCents:'money',notes:'long',status:'proposal-status',archived:'boolean'}},
  contracts:{required:['name','projectId'],fields:{name:'text',contactId:'contact',projectId:'project',packageId:'package',serviceIds:'array',priceCents:'money',paymentSchedule:'schedule',notes:'long',status:'text',signatureStatus:'signature-status',externalProviderId:'text',archived:'boolean'}},
- invoices:{required:['name','projectId','amountCents'],fields:{name:'text',contactId:'contact',projectId:'project',amountCents:'money',depositCents:'money',installments:'schedule',paymentHistory:'payment-history',dueAt:'date',status:'text',notes:'long',archived:'boolean'}},
+ invoices:{required:['name','projectId','amountCents'],fields:{name:'text',contactId:'contact',projectId:'project',issueAt:'date',lineItems:'line-items',discountCents:'money',taxCents:'money',amountCents:'money',depositCents:'money',installments:'schedule',paymentHistory:'payment-history',dueAt:'date',status:'text',notes:'long',archived:'boolean'}},
  messages:{required:['name','projectId'],fields:{name:'text',projectId:'project',subject:'text',body:'long',status:'text'}},
  files:{required:['name','projectId'],fields:{name:'text',projectId:'project',notes:'long',storageKey:'text'}},
  automations:{required:['name'],fields:{name:'text',trigger:'text',templateId:'text',notes:'long',enabled:'boolean'}}
@@ -32,7 +33,7 @@ export function validate(kind,input){
   if(type==='image-list'){if(!Array.isArray(value)||value.length>8||!value.every(validImage))throw new Error('Use up to eight local portfolio image paths');out[key]=value;continue;}
   if(type==='section-order'){if(!Array.isArray(value)||value.length!==3||new Set(value).size!==3||value.some(v=>!['introduction','services','investment'].includes(v)))throw new Error('Invalid proposal sections');out[key]=value;continue;}
   if(type==='schedule'||type==='payment-history'){out[key]=validateFinancialRows(value,type);continue;}
-  if(type==='line-items'){out[key]=validateLineItems(value);continue;}
+  if(type==='line-items'){out[key]=kind==='invoices'&&Array.isArray(value)&&value.length===0?[]:validateLineItems(value);continue;}
   if(type==='array'||type==='contact-array'){if(!Array.isArray(value)||value.length>100||value.some(v=>typeof v!=='string'||v.length>160))throw new Error(key+' must contain record IDs');out[key]=value;continue;}
   if(type==='number'||type==='money'){if(typeof value!=='number'||!Number.isFinite(value)||value<0||(type==='money'&&!Number.isSafeInteger(value)))throw new Error(key+' must be a nonnegative '+(type==='money'?'amount in cents':'number'));out[key]=value;continue;}
   if(typeof value!=='string'||value.length>(type==='long'?20000:500))throw new Error('Invalid '+key);
@@ -53,6 +54,7 @@ export function validate(kind,input){
   if(type==='datetime'&&(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:\d{2})$/.test(s)||!Number.isFinite(Date.parse(s))))throw new Error('Invalid appointment date');
   out[key]=s;
  }
+ if(kind==='invoices'&&out.lineItems?.length){if(out.lineItems.some(i=>i.optional))throw new Error('Invoice lines cannot be optional');const totals=proposalTotals(out.lineItems,out.discountCents||0);out.subtotalCents=totals.subtotalCents;out.amountCents=totals.totalCents+(out.taxCents||0);if(!Number.isSafeInteger(out.amountCents))throw new Error('Invoice total is too large');}else if(kind==='invoices'&&((out.discountCents||0)||(out.taxCents||0)))throw new Error('Add invoice lines before using discounts or tax');
  for(const key of def.required)if(out[key]===undefined||out[key]===null)throw new Error(key+' is required');
  if(kind==='contracts'&&(out.paymentSchedule||[]).reduce((sum,r)=>sum+r.amountCents,0)>(out.priceCents??0))throw new Error('Payment schedule exceeds confirmed contract price');
  if(kind==='invoices'){const paidCents=(out.paymentHistory||[]).reduce((sum,r)=>sum+r.amountCents,0);if(!Number.isSafeInteger(paidCents)||paidCents>out.amountCents||(out.depositCents||0)>out.amountCents||(out.installments||[]).reduce((sum,r)=>sum+r.amountCents,0)>out.amountCents)throw new Error('Payment records exceed the planned total');out.paidCents=paidCents;out.remainingCents=out.amountCents-paidCents;out.paymentState=paidCents===out.amountCents?'Manually recorded as paid':paidCents?'Partial manual payment':'Planned / unpaid';}
