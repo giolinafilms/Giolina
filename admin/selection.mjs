@@ -7,6 +7,7 @@ export function selectionTotals(snapshot,selected){
  snapshot.items.forEach((item,i)=>{
   if(item.selectionGroup){const count=groups.get(item.selectionGroup)||0;groups.set(item.selectionGroup,count+(chosen.has(i)?1:0));}
   if(!item.optional&&!item.selectionGroup&&!chosen.has(i))throw new Error('Included services cannot be removed');
+  if(chosen.has(i)&&item.allowedChoices&&!item.allowedChoices.some(n=>chosen.has(n)))throw new Error('This add-on is unavailable for the chosen package');
   if(chosen.has(i))subtotalCents+=item.quantity*item.unitPriceCents;
  });
  if([...groups.values()].some(n=>n!==1))throw new Error('Choose exactly one offering in each package group');
