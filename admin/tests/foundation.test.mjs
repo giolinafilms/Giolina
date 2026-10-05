@@ -37,3 +37,11 @@ test('catalog edits preserve source facts and package references; legacy rows re
  assert.equal((await call('packages','POST',{data:{name:'Invalid',serviceIds:['missing']}})).status,400);
  await call('seed','POST',{});assert.equal((await call('services/'+id)).data.priceCents,320000);
 });
+
+test('contact profile facts survive save and update without cross-organization exposure',async()=>{
+ const {call}=fixture();const data={name:'DEMO Contact',firstName:'Demo',lastName:'Contact',partnerName:'Partner',email:'demo@example.test',phone:'555-0100',address:'Preview address',preferredContactMethod:'Email',leadSource:'Referral',importantDates:'Anniversary: November 10',notes:'Private test',demo:true};const saved=await call('contacts','POST',{data});assert.equal(saved.status,201);for(const [key,value]of Object.entries(data))assert.equal(saved.data[key],value);assert.equal((await call('contacts/'+saved.data.id,'PUT',{version:1,data:{...data,archived:true}})).status,200);assert.equal((await call('contacts/'+saved.data.id)).data.archived,true);assert.equal((await call('contacts/'+saved.data.id,'GET',null,{...user,organizationId:'other'})).status,404);
+});
+
+test('lead conversion creates contact and project atomically, preserves details and prevents repeat conversion',async()=>{
+ const {call}=fixture();const lead=(await call('leads','POST',{data:{name:'Demo wedding',firstName:'Demo',lastName:'Person',partnerName:'Partner',email:'lead@example.test',phone:'555-0101',eventType:'Wedding',status:'New',location:'Preview venue address',message:'Interested in cinema',leadSource:'Referral',demo:true}})).data;const converted=await call('leads/'+lead.id+'/convert','POST',{version:1});assert.equal(converted.status,201);const contact=(await call('contacts/'+converted.data.contactId)).data;assert.equal(contact.partnerName,'Partner');assert.equal(contact.email,'lead@example.test');const project=(await call('projects/'+converted.data.id)).data;assert(project.notes.includes('Interested in cinema'));assert.equal(project.contactId,contact.id);assert.equal((await call('leads/'+lead.id+'/convert','POST',{version:1})).status,409);assert.equal((await call('contacts')).data.length,1);
+});

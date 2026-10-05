@@ -1,9 +1,10 @@
 import {catalogCategories} from './catalog.mjs';
 export const lifecycle=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
+export const leadStages=['New','Contacted','Consultation Scheduled','Proposal Needed','Proposal Sent','Follow-Up','Booked','Lost / Declined'];
 export const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
 export const definitions={
  contacts:{required:['name','email'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',address:'long',preferredContactMethod:'contact-method',leadSource:'text',importantDates:'long',notes:'long',demo:'boolean',archived:'boolean'}},
- leads:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',followUpAt:'date',notes:'long',demo:'boolean',archived:'boolean'}},
+ leads:{required:['name','eventType','status'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',location:'long',serviceIds:'array',leadSource:'text',message:'long',status:'lead-status',followUpAt:'date',assignedFollowUp:'text',notes:'long',demo:'boolean',archived:'boolean'}},
  projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
  services:{required:['name'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',clientDescription:'long',description:'long',inclusions:'long',addOns:'long',notes:'long',category:'text',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',sourceName:'text',sourceDescription:'long',sourcePriceCents:'money',sourceCoverageHours:'number',sourceCategory:'text',archived:'boolean'}},
  packages:{required:['name','serviceIds'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',description:'long',clientDescription:'long',notes:'long',serviceIds:'array',optionalServiceIds:'array',priceCents:'money',rules:'long',archived:'boolean'}},
@@ -34,6 +35,7 @@ export function validate(kind,input){
   if(type==='contact-method'&&!['Email','Phone','Text','Other'].includes(s))throw new Error('Invalid preferred contact method');
   if(type==='catalog-category'&&!catalogCategories.includes(s))throw new Error('Invalid catalog category');
   if(type==='event'&&!eventTypes.includes(s))throw new Error('Invalid event type');
+  if(type==='lead-status'&&![...leadStages,...lifecycle].includes(s))throw new Error('Invalid lead stage');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');
   if(type==='appointment-status'&&!['Scheduled','Cancelled','Completed'].includes(s))throw new Error('Invalid appointment status');
   if(type==='weekday'&&!['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].includes(s))throw new Error('Invalid weekday');
@@ -43,6 +45,7 @@ export function validate(kind,input){
   out[key]=s;
  }
  for(const key of def.required)if(out[key]===undefined||out[key]===null)throw new Error(key+' is required');
+ if(kind==='leads'&&!out.contactId&&!out.email)throw new Error('Email or existing contact is required');
  if(kind==='packages'&&(!out.serviceIds?.length||new Set(out.serviceIds).size!==out.serviceIds.length))throw new Error('Choose at least one included service without duplicates');
  if(kind==='packages'&&(out.optionalServiceIds||[]).some(id=>out.serviceIds.includes(id)))throw new Error('A service cannot be included and optional at the same time');
  if(['services','packages'].includes(kind)&&out.active==null)out.active=true;
