@@ -779,3 +779,7 @@ Local SQLite/API/security and jsdom tests pass; public build/routes/SEO checks a
 Checkpoint a4028eca765f7b232ae6081c11f79e40392f7e42 deployed successfully through the existing native preview build. Hosted `/admin/` visibly returns the locked workspace entry and Back to GioLina reaches the unchanged homepage. Wrangler account-status check confirms no authenticated account session is available; Access/D1 provisioning and authenticated hosted UI remain blocked.
 
 Consolidated atomic minute reservations, multi-service reference checks and catalog import into bounded prepared `json_each` queries instead of per-item statement loops. This avoids query-count growth for long appointments or large service selections without weakening uniqueness/transaction protection. No public-site changes.
+
+### Admin schema boundary checks
+
+Reject inherited JavaScript property names as record kinds/fields in addition to unknown schema keys. Tests cover the boundary explicitly. This is a private API validation fix only; account configuration and authenticated hosted verification remain pending.

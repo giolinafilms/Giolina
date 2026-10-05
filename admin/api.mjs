@@ -33,7 +33,7 @@ export async function api(request,env,user,path){
   const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalog))];
   operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalog.length+' source-backed service versions.'},201);
  }
- const [kind,id,action]=path.split('/');if(!definitions[kind])return json({error:'Not found'},404);
+ const [kind,id,action]=path.split('/');if(!Object.hasOwn(definitions,kind))return json({error:'Not found'},404);
  if(request.method==='GET'){if(id){const record=await get(db,org,kind,id);return json(record||{error:'Not found'},record?200:404);}return json(await list(db,org,kind));}
  const text=await request.text();if(text.length>65536)return json({error:'Request too large'},413);let input;try{input=JSON.parse(text)}catch{return json({error:'Invalid JSON'},400);}
  if(kind==='leads'&&id&&action==='convert'&&request.method==='POST'){

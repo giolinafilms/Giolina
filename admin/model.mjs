@@ -19,10 +19,10 @@ export const definitions={
  automations:{required:['name'],fields:{name:'text',trigger:'text',templateId:'text',notes:'long',enabled:'boolean'}}
 };
 export function validate(kind,input){
- const def=definitions[kind];if(!def)throw new Error('Unknown record type');
+ const def=Object.hasOwn(definitions,kind)?definitions[kind]:null;if(!def)throw new Error('Unknown record type');
  if(!input||typeof input!=='object'||Array.isArray(input))throw new Error('Expected a record');
  const out={};for(const [key,value]of Object.entries(input)){
-  const type=def.fields[key];if(!type)throw new Error('Unsupported field: '+key);
+  const type=Object.hasOwn(def.fields,key)?def.fields[key]:null;if(!type)throw new Error('Unsupported field: '+key);
   if(value===null||value===''){out[key]=null;continue;}
   if(type==='boolean'){if(typeof value!=='boolean')throw new Error(key+' must be true/false');out[key]=value;continue;}
   if(type==='array'){if(!Array.isArray(value)||value.length>100||value.some(v=>typeof v!=='string'||v.length>160))throw new Error(key+' must contain record IDs');out[key]=value;continue;}
