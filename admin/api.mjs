@@ -1,6 +1,9 @@
+import {catalogSeed as baselineServices} from './catalog.mjs';
+import {initializeBaselines} from './active-packages.mjs';
 import {presentation} from './presentation.mjs';
 import {seedDemoProposals} from './proposal-demos.mjs';
-import {shareAPI} from './proposal-share.mjs';
+import {selectionTotals,defaultSelection} from './selection.mjs';
+import {shareAPI,buildSnapshot} from './proposal-share.mjs';
 import {templateDefaults,templateCategories,templateVariables} from './templates.mjs';
 import {definitions,validate,lifecycle} from './model.mjs';
 import {catalogRecord,catalogSeed,catalogCategories} from './catalog.mjs';
@@ -9,7 +12,7 @@ export async function list(db,org,kind){const r=await db.prepare('SELECT id,data
 export async function get(db,org,kind,id){const r=await db.prepare('SELECT * FROM records WHERE organization_id=? AND kind=? AND id=?').bind(org,kind,id).first();if(!r)return null;const row={...JSON.parse(r.data),id:r.id,version:r.version,createdAt:r.created_at,updatedAt:r.updated_at};return kind==='services'?catalogRecord(row):row;}
 function audit(db,user,action,kind,id){return db.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),user.organizationId,user.email,action,kind,id,new Date().toISOString(),JSON.stringify({}));}
 function insert(db,org,kind,id,data){const now=new Date().toISOString();return db.prepare('INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) VALUES(?,?,?,?,?,?)').bind(org,kind,id,JSON.stringify(data),now,now);}
-async function references(db,org,data){for(const item of data.lineItems||[]){if(item.sourceKind!=='custom'&&!await get(db,org,item.sourceKind,item.sourceId))throw new Error('Proposal catalog item does not exist');}for(const [field,kind] of Object.entries({leadId:'leads',contactId:'contacts',projectId:'projects',packageId:'packages',appointmentTypeId:'appointment-types'})){if(data[field]&&!await get(db,org,kind,data[field]))throw new Error('Referenced '+kind+' record does not exist');}const contacts=[...new Set(data.additionalContactIds||[])];if(contacts.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='contacts' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(contacts)).first();if(result.count!==contacts.length)throw new Error('Selected contact does not exist');}const ids=[...new Set([...(data.serviceIds||[]),...(data.optionalServiceIds||[])])];if(ids.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='services' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(ids)).first();if(result.count!==ids.length)throw new Error('Selected service does not exist');}}
+async function references(db,org,data){for(const item of data.lineItems||[]){if(item.sourceKind!=='custom'&&!await get(db,org,item.sourceKind,item.sourceId))throw new Error('Proposal catalog item does not exist');}for(const [field,kind] of Object.entries({leadId:'leads',contactId:'contacts',projectId:'projects',packageId:'packages',templateId:'packages',appointmentTypeId:'appointment-types'})){if(data[field]&&!await get(db,org,kind,data[field]))throw new Error('Referenced '+kind+' record does not exist');}const contacts=[...new Set(data.additionalContactIds||[])];if(contacts.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='contacts' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(contacts)).first();if(result.count!==contacts.length)throw new Error('Selected contact does not exist');}const ids=[...new Set([...(data.serviceIds||[]),...(data.optionalServiceIds||[])])];if(ids.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='services' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(ids)).first();if(result.count!==ids.length)throw new Error('Selected service does not exist');}}
 async function appointmentLocks(db,org,id,data){
  const statements=[db.prepare('DELETE FROM appointment_locks WHERE organization_id=? AND appointment_id=?').bind(org,id)];
  if(data.status==='Cancelled'||data.status==='Completed')return statements;
@@ -31,9 +34,13 @@ export async function api(request,env,user,path){
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
  if(/^proposals\/[^/]+\/share$/.test(path))return shareAPI(request,env,user,path.split('/')[1]);
+ if(/^proposals\/[^/]+\/selection-preview$/.test(path)){
+  try{const {snapshot}=await buildSnapshot(db,path.split('/')[1]);if(request.method==='GET')return json({...selectionTotals(snapshot,defaultSelection(snapshot.items)),version:0});const raw=await request.text();if(raw.length>4096)return json({error:'Selection too large'},413);const input=JSON.parse(raw);return json({...selectionTotals(snapshot,input.selected),version:0});}catch(err){return json({error:err.message},400);}
+ }
  if(path==='setup-demo-proposals'&&request.method==='POST'){try{return json(await seedDemoProposals(db,org,user));}catch(e){return json({error:e.message},400);}}
  if(path==='meta'&&request.method==='GET')return json({projectStages:lifecycle,presentationDefaults:{weddingPhoto:presentation({catalogCategory:'Weddings / Photography'}),wedding:presentation({eventType:'Wedding'}),sweet:presentation({eventType:'Sweet Sixteen'}),event:presentation({eventType:'Corporate'})},definitions,catalogCategories,templateCategories,templateVariables,timezone:'America/New_York',stage:'preview',email:user.email});
  if(path.split('?')[0]==='activity'&&request.method==='GET'){const project=new URL(request.url).searchParams.get('project');if(project){if(!await get(db,org,'projects',project))return json({error:'Project not found'},404);const r=await db.prepare("SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? AND (record_id=? OR record_id IN (SELECT id FROM records WHERE organization_id=? AND json_extract(data,'$.projectId')=?)) ORDER BY occurred_at ASC LIMIT 500").bind(org,project,org,project).all();return json(r.results);}const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
+ if(path==='setup-active-packages'&&request.method==='POST'){try{return json(await initializeBaselines(db,org,user));}catch(e){return json({error:e.message},400);}}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
   const now=new Date().toISOString();
@@ -44,22 +51,51 @@ export async function api(request,env,user,path){
  if(path==='setup-appointment-types'&&request.method==='POST'){
   const names=['Wedding Consultation','Sweet Sixteen Consultation','General Consultation','Client Meeting','Production Meeting','Custom'];const now=new Date().toISOString();const defaults=names.map((name,i)=>({id:'default-appointment-'+i,name,durationMinutes:30,bufferMinutes:0,description:'Editable private scheduler default; confirm duration and buffers before use.'}));await db.batch([db.prepare("INSERT OR IGNORE INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'appointment-types',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(defaults)),audit(db,user,'setup-types','appointment-types','defaults')]);return json({message:'Appointment types ready. Existing edits preserved.'});
  }
+ if(path==='preview-inquiry'&&request.method==='POST'){
+  try{const raw=await request.text();if(raw.length>8192)return json({error:'Inquiry too large'},413);const input=JSON.parse(raw);
+   if(!/^[a-z0-9-]{8,80}$/.test(input.reference||'')||!input.data?.email?.endsWith('@example.test'))return json({error:'Use a unique preview reference and a synthetic @example.test email'},400);
+   const id='preview-inquiry-'+input.reference,existing=await get(db,org,'leads',id);if(existing)return json(existing);
+   const data=validate('leads',{...input.data,demo:true,status:'New',leadSource:'Preview website simulator',inquiryDate:new Date().toISOString().slice(0,10)});await references(db,org,data);
+   await db.batch([insert(db,org,'leads',id,data),audit(db,user,'preview-inquiry-created','leads',id)]);return json(await get(db,org,'leads',id),201);
+  }catch{return json({error:'Invalid synthetic inquiry or duplicate request. No email was sent.'},400);}
+ }
  const [kind,id,action]=path.split('/');if(!Object.hasOwn(definitions,kind))return json({error:'Not found'},404);
  if(request.method==='GET'){if(id){const record=await get(db,org,kind,id);return json(record||{error:'Not found'},record?200:404);}return json(await list(db,org,kind));}
  const text=await request.text();if(text.length>65536)return json({error:'Request too large'},413);let input;try{input=JSON.parse(text)}catch{return json({error:'Invalid JSON'},400);}
+ if(['leads','projects'].includes(kind)&&id&&action==='proposal'&&request.method==='POST'){
+  const context=await get(db,org,kind,id);if(!context||context.version!==input.version)return json({error:'Context changed. Reload before creating a proposal.'},409);
+  if(!Array.isArray(input.packageIds)||!input.packageIds.length||input.packageIds.length>8||new Set(input.packageIds).size!==input.packageIds.length)return json({error:'Choose 1–8 active package templates'},400);
+  const packs=await Promise.all(input.packageIds.map(id=>get(db,org,'packages',id))),category=context.eventType==='Wedding'?'Weddings /':context.eventType==='Sweet Sixteen'?'Sweet Sixteen /':null;
+  if(packs.some(p=>!p||p.archived||p.active===false||p.priceCents==null||!category||!p.catalogCategory?.startsWith(category)))return json({error:'Choose priced active packages for this event category'},400);
+  const services=await list(db,org,'services'),lines=packs.map(p=>({name:p.name,description:p.clientDescription||p.description||'',quantity:1,unitPriceCents:p.priceCents,sourceKind:'packages',sourceId:p.id,selectionGroup:context.eventType+' / '+(/photo/i.test(p.name+' '+p.serviceIds.join(' '))||p.serviceIds.some(id=>['hb-0-06','hb-0-07','hb-1-13','hb-1-14'].includes(id))?'Photography':'Cinematography')}));
+  for(const serviceId of [...new Set(packs.flatMap(p=>p.optionalServiceIds||[]))]){const raw=services.find(s=>s.id===serviceId),source=packs.every(p=>p.baseline)?baselineServices.find(s=>s.id===serviceId):raw;if(!raw||raw.archived||raw.active===false||source.priceCents==null)return json({error:'An offered add-on is unavailable or unpriced'},400);lines.push({name:source.name,description:source.clientDescription||source.description||'',quantity:1,unitPriceCents:source.priceCents,sourceKind:'services',sourceId:source.id,optional:true});}
+  const contact=await get(db,org,'contacts',context.contactId||''),projectId=kind==='projects'?context.id:context.projectId||null;
+  const data={name:(context.demo?'DEMO draft — ':'Draft — ')+context.name,projectId,contactId:context.contactId||null,leadId:kind==='leads'?id:null,templateId:packs[0].id,clientSelection:!!context.demo,eventType:context.eventType,clientNames:contact?[contact.firstName||contact.name,contact.partnerName].filter(Boolean).join(' + '):[context.firstName||context.name,context.partnerName].filter(Boolean).join(' + '),eventDate:context.eventDate||null,venue:context.venue||null,status:'Draft',demo:!!context.demo,lineItems:lines};
+  return api(new Request(new URL('/api/admin/proposals',request.url),{method:'POST',headers:request.headers,body:JSON.stringify({data})}),env,user,'proposals');
+ }
  if(kind==='leads'&&id&&action==='convert'&&request.method==='POST'){
-  const lead=await get(db,org,'leads',id);if(!lead)return json({error:'Lead not found'},404);if(lead.archived)return json({error:'This lead was already archived or converted'},409);
-  const projectId=crypto.randomUUID();let contactId=lead.contactId;let contactData=null;
+  const lead=await get(db,org,'leads',id);if(!lead)return json({error:'Lead not found'},404);if(lead.archived||lead.projectId)return json({error:'This lead was already archived or converted'},409);
+  const projectId=input.projectId||crypto.randomUUID();let contactId=lead.contactId;let contactData=null;
   if(contactId&&!await get(db,org,'contacts',contactId))return json({error:'Contact no longer exists'},400);
   if(!contactId){const matched=(await list(db,org,'contacts')).find(c=>!c.archived&&c.email?.toLowerCase()===lead.email?.toLowerCase());contactId=matched?.id||crypto.randomUUID();if(!matched)contactData=validate('contacts',{name:[lead.firstName,lead.lastName].filter(Boolean).join(' ')||lead.name,firstName:lead.firstName||null,lastName:lead.lastName||null,partnerName:lead.partnerName||null,email:lead.email,phone:lead.phone||null,leadSource:lead.leadSource||null,notes:lead.message||lead.notes||null,demo:!!lead.demo});}
-  const data=validate('projects',{name:lead.name,contactId,eventType:lead.eventType,eventDate:lead.eventDate||null,venue:lead.venue||null,location:lead.location||null,status:'Consultation',serviceIds:lead.serviceIds||[],notes:[lead.location,lead.message,lead.notes,lead.leadSource?'Lead source: '+lead.leadSource:null].filter(Boolean).join('\n')||null,demo:!!lead.demo});
-  const update=db.prepare("UPDATE records SET data=json_set(data,'$.archived',json('true')),version=version+1,updated_at=? WHERE organization_id=? AND kind='leads' AND id=? AND version=?").bind(new Date().toISOString(),org,id,input.version);
+  const data=validate('projects',{name:lead.name,contactId,eventType:lead.eventType,eventDate:lead.eventDate||null,venue:lead.venue||null,location:lead.location||null,status:'Inquiry',leadSource:lead.leadSource||null,tags:lead.tags||null,serviceIds:lead.serviceIds||[],notes:[lead.location,lead.message,lead.notes,lead.leadSource?'Lead source: '+lead.leadSource:null].filter(Boolean).join('\n')||null,demo:!!lead.demo});
+  let associated=null;if(input.projectId){associated=await get(db,org,'projects',input.projectId);if(!associated||associated.archived||associated.contactId!==contactId||!!associated.demo!==!!lead.demo)return json({error:'Choose a current project with the same contact and DEMO status'},400);}
+  const update=db.prepare("UPDATE records SET data=json_set(data,'$.archived',json('true'),'$.projectId',?,'$.contactId',?),version=version+1,updated_at=? WHERE organization_id=? AND kind='leads' AND id=? AND version=?").bind(projectId,contactId,new Date().toISOString(),org,id,input.version);
   // A failed optimistic update aborts via the CHECK constraint rather than duplicating a project.
-  try{await db.batch([db.prepare("INSERT INTO write_guards(token,valid) SELECT ?,COUNT(*) FROM records WHERE organization_id=? AND kind='leads' AND id=? AND version=?").bind(projectId,org,id,input.version),...(contactData?[insert(db,org,'contacts',contactId,contactData),audit(db,user,'created-from-lead','contacts',contactId)]:[]),insert(db,org,'projects',projectId,data),update,audit(db,user,'lead-converted','projects',projectId),db.prepare('DELETE FROM write_guards WHERE token=?').bind(projectId)]);return json({id:projectId,contactId},201);}catch{return json({error:'Lead changed. Reload before converting.'},409);}
+  try{await db.batch([db.prepare("INSERT INTO write_guards(token,valid) SELECT ?,COUNT(*) FROM records WHERE organization_id=? AND kind='leads' AND id=? AND version=?").bind(projectId,org,id,input.version),...(contactData?[insert(db,org,'contacts',contactId,contactData),audit(db,user,'created-from-lead','contacts',contactId)]:[]),...(associated?[]:[insert(db,org,'projects',projectId,data)]),update,audit(db,user,associated?'lead-associated':'lead-converted','projects',projectId),audit(db,user,'lead-project-linked','leads',id),db.prepare('DELETE FROM write_guards WHERE token=?').bind(projectId)]);return json({id:projectId,contactId},201);}catch{return json({error:'Lead changed. Reload before converting.'},409);}
  }
  let data;try{data=validate(kind,input.data);if(kind==='services'&&id){const {id:sourceId,...stamped}=catalogRecord({...data,id});data=stamped;}await references(db,org,data)}catch(e){return json({error:e.message},400);}
  if((id&&request.method!=='PUT')||(!id&&request.method!=='POST')||action)return json({error:'Unsupported record action'},405);
+ if(kind==='packages'&&id?.startsWith('baseline-'))return json({error:'Original PDF baseline is preserved. Duplicate it to make an editable version.'},400);
  const recordId=id||crypto.randomUUID();
+ if(kind==='proposals'){
+  const current=id?await get(db,org,kind,id):null;const needed=new Set(data.lineItems.filter(i=>i.sourceKind!=='custom').map(i=>i.sourceKind+':'+i.sourceId));
+  const baseline=data.templateId?.startsWith('baseline-');
+  const sources=[...(await list(db,org,'packages')).map(r=>({...r,kind:'packages'})),...(await list(db,org,'services')).map(r=>({...r,...(baseline?baselineServices.find(s=>s.id===r.id):{}),kind:'services'}))];
+  for(const source of sources)if(needed.has(source.kind+':'+source.id))for(const component of source.serviceIds||[])needed.add('services:'+component);
+  data.catalogSnapshot=[...needed].map(key=>current?.catalogSnapshot?.find(r=>r.kind+':'+r.id===key)||sources.find(r=>r.kind+':'+r.id===key)).filter(Boolean).map(({notes,...row})=>row);
+  if(data.templateId){const template=await get(db,org,'packages',data.templateId);if(template.archived||template.active===false) return json({error:'Choose an active template'},400);}
+ }
  if(kind==='invoices'){data.invoiceNumber='GL-DRAFT-'+recordId;data.issueAt||=new Date().toISOString().slice(0,10);}
  try{
   let operations=[];

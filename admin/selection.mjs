@@ -1,0 +1,17 @@
+// Browser supplies indices only. Names, quantities, prices and discounts come from
+// the fixed published snapshot; this never creates a booking or invoice.
+export function selectionTotals(snapshot,selected){
+ if(!snapshot.clientSelection)throw new Error('Client selection is not enabled');
+ if(!Array.isArray(selected)||selected.length>100||selected.some(i=>!Number.isInteger(i)||i<0||i>=snapshot.items.length)||new Set(selected).size!==selected.length)throw new Error('Invalid offered-item selection');
+ const chosen=new Set(selected),groups=new Map();let subtotalCents=0;
+ snapshot.items.forEach((item,i)=>{
+  if(item.selectionGroup){const count=groups.get(item.selectionGroup)||0;groups.set(item.selectionGroup,count+(chosen.has(i)?1:0));}
+  if(!item.optional&&!item.selectionGroup&&!chosen.has(i))throw new Error('Included services cannot be removed');
+  if(chosen.has(i))subtotalCents+=item.quantity*item.unitPriceCents;
+ });
+ if([...groups.values()].some(n=>n!==1))throw new Error('Choose exactly one offering in each package group');
+ const discountCents=snapshot.discountCents||0;
+ if(!Number.isSafeInteger(subtotalCents)||!Number.isSafeInteger(discountCents)||discountCents<0||discountCents>subtotalCents)throw new Error('Selection does not support this discount');
+ return {selected,subtotalCents,discountCents,totalCents:subtotalCents-discountCents,summary:snapshot.items.filter((_,i)=>chosen.has(i)).map(i=>({name:i.name,quantity:i.quantity,amountCents:i.quantity*i.unitPriceCents}))};
+}
+export function defaultSelection(items){const groups=new Set();return items.flatMap((item,i)=>{if(item.selectionGroup){if(groups.has(item.selectionGroup))return [];groups.add(item.selectionGroup);return [i];}return item.optional?[]:[i];});}
