@@ -39,7 +39,7 @@ export async function publicProposal(request,env){const path=new URL(request.url
  const now=new Date().toISOString(),guard=crypto.randomUUID();try{await env.CRM_DB.batch([
  env.CRM_DB.prepare("INSERT INTO write_guards(token,valid) SELECT ?,COUNT(*) FROM proposal_shares WHERE organization_id=? AND id=? AND version=? AND json_extract(data,'$.disabled')=0 AND json_extract(data,'$.expiresAt')>?").bind(guard,ORG,s.id,input.version,now),
  env.CRM_DB.prepare("UPDATE proposal_shares SET data=json_set(data,'$.selection',json(?)),version=version+1,updated_at=? WHERE organization_id=? AND id=? AND version=?").bind(JSON.stringify(totals),now,ORG,s.id,input.version),
- env.CRM_DB.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),ORG,'DEMO link holder','demo-selection-changed','proposals',s.proposalId,now,JSON.stringify({revision:s.snapshot.revision,selected:totals.selected,totalCents:totals.totalCents})),
+ env.CRM_DB.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),ORG,'DEMO link holder','demo-selection-changed','proposals',s.proposalId,now,JSON.stringify({revision:s.snapshot.revision,selected:totals.selected,totalCents:totals.totalCents,added:totals.selected.filter(i=>!current.selected.includes(i)).map(i=>s.snapshot.items[i].name),removed:current.selected.filter(i=>!totals.selected.includes(i)).map(i=>s.snapshot.items[i].name)})),
  env.CRM_DB.prepare('DELETE FROM write_guards WHERE token=?').bind(guard)]);}catch{return json({error:'Link or selections changed. Reload before selecting.'},409);}
  return json({...totals,version:s.version+1,message:'DEMO selections saved. No acceptance, contract, invoice or payment was created.'});
  }
