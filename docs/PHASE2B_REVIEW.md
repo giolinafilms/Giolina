@@ -22,6 +22,8 @@ Wedding and Sweet Sixteen baseline originals remain unchanged: wedding Feature F
 
 38 automated tests pass, including actual Worker/D1 persistence, stale edits, forged-price rejection, required item protection, revoked DEMO links, organization isolation, catalog snapshot boundaries, baseline duplication, dependent add-ons and browser select/deselect/reselect. Build, public-route and SEO checks pass: 36 built pages, 101 redirects, 15 sitemap URLs and preserved GA4 configuration. Preview tracking remains disabled.
 
+Final code commit `2aa29c3421e2e632c040290fb9cda6650b790b3a` also deployed successfully. Hosted corporate introduction order and protected named selection history verified: candid selection $5,600, removal $4,300; restored $4,300 for review.
+
 Hosted native preview builds succeeded for correction commit `2c5dd580dbc41c91b66d4d8eea3092b19f052c15` and corporate commit `ddd926792ba88374c84e0938e771297038980a5d`.
 
 | Hosted walkthrough | Verified result |
