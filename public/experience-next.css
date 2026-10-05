@@ -46,3 +46,11 @@
 }
 
 .gl-experience .gl-exp-intro h1,.gl-experience .gl-exp-intro h1 span{color:#128087}
+
+/* Soft alternating settings distinguish process, review and portfolio moments. */
+.gl-experience .gl-exp-process{background:#f6f3ec}
+.gl-experience .gl-exp-review-setting,.gl-experience .gl-exp-faq-setting{background:#edf8f8}
+.gl-experience .gl-exp-review{padding-block:48px}
+.gl-experience .gl-exp-film.gl-exp-special{background:#f6f3ec}
+.gl-experience .gl-exp-cta{background:#f6f3ec;padding-block:52px 58px}
+@media(max-width:767px){.gl-experience .gl-exp-review{padding-block:34px}.gl-experience .gl-exp-cta{padding-block:36px 40px}}

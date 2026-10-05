@@ -33,3 +33,13 @@
 .gl-about-story .gl-about-team :is(h2,p),.gl-about-story .gl-about-history>div{max-width:62ch}
 .gl-about-story .gl-about-team p+p{margin-top:8px}
 .gl-about-story .gl-about-history .gl-about-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px}
+
+/* Two concise stories share an authentic wordmark anchor. */
+.gl-about-story .gl-about-foundation{background:#edf8f8;padding:36px 0}
+.gl-about-story .gl-about-foundation-grid{display:grid;grid-template-columns:minmax(0,1fr) 170px minmax(0,1fr);gap:32px;align-items:center}
+.gl-about-story .gl-about-foundation h2{font-size:clamp(27px,2.5vw,32px);margin:0 0 14px}
+.gl-about-story .gl-about-foundation p{font-size:16px;line-height:1.7;max-width:42ch}
+.gl-about-story .gl-about-foundation p+p{margin-top:10px}
+.gl-about-story .gl-about-foundation-logo{display:block;width:170px;max-width:100%;height:auto;margin:0}
+.gl-about-story .gl-about-foundation .gl-about-rtg-link{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;color:#128087}
+@media(max-width:900px){.gl-about-story .gl-about-foundation-grid{grid-template-columns:minmax(0,1fr);gap:22px}.gl-about-story .gl-about-foundation{padding-block:28px}.gl-about-story .gl-about-foundation p{max-width:62ch}.gl-about-story .gl-about-foundation-logo{width:145px;margin-inline:auto}}
