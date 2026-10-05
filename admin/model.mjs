@@ -72,6 +72,7 @@ export function validate(kind,input){
  if(kind==='messages'&&out.status&&out.status!=='Draft')throw new Error('Messages can only be saved as drafts');
  if(kind==='contracts'&&out.status&&out.status!=='Draft')throw new Error('Legally binding signing is not enabled');
  if(kind==='invoices'&&out.status&&out.status!=='Draft')throw new Error('Live payment processing is not enabled');
+ if(kind==='invoices')out.status='Draft';
  return out;
 }
 
