@@ -10,7 +10,7 @@ for(const path of mainPagePaths){
  if(!path.startsWith('/events/'))assert(!/href="\/events(?:\/|\")/.test(html),`retired Events link ${path}`);
  for(const label of ['Main navigation','Mobile navigation','Footer navigation']){
   const nav=html.match(new RegExp(`<nav[^>]*aria-label="${label}"[^>]*>([\\s\\S]*?)</nav>`))?.[1];
-  if(nav)assert(!/>Events</.test(nav),`Events absent from ${label} ${path}`);
+  if(nav){assert(!/>Events</.test(nav),`Events absent from ${label} ${path}`);assert(nav.includes('href="/client-reviews/"'),`Reviews retained in ${label} ${path}`);assert(nav.indexOf('>Cinematography<')<nav.indexOf('>Photography<'),`Film before photo in ${label} ${path}`);}
  }
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  assert(title&&!titles.has(title),`title ${path}`);titles.add(title);
