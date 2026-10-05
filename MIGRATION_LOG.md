@@ -783,3 +783,9 @@ Consolidated atomic minute reservations, multi-service reference checks and cata
 ### Admin schema boundary checks
 
 Reject inherited JavaScript property names as record kinds/fields in addition to unknown schema keys. Tests cover the boundary explicitly. This is a private API validation fix only; account configuration and authenticated hosted verification remain pending.
+
+## 2026-10-05 — Preview Access and D1 account connection
+
+Frank saved a path-limited Access application for the four private preview paths, Allow email `info@giolina.co`, One-time PIN only and 24-hour app session. Confirmed team domain/AUD from dashboard. Created `giolina-crm-preview` (database `4f3fda7b-35ed-4a10-b457-b8fec46677c5`) and dashboard console reported successful execution of the existing foundation SQL.
+
+Added non-secret auth settings and CRM_DB only under native `previews` in wrangler.jsonc. Added an explicit matching preview-only migration config for future schema operations. Top-level public Worker settings preserved. Hosted authenticated login, catalog import and persistence remain pending verification.

@@ -1,0 +1,13 @@
+{
+  "name": "giolina-preview-migrations",
+  "account_id": "c04e2f166028963756e1113490a0e97d",
+  "compatibility_date": "2026-09-30",
+  "d1_databases": [
+    {
+      "binding": "CRM_DB",
+      "database_name": "giolina-crm-preview",
+      "database_id": "4f3fda7b-35ed-4a10-b457-b8fec46677c5",
+      "migrations_dir": "admin/migrations"
+    }
+  ]
+}

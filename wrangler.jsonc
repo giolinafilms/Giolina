@@ -9,5 +9,21 @@
     "run_worker_first": true,
     "not_found_handling": "404-page"
   },
-  "previews": {}
+  "previews": {
+    "vars": {
+      "CRM_STAGE": "preview",
+      "CRM_ORIGIN": "https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev",
+      "CRM_ACCESS_TEAM": "sweet-salad-fb3f.cloudflareaccess.com",
+      "CRM_ACCESS_AUD": "1b5b7a64d6e6bbed806c5b229f87bfc606a3f52a0dddce10876d886df659df79",
+      "CRM_ADMIN_EMAILS": "info@giolina.co"
+    },
+    "d1_databases": [
+      {
+        "binding": "CRM_DB",
+        "database_name": "giolina-crm-preview",
+        "database_id": "4f3fda7b-35ed-4a10-b457-b8fec46677c5",
+        "migrations_dir": "admin/migrations"
+      }
+    ]
+  }
 }

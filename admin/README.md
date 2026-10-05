@@ -4,7 +4,7 @@
 
 Implemented alongside the existing Astro marketing site. Worker-served private application and JSON API; **not statically exported into public assets**. All private paths fail closed without the preview-only origin, verified Cloudflare Access JWT, administrator allowlist and D1 binding. No public-site forms, player controllers, scheduler, client domains or production routing changed.
 
-The code is locally tested and deployable. **Hosted sign-in/database connection is not yet configured.** The preview entry returns a locked 503; private APIs return 401. This is not a usable hosted login yet. Do not bypass the gate to review the dashboard.
+The code is locally tested. Frank configured the preview Access application with email one-time PIN and an Allow rule for `info@giolina.co`, created `giolina-crm-preview`, and successfully executed `0001_foundation.sql` in the D1 dashboard console. Preview-only variables and `CRM_DB` are now declared in `wrangler.jsonc`. Deployment and authenticated hosted verification are pending; do not claim hosted readiness until login and persistence checks succeed. Do not bypass the gate to review the dashboard.
 
 ## Architecture
 
@@ -43,15 +43,15 @@ Account configuration cannot be completed through the available tools in this se
 1. Confirm Frank's administrator email/allowlist and Cloudflare Access identity method (email one-time code or existing identity provider). No credentials should be sent in chat.
 2. Create an Access self-hosted application protecting **only** the preview host's `/admin`, `/admin/*`, `/api/admin`, `/api/admin/*`, `/portal`, `/portal/*`, `/api/portal`, `/api/portal/*` paths. Use an allow policy for the confirmed administrator email, no public/bypass policy, session lifetime no longer than 24 hours. Public marketing routes must remain unaffected. Confirm Access can protect this workers.dev preview host in the account before enabling; if it cannot, choose a separate supported preview deployment rather than changing production DNS.
 3. Create a **preview-only** D1 database (suggested `giolina-crm-preview`). Apply the SQL migration and bind as `CRM_DB` to this branch's preview configuration only. Do not bind a production database.
-4. In that preview environment set `CRM_STAGE=preview`, `CRM_ORIGIN=https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev`, `CRM_ACCESS_TEAM=<team>.cloudflareaccess.com`, `CRM_ACCESS_AUD=<Access application audience>`, `CRM_ADMIN_EMAILS=<confirmed emails>`. No values/secrets are committed here. Use Cloudflare deployment configuration or a separately reviewed preview-specific Wrangler configuration; do not add global production bindings.
+4. In that preview environment set `CRM_STAGE=preview`, `CRM_ORIGIN=https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev`, `CRM_ACCESS_TEAM=<team>.cloudflareaccess.com`, `CRM_ACCESS_AUD=<Access application audience>`, `CRM_ADMIN_EMAILS=<confirmed emails>`. These non-secret deployment identifiers are committed in `previews.vars`; credentials and login tokens are never committed. Use native preview configuration; do not add global production bindings.
 5. Deploy the same branch. Sign in at `/admin/`, verify both allowed and denied identities, then click **Import supplied catalog**. Import is idempotent and preserves later edits. Create only explicitly labelled demo records until private hosted QA is complete.
 6. Verify CRUD persistence, conflict handling, sign-out/session expiry, denied API requests, tablet/mobile presentation and that public pages still work. Remove demo records via normal archive before any real-data phase.
 
 ### D1 migration command once a preview-specific config exists
 
-`npx wrangler d1 execute CRM_DB --remote --file=admin/migrations/0001_foundation.sql --config=<preview-only-config>`
+`npx wrangler d1 execute CRM_DB --remote --file=admin/migrations/0001_foundation.sql --config=wrangler.preview-migrations.jsonc`
 
-This documentation is a setup plan, not permission to run a production migration. No database/Access application was provisioned by this checkpoint.
+`wrangler.preview-migrations.jsonc` targets the same preview database as `previews.d1_databases`. The initial SQL was applied by Frank through the dashboard; do not unnecessarily repeat it. Future migrations must target this preview database. Plain `/admin`, `/api/admin`, `/portal`, `/api/portal` Access paths cover their descendants. The saved login method is One-time PIN only, instant authentication enabled, with a 24-hour app session. Team: `sweet-salad-fb3f.cloudflareaccess.com`. No production migration is authorized.
 
 ## Checks
 
