@@ -5,7 +5,7 @@ export async function list(db,org,kind){const r=await db.prepare('SELECT id,data
 async function get(db,org,kind,id){const r=await db.prepare('SELECT * FROM records WHERE organization_id=? AND kind=? AND id=?').bind(org,kind,id).first();return r?{...JSON.parse(r.data),id:r.id,version:r.version}:null;}
 function audit(db,user,action,kind,id){return db.prepare('INSERT INTO audit_events VALUES(?,?,?,?,?,?,?,?)').bind(crypto.randomUUID(),user.organizationId,user.email,action,kind,id,new Date().toISOString(),JSON.stringify({}));}
 function insert(db,org,kind,id,data){const now=new Date().toISOString();return db.prepare('INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) VALUES(?,?,?,?,?,?)').bind(org,kind,id,JSON.stringify(data),now,now);}
-async function references(db,org,data){for(const [field,kind] of Object.entries({contactId:'contacts',projectId:'projects',packageId:'packages',appointmentTypeId:'appointment-types'})){if(data[field]&&!await get(db,org,kind,data[field]))throw new Error('Referenced '+kind+' record does not exist');}for(const id of [...(data.serviceIds||[]),...(data.optionalServiceIds||[])])if(!await get(db,org,'services',id))throw new Error('Selected service does not exist');}
+async function references(db,org,data){for(const [field,kind] of Object.entries({contactId:'contacts',projectId:'projects',packageId:'packages',appointmentTypeId:'appointment-types'})){if(data[field]&&!await get(db,org,kind,data[field]))throw new Error('Referenced '+kind+' record does not exist');}const ids=[...new Set([...(data.serviceIds||[]),...(data.optionalServiceIds||[])])];if(ids.length){const result=await db.prepare("SELECT COUNT(*) AS count FROM records WHERE organization_id=? AND kind='services' AND id IN (SELECT value FROM json_each(?))").bind(org,JSON.stringify(ids)).first();if(result.count!==ids.length)throw new Error('Selected service does not exist');}}
 async function appointmentLocks(db,org,id,data){
  const statements=[db.prepare('DELETE FROM appointment_locks WHERE organization_id=? AND appointment_id=?').bind(org,id)];
  if(data.status==='Cancelled'||data.status==='Completed')return statements;
@@ -13,7 +13,8 @@ async function appointmentLocks(db,org,id,data){
  if(end-start>480*60000||end-start<5*60000)throw new Error('Appointments must last 5–480 minutes');
  const localDay=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(start));
  const availability=await list(db,org,'availability');if(availability.some(a=>a.blockedDate===localDay&&!a.archived))throw new Error('That date is blocked');
- for(let slot=Math.floor((start-buffer)/60000);slot<Math.ceil((end+buffer)/60000);slot++)statements.push(db.prepare('INSERT INTO appointment_locks(organization_id,minute,appointment_id) VALUES(?,?,?)').bind(org,slot,id));
+ const minutes=[];for(let slot=Math.floor((start-buffer)/60000);slot<Math.ceil((end+buffer)/60000);slot++)minutes.push(slot);
+ statements.push(db.prepare('INSERT INTO appointment_locks(organization_id,minute,appointment_id) SELECT ?,value,? FROM json_each(?)').bind(org,id,JSON.stringify(minutes)));
  return statements;
 }
 export async function api(request,env,user,path){
@@ -28,7 +29,8 @@ export async function api(request,env,user,path){
  if(path==='activity'&&request.method==='GET'){const r=await db.prepare('SELECT action,record_kind,record_id,occurred_at FROM audit_events WHERE organization_id=? ORDER BY occurred_at DESC LIMIT 50').bind(org).all();return json(r.results);}
  if(path==='seed'&&request.method==='POST'){
   if(await db.prepare("SELECT value FROM migration_state WHERE key='catalog-v1'").first())return json({message:'Catalog already imported; existing edits preserved.'});
-  const operations=catalog.map(s=>insert(db,org,'services',s.id,Object.fromEntries(Object.entries(s).filter(([k])=>k!=='id'))));
+  const now=new Date().toISOString();
+  const operations=[db.prepare("INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) SELECT ?,'services',json_extract(value,'$.id'),json_remove(value,'$.id'),?,? FROM json_each(?)").bind(org,now,now,JSON.stringify(catalog))];
   operations.push(db.prepare("INSERT INTO migration_state VALUES('catalog-v1','imported')"),audit(db,user,'seed-services','services','catalog-v1'));await db.batch(operations);return json({message:'Imported '+catalog.length+' source-backed service versions.'},201);
  }
  const [kind,id,action]=path.split('/');if(!definitions[kind])return json({error:'Not found'},404);

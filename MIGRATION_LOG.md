@@ -773,3 +773,9 @@ Created organization-scoped D1 migration, optimistic record editing/audit histor
 Reconciled supplied HoneyBook PDF text into 47 preserved service versions: 12 wedding 2026, 10 Sweet Sixteen 2024, 25 visible saved-list entries. Saved copies are duplicate snapshots; advertised 44 entries are not all visible (19 absent), descriptions/subitems sometimes clipped. Missing prices remain null; source/page references and historical/conflict review flags retained. No real clients seeded/imported. Full implementation, preview setup steps and Phase 2 decisions documented in admin/README.md.
 
 Local SQLite/API/security and jsdom tests pass; public build/routes/SEO checks and Worker dry-run pass. Public media/controllers, SEO, Contact/Formspree, existing scheduler and all protected production systems remain unchanged. Preview-only publishing uses the existing branch/native deployment; no production DNS/routing/mail/client portal/Search Console changes.
+
+### Admin foundation preview verification / query efficiency
+
+Checkpoint a4028eca765f7b232ae6081c11f79e40392f7e42 deployed successfully through the existing native preview build. Hosted `/admin/` visibly returns the locked workspace entry and Back to GioLina reaches the unchanged homepage. Wrangler account-status check confirms no authenticated account session is available; Access/D1 provisioning and authenticated hosted UI remain blocked.
+
+Consolidated atomic minute reservations, multi-service reference checks and catalog import into bounded prepared `json_each` queries instead of per-item statement loops. This avoids query-count growth for long appointments or large service selections without weakening uniqueness/transaction protection. No public-site changes.
