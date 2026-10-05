@@ -36,3 +36,7 @@
 .gl-reviews .gl-review-card :is(.gl-review-attribution h2,.gl-review-stars,blockquote,blockquote p){color:#fff!important}
 .gl-reviews #deanna-2021 .gl-review-photo{aspect-ratio:3/2}
 .gl-reviews #deanna-2021 .gl-review-photo img{object-position:center}
+
+/* Ten percent white softens the original teal; dark body copy keeps normal-text contrast. */
+.gl-reviews .gl-review-list .gl-review-card{background:#48898e;border-color:#48898e}
+.gl-reviews .gl-review-card :is(blockquote,blockquote p){color:#061416!important}

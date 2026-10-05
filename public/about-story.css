@@ -29,3 +29,7 @@
 
 .gl-about-story .gl-about-name-logo{display:block;width:200px;max-width:100%;height:auto;margin:0 0 14px}
 @media(max-width:700px){.gl-about-story .gl-about-name-logo{width:175px}}
+
+.gl-about-story .gl-about-team :is(h2,p),.gl-about-story .gl-about-history>div{max-width:62ch}
+.gl-about-story .gl-about-team p+p{margin-top:8px}
+.gl-about-story .gl-about-history .gl-about-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px}

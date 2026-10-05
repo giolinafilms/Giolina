@@ -743,3 +743,7 @@ Existing Sweet Sixteen `#sweet-films` / `#sweet-photography` entry links and end
 ## 2026-10-04 — Authentic wordmark-only checkpoint
 
 Preserved authentic lettering from the best identified project logo source, e845a4337da29ba0.png (1024×526). Reusable transparent black/teal SVGs now omit only the lower Photography + Cinematography line. Header, footer and About decorative instances reuse these assets. Prose/navigation, header layout, playback and SEO remain unchanged. No invented vector tracing or AI reconstruction. Footer gap remains under investigation; no speculative spacing change.
+
+## 2026-10-04 — Client experience and selective visual polish
+
+Photography and Cinematography now use matching full-width Client Delivery Experience bands without presentation photographs. Correct Stephanie & Danny gallery and Alexandria & James presentation destinations preserved. Sweet Sixteen service headings and selected phrase accents use restrained Allura/blush; secondary inquiry remains below exact Gabriella gallery CTA. Reviews softened by 10% white (#48898e); white large names/star graphics retained, normal body text uses dark #061416 for contrast. Experience script becomes established #128087. About removes separate RTG brand label and tightens its historical connection to GioLina Events. Video inventories/controllers, Contact and SEO preserved.

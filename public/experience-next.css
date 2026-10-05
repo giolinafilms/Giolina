@@ -44,3 +44,5 @@
  .gl-experience .gl-exp-engagement{gap:22px}
  .gl-experience .gl-exp-cta .gl-exp-wrap{width:calc(100% - 44px)}
 }
+
+.gl-experience .gl-exp-intro h1,.gl-experience .gl-exp-intro h1 span{color:#128087}
