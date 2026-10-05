@@ -21,7 +21,7 @@ Hosted commit 3fb41b3 passed the native preview build. Verified grouped navigati
 ## Review destinations
 
 - Dashboard: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/admin/
-- Existing synthetic Corporate project: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/admin/projects/?record=5b99fff3-6c12-4c60-8ea5-68fba0329f6b
+- Existing DEMO Corporate project: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/admin/projects/?record=5b99fff3-6c12-4c60-8ea5-68fba0329f6b
 - Email templates: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/admin/templates/
 - Public preview: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/
 
