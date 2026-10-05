@@ -1,4 +1,6 @@
 import catalog from './data/catalog.json' with {type:'json'};
+import corporate from './data/corporate-2025.json' with {type:'json'};
+export const corporateSourceServices=corporate;
 export const catalogCategories=['Weddings / Cinematography','Weddings / Photography','Weddings / Add-ons','Weddings / Micro Weddings','Sweet Sixteen / Cinematography','Sweet Sixteen / Photography','Sweet Sixteen / Add-ons','Events & Corporate / Photography','Events & Corporate / Cinematography','Events & Corporate / Other','General / Add-ons & Fees','Needs classification'];
 const originals=new Map(catalog.map(r=>[r.id,r]));
 function category(row){
@@ -14,4 +16,4 @@ function category(row){
 export function catalogRecord(row){
  const source=originals.get(row.id);return {...row,active:row.active!==false,catalogCategory:row.catalogCategory||category(source||row),...(source?{sourceName:source.name,sourceDescription:source.description,sourcePriceCents:source.priceCents,sourceCoverageHours:source.coverageHours,sourceCategory:source.category,source:source.source,sourcePages:source.sourcePages}:{})};
 }
-export const catalogSeed=catalog.map(catalogRecord);
+export const catalogSeed=[...catalog.map(catalogRecord),...corporate];

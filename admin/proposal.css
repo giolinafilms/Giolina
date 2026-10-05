@@ -12,3 +12,5 @@
 .future-steps{padding-block:36px}.future-steps summary{min-height:48px;cursor:pointer;font-size:20px}.future-steps p{line-height:1.65}
 
 .collection-card.is-selected{outline:2px solid #397b72;outline-offset:3px}.selection-control:has(input:checked){background:#e5f0eb}.selection-control small{display:block}.selection-control input{flex-shrink:0}
+
+.corporate-work{padding-block:4rem}.corporate-work p{max-width:65ch;line-height:1.8}.recap-options{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0}.recap-options button{white-space:normal}.collection-card.optional .feature{display:none}.collection-card.optional{display:block}.collection-card.optional .collection-copy{max-width:70ch;margin:auto}
