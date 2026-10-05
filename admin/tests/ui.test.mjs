@@ -22,3 +22,7 @@ test('package editor supports touch-friendly service selection and inactive cata
  assert.deepEqual(JSON.parse(calls.find(c=>c.method==='POST').body).data.serviceIds,['s1']);
  dom.window.close();
 });
+
+test('private proposal builder edits quantity and price, submits snapshots and renders safe preview',async()=>{
+ const {w,dom,calls}=mount('/admin/proposals/',{projects:[{id:'p',name:'Demo job',contactId:'c'}]});await settled(()=>w.document.querySelector('h1')?.textContent==='Proposals');Array.from(w.document.querySelectorAll('button')).find(b=>b.textContent==='New record').click();await settled(()=>w.document.querySelector('.line-builder'));w.document.querySelector('[name=name]').value='Demo proposal';w.document.querySelector('[name=projectId]').value='p';Array.from(w.document.querySelectorAll('button')).find(b=>b.textContent==='Add custom item').click();w.document.querySelector('[data-part=name]').value='Demo line';w.document.querySelector('[data-part=quantity]').value='2';w.document.querySelector('[data-part=price]').value='12.50';w.document.querySelector('#record-form').dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));await settled(()=>calls.some(c=>c.method==='POST'));assert.equal(JSON.parse(calls.find(c=>c.method==='POST').body).data.lineItems[0].unitPriceCents,1250);dom.window.close();
+});
