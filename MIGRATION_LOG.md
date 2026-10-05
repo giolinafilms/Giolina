@@ -888,6 +888,14 @@ Production Formspree endpoint, scheduler, SEO/GA4/redirects, HoneyBook and all p
 
 ## GioLina Phase 2B — proposal polish and corporate baseline
 
+### 2026-10-05 — Phase 2B preserved; Phase 2C Admin UX and draft communications
+
+Frank explicitly declined publication of wedding screenshots. No screenshots are added to the public repository; review evidence remains private. Events hotfix 98221ad deployed successfully: hosted desktop/mobile menu markup and footer exclude Events, and /events/ redirects to the existing Ready to Go Productions portfolio. Phase 2B implementation and records remain intact; physical-device acceptance and approved short-video hosting stay open.
+
+Authorized Phase 2C checkpoint: grouped Admin navigation (five daily-work links; expandable packages/drafts and more tools; all sixteen destinations preserved), four primary dashboard totals with secondary totals/history/financial panels disclosed on demand, and Project as the central workspace. Project opens to Overview with next steps/reminders and expandable related proposal/contract/invoice plans. Dedicated Communications, Activity, Files, Notes and Details sections retain existing records. Breadcrumbs and Back to project links preserve context. Friendly stage labels are presentation-only; stored workflow values are unchanged. Advanced project form fields are expandable and retain their values.
+
+Project draft composer uses existing editable email templates, fills only selected-project/contact/invoice/appointment values, flags missing values, previews escaped plain text and saves existing message records with Draft status. No recipient submission, real sending, inbox synchronization, provider configuration, automation execution, payments or signatures. Existing Access/D1/CSRF/organization boundaries remain unchanged. 41 tests pass; public build/SEO checks pass, including Events regression checks. Hosted verification follows preview deployment. No reseeding, resets, production changes or new client proposal delivery.
+
 ### 2026-10-05 — Urgent Events navigation hotfix checkpoint
 
 Recovered clean published Phase 2B commit 463982e; all completed work preserved. Removed Events from shared desktop/mobile header and footer, and removed only the Events CTAs on About (including legacy variant), Cinematography and Experience. Existing Events content files remain intact for future work. All six legacy Events URLs redirect permanently to the existing Ready to Go Productions portfolio, the closest existing event-production content. No Admin/CRM or other public content, styling, production settings, DNS, email, forms, scheduler or integrations changed. Regression checks enforce no Events links on non-Events public pages and no Events item in shared menus. Build/test and hosted navigation verification follow this hotfix deployment; then resume Phase 2B final review checkpoint without repeating implementation.

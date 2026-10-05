@@ -1,0 +1,25 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {JSDOM} from 'jsdom';
+import {shell} from '../shell.mjs';
+import {definitions} from '../model.mjs';
+const code=readFileSync(new URL('../client.js',import.meta.url),'utf8');
+async function settled(check){for(let i=0;i<100;i++){if(check())return;await new Promise(r=>setTimeout(r,5));}assert.fail('UI did not settle');}
+function mount(path,extra={}){
+ const calls=[],rows={contacts:[{id:'c',name:'Demo person',email:'demo@example.test'}],projects:[],...extra},dom=new JSDOM(shell,{url:'https://example.workers.dev'+path,runScripts:'outside-only'}),w=dom.window;
+ w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','')};w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');this.dispatchEvent(new w.Event('close'))};
+ w.fetch=async(url,options={})=>{const route=url.slice('/api/admin/'.length),kind=route.split('/')[0];calls.push({route,...options});let data=route==='meta'?{definitions,email:'admin@example.test'}:rows[kind]||[];if(options.method==='POST'){data={...JSON.parse(options.body).data,id:'new',version:1};rows[kind]=[...(rows[kind]||[]),data];}return {ok:true,json:async()=>data};};w.eval(code);return {dom,w,calls};
+}
+test('grouped navigation preserves routes and expands current tools',async()=>{
+ const {w,dom}=mount('/admin/templates/');await settled(()=>w.document.querySelector('h1')?.textContent==='Email Templates');assert.equal(w.document.querySelectorAll('.primary-workspace-links a').length,5);assert.equal(w.document.querySelectorAll('#navigation a').length,16);const groups=[...w.document.querySelectorAll('.workspace-nav-group')];assert(groups.find(g=>g.textContent.includes('Email Templates')).open);assert(!groups.find(g=>g.textContent.includes('Automations')).open);assert(w.document.querySelector('[aria-label="Workspace breadcrumbs"]').textContent.includes('Email Templates'));assert.equal(w.document.querySelectorAll('.mobile-workspace-nav optgroup').length,3);dom.window.close();
+});
+test('project composer scopes context, escapes previews and saves only drafts',async()=>{
+ const {w,dom,calls}=mount('/admin/projects/',{projects:[{id:'p',name:'DEMO event',contactId:'c',eventType:'Wedding',status:'Proposal',venue:'Demo venue'}],templates:[{id:'t',name:'Follow-up',subject:'For {{clientFirstName}}',body:'At {{venue}} on {{eventDate}}. Balance {{balance}}. <img src=x onerror=alert(1)>'}],invoices:[{id:'i',projectId:'other',amountCents:900000}],messages:[{id:'other',name:'Other project secret',projectId:'other',body:'PRIVATE OTHER'}]});
+ await settled(()=>w.document.querySelector('td strong'));const click=name=>[...w.document.querySelectorAll('button')].find(b=>b.textContent===name).click();click('View');await settled(()=>w.document.querySelector('.project-view[open]'));assert.equal(w.document.querySelector('section[aria-label=Overview]').hidden,false);assert(!w.document.querySelector('.project-view').textContent.includes('PRIVATE OTHER'));click('Prepare draft message');await settled(()=>w.document.querySelector('.message-composer[open]'));
+ const template=w.document.querySelector('[aria-label="Email template"]');template.value='t';template.dispatchEvent(new w.Event('change'));const body=w.document.querySelector('[aria-label="Draft body"]');assert(body.value.includes('Demo venue'));assert(body.value.includes('[Confirm event date]'));assert(body.value.includes('[Confirm balance]'));assert(!body.value.includes('$9,000'));click('Preview draft');assert.equal(w.document.querySelectorAll('.message-preview img').length,0);assert(w.document.querySelector('.message-preview').textContent.includes('<img'));
+ w.document.querySelector('.message-composer form').dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));await settled(()=>calls.some(c=>c.method==='POST'));const saves=calls.filter(c=>c.method==='POST');assert.equal(saves.length,1);assert.equal(saves[0].route,'messages');assert.equal(JSON.parse(saves[0].body).data.status,'Draft');assert.equal(JSON.parse(saves[0].body).data.projectId,'p');await settled(()=>w.document.querySelector('.project-view[open]'));assert(w.document.querySelector('section[aria-label=Communications]').textContent.includes('For Demo'));dom.window.close();
+});
+test('project editor preserves stored statuses and advanced values',async()=>{
+ const {w,dom}=mount('/admin/projects/',{projects:[{id:'p',name:'Demo project',contactId:'c',eventType:'Wedding',status:'Pre-Event',venue:'Venue',priceCents:10000,tags:'keep'}]});await settled(()=>w.document.querySelector('td strong'));[...w.document.querySelectorAll('button')].find(b=>b.textContent==='Edit').click();await settled(()=>w.document.querySelector('#editor[open]'));assert.equal(w.document.querySelector('[name=status]').value,'Pre-Event');assert.equal([...w.document.querySelector('[name=status]').options].find(o=>o.value==='Pre-Event').textContent,'Planning');assert.equal(w.document.querySelector('[name=priceCents]').value,'100');assert(w.document.querySelector('[name=tags]').closest('details'));dom.window.close();
+});
