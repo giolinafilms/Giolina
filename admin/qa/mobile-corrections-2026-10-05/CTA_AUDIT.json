@@ -1,0 +1,1862 @@
+[
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/2022/12/hello-world/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Inquire about your wedding",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Inquire about your wedding",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/about-us-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/author/johnp/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "WATCH FULL VIDEO",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "WATCH FULL VIDEO",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/bianca-bobby-3/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/category/uncategorized/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/client-reviews/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/completed-lead-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "page"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "page"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "page"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "header"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Schedule a conversation \u2197",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "page"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/contact-us-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Tell us about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Let\u2019s talk \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/corporate/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/",
+    "label": "Let\u2019s talk about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/",
+    "label": "Start a conversation \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Tell us about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Let\u2019s talk \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/live-events/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Tell us about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Let\u2019s talk \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/photo-film/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Tell us about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Let\u2019s talk \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/private-celebrations/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Contact",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Tell us about your event \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Let\u2019s talk \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/events/specialty/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Let\u2019s talk about your day \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Schedule a conversation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "page"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "send us an inquiry",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Inquire about your wedding \u2197",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/experience-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Inquire",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Inquire",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/homepage-preview/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/",
+    "label": "Inquire",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/",
+    "label": "Inquire",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/photography/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography/",
+    "label": "Let\u2019s talk photography",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/photography/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/photography/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/photography/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/photography/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Let\u2019s talk photography",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/photography-portfolio/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Let\u2019s talk photography",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Inquire about your film",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/portfolio-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "Contact",
+    "destination": "mailto:info@giolina.co?subject=Ready%20To%20Go%20Productions%20inquiry",
+    "location": "header"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "Let\u2019s discuss your production \u2197",
+    "destination": "mailto:info@giolina.co?subject=Ready%20To%20Go%20Productions%20inquiry",
+    "location": "page"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "Start a conversation",
+    "destination": "mailto:info@giolina.co?subject=Ready%20To%20Go%20Productions%20inquiry",
+    "location": "page"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "page"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "page"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/ready-to-go-productions/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/reviews/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/reviews/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/reviews/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Choose a consultation time",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "page"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Contact us",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/schedule-a-meeting-3/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/services/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/services/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/services/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/services/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Inquire",
+    "destination": "https://giolina.co/giolina-3/",
+    "location": "page"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Inquire",
+    "destination": "https://giolina.co/giolina-3/",
+    "location": "page"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Inquire",
+    "destination": "https://giolina.co/giolina-3/",
+    "location": "page"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Inquire",
+    "destination": "https://giolina.co/giolina-3/",
+    "location": "page"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/services-2-2/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Let\u2019s plan your celebration",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Tell us what you have in mind \u2192",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Ask About Photography & Cinematography",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Ask About Sweet Sixteen Coverage \u2192",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Send an inquiry",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "schedule a conversation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Inquire about your celebration",
+    "destination": "/contact-us-2/?occasion=sweet-sixteen",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "page"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/sweet-sixteen/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Inquire about your day",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "header"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Inquire about your film",
+    "destination": "/contact-us-2/",
+    "location": "page"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Contact Us",
+    "destination": "/contact-us-2/",
+    "location": "footer"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "info@giolina.co",
+    "destination": "mailto:info@giolina.co",
+    "location": "footer"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "866-306-0308",
+    "destination": "tel:8663060308",
+    "location": "footer"
+  },
+  {
+    "route": "/video-portfolio/",
+    "label": "Schedule a consultation",
+    "destination": "https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7",
+    "location": "footer"
+  }
+]
