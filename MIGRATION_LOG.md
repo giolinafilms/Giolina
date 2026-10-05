@@ -888,6 +888,10 @@ Production Formspree endpoint, scheduler, SEO/GA4/redirects, HoneyBook and all p
 
 ## GioLina Phase 2B — proposal polish and corporate baseline
 
+### 2026-10-05 — Urgent Events navigation hotfix checkpoint
+
+Recovered clean published Phase 2B commit 463982e; all completed work preserved. Removed Events from shared desktop/mobile header and footer, and removed only the Events CTAs on About (including legacy variant), Cinematography and Experience. Existing Events content files remain intact for future work. All six legacy Events URLs redirect permanently to the existing Ready to Go Productions portfolio, the closest existing event-production content. No Admin/CRM or other public content, styling, production settings, DNS, email, forms, scheduler or integrations changed. Regression checks enforce no Events links on non-Events public pages and no Events item in shared menus. Build/test and hosted navigation verification follow this hotfix deployment; then resume Phase 2B final review checkpoint without repeating implementation.
+
 ### 2026-10-05 — Client deselection repair checkpoint
 
 Recovered clean Phase 2A HEAD d5a24eb without rebuilding/reseeding. Root cause: radio controls and server validation required exactly one package per group. Added explicit Admin `selectionGroupOptional` configuration: generated offerings are removable, while existing required groups and fixed inclusions remain required. Removable groups use checkbox controls with exclusive alternatives; tap again removes the choice, clears incompatible add-ons and recalculates trusted server totals. Selected cards and per-control status explain the behavior. Existing published snapshots remain immutable; to enable removable choices on an old proposal, Admin must explicitly configure the group and regenerate its DEMO snapshot.

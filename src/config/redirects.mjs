@@ -1,5 +1,11 @@
 // Exact legacy page equivalents and captured public upload paths. No guessed destinations.
 export default Object.freeze({
+  "/events/": "/ready-to-go-productions/",
+  "/events/private-celebrations/": "/ready-to-go-productions/",
+  "/events/corporate/": "/ready-to-go-productions/",
+  "/events/live-events/": "/ready-to-go-productions/",
+  "/events/specialty/": "/ready-to-go-productions/",
+  "/events/photo-film/": "/ready-to-go-productions/",
   "/wp-content/uploads/2023/01/24-tiesto-wedding.jpg": "/assets/legacy-e72bb4cc0fba288e.jpg",
   "/wp-content/uploads/2023/09/112ABCBD-1D0F-4FDA-88AF-C21A2E7883CE_1_105_c-1-e1695099554389.jpeg": "/assets/legacy-853c148eb8ef4d2d.jpg",
   "/wp-content/plugins/elementor/assets/images/placeholder.png": "/assets/4da4eae846642123.png",

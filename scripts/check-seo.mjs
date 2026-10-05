@@ -7,6 +7,11 @@ import {canonicalOrigin,analytics,mainPagePaths} from '../src/config/site.mjs';
 const titles=new Set(),descriptions=new Set();
 for(const path of mainPagePaths){
  const html=readFileSync('dist'+(path==='/'?'/index.html':path+'index.html'),'utf8');
+ if(!path.startsWith('/events/'))assert(!/href="\/events(?:\/|\")/.test(html),`retired Events link ${path}`);
+ for(const label of ['Main navigation','Mobile navigation','Footer navigation']){
+  const nav=html.match(new RegExp(`<nav[^>]*aria-label="${label}"[^>]*>([\\s\\S]*?)</nav>`))?.[1];
+  if(nav)assert(!/>Events</.test(nav),`Events absent from ${label} ${path}`);
+ }
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  assert(title&&!titles.has(title),`title ${path}`);titles.add(title);
  const meta=[...html.matchAll(/<meta\b[^>]*>/g)].map(m=>Object.fromEntries([...m[0].matchAll(/([\w:-]+)="([^"]*)"/g)].map(a=>[a[1],a[2]])));
