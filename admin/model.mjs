@@ -2,7 +2,7 @@ import {catalogCategories} from './catalog.mjs';
 export const lifecycle=['New Inquiry','Lead','Consultation','Proposal','Contract','Deposit / Payment Schedule','Booked','Pre-Event','Event','Post-Production','Delivery','Completed'];
 export const eventTypes=['Wedding','Sweet Sixteen','Private Event','Corporate','Live Event','Other / Custom'];
 export const definitions={
- contacts:{required:['name','email'],fields:{name:'text',email:'email',phone:'text',notes:'long',demo:'boolean',archived:'boolean'}},
+ contacts:{required:['name','email'],fields:{name:'text',firstName:'text',lastName:'text',partnerName:'text',email:'email',phone:'text',address:'long',preferredContactMethod:'contact-method',leadSource:'text',importantDates:'long',notes:'long',demo:'boolean',archived:'boolean'}},
  leads:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',followUpAt:'date',notes:'long',demo:'boolean',archived:'boolean'}},
  projects:{required:['name','contactId','eventType','status'],fields:{name:'text',contactId:'contact',eventType:'event',eventDate:'date',venue:'text',status:'status',packageId:'package',serviceIds:'array',priceCents:'money',notes:'long',deliveryUrl:'url',demo:'boolean',archived:'boolean'}},
  services:{required:['name'],fields:{name:'text',catalogCategory:'catalog-category',active:'boolean',clientDescription:'long',description:'long',inclusions:'long',addOns:'long',notes:'long',category:'text',priceCents:'money',currency:'text',coverageHours:'number',rules:'long',source:'long',sourcePages:'text',reviewRequired:'boolean',conflictGroup:'text',sourceName:'text',sourceDescription:'long',sourcePriceCents:'money',sourceCoverageHours:'number',sourceCategory:'text',archived:'boolean'}},
@@ -31,6 +31,7 @@ export function validate(kind,input){
   if(typeof value!=='string'||value.length>(type==='long'?20000:500))throw new Error('Invalid '+key);
   const s=value.trim();if(!s){out[key]=null;continue;}if(type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s))throw new Error('Invalid email');
   if(type==='url'){const u=new URL(s);if(u.protocol!=='https:')throw new Error('Delivery link must use HTTPS');}
+  if(type==='contact-method'&&!['Email','Phone','Text','Other'].includes(s))throw new Error('Invalid preferred contact method');
   if(type==='catalog-category'&&!catalogCategories.includes(s))throw new Error('Invalid catalog category');
   if(type==='event'&&!eventTypes.includes(s))throw new Error('Invalid event type');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');
