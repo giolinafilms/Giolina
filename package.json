@@ -8,12 +8,15 @@
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0",
     "check": "node scripts/check.mjs && node scripts/check-seo.mjs",
-    "media:sanitize": "node scripts/sanitize-media.mjs"
+    "media:sanitize": "node scripts/sanitize-media.mjs",
+    "check:admin": "node admin/scripts/build-assets.mjs --check && node --check admin/client.js && node --test admin/tests/*.test.mjs"
   },
   "dependencies": {
-    "astro": "7.3.5"
+    "astro": "7.3.5",
+    "jose": "^6.1.3"
   },
   "devDependencies": {
+    "jsdom": "^30.1.2",
     "wrangler": "4.135.0"
   }
 }
