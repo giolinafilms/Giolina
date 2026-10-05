@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+import {readFileSync} from 'node:fs';
+import {selectionTotals} from '../selection.mjs';
+import {proposalDocument} from '../proposal-view.mjs';
+const client=readFileSync(new URL('../proposal-client.js',import.meta.url),'utf8');
+const item=(name,price,extras={})=>({name,headline:name,description:'',details:'',components:[],galleryImages:[],unitPriceCents:price,quantity:1,...extras});
+const wait=async(fn)=>{for(let n=0;n<100;n++){if(fn())return;await new Promise(r=>setTimeout(r,5));}assert.fail('Selection did not settle');};
+for(const [event,base,add] of [['Wedding',315000,55000],['Sweet Sixteen',165000,10000]])test(event+' select/deselect/reselect and persisted trusted summary',async()=>{
+ const s={clientSelection:true,clientNames:'DEMO Review',eventType:event,theme:'wedding',revision:1,sectionOrder:['services','investment'],subtotalCents:base,totalCents:base,items:[item('Coverage',base,{selectionGroup:'Coverage',selectionGroupOptional:true}),item('Alternative',base+10000,{selectionGroup:'Coverage',selectionGroupOptional:true}),item('Enhancement',add,{optional:true,allowedChoices:[0]}),item('Required inclusion',0)]};
+ let saved=[0,3],version=0;
+ const mount=()=>{const dom=new JSDOM(proposalDocument(s),{url:'https://preview.example/proposal/demo',runScripts:'outside-only'}),w=dom.window;w.fetch=async(_url,options={})=>{const b=options.body?JSON.parse(options.body):null;const total=selectionTotals(s,b?.selected||saved);if(b&&!b.preview){saved=b.selected;version++;}return {ok:true,json:async()=>({...total,version,message:'Saved DEMO only'})};};w.eval(client);return {dom,w};};
+ let {dom,w}=mount();await wait(()=>!w.document.querySelector('#save-selection').disabled);
+ const controls=w.document.querySelectorAll('[data-selection-index]'),total=()=>w.document.querySelector('#selection-total').textContent;
+ controls[0].click();await wait(()=>total()==='$0.00');assert(controls[2].disabled);
+ controls[0].click();await wait(()=>total()===new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(base/100));
+ controls[2].click();await wait(()=>total()===new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format((base+add)/100));
+ controls[2].click();await wait(()=>total()===new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(base/100));
+ controls[1].click();await wait(()=>controls[0].checked===false);assert(controls[1].checked);assert(controls[2].disabled);
+ controls[1].click();await wait(()=>total()==='$0.00');w.document.querySelector('#save-selection').click();await wait(()=>version===1);assert.deepEqual(saved,[3]);dom.window.close();
+ ({dom,w}=mount());await wait(()=>!w.document.querySelector('#save-selection').disabled);assert.equal(w.document.querySelector('#selection-total').textContent,'$0.00');assert(!w.document.querySelector('[data-selection-index]').checked);dom.window.close();
+ assert.throws(()=>selectionTotals(s,[]),/Included/);assert.throws(()=>selectionTotals(s,[0,1,3]),/at most one/);assert.throws(()=>selectionTotals({...s,items:[item('Required group',base,{selectionGroup:'Required'})]},[]),/required groups/);
+});
