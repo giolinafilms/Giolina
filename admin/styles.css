@@ -24,3 +24,5 @@
 #navigation .primary-workspace-links{display:grid;gap:4px}#navigation .workspace-nav-group>a{display:block}.fields>.workspace-disclosure{grid-column:1/-1;min-width:0}@media(max-width:650px){.project-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.project-tabs button{white-space:normal;overflow-wrap:anywhere}}
 
 .metric{text-decoration:none;color:var(--ink)}.metric:hover{border-color:var(--teal)}.row-more>summary{cursor:pointer;padding:10px;min-height:44px}.row-more[open] .actions{margin-top:8px}.lead-view .actions{margin-top:20px}.lead-view dd{white-space:pre-wrap}.project-next-step .primary{margin:8px 10px 8px 0}.workspace-breadcrumbs:empty{display:none}
+
+#fields>label[hidden]{display:none}
