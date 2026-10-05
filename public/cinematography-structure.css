@@ -16,3 +16,8 @@
 @media(max-width:700px){.gl-cinema-step-one .gl-cinema-hero{width:calc(100% - 36px);margin:18px auto 24px}.gl-cinema-step-one .gl-cinema-hero-player{width:100%}}
 /* An odd final film closes the existing two-column collection at the same card width. */
 @media(min-width:701px){.gl-cinema-step-one .gl-film-collection>.gl-film-card:last-child:nth-child(odd){grid-column:1/-1;width:calc((100% - 28px)/2);justify-self:center}}
+
+/* Give the opening reel a soft setting without changing its constrained width. */
+.gl-cinema-step-one .gl-cinema-hero{width:100%;margin:0 0 28px;padding:24px 32px;background:#edf8f8;box-sizing:border-box}
+.gl-cinema-step-one .gl-cinema-hero-player{width:84%;max-width:1075.2px}
+@media(max-width:700px){.gl-cinema-step-one .gl-cinema-hero{padding:18px;margin-bottom:24px}.gl-cinema-step-one .gl-cinema-hero-player{width:100%}}

@@ -119,3 +119,10 @@ body:not(.gl-production-body):not(.gl-celebration-page) .gl-cinema-step-one .gl-
 @media(max-width:900px){.gl-photo-page .gl-photo-album.gl-client-delivery>div{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:14px;width:calc(100% - 44px)}}
 .gl-photo-page .gl-photo-album.gl-client-delivery .gl-delivery-link,.gl-cinema-step-one .gl-full-presentation.gl-client-delivery .gl-delivery-link{box-sizing:border-box;min-height:48px;padding:10px 18px;background:#fff9e9;color:#12383b;border:0;font:400 15px/1.4 Arial,sans-serif}
 .gl-photo-page .gl-photo-album.gl-client-delivery .gl-delivery-link:is(:hover,:focus-visible),.gl-cinema-step-one .gl-full-presentation.gl-client-delivery .gl-delivery-link:is(:hover,:focus-visible){background:#f1e1c7;color:#12383b}
+
+/* A quiet shared photographic setting; images retain their existing layout. */
+.gl-photo-page{background:#edf8f8}
+/* Keep delivery information together rather than spanning the whole band. */
+.gl-client-delivery .gl-delivery-copy,.gl-photo-page .gl-photo-album.gl-client-delivery>div{width:min(960px,calc(100% - 64px));grid-template-columns:auto auto auto;justify-content:center;gap:28px}
+.gl-client-delivery .gl-delivery-copy h2,.gl-photo-page .gl-client-delivery #gl-photo-album-title{font-size:clamp(26px,2.3vw,32px)}
+@media(max-width:900px){.gl-client-delivery .gl-delivery-copy,.gl-photo-page .gl-photo-album.gl-client-delivery>div{width:calc(100% - 44px);grid-template-columns:minmax(0,1fr);gap:14px}}
