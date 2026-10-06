@@ -16,11 +16,11 @@ export const definitions={
  availability:{required:['name','dayOfWeek','startTime','endTime'],fields:{name:'text',dayOfWeek:'weekday',startTime:'time',endTime:'time',blockedDate:'date',notes:'long',archived:'boolean'}},
  appointments:{required:['name','contactId','appointmentTypeId','startAt','endAt'],fields:{name:'text',contactId:'contact',projectId:'project',appointmentTypeId:'appointment-type',location:'text',callType:'text',confirmationEnabled:'boolean',reminderHours:'number',startAt:'datetime',endAt:'datetime',status:'appointment-status',notes:'long',demo:'boolean'}},
  templates:{required:['name','subject','body'],fields:{name:'text',category:'template-category',subject:'text',body:'long',templateType:'text',requiredMergeFields:'long',signatureFields:'long',archived:'boolean'}},
- tasks:{required:['name'],fields:{name:'text',projectId:'project',dueAt:'date',completed:'boolean',notes:'long',demo:'boolean'}},
+ tasks:{required:['name'],fields:{name:'text',projectId:'project',contactId:'contact',dueAt:'date',status:'task-status',priority:'task-priority',completed:'boolean',notes:'long',demo:'boolean',archived:'boolean'}},
  proposals:{required:['name','lineItems'],fields:{name:'text',projectId:'project',contactId:'contact',leadId:'lead',templateId:'package',clientSelection:'boolean',eventType:'event',clientNames:'text',eventDate:'date',venue:'text',heroImage:'image',introduction:'long',sectionOrder:'section-order',demo:'boolean',lineItems:'line-items',discountCents:'money',notes:'long',status:'proposal-status',archived:'boolean'}},
  contracts:{required:['name','projectId'],fields:{contractTemplateId:'text',body:'long',requiredMergeFields:'long',signatureFields:'long',reviewState:'text',name:'text',contactId:'contact',projectId:'project',packageId:'package',serviceIds:'array',priceCents:'money',paymentSchedule:'schedule',notes:'long',status:'text',signatureStatus:'signature-status',externalProviderId:'text',archived:'boolean'}},
  invoices:{required:['name','projectId','amountCents'],fields:{discountMode:'text',discountPercent:'number',taxMode:'text',taxRate:'number',scheduleComplete:'boolean',name:'text',contactId:'contact',projectId:'project',issueAt:'date',lineItems:'line-items',discountCents:'money',taxCents:'money',amountCents:'money',depositCents:'money',installments:'schedule',paymentHistory:'payment-history',dueAt:'date',status:'text',notes:'long',archived:'boolean'}},
- messages:{required:['name','projectId'],fields:{to:'email',includeSignature:'boolean',signature:'long',documentKind:'text',documentId:'text',documentRevision:'number',name:'text',projectId:'project',subject:'text',body:'long',status:'text'}},
+ messages:{required:['name','projectId'],fields:{contactId:'contact',leadId:'lead',to:'email',includeSignature:'boolean',signature:'long',documentKind:'text',documentId:'text',documentRevision:'number',name:'text',projectId:'project',subject:'text',body:'long',status:'text'}},
  files:{required:['name','projectId'],fields:{clientVisible:'boolean',clientUrl:'url',name:'text',projectId:'project',notes:'long',storageKey:'text'}},
  automations:{required:['name'],fields:{name:'text',trigger:'text',templateId:'text',notes:'long',enabled:'boolean'}}
 };
@@ -49,6 +49,8 @@ export function validate(kind,input){
   if(type==='lead-status'&&![...leadStages,...lifecycle].includes(s))throw new Error('Invalid lead stage');
   if(type==='workflow-state'&&!businessLifecycle.includes(s))throw new Error('Invalid lifecycle');
   if(type==='status'&&!lifecycle.includes(s))throw new Error('Invalid project stage');
+  if(type==='task-status'&&!['TO DO','IN PROGRESS','DONE'].includes(s))throw Error('Invalid task status');
+  if(type==='task-priority'&&!['Normal','High','Low'].includes(s))throw Error('Invalid task priority');
   if(type==='appointment-status'&&!['Scheduled','Cancelled','Completed'].includes(s))throw new Error('Invalid appointment status');
   if(type==='weekday'&&!['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].includes(s))throw new Error('Invalid weekday');
   if(type==='date'&&(!/^\d{4}-\d{2}-\d{2}$/.test(s)||!Number.isFinite(Date.parse(s))||new Date(s).toISOString().slice(0,10)!==s))throw new Error('Invalid date');
@@ -76,7 +78,8 @@ export function validate(kind,input){
  if(kind==='appointments'&&Date.parse(out.endAt)<=Date.parse(out.startAt))throw new Error('Appointment end must follow start');
  if(kind==='availability'&&out.startTime>=out.endTime)throw new Error('Available hours must end after they start');
  if(kind==='automations'&&out.enabled)throw new Error('Automation delivery is disabled in Phase 1');
- if(kind==='messages'&&out.status&&out.status!=='Draft')throw new Error('Messages can only be saved as drafts');
+ if(kind==='tasks'){out.status||=out.completed?'DONE':'TO DO';out.completed=out.status==='DONE';out.priority||='Normal';}
+ if(kind==='messages'){if(out.status&&out.status!=='Draft')throw new Error('Messages can only be saved as drafts');out.status='Draft';}
  if(kind==='contracts'&&out.status&&out.status!=='Draft')throw new Error('Legally binding signing is not enabled');
  if(kind==='invoices'&&out.status&&out.status!=='Draft')throw new Error('Live payment processing is not enabled');
  if(kind==='invoices')out.status='Draft';

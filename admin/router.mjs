@@ -21,7 +21,7 @@ export async function handlePrivate(request,env){
  const proposal=path.match(/^\/admin\/proposals\/([^/]+)\/preview$/);if(proposal)return adminProposalPreview(request,env,proposal[1]);
  if(path==='/admin/app.js')return response(request.method==='HEAD'?null:client,'text/javascript;charset=utf-8');
  if(path==='/admin/app.css')return response(request.method==='HEAD'?null:styles,'text/css;charset=utf-8');
- if(/^\/admin\/(dashboard\/|leads\/|contacts\/|projects\/|services\/|packages\/|proposals\/|contracts\/|invoices\/|calendar\/|messages\/|templates\/|files\/|automations\/|client-portal\/|settings\/)?$/.test(path)||/^\/portal\/$/.test(path))return response(request.method==='HEAD'?null:shell,'text/html;charset=utf-8');
+ if(/^\/admin\/(dashboard\/|leads\/|contacts\/|projects\/|services\/|packages\/|proposals\/|contracts\/|invoices\/|calendar\/|tasks\/|finder\/|messages\/|templates\/|files\/|automations\/|client-portal\/|settings\/)?$/.test(path)||/^\/portal\/$/.test(path))return response(request.method==='HEAD'?null:shell,'text/html;charset=utf-8');
  if(path==='/admin'||path==='/portal')return new Response(null,{status:308,headers:{...headers,Location:path+'/'}});
  return response('Private route not found','text/plain',404);
 }
