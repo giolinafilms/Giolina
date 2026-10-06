@@ -15,3 +15,11 @@ Validation before publication: two focused public interaction tests, all 50 exis
 Preserved: Reviews, Events removal/redirects, Cinematography before Photography, forms, scheduler, video sources/player lifecycle, analytics policy, canonicals, sitemap/robots. No production, DNS, email, HoneyBook, payments, signatures, or real delivery changes.
 
 Still open: physical iPad/Safari footer gap; real-device swipe/audio/Admin/proposal acceptance; Christina & Danny and Stephanie & Danny authentic shorts; approved hosting for Deanna & Anthony and Lauren & Tommy shorts; SmugMug support follow-up.
+
+## Hosted verification
+
+Implementation commit `11b36faf9b34d95917b03326c274258997977aa8` pushed; Cloudflare native preview build succeeded. Hosted browser frames at 390×844 and 430×932 showed no horizontal page overflow. Short simulated 27px gestures advanced selections without opening media; vertical gestures did not change selections. These are synthetic browser gestures, not real touchscreen certification.
+
+Real Tenor Sans loaded at both phone widths; About portrait loaded at original 1449×1086 dimensions and its SHA-256 matches the supplied approved asset. Mobile Call/Inquire controls measured 50px high, with 62px body space before a device safe-area inset. Contact kept the existing Formspree POST action; focusing a field hid the bar and leaving the field restored it. No form was submitted. One short player opened unmuted and advanced beyond 23 seconds, with exactly one active player; close removed the media and restored the CTA. Teal supporting text computed white. Homepage passed both phone widths and 1280×800; the bar was absent on desktop. Shared desktop/mobile links retained Reviews, excluded Events, and ordered Cinematography before Photography. Static route/SEO tests cover all legacy Events redirects. Safe-area CSS and native fullscreen hooks are implemented; hardware inset/fullscreen behavior still requires Frank's iPhone review.
+
+Private visual evidence remains outside the public Git repository. Frank should review About, the isolated typography experiment, Love in a Minute, the teal CTA and bottom actions on his phone. No additional phase started.
