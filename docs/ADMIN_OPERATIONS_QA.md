@@ -17,7 +17,7 @@ Started from clean, synchronized `5c38c2d0eb660255dce5d932c8daa3f32d5adb4a` on `
 
 ## Objective verification
 
-74/74 Admin tests pass (63 baseline + 11 new tests). The new tests cover task creation/edit/completion/reopen/archive, trusted timestamps/contact identity, stale edits, organization isolation, duplicate dated-event prevention/association, communication identity/Draft enforcement, audit transitions, Project totals/context/save/cancel, task filters, record finder, Dashboard document filtering and installment derivation.
+75/75 Admin tests pass (63 baseline + 12 new tests). The new tests cover task creation/edit/completion/reopen/archive, trusted timestamps/contact identity, stale edits, organization isolation, duplicate dated-event prevention/association, communication identity/Draft enforcement, audit transitions, Project totals/context/save/cancel, task filters, record finder, Dashboard document filtering and installment derivation.
 
 A new connected in-memory SQLite/D1-adapter test exercises:
 
@@ -57,3 +57,13 @@ Admin destinations require Access. No new public portal token is created for thi
 HoneyBook, Formspree and existing scheduler destinations remain operational and unchanged. Public inquiry→CRM intake is still manual/preview simulation; no automatic Formspree intake was activated. Live Gmail/Calendar, transactional email, invitation delivery, production notifications, payments, binding signatures and real client authentication remain inactive. Legal wording, tax policy/rates, signature wording, provider choices, video hosting and font normalization require Frank's decisions.
 
 Still open: physical iPad/Safari footer gap; real-device Admin/proposal/swipe/audio acceptance; Christina & Danny and Stephanie & Danny authentic shorts; production master-video hosting; SmugMug OAuth/support follow-up.
+
+## Native preview verification
+
+Code checkpoint `8609b0c08451f9c664ef289a3dd11a1fc0c8200e` published through the GitHub connector; remote tree SHA matched the locally staged tree exactly. Local branch fast-forwarded cleanly. Cloudflare `Workers Builds: giolina` completed successfully.
+
+Browser verification after deployment confirms the restored homepage and Reviews, Cinematography before Photography in both navigation DOM variants, no Events link, desktop homepage/Reviews/Cinematography without horizontal overflow, Formspree action and existing HoneyBook scheduler, Deanna's native short on Reviews, anniversary entries Bianca & Bobby / Sara & Phil / Nicole & Philip / Lauren & Tommy, Events redirect and the informational font inventory. No video placement was repeated. New Tasks and Finder destinations both reach Cloudflare Access sign-in; authenticated application rendering remains unverified. Terminal HTTP access to the preview returned 403 in this environment, so public hosted verification used the browser instead; this is not reported as a site outage or bot block.
+
+No screenshots or private client imagery were added to Git. No production routing, DNS, email, provider credentials, real sending/signing/payment or hosted DEMO record changes occurred. This pass stops at the verified preview checkpoint; real-device/signed-in acceptance remains open without blocking completion of the objective QA work.
+
+Final QA correction: editing an older already-completed reminder without a known completion timestamp leaves that timestamp unknown instead of inventing today as the completion date. Newly completed tasks still receive server time. A dedicated regression covers this boundary; final Admin suite is 75 tests.

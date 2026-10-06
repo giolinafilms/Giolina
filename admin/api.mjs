@@ -120,7 +120,7 @@ export async function api(request,env,user,path){
    const guard=crypto.randomUUID();
    operations.push(db.prepare('INSERT INTO write_guards(token,valid) SELECT ?,COUNT(*) FROM records WHERE organization_id=? AND kind=? AND id=? AND version=?').bind(guard,org,kind,id,input.version));
    operations.push(db.prepare('DELETE FROM write_guards WHERE token=?').bind(guard));
-   if(kind==='tasks')data.completedAt=data.completed?(current.completedAt||new Date().toISOString()):null;
+   if(kind==='tasks')data.completedAt=data.completed?(current.completed?(current.completedAt||null):new Date().toISOString()):null;
    operations.push(db.prepare('UPDATE records SET data=?,version=version+1,updated_at=? WHERE organization_id=? AND kind=? AND id=? AND version=?').bind(JSON.stringify(data),new Date().toISOString(),org,kind,id,input.version));
   }else if(kind==='leads'&&!data.contactId){
    const contactId=crypto.randomUUID(),contact=validate('contacts',{name:[data.firstName,data.lastName].filter(Boolean).join(' ')||data.name,firstName:data.firstName||null,lastName:data.lastName||null,partnerName:data.partnerName||null,email:data.email,phone:data.phone||null,demo:!!data.demo,leadSource:data.leadSource||null,notes:[data.message,data.notes].filter(Boolean).join('\n\n')||null}),now=new Date().toISOString();

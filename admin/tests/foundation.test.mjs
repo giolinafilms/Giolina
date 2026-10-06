@@ -248,3 +248,8 @@ test('connected DEMO Lead to Project document/PDF/portal/scheduler QA preserves 
  const route='projects/'+project.id+'/portal-access';await call(route,'POST',{action:'invite',version:0});const active=(await call(route,'POST',{action:'activate-demo',version:1})).data;const portal=await worker.fetch(new Request(active.url),env);assert.equal(portal.status,200);const html=await portal.text();assert(html.includes('DEMO Jamie'));assert(html.includes('DEMO Taylor'));assert(html.includes('DEMO Garden'));assert(!html.includes('PRIVATE INQUIRY NOTE'));assert.equal((await worker.fetch(new Request(active.url+'/invoice/'+invoice.id+'/pdf'),env)).status,200);
  const info=(await call(route)).data;await call(route,'POST',{action:'disable',version:info.version});assert.equal((await worker.fetch(new Request(active.url),env)).status,404);assert.equal(env.CRM_DB.sqlite.prepare('SELECT COUNT(*) n FROM write_guards').get().n,0);
 });
+
+test('editing a legacy completed reminder does not invent a completion timestamp',async()=>{
+ const {call,env}=fixture();const now='2026-01-01T00:00:00Z';env.CRM_DB.sqlite.prepare('INSERT INTO records(organization_id,kind,id,data,created_at,updated_at) VALUES(?,?,?,?,?,?)').run(user.organizationId,'tasks','legacy-done',JSON.stringify({name:'DEMO old reminder',completed:true,demo:true}),now,now);
+ const saved=await call('tasks/legacy-done','PUT',{version:1,data:{name:'DEMO old reminder',status:'DONE',completed:true,demo:true,notes:'Edited only'}});assert.equal(saved.status,200);assert.equal(saved.data.completedAt,null);assert.equal((await call('activity')).data.filter(e=>e.action==='task-completed').length,0);
+});
