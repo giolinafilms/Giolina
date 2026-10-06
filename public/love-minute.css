@@ -113,5 +113,5 @@
 
 /* Finger dragging belongs to the film stage; vertical page scrolling stays native. */
 .gl-short-stage img{pointer-events:none;user-select:none;-webkit-user-drag:none;transition:transform .12s ease-out}
-.gl-short-stage{touch-action:pan-y pinch-zoom}
+.gl-short-stage{touch-action:pan-y pinch-zoom;overscroll-behavior-x:contain}
 @media(prefers-reduced-motion:reduce){.gl-short-stage img{transition:none}}

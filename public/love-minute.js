@@ -93,22 +93,29 @@ if (browser) {
  let gesture = null, suppressClickUntil = 0;
  stage.addEventListener('pointerdown', event => {
   if (event.pointerType !== 'touch' || event.isPrimary === false) return;
-  gesture = {id:event.pointerId,x:event.clientX,y:event.clientY,dx:0,dy:0};
+  gesture = {id:event.pointerId,x:event.clientX,y:event.clientY,dx:0,dy:0,started:event.timeStamp,axis:null};
   stage.setPointerCapture?.(event.pointerId);
  });
  stage.addEventListener('pointermove', event => {
   if (!gesture || gesture.id !== event.pointerId) return;
   gesture.dx = event.clientX-gesture.x; gesture.dy = event.clientY-gesture.y;
-  if (Math.abs(gesture.dx) > 12 && Math.abs(gesture.dx) > Math.abs(gesture.dy)*1.3) {
-   poster.style.transform = `translateX(${Math.max(-70,Math.min(70,gesture.dx*.3))}px)`;
+  // Lock intent early: a vertical gesture never becomes a film swipe later.
+  if (!gesture.axis && Math.max(Math.abs(gesture.dx),Math.abs(gesture.dy)) > 8) {
+   gesture.axis = Math.abs(gesture.dx) > Math.abs(gesture.dy)*1.15 ? 'x' : 'y';
+  }
+  if (gesture.axis === 'x') {
+   poster.style.transform = `translateX(${Math.max(-90,Math.min(90,gesture.dx*.55))}px)`;
   }
  });
  stage.addEventListener('pointerup', event => {
   if (!gesture || gesture.id !== event.pointerId) return;
   const dx=event.clientX-gesture.x,dy=event.clientY-gesture.y;
+  const horizontal=gesture.axis==='x' || (!gesture.axis && Math.abs(dx)>Math.abs(dy)*1.15);
+  const elapsed=Math.max(1,event.timeStamp-gesture.started);
   gesture=null; poster.style.transform='';
   if (Math.abs(dx)>12 || Math.abs(dy)>12) suppressClickUntil=Date.now()+500;
-  if (Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)*1.3) select(index+(dx<0?1:-1));
+  // A short, intentional flick counts; slow deliberate drags need only 24px.
+  if (horizontal && (Math.abs(dx)>=24 || (Math.abs(dx)>=14 && Math.abs(dx)/elapsed>=.25))) select(index+(dx<0?1:-1));
  });
  stage.addEventListener('pointercancel', () => {gesture=null;poster.style.transform='';suppressClickUntil=Date.now()+500;});
  dialog.querySelector('.gl-film-close').addEventListener('click', dismiss);

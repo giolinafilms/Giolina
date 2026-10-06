@@ -1,0 +1,15 @@
+/* Public-only refinements. No Admin or client document selectors. */
+.gl-about-founder-portrait{margin:0 0 24px!important}
+.gl-about-founder-portrait img{display:block;width:100%;height:auto;border-radius:2px}
+.gl-about-story .gl-about-founder-copy #gl-about-frank-name{font:400 clamp(23px,2.5vw,30px)/1.3 Georgia,serif;letter-spacing:.015em;overflow-wrap:break-word}
+.gl-cinema-step-one .gl-film-closing p:not(.gl-film-closing-eyebrow){color:#fff!important}
+.gl-mobile-cta{display:none}
+@media(max-width:700px){
+ body:has(.gl-mobile-cta){--gl-mobile-cta-height:calc(62px + env(safe-area-inset-bottom,0px));padding-bottom:var(--gl-mobile-cta-height)}
+ html:has(.gl-mobile-cta){scroll-padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+ .gl-mobile-cta{position:fixed;inset:auto 0 0;z-index:900;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));box-sizing:border-box;background:#12383b;padding:6px max(12px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));border-top:1px solid #8dbabe;box-shadow:0 -4px 18px #12383b18;gap:8px}
+ .gl-mobile-cta a{display:flex;align-items:center;justify-content:center;min-height:50px;box-sizing:border-box;border:1px solid #9ac3c5;border-radius:2px;color:#fff;background:transparent;text-decoration:none;font:500 13px/1.4 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+ .gl-mobile-cta a:last-child{background:#fff;color:#12383b;border-color:#fff}
+ .gl-mobile-cta a:focus-visible{outline:2px solid var(--gl-hover-champagne,#f0dfbf);outline-offset:2px}
+ .gl-film-open .gl-mobile-cta,body:has(dialog[open]) .gl-mobile-cta,.gl-mobile-cta[hidden]{display:none}
+}

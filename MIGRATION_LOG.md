@@ -888,6 +888,14 @@ Production Formspree endpoint, scheduler, SEO/GA4/redirects, HoneyBook and all p
 
 ## GioLina Phase 2B — proposal polish and corporate baseline
 
+### 2026-10-06 — Focused public polish checkpoint
+
+Recovered clean preview branch at 538b808; completed Admin/CRM preserved without changes or reseeding. Frank confirmed Broadcast Control Room Portrait(2).png: exact unmodified bytes become the primary founder portrait on About. Requested “FROM LIVE TELEVISION TO GIOLINA FILMS” heading and concise decades-based copy applied. Real self-hosted Tenor Sans Regular (Google Fonts, OFL retained) is confined to Experience's “Room to enjoy being” span; kicker and existing “together.” script remain intact. Authentic logo is artwork without an available font; Frank chose to keep “story” unchanged rather than substitute a different script. Teal CTA supporting text explicitly uses white to defeat the inherited dark rule.
+
+Love in a Minute now accepts normal short deliberate horizontal gestures, locks vertical intent early and suppresses swipe-generated clicks/cancellations; player lifecycle/audio settings untouched. Public mobile-only Call/Inquire bar uses existing telephone/Contact URLs, safe-area padding, reserved page space and form-editing/dialog/fullscreen hiding. No forms or inquiry delivery changed. Neutral cinematic client hero recommendation documented only; no proposal snapshot/template mutation.
+
+Two focused public tests and all 50 existing Admin tests pass, with build/public routes/SEO checks. Native preview build and hosted phone-width verification follow publication. Review notes in docs/PUBLIC_POLISH_REVIEW.md. All known physical-device/media/support blockers remain open; no production, DNS, email, clients.giolina.co, HoneyBook, signatures or payments changed.
+
 ### 2026-10-05 — Phase 2B preserved; Phase 2C Admin UX and draft communications
 
 Frank explicitly declined publication of wedding screenshots. No screenshots are added to the public repository; review evidence remains private. Events hotfix 98221ad deployed successfully: hosted desktop/mobile menu markup and footer exclude Events, and /events/ redirects to the existing Ready to Go Productions portfolio. Phase 2B implementation and records remain intact; physical-device acceptance and approved short-video hosting stay open.

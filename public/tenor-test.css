@@ -1,0 +1,3 @@
+/* One headline experiment only. The existing script and kicker stay unchanged. */
+@font-face{font-family:'Tenor Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/tenor-sans-regular.woff2') format('woff2')}
+.gl-experience #our-approach .gl-tenor-test{font-family:'Tenor Sans',sans-serif;font-weight:400;font-style:normal;letter-spacing:-.025em}

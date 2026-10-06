@@ -19,7 +19,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <html lang="en-US">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <title>{page.title}</title>
 <link rel="canonical" href={new URL(page.path,canonicalOrigin).href} />
@@ -36,6 +36,8 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {isRtg && <link rel="stylesheet" href="/rtg-production.css" />}
 {!isRtg && page.path !== "/sweet-sixteen/" && <link rel="stylesheet" href="/brand-refinement.css" />}
 <link rel="stylesheet" href="/accessibility.css" />
+<link rel="stylesheet" href="/public-polish.css" />
+{page.path === "/experience-2/" && <link rel="stylesheet" href="/tenor-test.css" />}
 {isEvents && <link rel="stylesheet" href="/events-phase1.css" />}
 </head>
 <body class={page.bodyClass}>
@@ -46,6 +48,11 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {!isEvents && page.breadcrumbs?.length && <SiteBreadcrumb items={page.breadcrumbs} tone={page.path === "/sweet-sixteen/" ? "blush" : "wedding"} />}
 <Fragment set:html={page.content} /></main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
+{!isRtg && !isEvents && <nav class="gl-mobile-cta" aria-label="Quick contact">
+ <a href="tel:8663060308">Call</a>
+ <a href="/contact-us-2/">Inquire</a>
+</nav>}
+{!isRtg && !isEvents && <script src="/mobile-cta.js" defer is:inline></script>}
 <script src="/migration.js" is:inline></script>
 <script src="/film-player.js" defer={page.path === "/portfolio-2/"} is:inline></script>
 <script src="/scheduler-links.js" defer is:inline></script>
