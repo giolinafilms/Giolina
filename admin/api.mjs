@@ -1,3 +1,4 @@
+import {integrationAPI} from './integrations.mjs';
 import {readSettings,saveSettings} from './business-settings.mjs';
 import {contractDocument} from './contracts.mjs';
 import {portalAccess} from './client-portal.mjs';
@@ -37,6 +38,7 @@ export async function api(request,env,user,path){
   if(request.headers.get('Origin')!==new URL(request.url).origin||request.headers.get('X-GioLina-Request')!=='admin'||!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'Invalid request origin or content type'},403);
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
+ if(path==='integrations'||path.startsWith('integrations/'))return integrationAPI(request,db,user,path,get);
  if(path==='business-settings'){try{if(request.method==='GET')return json(await readSettings(db,org));if(request.method!=='PUT')return json({error:'Method not allowed'},405);const raw=await request.text();if(raw.length>12000)return json({error:'Settings too large'},413);return json(await saveSettings(db,user,JSON.parse(raw)));}catch(e){return json({error:/CHECK|UNIQUE/.test(e.message)?'Settings changed. Reload before saving.':e.message},409);}}
  if(/^projects\/[^/]+\/portal-access$/.test(path))return portalAccess(request,env,user,path.split('/')[1]);
  if(/^(invoices|contracts)\/[^/]+\/share$/.test(path))return invoiceShare(request,env,user,path.split('/')[1],path.split('/')[0]);
@@ -67,8 +69,14 @@ export async function api(request,env,user,path){
   try{const raw=await request.text();if(raw.length>8192)return json({error:'Inquiry too large'},413);const input=JSON.parse(raw);
    if(!/^[a-z0-9-]{8,80}$/.test(input.reference||'')||!input.data?.email?.endsWith('@example.test'))return json({error:'Use a unique preview reference and a DEMO @example.test email'},400);
    const id='preview-inquiry-'+input.reference,existing=await get(db,org,'leads',id);if(existing)return json(existing);
-   const data=validate('leads',{...input.data,demo:true,status:'New',leadSource:'Preview website simulator',inquiryDate:new Date().toISOString().slice(0,10)});await references(db,org,data);
-   await db.batch([insert(db,org,'leads',id,data),audit(db,user,'preview-inquiry-created','leads',id)]);return json(await get(db,org,'leads',id),201);
+   if(org!=='giolina-preview')throw Error('Preview workspace required');
+   const email=input.data.email.trim().toLowerCase(),matched=await db.prepare("SELECT id FROM records WHERE organization_id=? AND kind='contacts' AND json_extract(data,'$.demo')=1 AND COALESCE(json_extract(data,'$.archived'),0)=0 AND lower(json_extract(data,'$.email'))=? ORDER BY created_at LIMIT 1").bind(org,email).first(),match=matched&&await get(db,org,'contacts',matched.id),contactId=match?.id||'preview-contact-'+input.reference;
+   const {photographyInterest,cinematographyInterest,submittedAt,source,...fields}=input.data;
+   if([photographyInterest,cinematographyInterest].some(v=>v!==undefined&&typeof v!=='boolean')||(submittedAt!==undefined&&(!Number.isFinite(Date.parse(submittedAt))||typeof submittedAt!=='string'))||(source!==undefined&&(typeof source!=='string'||source.length>100)))throw Error('Invalid inquiry metadata');
+   const interest=[photographyInterest?'Photography interest':null,cinematographyInterest?'Cinematography interest':null].filter(Boolean).join('; ');
+   const data=validate('leads',{...fields,email,contactId:null,demo:true,status:'New',notes:[fields.notes,interest].filter(Boolean).join('\n'),leadSource:source?'DEMO / '+source:'Preview website simulator',inquiryDate:new Date().toISOString().slice(0,10)});await references(db,org,data);data.contactId=contactId;
+   const operations=[],guard=crypto.randomUUID();if(!match)operations.push(db.prepare("INSERT INTO write_guards(token,valid) SELECT ?,CASE WHEN COUNT(*)=0 THEN 1 ELSE 0 END FROM records WHERE organization_id=? AND kind='contacts' AND json_extract(data,'$.demo')=1 AND COALESCE(json_extract(data,'$.archived'),0)=0 AND lower(json_extract(data,'$.email'))=?").bind(guard,org,email));if(!match)operations.push(insert(db,org,'contacts',contactId,validate('contacts',Object.fromEntries(Object.entries({name:'DEMO — '+input.data.name,email,firstName:input.data.firstName,lastName:input.data.lastName,partnerName:input.data.partnerName,phone:input.data.phone,demo:true,leadSource:'Preview website simulator',notes:input.data.message||''}).filter(([,v])=>v!==undefined)))));
+   operations.push(insert(db,org,'leads',id,data),audit(db,user,'preview-inquiry-created','leads',id,{demo:true,contactId,reference:input.reference,receivedAt:new Date().toISOString(),submittedAt:submittedAt||null,photographyInterest:photographyInterest??null,cinematographyInterest:cinematographyInterest??null}));if(!match)operations.push(db.prepare('DELETE FROM write_guards WHERE token=?').bind(guard));await db.batch(operations);return json(await get(db,org,'leads',id),201);
   }catch{return json({error:'Invalid DEMO inquiry or duplicate request. No email was sent.'},400);}
  }
  const [kind,id,action]=path.split('/');if(!Object.hasOwn(definitions,kind))return json({error:'Not found'},404);
