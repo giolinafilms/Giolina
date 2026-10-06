@@ -1,0 +1,21 @@
+(async()=>{
+ const data=await(await fetch('inventory.json')).json(),report=document.querySelector('#report'),status=document.querySelector('#status'),run=document.querySelector('#run');let measured=[];
+ const el=(tag,text)=>{const n=document.createElement(tag);n.textContent=text;return n;};
+ const table=(headers,rows)=>{const wrap=el('div','');wrap.className='scroll';const t=el('table',''),h=el('tr','');for(const v of headers)h.append(el('th',v));t.append(h);for(const row of rows){const r=el('tr','');for(const v of row)r.append(el('td',v));t.append(r);}wrap.append(t);return wrap;};
+ function rules(){report.replaceChildren();for(const p of data.pages){const d=el('details','');d.append(el('summary',p.path+(p.redirect?' → '+p.redirect+' (legacy redirect)':'')));d.append(table(['Section/example','CSS source / selector','Condition','Typography declarations'],data.rows.filter(r=>r.page===p.path).map(r=>[r.sections.join('; ')+' — '+r.examples.join(' / '),r.source+' '+r.selector,r.condition,JSON.stringify(r.values)])));report.append(d);}}
+ rules();status.textContent=`${data.pages.length} page sources; ${data.rows.length} matching typography declarations.`;
+ run.onclick=async()=>{run.disabled=true;measured=[];report.replaceChildren();const [width,height]=document.querySelector('#size').value.split(',').map(Number);
+ try{for(const p of data.pages.filter(p=>!p.redirect)){
+ status.textContent='Measuring '+p.path;const frame=document.createElement('iframe');frame.sandbox='allow-same-origin';frame.style.width=width+'px';frame.style.height=height+'px';frame.src=p.path;
+ await new Promise((resolve,reject)=>{frame.onload=resolve;frame.onerror=reject;document.body.append(frame)});const doc=frame.contentDocument,w=frame.contentWindow;await doc.fonts.ready;
+ const selector=e=>{if(e.id)return '#'+CSS.escape(e.id);let s=e.tagName.toLowerCase();if(e.classList.length)s+='.'+[...e.classList].map(CSS.escape).join('.');const parent=e.closest('section[id],article[id]');return parent&&parent!==e?'#'+CSS.escape(parent.id)+' '+s:s;};
+ const fonts=[...doc.fonts].map(f=>({family:f.family,status:f.status,weight:f.weight,style:f.style}));const entries=[];
+ for(const e of doc.querySelectorAll('h1,h2,h3,h4,h5,h6,p,a,button,label,input,textarea,select,summary,blockquote,cite,figcaption,span,em,strong,li')){
+ const text=(e.textContent||e.getAttribute('placeholder')||'').replace(/\s+/g,' ').trim();if(!text||!e.getClientRects().length)continue;const c=w.getComputedStyle(e);if(c.display==='none')continue;
+ entries.push({text:text.slice(0,160),selector:selector(e),section:e.closest('section,article')?.querySelector('h1,h2,h3')?.textContent||e.closest('header,footer,nav')?.tagName||'Page',family:c.fontFamily,weight:c.fontWeight,style:c.fontStyle,size:c.fontSize,lineHeight:c.lineHeight,letterSpacing:c.letterSpacing,textTransform:c.textTransform,matchingRules:data.rows.filter(r=>r.page===p.path&&(()=>{try{return e.matches(r.selector)}catch{return false}})()).map(r=>({source:r.source,selector:r.selector,condition:r.condition,values:r.values}))});
+ }
+ const row={path:p.path,width,height,fonts,entries};measured.push(row);const details=el('details','');details.append(el('summary',p.path+' — '+entries.length+' text elements'));details.append(el('pre',JSON.stringify(fonts,null,2)));details.append(table(['Section / text','Selector','Family','Weight / style','Size / line-height / spacing'],entries.map(e=>[e.section+' — '+e.text,e.selector,e.family,e.weight+' / '+e.style,e.size+' / '+e.lineHeight+' / '+e.letterSpacing])));report.append(details);frame.remove();
+ }status.textContent='Complete: '+measured.length+' public routes measured at '+width+' × '+height+'.';document.querySelector('#download').disabled=false;
+ }catch(error){status.textContent='Measurement stopped: '+error.message;}finally{run.disabled=false;}};
+ document.querySelector('#download').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({measuredAt:new Date().toISOString(),userAgent:navigator.userAgent,pages:measured},null,2)],{type:'application/json'}));a.download='giolina-computed-font-inventory.json';a.click();URL.revokeObjectURL(a.href);};
+})();

@@ -947,3 +947,7 @@ Hosted short-film verification: 1dc5f833 and a16dcfc native builds succeeded. Bo
 ### 2026-10-06 — Safe sync and fuller homepage recovery
 
 Clean local `8de745b` fast-forwarded to verified remote `4926865`; no reset/reseed or remote loss. Recovered five homepage sections from pre-simplification `7afae93` while preserving current hero, introduction, gateway, navigation, mobile controls, metadata and supplied video placements. Review uses current poster-based click-to-play architecture. Baseline/differences documented in docs/HOMEPAGE_RECOVERY.md. Build/tests and native preview verification follow this checkpoint. No Admin or production changes.
+
+### 2026-10-06 — Public font inventory checkpoint
+
+Homepage recovery published as `5e8383c` and verified on hosted homepage; build, 50 Admin tests and five public tests passed. Full declaration audit now covers 35 public source pages, 1,930 matched typography rules, source selectors/media conditions and font registrations. `/qa/font-inventory/` adds read-only browser-computed measurements at five viewport sizes, downloadable per-element results, and explicit web-font versus system-fallback limitations. `docs/FONT_INVENTORY.md` identifies named treatments, logo artwork distinction and a proposed three-family system for Frank's approval. No typography normalization. Hosted audit verification follows deployment.
