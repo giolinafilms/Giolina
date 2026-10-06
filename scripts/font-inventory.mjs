@@ -3,14 +3,15 @@ import path from 'node:path';
 import {JSDOM} from 'jsdom';
 import redirects from '../src/config/redirects.mjs';
 const pages=fs.readdirSync('src/content/pages').filter(f=>f.endsWith('.json')).map(f=>JSON.parse(fs.readFileSync('src/content/pages/'+f)));
+pages.push({path:'/404.html',title:'Page not found'});
 const typography=/^(font($|-)|line-height$|letter-spacing$|text-transform$)/;
 const rows=[],faces=[],sources=new Map();
 for(const page of pages){
- const html=fs.readFileSync(path.join('dist',page.path,'index.html'),'utf8'); const dom=new JSDOM(html),doc=dom.window.document;
- const loaded=new Set();
- function sheet(url){
-  if(loaded.has(url)||!url.startsWith('/')||!fs.existsSync('public'+url))return;loaded.add(url);
-  const css=fs.readFileSync('public'+url,'utf8');for(const m of css.matchAll(/@font-face\s*\{([^}]+)\}/g)){const values={};for(const item of m[1].split(';')){const at=item.indexOf(':');if(at>0)values[item.slice(0,at).trim()]=item.slice(at+1).trim();}faces.push({page:page.path,source:url,...values});}const style=doc.createElement('style');style.textContent=css;doc.head.append(style);
+ const html=fs.readFileSync(page.path==='/404.html'?'dist/404.html':path.join('dist',page.path,'index.html'),'utf8'); const dom=new JSDOM(html),doc=dom.window.document;
+ const originalStyles=[...doc.querySelectorAll('style')].map(s=>s.textContent);const loaded=new Set();
+ function sheet(url,inline){
+  if(loaded.has(url)||inline===undefined&&(!url.startsWith('/')||!fs.existsSync('public'+url)))return;loaded.add(url);
+  const css=inline??fs.readFileSync('public'+url,'utf8');for(const m of css.matchAll(/@font-face\s*\{([^}]+)\}/g)){const values={};for(const item of m[1].split(';')){const at=item.indexOf(':');if(at>0)values[item.slice(0,at).trim()]=item.slice(at+1).trim();}faces.push({page:page.path,source:url,...values});}const style=doc.createElement('style');style.textContent=css;doc.head.append(style);
   function walk(rules,condition='all') {for(const rule of rules||[]){
    if(rule.href){const target=rule.href.startsWith('/')?rule.href:path.posix.resolve(path.posix.dirname(url),rule.href);sheet(target);}
    if(rule.cssRules)walk(rule.cssRules,[condition,rule.conditionText||''].filter(Boolean).join(' / '));
@@ -25,6 +26,8 @@ for(const page of pages){
   walk(style.sheet?.cssRules);
  }
  for(const link of doc.querySelectorAll('link[rel="stylesheet"]'))sheet(link.getAttribute('href'));
+ for(const [i,css] of originalStyles.entries())sheet(page.path+'#inline-style-'+i,css);
+ for(const e of doc.querySelectorAll('[style]')){const values={};for(let i=0;i<e.style.length;i++){const key=e.style[i];if(typography.test(key))values[key]=e.style.getPropertyValue(key);}if(Object.keys(values).length)rows.push({page:page.path,redirect:redirects[page.path]||null,source:page.path+' [style]',selector:e.id?'#'+e.id:e.tagName.toLowerCase()+Array.from(e.classList,c=>'.'+c).join(''),condition:'inline',values,sections:[e.closest('section,article')?.querySelector('h1,h2,h3')?.textContent||'Page'],examples:[e.textContent.replace(/\s+/g,' ').trim().slice(0,100)]});}
  sources.set(page.path,[...loaded]);dom.window.close();
 }
 const result={generatedAt:new Date().toISOString(),basis:'CSS declaration inventory; includes overridden rules. Runtime report supplies computed winners at each viewport. Redirected legacy routes are separately identified.',pages:pages.map(p=>({path:p.path,title:p.title,redirect:redirects[p.path]||null,stylesheets:sources.get(p.path)})),faces,rows};

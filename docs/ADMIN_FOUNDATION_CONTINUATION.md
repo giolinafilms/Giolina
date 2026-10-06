@@ -37,3 +37,27 @@ Client access states already supported Not Invited, Invited, Active and Disabled
 Checkpoint: 58 Admin tests, build, 35 route checks, 107 redirects, 15 sitemap URLs and five public homepage/media tests passed. Newly added tests cover settings versioning/isolation, mandatory preferences, invoice rounding/schedule allocation, contract merge/escaping/draft restrictions, DEMO share/PDF/revocation, frozen draft attachments, contextual Documents/Create and invoice/composer UI actions.
 
 Hosted Admin currently redirects this browser to Cloudflare Access sign-in. No protection was weakened. Signed-in hosted acceptance and physical device review remain open. Public homepage/font audit verified live; audit completed 23 non-redirect routes at 1440×900 and 390×844. No private wedding screenshots committed.
+
+## Project Home portal completion
+
+The DEMO portal retains a neutral project identity hero and now provides stable Overview, Documents, Schedule, Payments and Files navigation with useful empty states. Its proposal lives inside Documents; contract drafts join proposals and invoices with view/PDF routes. Public contract views are escaped, bounded by the existing DEMO project/email identity and revocation checks, and explicitly nonbinding. Client-visible appointment location/call type is included; internal notes stay excluded.
+
+Resending a DEMO invitation records the request without invalidating an active session or sending email. An explicit advanced **Refresh DEMO documents** action publishes current snapshots and warns that it resets proposal choices; existing links/snapshots remain unchanged until that action is selected. It does not seed, overwrite source records or run automatically. Legacy grants without contracts continue to work.
+
+No hosted access states, documents or records were changed during this implementation. The existing passwordless DEMO link is not a real client account/password implementation. Real identity-provider selection, client-controlled password setup and invitation delivery remain deferred.
+
+## Review destinations
+
+Use the existing hosted preview origin, then:
+
+- `/admin/` — Dashboard
+- `/admin/projects/?record=demo-presentation-wedding-cinema` — existing Wedding DEMO Project
+- `/admin/projects/?record=demo-presentation-wedding-cinema&section=Documents` — Documents
+- `/admin/projects/?record=demo-presentation-wedding-cinema&compose=1` — editable unsaved draft
+- `/admin/templates/?type=contract&example=1` — unsaved DEMO contract template example (no automatic save)
+- `/admin/projects/?record=demo-presentation-wedding-cinema&invoice=1` — new unsaved invoice in Project context
+- `/admin/projects/?record=demo-presentation-wedding-cinema&portal=1` — existing access status and portal preview action
+- `/admin/calendar/` — Scheduler
+- `/admin/settings/` — signature, tax presets, notifications and template/planning links
+
+These Admin paths require Cloudflare Access. IDs are the existing application DEMO IDs; no replacement records were seeded. Hosted signed-in verification is blocked in this browser by the sign-in requirement, so these deep-link flows are covered locally and remain for Frank's signed-in review. A public client-token URL is deliberately not invented or regenerated for this report.

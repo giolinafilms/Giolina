@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T13:26:23.271Z",
+  "generatedAt": "2026-10-06T13:46:55.550Z",
   "basis": "CSS declaration inventory; includes overridden rules. Runtime report supplies computed winners at each viewport. Redirected legacy routes are separately identified.",
   "pages": [
     {
@@ -42,7 +42,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/2022/12/hello-world/#inline-style-0"
       ]
     },
     {
@@ -88,7 +89,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/about-us-2/#inline-style-0"
       ]
     },
     {
@@ -134,7 +136,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/about-us/#inline-style-0"
       ]
     },
     {
@@ -177,7 +180,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/author/johnp/#inline-style-0"
       ]
     },
     {
@@ -220,7 +224,10 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/bianca-bobby-2/#inline-style-0",
+        "/bianca-bobby-2/#inline-style-1",
+        "/bianca-bobby-2/#inline-style-2"
       ]
     },
     {
@@ -263,7 +270,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/bianca-bobby-3/#inline-style-0"
       ]
     },
     {
@@ -306,7 +314,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/bianca-bobby/#inline-style-0"
       ]
     },
     {
@@ -349,7 +358,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/category/uncategorized/#inline-style-0"
       ]
     },
     {
@@ -398,7 +408,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/client-reviews/#inline-style-0"
       ]
     },
     {
@@ -441,7 +452,10 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/completed-lead-2/#inline-style-0",
+        "/completed-lead-2/#inline-style-1",
+        "/completed-lead-2/#inline-style-2"
       ]
     },
     {
@@ -491,7 +505,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/contact-us-2/#inline-style-0"
       ]
     },
     {
@@ -540,7 +555,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/contact-us/#inline-style-0"
       ]
     },
     {
@@ -556,7 +572,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/corporate/#inline-style-0"
       ]
     },
     {
@@ -572,7 +589,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/live-events/#inline-style-0"
       ]
     },
     {
@@ -588,7 +606,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/photo-film/#inline-style-0"
       ]
     },
     {
@@ -604,7 +623,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/private-celebrations/#inline-style-0"
       ]
     },
     {
@@ -620,7 +640,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/specialty/#inline-style-0"
       ]
     },
     {
@@ -636,7 +657,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/events-phase1.css"
+        "/events-phase1.css",
+        "/events/#inline-style-0"
       ]
     },
     {
@@ -685,7 +707,8 @@
         "/brand-refinement.css",
         "/accessibility.css",
         "/public-polish.css",
-        "/tenor-test.css"
+        "/tenor-test.css",
+        "/experience-2/#inline-style-0"
       ]
     },
     {
@@ -706,7 +729,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/homepage-preview/#inline-style-0"
       ]
     },
     {
@@ -728,7 +752,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/#inline-style-0"
       ]
     },
     {
@@ -779,7 +804,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/photography-portfolio/#inline-style-0"
       ]
     },
     {
@@ -830,7 +856,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/photography/#inline-style-0"
       ]
     },
     {
@@ -880,7 +907,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/portfolio-2/#inline-style-0"
       ]
     },
     {
@@ -931,7 +959,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/portfolio/#inline-style-0"
       ]
     },
     {
@@ -948,7 +977,8 @@
         "/portfolio-editorial-refinement.css",
         "/rtg-production.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/ready-to-go-productions/#inline-style-0"
       ]
     },
     {
@@ -997,7 +1027,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/reviews/#inline-style-0"
       ]
     },
     {
@@ -1038,7 +1069,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/schedule-a-meeting-2/#inline-style-0"
       ]
     },
     {
@@ -1079,7 +1111,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/schedule-a-meeting-3/#inline-style-0"
       ]
     },
     {
@@ -1122,7 +1155,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/schedule-a-meeting/#inline-style-0"
       ]
     },
     {
@@ -1168,7 +1202,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/services-2-2/#inline-style-0"
       ]
     },
     {
@@ -1214,7 +1249,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/services-2/#inline-style-0"
       ]
     },
     {
@@ -1257,7 +1293,8 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/services/#inline-style-0"
       ]
     },
     {
@@ -1274,7 +1311,8 @@
         "/portfolio-editorial-refinement.css",
         "/sweet-sixteen-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/sweet-sixteen/#inline-style-0"
       ]
     },
     {
@@ -1322,7 +1360,16 @@
         "/portfolio-editorial-refinement.css",
         "/brand-refinement.css",
         "/accessibility.css",
-        "/public-polish.css"
+        "/public-polish.css",
+        "/video-portfolio/#inline-style-0"
+      ]
+    },
+    {
+      "path": "/404.html",
+      "title": "Page not found",
+      "redirect": null,
+      "stylesheets": [
+        "/site-header.css"
       ]
     }
   ],
@@ -28941,6 +28988,15 @@
     },
     {
       "page": "/video-portfolio/",
+      "source": "/site-header.css",
+      "font-family": "\"Font Awesome 5 Brands\"",
+      "font-style": "normal",
+      "font-weight": "400",
+      "font-display": "swap",
+      "src": "url('/assets/596190fb95b3251d.woff2') format('woff2')"
+    },
+    {
+      "page": "/404.html",
       "source": "/site-header.css",
       "font-family": "\"Font Awesome 5 Brands\"",
       "font-style": "normal",
@@ -69008,6 +69064,345 @@
       "examples": [
         "Call",
         "Inquire"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header",
+      "condition": "all",
+      "values": {
+        "font-style": "normal",
+        "font-variant": "normal",
+        "font-weight": "400",
+        "font-size": "17px",
+        "line-height": "1.75",
+        "font-family": "Arial, sans-serif",
+        "font": "400 17px / 1.75 Arial, sans-serif"
+      },
+      "sections": [
+        "HEADER"
+      ],
+      "examples": [
+        "Cinematic wedding filmmaking & photographyInquire about your dayCinematographyPhotographySweet Si"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-nav a",
+      "condition": "all",
+      "values": {
+        "font-size": "15px",
+        "line-height": "1.4"
+      },
+      "sections": [
+        "Main navigation",
+        "Mobile navigation"
+      ],
+      "examples": [
+        "Cinematography",
+        "Photography",
+        "Sweet Sixteen",
+        "Reviews",
+        "Experience",
+        "About Us",
+        "Contact Us"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-masthead p",
+      "condition": "all",
+      "values": {
+        "font-style": "normal",
+        "font-variant": "normal",
+        "font-weight": "400",
+        "font-size": "14px",
+        "line-height": "1.75",
+        "font-family": "Arial, sans-serif",
+        "font": "400 14px / 1.75 Arial, sans-serif",
+        "text-transform": "uppercase",
+        "letter-spacing": "0.13em"
+      },
+      "sections": [
+        "HEADER"
+      ],
+      "examples": [
+        "Cinematic wedding filmmaking & photography"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-header-inquire",
+      "condition": "all",
+      "values": {
+        "font-style": "normal",
+        "font-variant": "normal",
+        "font-weight": "400",
+        "font-size": "15px",
+        "line-height": "1.4",
+        "font-family": "Arial, sans-serif",
+        "font": "400 15px / 1.4 Arial, sans-serif"
+      },
+      "sections": [
+        "HEADER"
+      ],
+      "examples": [
+        "Inquire about your day"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-social-glyph",
+      "condition": "all",
+      "values": {
+        "font-family": "\"Font Awesome 5 Brands\"",
+        "font-weight": "400",
+        "font-style": "normal",
+        "font-size": "20px",
+        "line-height": "1"
+      },
+      "sections": [
+        "Social media"
+      ],
+      "examples": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-mobile-menu summary",
+      "condition": "all / (max-width:650px)",
+      "values": {
+        "font-size": "16px"
+      },
+      "sections": [
+        "HEADER"
+      ],
+      "examples": [
+        "Menu"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-mobile-menu a",
+      "condition": "all / (max-width:650px)",
+      "values": {
+        "font-size": "15px"
+      },
+      "sections": [
+        "Mobile navigation"
+      ],
+      "examples": [
+        "Cinematography",
+        "Photography",
+        "Sweet Sixteen",
+        "Reviews",
+        "Experience",
+        "About Us",
+        "Contact Us"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-footer",
+      "condition": "all",
+      "values": {
+        "font-style": "normal",
+        "font-variant": "normal",
+        "font-weight": "400",
+        "font-size": "16px",
+        "line-height": "1.7",
+        "font-family": "Arial, sans-serif",
+        "font": "400 16px / 1.7 Arial, sans-serif"
+      },
+      "sections": [
+        "FOOTER"
+      ],
+      "examples": [
+        "HomeCinematographyPhotographySweet SixteenReviewsExperienceAbout UsContact Usinfo@giolina.co866-306-"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-footer-social span",
+      "condition": "all",
+      "values": {
+        "font-style": "normal",
+        "font-variant": "normal",
+        "font-weight": "400",
+        "font-size": "20px",
+        "line-height": "1",
+        "font-family": "\"Font Awesome 5 Brands\"",
+        "font": "400 20px / 1 \"Font Awesome 5 Brands\""
+      },
+      "sections": [
+        "Footer social media"
+      ],
+      "examples": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-footer .gl-site-footer-bottom",
+      "condition": "all",
+      "values": {
+        "font-size": "14px"
+      },
+      "sections": [
+        "FOOTER"
+      ],
+      "examples": [
+        "GioLina Photography and Cinematography© 2026 GioLina Films. All rights reserved."
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-social-glyph,.gl-site-footer-social span",
+      "condition": "all",
+      "values": {
+        "font-size": "18px"
+      },
+      "sections": [
+        "Social media",
+        "Footer social media"
+      ],
+      "examples": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-header-inquire",
+      "condition": "all / (max-width:650px)",
+      "values": {
+        "font-size": "15px"
+      },
+      "sections": [
+        "HEADER"
+      ],
+      "examples": [
+        "Inquire about your day"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-footer .gl-site-footer-copyright",
+      "condition": "all",
+      "values": {
+        "font-size": "12px"
+      },
+      "sections": [
+        "FOOTER"
+      ],
+      "examples": [
+        "© 2026 GioLina Films. All rights reserved."
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-header .gl-site-nav a",
+      "condition": "all",
+      "values": {
+        "font-style": "normal !important",
+        "font-variant": "normal !important",
+        "font-weight": "400 !important",
+        "font-size": "15px !important",
+        "line-height": "1.4 !important",
+        "font-family": "Arial, sans-serif !important",
+        "font": "400 15px / 1.4 Arial, sans-serif !important"
+      },
+      "sections": [
+        "Main navigation",
+        "Mobile navigation"
+      ],
+      "examples": [
+        "Cinematography",
+        "Photography",
+        "Sweet Sixteen",
+        "Reviews",
+        "Experience",
+        "About Us",
+        "Contact Us"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/site-header.css",
+      "selector": ".gl-site-footer .gl-site-footer-inner>nav[aria-label=\"Footer navigation\"] a",
+      "condition": "all",
+      "values": {
+        "font-style": "normal !important",
+        "font-variant": "normal !important",
+        "font-weight": "400 !important",
+        "font-size": "16px !important",
+        "line-height": "1.4 !important",
+        "font-family": "Arial, sans-serif !important",
+        "font": "400 16px / 1.4 Arial, sans-serif !important"
+      },
+      "sections": [
+        "Footer navigation"
+      ],
+      "examples": [
+        "Home",
+        "Cinematography",
+        "Photography",
+        "Sweet Sixteen",
+        "Reviews",
+        "Experience",
+        "About Us",
+        "Contact Us"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "redirect": null,
+      "source": "/404.html [style]",
+      "selector": "main",
+      "condition": "inline",
+      "values": {
+        "font-family": "sans-serif"
+      },
+      "sections": [
+        "Page"
+      ],
+      "examples": [
+        "Page not foundThe page you’re looking for isn’t here.Return to GioLina Films"
       ]
     }
   ]

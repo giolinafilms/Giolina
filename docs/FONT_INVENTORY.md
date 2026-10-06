@@ -4,9 +4,11 @@ No fonts have been standardized or replaced in this pass.
 
 ## Complete inventory and measured review
 
-The review page is `/qa/font-inventory/`. Its downloadable `inventory.json` covers all 35 public page sources, including legacy/redirected pages, all matching typography selectors, stylesheet source, media conditions, section names/examples, font family, weight/style, size, spacing and line-height declarations. Matching rules include overrides; they must not be mistaken for the final cascade.
+The review page is `/qa/font-inventory/`. Its downloadable `inventory.json` covers all 35 public page sources plus the 404 page, including legacy/redirected pages, all matching typography selectors, stylesheet source, media conditions, section names/examples, font family, weight/style, size, spacing and line-height declarations. Matching rules include overrides; they must not be mistaken for the final cascade.
 
 The review page also measures every non-redirected public route in browser frames at 390×844, 430×932, 768×1024, 1024×768 or 1440×900. It records computed typography for headings, script spans/emphasis, body text, links, navigation, buttons, labels, fields, captions and lists; matching source rules accompany each element in the downloadable measured JSON. Frames disable scripts and do not submit forms. Web-font status is recorded after `document.fonts.ready`. System fallback glyph selection remains browser/OS-dependent; computed family names alone do not prove a face was rendered.
+
+The final declaration inventory includes inline style blocks and element styles as well as linked CSS (36 sources / 1,946 matching declarations). The 404 route has been added to runtime coverage.
 
 Regenerate declarations after a build: `node scripts/font-inventory.mjs`.
 
