@@ -19,7 +19,7 @@ export const definitions={
  proposals:{required:['name','lineItems'],fields:{name:'text',projectId:'project',contactId:'contact',leadId:'lead',templateId:'package',clientSelection:'boolean',eventType:'event',clientNames:'text',eventDate:'date',venue:'text',heroImage:'image',introduction:'long',sectionOrder:'section-order',demo:'boolean',lineItems:'line-items',discountCents:'money',notes:'long',status:'proposal-status',archived:'boolean'}},
  contracts:{required:['name','projectId'],fields:{name:'text',contactId:'contact',projectId:'project',packageId:'package',serviceIds:'array',priceCents:'money',paymentSchedule:'schedule',notes:'long',status:'text',signatureStatus:'signature-status',externalProviderId:'text',archived:'boolean'}},
  invoices:{required:['name','projectId','amountCents'],fields:{name:'text',contactId:'contact',projectId:'project',issueAt:'date',lineItems:'line-items',discountCents:'money',taxCents:'money',amountCents:'money',depositCents:'money',installments:'schedule',paymentHistory:'payment-history',dueAt:'date',status:'text',notes:'long',archived:'boolean'}},
- messages:{required:['name','projectId'],fields:{name:'text',projectId:'project',subject:'text',body:'long',status:'text'}},
+ messages:{required:['name','projectId'],fields:{documentKind:'text',documentId:'text',documentRevision:'number',name:'text',projectId:'project',subject:'text',body:'long',status:'text'}},
  files:{required:['name','projectId'],fields:{name:'text',projectId:'project',notes:'long',storageKey:'text'}},
  automations:{required:['name'],fields:{name:'text',trigger:'text',templateId:'text',notes:'long',enabled:'boolean'}}
 };

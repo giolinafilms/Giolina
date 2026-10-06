@@ -1,3 +1,4 @@
+import {invoiceShare,invoiceDocument} from './documents.mjs';
 import {catalogSeed as baselineServices} from './catalog.mjs';
 import {initializeBaselines,curateCurrentTemplates,templateLines,currentTemplateIds} from './active-packages.mjs';
 import {presentation} from './presentation.mjs';
@@ -33,6 +34,8 @@ export async function api(request,env,user,path){
   if(request.headers.get('Origin')!==new URL(request.url).origin||request.headers.get('X-GioLina-Request')!=='admin'||!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'Invalid request origin or content type'},403);
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
+ if(/^invoices\/[^/]+\/share$/.test(path))return invoiceShare(request,env,user,path.split('/')[1]);
+ if(/^documents\/(proposals|invoices)\/[^/]+\/email-draft$/.test(path)&&request.method==='POST'){try{const [,kind,id]=path.split('/'),doc=kind==='proposals'?{...(await buildSnapshot(db,id)).snapshot,type:'Proposal'}:await invoiceDocument(db,id),row=await get(db,org,kind,id);if(!row?.projectId)throw new Error('Associate this document with a Project before drafting email');const project=await get(db,org,'projects',row.projectId);if(!project||project.archived)throw new Error('Project unavailable');const recordId=crypto.randomUUID(),data={name:'Draft email - '+doc.type,projectId:project.id,subject:'Your GioLina '+doc.type,body:'Hello '+doc.clientNames+',\n\nYour '+doc.type.toLowerCase()+' is prepared as a PDF for review.\n\nGioLina Films',status:'Draft',documentKind:kind,documentId:id,documentRevision:row.version,attachmentSnapshot:doc};await db.batch([insert(db,org,'messages',recordId,data),audit(db,user,'document-email-drafted','messages',recordId)]);return json(await get(db,org,'messages',recordId),201);}catch(e){return json({error:e.message},400);}}
  if(/^proposals\/[^/]+\/share$/.test(path))return shareAPI(request,env,user,path.split('/')[1]);
  if(/^proposals\/[^/]+\/selection-preview$/.test(path)){
   try{const {snapshot}=await buildSnapshot(db,path.split('/')[1]);if(request.method==='GET')return json({...selectionTotals(snapshot,defaultSelection(snapshot.items)),version:0});const raw=await request.text();if(raw.length>4096)return json({error:'Selection too large'},413);const input=JSON.parse(raw);return json({...selectionTotals(snapshot,input.selected),version:0});}catch(err){return json({error:err.message},400);}
@@ -101,6 +104,7 @@ export async function api(request,env,user,path){
   const offered=data.catalogSnapshot.filter(s=>s.kind==='packages'&&data.lineItems.some(i=>i.sourceKind==='packages'&&i.sourceId===s.id));for(const item of data.lineItems)if(item.optional&&item.sourceKind==='services'&&!item.allowedPackageIds){const allowed=offered.filter(p=>(p.optionalServiceIds||[]).includes(item.sourceId)).map(p=>p.id);if(allowed.length)item.allowedPackageIds=allowed;}
   if(data.templateId){const template=await get(db,org,'packages',data.templateId);if((template.archived||template.active===false)&&(!current||current.templateId!==data.templateId)) return json({error:'Choose an active template'},400);}
  }
+ if(kind==='messages'&&id){const previous=await get(db,org,'messages',id);if(previous?.attachmentSnapshot){data.attachmentSnapshot=previous.attachmentSnapshot;data.documentKind=previous.documentKind;data.documentId=previous.documentId;data.documentRevision=previous.documentRevision;}}
  if(kind==='invoices'){data.invoiceNumber='GL-DRAFT-'+recordId;data.issueAt||=new Date().toISOString().slice(0,10);}
  try{
   let operations=[];

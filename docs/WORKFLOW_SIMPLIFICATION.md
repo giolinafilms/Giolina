@@ -15,3 +15,9 @@ Three current source-backed template families; historical archive preservation; 
 Current selling templates are curated once from the existing PDF catalogue. The three current masters are Wedding Cinematography, Wedding Photography, and Sweet Sixteen. Sweet Sixteen retains independently selectable photography ($1,650) and film ($1,800) offerings, rather than presenting a new combined package. Appropriate source add-ons require their matching offering. Historical packages are archived without deleting prices or references, and older client proposals receive a frozen catalogue snapshot before archive. Later master edits do not rewrite client copies.
 
 The contextual appointment picker deduplicates historical type names and shows Consultation, Client Meeting, Production Meeting, Other in that order. Project appointments distinguish upcoming appointments from history.
+
+## Draft document sharing
+
+Proposal and Invoice Draft use the same Share actions: Copy client link, Download PDF, Create email with PDF draft, regenerate and revoke. Public links remain bounded, expiring DEMO snapshots on the preview Worker. Real-client invoice links are rejected. Protected PDF downloads include only client-facing document fields; private notes and catalogue controls are excluded. Email drafts store a frozen document snapshot and expose its PDF attachment for download. Nothing is sent.
+
+PDF output embeds the existing public-site Roboto font, includes GioLina branding, client/event identity, source descriptions, service prices and a draft summary. Invoice schedules and manually recorded balances remain planning records. Optional proposal amounts are identified as offered options, without implying acceptance. Production delivery and live payment collection remain inactive.
