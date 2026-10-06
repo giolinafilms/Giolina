@@ -1,5 +1,7 @@
 # Review short recovery and footer follow-up
 
+**Status update October 6:** Deanna & Anthony and Lauren & Tommy authentic short sources are now supplied and verified. Preview web copies use the existing static delivery system: Deanna in Reviews only; Lauren as the fourth anniversary entry. The investigation below is historical, not the current missing-source list. See [supplied-short review](SUPPLIED_SHORTS_REVIEW.md). Christina & Danny and Stephanie & Danny remain unresolved.
+
 ## Complete follow-up investigation
 
 Additional checks: all available branches (`preview/homepage-photography-rotation` and its origin tracking branch), `git log --all`, string-change history (`-S`) for each source, earlier/deleted Reviews JSON and review collection maps, full provider URL extraction from ef9e620 / 91e05a3 / 4855200 / 6567c48 / 78b755a / d2544c8 implementations, unreachable-object inspection (none found), and workspace files outside the repo including uploaded Pasted text(5/6/7).txt, previous publisher scripts, captured copy, build/deployment/redirect records and local media. No archived build, source map, deleted local video or additional source-bearing branch supplied a verified matching short. No production site was accessed for recovery.

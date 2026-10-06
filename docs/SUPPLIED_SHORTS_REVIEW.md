@@ -25,3 +25,9 @@ Player: native short created only after the explicit Play Film tap, controls/inl
 Source status: Deanna and Lauren supplied/verified. Christina & Danny and Stephanie & Danny authentic shorts remain unresolved. Physical iPhone swipe/audio/video and iPad/Safari footer acceptance remain open. No production, DNS, Admin/CRM data, forms, email, scheduler or integrations changed.
 
 Local mapping/player tests, existing public-polish tests, build and SEO/public route checks pass. Hosted verification follows native preview publication.
+
+## Hosted verification
+
+Commits 1dc5f833497b70ae773f077eff2f0c8e7beefe04 (media/placement/player) and a16dcfc6400804534cc2ad49f423629ea14e2765 (native modal fit) both completed successful native preview builds. Hosted 390×844 and 430×932 checks show no horizontal overflow on Reviews or Cinematography. Both supplied films start from one explicit click, readyState 4, unmuted and actively advancing beyond nine seconds. Only one video/iframe exists; Close removes it completely and restores the mobile CTA. Deanna native video width equals its modal screen width. Desktop 1280×800 is overflow-free and hides the mobile CTA. Lauren’s Next film cycles to the unchanged Bianca source with one active player. All four anniversary names/cards are present. Simulated short swipe remains functional without accidental players. Private screenshot evidence is retained outside Git; no screenshots published. Physical-device acceptance remains open.
+
+Preview: https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/client-reviews/#deanna-2022 and https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev/portfolio-2/#gl-love-recaps-title .

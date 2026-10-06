@@ -14,7 +14,7 @@ Validation before publication: two focused public interaction tests, all 50 exis
 
 Preserved: Reviews, Events removal/redirects, Cinematography before Photography, forms, scheduler, video sources/player lifecycle, analytics policy, canonicals, sitemap/robots. No production, DNS, email, HoneyBook, payments, signatures, or real delivery changes.
 
-Still open: physical iPad/Safari footer gap; real-device swipe/audio/Admin/proposal acceptance; Christina & Danny and Stephanie & Danny authentic shorts; approved hosting for Deanna & Anthony and Lauren & Tommy shorts; SmugMug support follow-up.
+Still open: physical iPad/Safari footer gap; real-device swipe/audio/Admin/proposal acceptance; Christina & Danny and Stephanie & Danny authentic shorts; original-resolution master hosting decision (preview web copies of Deanna & Anthony and Lauren & Tommy now use existing static delivery; see SUPPLIED_SHORTS_REVIEW.md); SmugMug support follow-up.
 
 ## Hosted verification
 
