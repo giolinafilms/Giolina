@@ -1,5 +1,5 @@
 // All portfolio films open in the site, with native keyboard/focus handling.
-const filmTriggers = document.querySelectorAll('[data-vimeo-id]');
+const filmTriggers = document.querySelectorAll('[data-vimeo-id], [data-native-film]');
 if (filmTriggers.length) {
  const dialog = document.createElement('dialog');
  dialog.className = 'gl-film-dialog';
@@ -8,10 +8,16 @@ if (filmTriggers.length) {
  document.body.append(dialog);
  const screen = dialog.querySelector('.gl-film-screen');
  const close = dialog.querySelector('.gl-film-close');
+ function stop() {
+  const video = screen.querySelector('video');
+  if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
+  screen.replaceChildren();
+ }
  let opener;
  filmTriggers.forEach(trigger => trigger.addEventListener('click', event => {
   const id = trigger.dataset.vimeoId;
-  if (!/^\d+$/.test(id)) return;
+  const nativeSource = trigger.dataset.nativeFilm;
+  if (nativeSource ? !/^\/assets\/shorts\/[a-z0-9-]+\.mp4$/.test(nativeSource) : !/^\d+$/.test(id)) return;
   event.preventDefault();
   // Only one portfolio player may remain active, including across providers.
   document.querySelectorAll('.gl-film-dialog[open]').forEach(active => {
@@ -29,21 +35,36 @@ if (filmTriggers.length) {
   opener = trigger;
   const title = trigger.dataset.filmTitle || 'GioLina wedding film';
   dialog.querySelector('h2').textContent = title;
-  const frame = document.createElement('iframe');
-  frame.src = `https://player.vimeo.com/video/${id}?autoplay=1&muted=0&playsinline=1&loop=0&autopause=1&dnt=1&title=0&byline=0&portrait=0#t=0s`;
-  frame.title = title; frame.allow = 'autoplay; fullscreen; picture-in-picture';
-  frame.allowFullscreen = true;
-  screen.replaceChildren(frame);
-  dialog.showModal(); document.body.classList.add('gl-film-open'); close.focus();
+  stop();
+  screen.style.aspectRatio = nativeSource ? (trigger.dataset.filmAspect || '16/9') : '16/9';
+  if (nativeSource) {
+   const video = document.createElement('video');
+   video.controls = true; video.playsInline = true; video.preload = 'none';
+   video.muted = false; video.defaultMuted = false; video.volume = 1;
+   video.poster = trigger.closest('.gl-film-preview')?.querySelector('img')?.src || '';
+   video.src = nativeSource;
+   screen.append(video);
+   dialog.showModal();
+   // The explicit tap starts the supplied film with audio; no browsing preload.
+   video.play().catch(() => {});
+  } else {
+   const frame = document.createElement('iframe');
+   frame.src = `https://player.vimeo.com/video/${id}?autoplay=1&muted=0&playsinline=1&loop=0&autopause=1&dnt=1&title=0&byline=0&portrait=0#t=0s`;
+   frame.title = title; frame.allow = 'autoplay; fullscreen; picture-in-picture';
+   frame.allowFullscreen = true;
+   screen.replaceChildren(frame);
+   dialog.showModal();
+  }
+  document.body.classList.add('gl-film-open'); close.focus();
  }));
- const stopAndClose = () => { screen.replaceChildren(); dialog.close(); };
+ const stopAndClose = () => { stop(); dialog.close(); };
  close.addEventListener('click', stopAndClose);
- dialog.addEventListener('cancel', () => screen.replaceChildren());
+ dialog.addEventListener('cancel', stop);
  dialog.addEventListener('click', event => { if(event.target === dialog) stopAndClose(); });
  dialog.addEventListener('close', () => {
   // A queued close event must not unload a newly reopened player.
   if (dialog.open) return;
-  screen.replaceChildren(); // Stop sound/playback immediately, including Escape close.
+  stop(); // Stop sound/playback immediately, including Escape close.
   if (!document.querySelector('.gl-film-dialog[open]')) {
    document.body.classList.remove('gl-film-open'); opener?.focus();
   }

@@ -58,6 +58,13 @@
         "status": "supplied",
         "type": "static",
         "src": "/assets/deanna-anthony.png"
+      },
+      "media": {
+        "type": "native",
+        "src": "/assets/shorts/deanna-anthony-review.mp4",
+        "status": "supplied-verified",
+        "sourceFile": "deanaAnthony_instaCut_v03_published(1).mp4",
+        "placement": "Reviews only"
       }
     },
     {

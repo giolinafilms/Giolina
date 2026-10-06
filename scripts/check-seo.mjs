@@ -42,7 +42,7 @@ const videoSitemap=readFileSync('dist/video-sitemap.xml','utf8');
 assert(videoSitemap.includes('xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"'));
 const decodeXml=value=>value.replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&apos;',"'");
 let videoCount=0;
-for(const [path,count] of [['/portfolio-2/',27],['/sweet-sixteen/',5],['/ready-to-go-productions/',17],['/events/private-celebrations/',3],['/events/corporate/',4],['/events/live-events/',3],['/events/specialty/',3],['/events/photo-film/',3]]){
+for(const [path,count] of [['/portfolio-2/',28],['/sweet-sixteen/',5],['/ready-to-go-productions/',17],['/events/private-celebrations/',3],['/events/corporate/',4],['/events/live-events/',3],['/events/specialty/',3],['/events/photo-film/',3]]){
  const html=readFileSync('dist'+path+'index.html','utf8');
  const schemas=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match=>JSON.parse(match[1]));
  const catalogs=schemas.filter(schema=>schema['@type']==='ItemList');assert.equal(catalogs.length,1);
@@ -64,7 +64,7 @@ for(const [path,count] of [['/portfolio-2/',27],['/sweet-sixteen/',5],['/ready-t
   }
  });
 }
-assert.equal(videoCount,65);
+assert.equal(videoCount,66);
 const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
 assert.deepEqual(urls,mainPagePaths.map(p=>canonicalOrigin+p));
 assert.equal(new Set(urls).size,urls.length);

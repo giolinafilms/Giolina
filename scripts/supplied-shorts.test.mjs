@@ -1,0 +1,36 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,statSync} from 'node:fs';
+import {JSDOM} from 'jsdom';
+const page=name=>JSON.parse(readFileSync(`src/content/pages/${name}.json`)).content;
+test('supplied films have exclusive requested placement and preserve the three anniversary entries',()=>{
+ const cinema=new JSDOM(page('portfolio-2')).window.document;
+ const films=JSON.parse(cinema.querySelector('#gl-short-data').textContent);
+ const cards=[...cinema.querySelectorAll('.gl-love-recap-card')];
+ assert.deepEqual(cards.map(c=>c.querySelector('h4').textContent),['Bianca & Bobby','Sara & Phil','Nicole & Philip','Lauren & Tommy']);
+ assert.equal(films.length,12);
+ assert(!films.some(f=>f.title==='Deanna & Anthony'));
+ for(const card of cards) assert.equal(films[Number(card.querySelector('button').dataset.shortFilm)].title,card.querySelector('h4').textContent);
+ assert.equal(films[11].src,'/assets/shorts/lauren-tommy-recap.mp4');
+ const review=new JSDOM(page('client-reviews')).window.document.querySelector('#deanna-2022');
+ assert.equal(review.querySelector('button').dataset.nativeFilm,'/assets/shorts/deanna-anthony-review.mp4');
+ assert.equal(review.querySelector('[data-vimeo-id]'),null);
+ for(const name of ['deanna-anthony-review','lauren-tommy-recap']) assert(statSync(`public/assets/shorts/${name}.mp4`).size<25*1024*1024);
+});
+test('Reviews native film loads only on tap with audio, replaces another player and fully unloads on close',async()=>{
+ const dom=new JSDOM(page('client-reviews'),{runScripts:'outside-only',url:'https://preview.example'}),w=dom.window,d=w.document;
+ w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
+ w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
+ let plays=0,pauses=0,loads=0;
+ w.HTMLMediaElement.prototype.play=function(){plays++;return Promise.resolve();};
+ w.HTMLMediaElement.prototype.pause=function(){pauses++;};
+ w.HTMLMediaElement.prototype.load=function(){loads++;};
+ w.eval(readFileSync('public/film-player.js','utf8'));
+ assert.equal(d.querySelectorAll('video,iframe').length,0);
+ const other=d.createElement('dialog');other.className='gl-film-dialog';other.innerHTML='<div class="gl-short-screen"><video src="/old.mp4"></video></div>';other.open=true;d.body.append(other);
+ d.querySelector('#deanna-2022 button').click();
+ const video=d.querySelector('video');assert(video);assert.equal(d.querySelectorAll('video,iframe').length,1);assert.equal(other.open,false);
+ assert.equal(video.getAttribute('src'),'/assets/shorts/deanna-anthony-review.mp4');assert.equal(video.muted,false);assert.equal(video.volume,1);assert.equal(video.preload,'none');assert.equal(plays,1);
+ d.querySelector('.gl-film-dialog[open] .gl-film-close').click();
+ assert.equal(video.getAttribute('src'),null);assert.equal(d.querySelectorAll('video,iframe').length,0);assert(pauses>=2&&loads>=2);assert(!d.body.classList.contains('gl-film-open'));
+});
