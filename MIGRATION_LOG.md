@@ -951,3 +951,9 @@ Clean local `8de745b` fast-forwarded to verified remote `4926865`; no reset/rese
 ### 2026-10-06 — Public font inventory checkpoint
 
 Homepage recovery published as `5e8383c` and verified on hosted homepage; build, 50 Admin tests and five public tests passed. Full declaration audit now covers 35 public source pages, 1,930 matched typography rules, source selectors/media conditions and font registrations. `/qa/font-inventory/` adds read-only browser-computed measurements at five viewport sizes, downloadable per-element results, and explicit web-font versus system-fallback limitations. `docs/FONT_INVENTORY.md` identifies named treatments, logo artwork distinction and a proposed three-family system for Frank's approval. No typography normalization. Hosted audit verification follows deployment.
+
+### 2026-10-06 — GioLina Client System / CRM: project documents and editable draft foundation
+
+Preserved remote `42356d2` and all prior Phase 1/2 work. Added Project Documents/Create, prominent Contracts navigation, contextual email composer with recipient/template/signature/PDF snapshot, versioned business settings, reusable DEMO contract templates/merge fields/inactive signature architecture, percentage/fixed invoice discounts, percentage/no-tax calculation, exact completed schedule validation, concise client invoices and advanced Reset Client Link. Scheduling carries project/client plus duration/location/call/reminder preferences; delivery stays inactive. No hosted seed or real sending/signing/payment action. See `docs/ADMIN_FOUNDATION_CONTINUATION.md`.
+
+58 Admin tests, build, public/SEO route checks and five homepage/playback tests pass. Hosted font audit completed 23 routes at desktop and phone; corrected Allura source attribution and recorded unloaded legacy-font fallbacks. Hosted Admin sign-in is required in this browser; signed-in live review is pending, not claimed. Preview deployment verification follows publication.

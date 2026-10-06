@@ -14,7 +14,7 @@ Regenerate declarations after a build: `node scripts/font-inventory.mjs`.
 
 | Treatment | Family / selector | Source / behavior |
 |---|---|---|
-| Love in a Minute | Allura 400 normal; `.gl-cinema-step-one .gl-love-intro h2`, inherited by `em` | `love-minute.css`; fluid size and several later phone overrides; `migration.css` supplies local Allura plus older external registration |
+| Love in a Minute | Allura 400 normal; `.gl-cinema-step-one .gl-love-intro h2`, inherited by `em` | `love-minute.css`; fluid size and several later phone overrides; `migration.css` registers Allura from fonts.gstatic.com (external Google Fonts); cursive fallback if unavailable |
 | Client Wedding Films | Allura 400 normal; `#gl-client-films-title` | `brand-refinement.css`; clamp(48px,5.5vw,70px), 46px phone override, line-height 1.15, spacing 0 |
 | Beautiful moments honestly captured | Allura 400 normal; `.gl-photo-page .gl-photo-intro h1` | `brand-refinement.css`; clamp(52px,5.4vw,72px); phone clamp(44px,10vw,56px), line-height 1.08, spacing 0 |
 | GioLina logo | Original image/SVG artwork, not browser text | Authentic supplied mark; no identified matching font file. Do not replace with Allura or label Allura the logo font. |
@@ -36,3 +36,21 @@ Allura is the closest existing *text-script candidate* for a future system, but 
 ## Recommendation — approval required, not implemented
 
 Use approximately three editorial families: Tenor Sans for modern display headings if Frank approves the single-section test; Arial/system sans for body, navigation and controls; Allura only for a few intentional script accents if Frank approves that distinction from the logo. Alternatively retain Georgia instead of Tenor Sans for a more traditional direction. Keep icons separate. Consolidate sizes/spacing into shared tokens and retire unused legacy font declarations only after visual approval. Do not propagate Tenor Sans or invent another script now.
+
+## Hosted computed verification — 2026-10-06
+
+The hosted audit completed all 23 non-redirect public routes at **1440 × 900** and **390 × 844**. It records computed stacks separately from FontFace loading status; a CSS stack alone is not proof that its first family rendered. The live report supplies every text element’s weight, style, size, line-height, letter-spacing, matching selector/source and font-face status. Download its measured JSON for a full viewport-specific record. External scheduler/media content is outside the public page font cascade.
+
+| Treatment | Desktop 1440px | Phone 390px | Loaded face |
+|---|---|---|---|
+| Love in a Minute | 114px / 111.72px | 50.7px / 54.756px | Allura 400 normal |
+| Client Wedding Films | 70px / 80.5px | 46px / 52.9px | Allura 400 normal |
+| Beautiful moments. Honestly captured. | 72px / 77.76px | 44px / 47.52px | Allura 400 normal |
+| Room to enjoy being | 76.32px / 88.531px | 46px / 53.36px | Tenor Sans 400 normal |
+| together. | 87.768px / 101.811px | 52.9px / 61.364px | Allura 400 normal |
+
+The three named script headlines use **the same Allura family**, with different sizes and line heights. Tenor Sans is loaded only for the approved experiment. The GioLina logo is artwork, not a font registration; Allura is the closest existing text treatment, not a verified exact match.
+
+**Font drift confirmed:** Arial/Georgia on recovered homepage sections; Poppins on inherited navigation/footer/button rules; Allura script; Tenor Sans experiment; Montserrat declared on Experience without a loaded Montserrat face in this browser (Arial/sans-serif fallback); legacy AvenirNextLTPro, Muster and Muli declarations without those loaded faces; Questrial actually loaded on legacy service pages. Font Awesome faces are icons, not editorial families. Browser/system font availability can affect fallbacks.
+
+Future approval proposal: Tenor Sans for display headings, one consistent sans-serif for body/navigation/buttons (retain Poppins or choose Arial), and existing Allura for sparse script accents. That is three editorial families. Keep the authentic logo artwork. Do not normalize until Frank reviews.
