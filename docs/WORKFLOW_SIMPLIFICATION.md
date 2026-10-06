@@ -21,3 +21,17 @@ The contextual appointment picker deduplicates historical type names and shows C
 Proposal and Invoice Draft use the same Share actions: Copy client link, Download PDF, Create email with PDF draft, regenerate and revoke. Public links remain bounded, expiring DEMO snapshots on the preview Worker. Real-client invoice links are rejected. Protected PDF downloads include only client-facing document fields; private notes and catalogue controls are excluded. Email drafts store a frozen document snapshot and expose its PDF attachment for download. Nothing is sent.
 
 PDF output embeds the existing public-site Roboto font, includes GioLina branding, client/event identity, source descriptions, service prices and a draft summary. Invoice schedules and manually recorded balances remain planning records. Optional proposal amounts are identified as offered options, without implying acceptance. Production delivery and live payment collection remain inactive.
+
+## DEMO project portal
+
+Portal access is controlled from Contact or Project with Not Invited, Invited, Active, Disabled states. Enable/resend/re-enable records a DEMO invitation only; activation is an explicit simulation. No email is sent and no client password exists. Activation publishes frozen client-facing document snapshots. Refresh through a new DEMO invitation/activation when new document revisions are ready.
+
+The portal starts with event identity/date/venue and one next action. Useful sections only: Overview, Documents, Schedule, Payments and explicitly shared Files. The proposal is a document within the event portal. No private notes, draft communications, internal activity, service catalogue or settings are exposed. Meeting notes remain private. Files require an explicit client-visible flag and an approved client URL; storage keys remain private.
+
+Every portal/document/PDF/selection request revalidates a current DEMO Project, matching DEMO Contact, @example.test email identity and unexpired active access. Resend/re-enable rotates access; disable immediately revokes the old portal and its documents/PDFs. Changing identity invalidates old access. Production stage and non-DEMO contacts fail closed. Selections use snapshot prices, bounded input and optimistic transaction guards. No acceptance, signatures or payments are created.
+
+Future production account flow needs an approved managed identity provider for verified email, client-created password, reset, sessions and revocation. Admin controls access and never displays passwords. Existing Admin Cloudflare Access remains unchanged. Separate standalone DEMO Share links have their own Share/revoke controls; portal revocation applies to portal URLs.
+
+The future website inquiry path remains Formspree -> authenticated, verified intake -> idempotent Lead/Contact transaction -> manual review/Project. Production intake is not activated. The public scheduler, HoneyBook, email and existing forms remain operational.
+
+Open website backlog: mobile Call/Inquire bar; physical iPad/Safari footer gap; physical-device proposal/Admin/audio/swipe acceptance; Christina & Danny and Stephanie & Danny authentic shorts; approved hosting for verified Deanna & Anthony and Lauren & Tommy shorts; SmugMug support follow-up.

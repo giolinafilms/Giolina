@@ -1,3 +1,4 @@
+import {publicPortal} from './admin/client-portal.mjs';
 import {publicDocument} from './admin/documents.mjs';
 import {publicProposal} from './admin/proposal-share.mjs';
 import {handlePrivate} from './admin/router.mjs';
@@ -5,6 +6,7 @@ import redirects from './src/config/redirects.mjs';
 
 export default {
  async fetch(request, env) {
+  const portalResponse=await publicPortal(request,env);if(portalResponse)return portalResponse;
   const documentResponse=await publicDocument(request,env);if(documentResponse)return documentResponse;
   const proposalResponse=await publicProposal(request,env);if(proposalResponse)return proposalResponse;
   const privateResponse=await handlePrivate(request,env);

@@ -1,3 +1,4 @@
+import {portalAccess} from './client-portal.mjs';
 import {invoiceShare,invoiceDocument} from './documents.mjs';
 import {catalogSeed as baselineServices} from './catalog.mjs';
 import {initializeBaselines,curateCurrentTemplates,templateLines,currentTemplateIds} from './active-packages.mjs';
@@ -34,6 +35,7 @@ export async function api(request,env,user,path){
   if(request.headers.get('Origin')!==new URL(request.url).origin||request.headers.get('X-GioLina-Request')!=='admin'||!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'Invalid request origin or content type'},403);
   if(Number(request.headers.get('Content-Length')||0)>65536)return json({error:'Request too large'},413);
  }
+ if(/^projects\/[^/]+\/portal-access$/.test(path))return portalAccess(request,env,user,path.split('/')[1]);
  if(/^invoices\/[^/]+\/share$/.test(path))return invoiceShare(request,env,user,path.split('/')[1]);
  if(/^documents\/(proposals|invoices)\/[^/]+\/email-draft$/.test(path)&&request.method==='POST'){try{const [,kind,id]=path.split('/'),doc=kind==='proposals'?{...(await buildSnapshot(db,id)).snapshot,type:'Proposal'}:await invoiceDocument(db,id),row=await get(db,org,kind,id);if(!row?.projectId)throw new Error('Associate this document with a Project before drafting email');const project=await get(db,org,'projects',row.projectId);if(!project||project.archived)throw new Error('Project unavailable');const recordId=crypto.randomUUID(),data={name:'Draft email - '+doc.type,projectId:project.id,subject:'Your GioLina '+doc.type,body:'Hello '+doc.clientNames+',\n\nYour '+doc.type.toLowerCase()+' is prepared as a PDF for review.\n\nGioLina Films',status:'Draft',documentKind:kind,documentId:id,documentRevision:row.version,attachmentSnapshot:doc};await db.batch([insert(db,org,'messages',recordId,data),audit(db,user,'document-email-drafted','messages',recordId)]);return json(await get(db,org,'messages',recordId),201);}catch(e){return json({error:e.message},400);}}
  if(/^proposals\/[^/]+\/share$/.test(path))return shareAPI(request,env,user,path.split('/')[1]);
