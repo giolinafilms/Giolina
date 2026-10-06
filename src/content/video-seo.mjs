@@ -1,6 +1,6 @@
 import {canonicalOrigin} from '../config/site.mjs';
 
-const videoPages = new Set(['/portfolio-2/', '/sweet-sixteen/', '/ready-to-go-productions/', '/events/private-celebrations/', '/events/corporate/', '/events/live-events/', '/events/specialty/', '/events/photo-film/']);
+const videoPages = new Set(['/portfolio-2/', '/sweet-sixteen/', '/ready-to-go-productions/']);
 const decode = value => value.replace(/&(?:amp|quot|apos|lt|gt|#39);/g, entity => ({'&amp;':'&','&quot;':'"','&apos;':"'",'&#39;':"'",'&lt;':'<','&gt;':'>'}[entity]));
 const attributes = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], decode(match[2])]));
 const absolute = value => new URL(value, canonicalOrigin).href;
