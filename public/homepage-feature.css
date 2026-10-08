@@ -19,3 +19,16 @@
  .gl-redesign .gl-feature .gl-text-link{margin-top:16px}
  .gl-redesign .gl-home-stories{padding-top:32px;padding-bottom:32px}
 }
+
+/* Requested homepage cleanup: natural landscape image and tighter section rhythm. */
+.gl-redesign .gl-section.gl-experience{padding-top:48px;padding-bottom:48px;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:40px}
+.gl-redesign .gl-experience figure{width:100%;max-width:none;margin:0}
+.gl-redesign .gl-experience figure img{display:block;width:100%;height:auto;object-fit:contain}
+.gl-redesign .gl-about-inner{padding-top:44px;padding-bottom:44px}
+.gl-redesign .gl-closing{padding-top:48px;padding-bottom:48px}
+@media(max-width:900px){.gl-redesign .gl-section.gl-experience{gap:28px}}
+@media(max-width:700px){
+ .gl-redesign .gl-section.gl-experience{grid-template-columns:minmax(0,1fr);padding-top:24px;padding-bottom:24px;gap:22px}
+ .gl-redesign .gl-experience figure{width:100%;max-width:none}
+ .gl-redesign .gl-about-inner,.gl-redesign .gl-closing{padding-top:24px;padding-bottom:24px}
+}
