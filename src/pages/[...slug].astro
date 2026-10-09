@@ -1,5 +1,6 @@
 ---
 import pages from '../content/pages.mjs';
+import WeddingCollection from '../components/WeddingCollection.astro';
 import EventsNav from '../components/EventsNav.astro';
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -46,7 +47,9 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {isEvents && <EventsNav path={page.path} />}
 <main id="content" tabindex="-1">
 {!isEvents && page.breadcrumbs?.length && <SiteBreadcrumb items={page.breadcrumbs} tone={page.path === "/sweet-sixteen/" ? "blush" : "wedding"} />}
-<Fragment set:html={page.content} /></main>
+<Fragment set:html={page.content} />
+{page.path === "/photography/wedding-collection/" && <WeddingCollection />}
+</main>
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 {!isRtg && !isEvents && <nav class="gl-mobile-cta" aria-label="Quick contact">
  <a href="tel:8663060308">Call</a>

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Bride + Groom",
+    "slug": "bride-groom",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Bride-Groom",
+    "count": 188,
+    "fingerprint": "a0817faa3e5dc487dbe8659acc84a3601edee3bf2441cb5d1ebb9b483bf3f224"
+  },
+  {
+    "name": "Brides",
+    "slug": "brides",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Brides",
+    "count": 130,
+    "fingerprint": "55cfac94fe63f194b7009b2c8b297f9beccf03ad7f0673e46d0997af1db726ae"
+  },
+  {
+    "name": "Grooms",
+    "slug": "grooms",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Grooms",
+    "count": 45,
+    "fingerprint": "c1735d7f54c348ebc3437a5c66294f719280ef3257fd125fd4821a02be1b079a"
+  },
+  {
+    "name": "Ceremony",
+    "slug": "ceremony",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Ceremony",
+    "count": 50,
+    "fingerprint": "a46e14e7317a293169617f09e50e1b57eaf1f300de04296793938271834a45d7"
+  },
+  {
+    "name": "Bridal Party + Family",
+    "slug": "bridal-party-family",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Groups",
+    "count": 44,
+    "fingerprint": "d94cfd98d0e3114cc9b6a3f5ef6882a8f635969793d41552f62b7c6ed6b3536d"
+  },
+  {
+    "name": "Receptions",
+    "slug": "receptions",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Receptions",
+    "count": 42,
+    "fingerprint": "1aec30b4d1b8b5a0c1e273ca7a017abb9a8e4573507518ffc278370d11292749"
+  },
+  {
+    "name": "Details",
+    "slug": "details",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Details",
+    "count": 125,
+    "fingerprint": "8fc4813c1a8c3162b316ca1e72b2af0b2c9f0daaf0ab04b4bc2aca962f670ded"
+  },
+  {
+    "name": "Engagements",
+    "slug": "engagements",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Engagements",
+    "count": 37,
+    "fingerprint": "e40b74c67417042b65c7e2d0c09aaed53e133f40e7a8bf6e6ef2748924f95eaf"
+  },
+  {
+    "name": "Kids",
+    "slug": "kids",
+    "source": "https://clients.giolinafilms.com/Media/Wedding-Photography/Kids",
+    "count": 27,
+    "fingerprint": "96f1a7fd49ce3a0b0605795d13d3c7471b7f079ac329498179e43afcbbb5adfb"
+  }
+]

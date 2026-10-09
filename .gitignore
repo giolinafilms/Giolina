@@ -7,3 +7,7 @@ dist/
 # Fonts awaiting redistribution license verification
 /public/assets/6b56bcd88e9cc2da.ttf
 /public/assets/9a826666336fe084.ttf
+
+# Generated public display catalogue; private provenance stays outside Git.
+/public/wedding-collection-data.json
+/src/generated/

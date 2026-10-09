@@ -1,0 +1,156 @@
+[
+  {
+    "id": "recent-a9e31fccc2c1",
+    "category": "bridal-party-family",
+    "src": "/assets/kim-family-embrace-small.webp",
+    "large": "/assets/kim-family-embrace.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 854,
+    "alt": "Kim sharing a kiss and embrace with her mother"
+  },
+  {
+    "id": "recent-197889c598aa",
+    "category": "ceremony",
+    "src": "/assets/kim-steven-recessional-small.webp",
+    "large": "/assets/kim-steven-recessional.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 854,
+    "alt": "Kim and Steven celebrating their ceremony with family and friends"
+  },
+  {
+    "id": "recent-21ecefdc3e3d",
+    "category": "bride-groom",
+    "src": "/assets/kim-steven-window-portrait-small.webp",
+    "large": "/assets/kim-steven-window-portrait.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 854,
+    "alt": "Kim and Steven sharing a quiet moment beside a window"
+  },
+  {
+    "id": "recent-e539724480b2",
+    "category": "details",
+    "src": "/assets/kim-wedding-bouquet-small.webp",
+    "large": "/assets/kim-wedding-bouquet.webp",
+    "width": 427,
+    "height": 640,
+    "largeWidth": 854,
+    "largeHeight": 1280,
+    "alt": "An autumn wedding bouquet beside a sunlit window"
+  },
+  {
+    "id": "recent-9cb42493a83d",
+    "category": "brides",
+    "src": "/assets/kim-window-portrait-small.webp",
+    "large": "/assets/kim-window-portrait.webp",
+    "width": 427,
+    "height": 640,
+    "largeWidth": 854,
+    "largeHeight": 1280,
+    "alt": "Kim in her wedding dress beside a sunlit window"
+  },
+  {
+    "id": "recent-9068a7ccc832",
+    "category": "grooms",
+    "src": "/assets/steven-window-portrait-small.webp",
+    "large": "/assets/steven-window-portrait.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 854,
+    "alt": "Steven looking out from a bright window before the ceremony"
+  },
+  {
+    "id": "recent-c658ea52ea29",
+    "category": "brides",
+    "src": "/assets/nicole-phil-bridal-portrait-small.webp",
+    "large": "/assets/nicole-phil-bridal-portrait.webp",
+    "width": 320,
+    "height": 480,
+    "largeWidth": 640,
+    "largeHeight": 960,
+    "alt": "Nicole holding her bouquet in a doorway"
+  },
+  {
+    "id": "recent-329a0255e0f3",
+    "category": "brides",
+    "src": "/assets/nicole-phil-earring-detail-small.webp",
+    "large": "/assets/nicole-phil-earring-detail.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 853,
+    "alt": "Nicole adjusting her earring before the ceremony"
+  },
+  {
+    "id": "recent-ff83658c011f",
+    "category": "bridal-party-family",
+    "src": "/assets/nicole-phil-family-moment-small.webp",
+    "large": "/assets/nicole-phil-family-moment.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1280,
+    "largeHeight": 853,
+    "alt": "A tender family moment with Nicole before the ceremony"
+  },
+  {
+    "id": "recent-755bf47de7c8",
+    "category": "bride-groom",
+    "src": "/assets/stephanie-danny-venetian-staircase-small.webp",
+    "large": "/assets/stephanie-danny-venetian-staircase.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1024,
+    "largeHeight": 683,
+    "alt": "Stephanie and Danny sharing a kiss on the Venetian staircase beneath a chandelier"
+  },
+  {
+    "id": "recent-287b34742bed",
+    "category": "bride-groom",
+    "src": "/assets/stephanie-danny-evening-portrait-small.webp",
+    "large": "/assets/stephanie-danny-evening-portrait.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1024,
+    "largeHeight": 683,
+    "alt": "Stephanie and Danny together on an evening terrace"
+  },
+  {
+    "id": "recent-c75ffce21c16",
+    "category": "receptions",
+    "src": "/assets/stephanie-danny-first-dance-small.webp",
+    "large": "/assets/stephanie-danny-first-dance.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1024,
+    "largeHeight": 683,
+    "alt": "Stephanie and Danny sharing their first dance"
+  },
+  {
+    "id": "recent-36307f914428",
+    "category": "receptions",
+    "src": "/assets/stephanie-danny-entrance-small.webp",
+    "large": "/assets/stephanie-danny-entrance.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1024,
+    "largeHeight": 683,
+    "alt": "Stephanie and Danny celebrating their entrance beneath ballroom chandeliers"
+  },
+  {
+    "id": "recent-e679b5fec505",
+    "category": "receptions",
+    "src": "/assets/stephanie-danny-dance-floor-small.webp",
+    "large": "/assets/stephanie-danny-dance-floor.webp",
+    "width": 640,
+    "height": 427,
+    "largeWidth": 1024,
+    "largeHeight": 683,
+    "alt": "Stephanie and Danny laughing together on the dance floor"
+  }
+]

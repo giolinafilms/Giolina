@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
-    "build": "astro build",
+    "build": "node scripts/build-wedding-collection.mjs && astro build",
     "preview": "astro preview --host 0.0.0.0",
     "check": "node scripts/check.mjs && node scripts/check-seo.mjs",
     "media:sanitize": "node scripts/sanitize-media.mjs",
-    "check:admin": "node admin/scripts/build-assets.mjs --check && node --check admin/client.js && node --test admin/tests/*.test.mjs"
+    "check:admin": "node admin/scripts/build-assets.mjs --check && node --check admin/client.js && node --test admin/tests/*.test.mjs",
+    "predev": "node scripts/build-wedding-collection.mjs"
   },
   "dependencies": {
     "@pdf-lib/fontkit": "1.1.1",

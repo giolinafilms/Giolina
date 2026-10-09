@@ -1,0 +1,25 @@
+---
+import categories from '../generated/wedding-collection.json';
+---
+<div class="wc" data-wc>
+ <script type="application/json" data-wc-data set:html={JSON.stringify(categories).replaceAll('<','\\u003c')}></script>
+ <nav class="wc-categories" data-wc-overview aria-label="Wedding photography categories">
+  {categories.map(category=> <a class="wc-card" href={`#category=${category.slug}`}>
+   <div class="wc-cover"><img src={category.photos[0].src} width={category.photos[0].width} height={category.photos[0].height} alt={category.name} loading="lazy" decoding="async" /></div>
+   <h2>{category.name}</h2><p>{category.photos.length} photographs</p>
+  </a>)}
+ </nav>
+ <section class="wc-category" data-wc-category hidden aria-labelledby="wc-title">
+  <a class="wc-return" data-wc-return href="#">← All categories</a>
+  <h2 id="wc-title" data-wc-title tabindex="-1"></h2><p data-wc-count></p>
+  <div class="wc-grid" data-wc-grid></div>
+ </section>
+ <dialog class="wc-viewer" data-wc-viewer aria-label="Wedding Collection photo viewer">
+  <header><span data-wc-position aria-live="polite"></span><button type="button" data-wc-close aria-label="Close photograph">Close</button></header>
+  <div class="wc-image-stage"><img data-wc-image alt="" /><p data-wc-error hidden role="status">This photograph could not load. Please try another photo or reopen it.</p></div>
+  <nav aria-label="Photograph navigation"><button type="button" data-wc-prev aria-label="Previous photograph">Previous</button><button type="button" data-wc-next aria-label="Next photograph">Next</button></nav>
+ </dialog>
+ <noscript><p>Please enable JavaScript to browse the collection, or <a href="https://clients.giolinafilms.com/Media/Wedding-Photography">view our original portfolio</a>.</p></noscript>
+</div>
+<section class="gl-photo-close wc-closing"><h2>Let's Capture Your Story</h2><a href="/contact-us-2/">Inquire</a></section>
+<script src="/wedding-collection.js" defer is:inline></script>

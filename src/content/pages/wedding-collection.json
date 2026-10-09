@@ -1,0 +1,14 @@
+{
+  "path": "/photography/wedding-collection/",
+  "title": "The Wedding Collection | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Explore GioLina Films wedding photography: portraits, ceremonies, family, celebrations and the details that make every story unique.\">",
+    "<meta property=\"og:title\" content=\"The Wedding Collection | GioLina Films\">",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/photography/wedding-collection/\">"
+  ],
+  "css": [
+    "/wedding-collection.css"
+  ],
+  "bodyClass": "wc-page",
+  "content": "<header class=\"wc-intro\"><h1>THE WEDDING COLLECTION</h1><p>A closer look at the moments, details and celebrations we love to capture.</p><a href=\"/portfolio/\">\u2190 Back to Photography</a></header>"
+}
