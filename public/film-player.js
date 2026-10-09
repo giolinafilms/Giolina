@@ -33,7 +33,7 @@ if (filmTriggers.length) {
    }
   });
   opener = trigger;
-  const title = trigger.dataset.filmTitle || 'GioLina wedding film';
+  const title = (trigger.dataset.filmTitle || 'GioLina wedding film').replace(/\s*[—–]\s*/g, ', ').replace(/(?<=\w)-(?=\w)/g, ' ');
   dialog.querySelector('h2').textContent = title;
   stop();
   screen.style.aspectRatio = nativeSource ? (trigger.dataset.filmAspect || '16/9') : '16/9';

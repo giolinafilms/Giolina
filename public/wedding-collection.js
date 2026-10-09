@@ -21,7 +21,7 @@
   if(!next){category=null;grid.replaceChildren();section.hidden=true;overview.hidden=false;if(viewer.open)viewer.close();return;}
   overview.hidden=true;section.hidden=false;
   if(category!==next){
-   category=next;title.textContent=category.name;root.querySelector('[data-wc-count]').textContent=`${category.photos.length} photographs`;grid.replaceChildren();
+   category=next;title.textContent=category.name;const current=root.querySelector('[data-wc-current]');if(current)current.textContent=category.name;grid.replaceChildren();
    const fragment=document.createDocumentFragment();
    for(const p of category.photos){
     const a=document.createElement('a');a.href=route(p.id);a.setAttribute('aria-label','Enlarge '+p.alt);a.dataset.photo=p.id;
@@ -42,5 +42,6 @@
  image.addEventListener('error',()=>{error.hidden=false;});image.addEventListener('load',()=>{error.hidden=true;});
  image.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')swipe={x:e.clientX,y:e.clientY,id:e.pointerId};});
  image.addEventListener('pointerup',e=>{if(!swipe||swipe.id!==e.pointerId)return;const dx=e.clientX-swipe.x,dy=e.clientY-swipe.y;swipe=null;if(Math.abs(dx)>50&&Math.abs(dy)<70)move(dx<0?1:-1);});image.addEventListener('pointercancel',()=>swipe=null);
+ for(const button of root.querySelectorAll('[data-wc-top]'))button.addEventListener('click',()=>{section.scrollIntoView?.({block:'start'});title.focus({preventScroll:true});});
  window.addEventListener('hashchange',render);render();
 })();

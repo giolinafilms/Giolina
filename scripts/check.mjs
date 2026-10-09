@@ -10,11 +10,11 @@ for(const page of pages){
  assert(html.includes('noindex, nofollow'),`preview indexing ${page.path}`);
  assert(!/wp-admin|elementor(?:-pro)?\/assets\/js|jquery\.min\.js|admin-ajax\.php/.test(html),`WP runtime ${page.path}`);
  assert(html.includes('rel="canonical"'),`canonical ${page.path}`);
- for(const match of html.matchAll(/(?:src|href|data-thumbnail)="(\/(?:assets|sweet-media)\/[^"#?]+)/g)){
+ for(const match of html.matchAll(/(?:src|href|data-src|data-thumbnail)="(\/(?:assets|sweet-media|portfolio-media)\/[^"#?]+)/g)){
   assert(existsSync('dist'+match[1]),`missing asset ${match[1]}`);assets++;
  }
  for(const match of html.matchAll(/href="(\/[^"#?]*\/?)"/g)){
-  const u=match[1];if(u.startsWith('/assets/')||u.startsWith('/sweet-media/')||u.endsWith('.css'))continue;
+  const u=match[1];if(u.startsWith('/assets/')||u.startsWith('/sweet-media/')||u.startsWith('/portfolio-media/')||u.endsWith('.css'))continue;
   if(!pages.some(p=>p.path===u))missingLinks.push({page:page.path,target:u});
  }
 }

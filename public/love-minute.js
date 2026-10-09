@@ -31,7 +31,7 @@ if (browser) {
   poster.width = film.width; poster.height = film.height;
   stage.style.setProperty('--gl-short-aspect', `${film.width} / ${film.height}`);
   count.textContent = `${index + 1} / ${openingCount}`;
-  stage.setAttribute('aria-label', `Play Film — ${film.title}`);
+  stage.setAttribute('aria-label', `Play Film, ${film.title}`);
   picker.value = String(index);
   if (dialog.open) play();
  }

@@ -32,7 +32,7 @@ for(const source of sources){
   while(url){if(visited.has(url)||visited.size>10)throw Error('Invalid feed pagination');visited.add(url);const page=parseFeed(await text(url));photos.push(...page.photos);url=page.next;}
  }
  // Verify the recovered source first, then apply explicit owner withdrawals.
- photos=verifySelection(photos,source.count,source.fingerprint).map((p,i)=>({...p,alt:`${source.name} — wedding portfolio photograph ${i+1}`}));
+ photos=verifySelection(photos,source.count,source.fingerprint).map((p,i)=>({...p,alt:`${source.name}, wedding portfolio photograph ${i+1}`}));
  const added=additions.filter(p=>p.category===source.slug).map(({category,srcHash,largeHash,...p})=>p);
  categories.push({slug:source.slug,name:source.name,originalCount:photos.length,addedCount:added.length,photos:[...photos,...added]});
  console.log(`${source.name}: ${photos.length} original + ${added.length} additions`);

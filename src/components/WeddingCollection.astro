@@ -1,18 +1,21 @@
 ---
 import categories from '../generated/wedding-collection.json';
+import covers from '../content/wedding-collection-covers.json';
+const coverFor = category => category.photos.find(photo => photo.id === covers[category.slug]) ?? category.photos[0];
 ---
 <div class="wc" data-wc>
  <script type="application/json" data-wc-data set:html={JSON.stringify(categories).replaceAll('<','\\u003c')}></script>
  <nav class="wc-categories" data-wc-overview aria-label="Wedding photography categories">
   {categories.map(category=> <a class="wc-card" href={`#category=${category.slug}`}>
-   <div class="wc-cover"><img src={category.photos[0].src} width={category.photos[0].width} height={category.photos[0].height} alt={category.name} loading="lazy" decoding="async" /></div>
-   <h2>{category.name}</h2><p>{category.photos.length} photographs</p>
+   <div class="wc-cover"><img src={coverFor(category).src} width={coverFor(category).width} height={coverFor(category).height} alt={category.name} loading="lazy" decoding="async" /></div>
+   <h2>{category.name}</h2>
   </a>)}
  </nav>
  <section class="wc-category" data-wc-category hidden aria-labelledby="wc-title">
-  <a class="wc-return" data-wc-return href="#">← All categories</a>
-  <h2 id="wc-title" data-wc-title tabindex="-1"></h2><p data-wc-count></p>
+  <nav class="wc-category-navigation" aria-label="Collection breadcrumb"><a class="wc-return" data-wc-return href="#">All Categories</a><span aria-hidden="true">/</span><span data-wc-current aria-current="page"></span><button class="wc-top" type="button" data-wc-top>Back to Top</button></nav>
+  <h2 id="wc-title" data-wc-title tabindex="-1"></h2>
   <div class="wc-grid" data-wc-grid></div>
+  <button class="wc-top" type="button" data-wc-top>Back to Top</button>
  </section>
  <dialog class="wc-viewer" data-wc-viewer aria-label="Wedding Collection photo viewer">
   <header><span data-wc-position aria-live="polite"></span><button type="button" data-wc-close aria-label="Close photograph">Close</button></header>
