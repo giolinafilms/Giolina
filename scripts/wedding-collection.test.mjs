@@ -17,10 +17,10 @@ test('transport overlap does not remove unique selections and changed selection 
  assert.deepEqual(verifySelection(photos,3,fingerprint(['a','b','c'])).map(p=>p.id),['a','b','c']);
  assert.throws(()=>verifySelection(photos,4,'wrong'),/selection/i);
 });
-test('Photography presentation retains all 43 photographs with a collection CTA',()=>{
+test('Photography presentation retains 42 approved photographs after owner withdrawal with a collection CTA',()=>{
  const page=JSON.parse(readFileSync('src/content/pages/portfolio.json'));
  const doc=new JSDOM(page.content).window.document;
- assert.equal(doc.querySelectorAll('img').length,43);
+ assert.equal(doc.querySelectorAll('img').length,42);
  assert.ok(doc.querySelector('a[href="/photography/wedding-collection/"]'),'Missing collection CTA');
 });
 function viewerFixture(){
@@ -54,5 +54,16 @@ test('closing a locally opened photograph restores useful browser back navigatio
  await new Promise(r=>setTimeout(r,40));
  await new Promise(resolve=>{w.addEventListener('popstate',()=>setTimeout(resolve,0),{once:true});w.history.back();});
  assert.equal(w.location.hash,'');assert.equal(d.querySelector('[data-wc-overview]').hidden,false);
+ dom.window.close();
+});
+test('a moved photograph resolves to its retained category and a removed photo never opens',async()=>{
+ const dom=viewerFixture(),w=dom.window,d=w.document;
+ w.history.replaceState(null,'','#category=details&photo=a');
+ w.eval(readFileSync('public/wedding-collection.js','utf8'));
+ assert.equal(d.querySelector('dialog').open,true);
+ assert.equal(w.location.hash,'#category=brides&photo=a');
+ assert.match(d.querySelector('[data-wc-image]').src,/a-large.jpg$/);
+ w.history.replaceState(null,'','#category=brides&photo=withdrawn');w.dispatchEvent(new w.Event('hashchange'));
+ assert.equal(d.querySelector('dialog').open,false);assert.equal(d.querySelector('[data-wc-image]').hasAttribute('src'),false);
  dom.window.close();
 });

@@ -1,8 +1,15 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {JSDOM} from 'jsdom';
 import {parseFeed,verifySelection} from './wedding-feed.mjs';
+import {applyPolicy} from './collection-policy.mjs';
+import {verifyStagedImage} from './staged-media.mjs';
 const sources=JSON.parse(await readFile('src/content/wedding-collection-sources.json','utf8'));
 const additions=JSON.parse(await readFile('src/content/wedding-collection-additions.json','utf8'));
+// Fail closed rather than ship references to private derivatives that were not staged.
+for(const photo of additions)for(const key of ['src','large']){
+ if(photo[key].startsWith('/portfolio-media/'))verifyStagedImage(await readFile('public'+photo[key]),photo[key+'Hash']);
+}
+const withdrawals=JSON.parse(await readFile('src/content/portfolio-withdrawals.json','utf8'));
 async function text(url){
  const u=new URL(url);if(u.protocol!=='https:'||u.hostname!=='clients.giolinafilms.com')throw Error('Unexpected portfolio feed origin');
  const r=await fetch(u,{signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error(`Portfolio source returned ${r.status}`);
@@ -24,9 +31,11 @@ for(const source of sources){
   let url=new URL(feed,source.source).href;const visited=new Set();
   while(url){if(visited.has(url)||visited.size>10)throw Error('Invalid feed pagination');visited.add(url);const page=parseFeed(await text(url));photos.push(...page.photos);url=page.next;}
  }
+ // Verify the recovered source first, then apply explicit owner withdrawals.
  photos=verifySelection(photos,source.count,source.fingerprint).map((p,i)=>({...p,alt:`${source.name} — wedding portfolio photograph ${i+1}`}));
- const added=additions.filter(p=>p.category===source.slug).map(({category,...p})=>p);
+ const added=additions.filter(p=>p.category===source.slug).map(({category,srcHash,largeHash,...p})=>p);
  categories.push({slug:source.slug,name:source.name,originalCount:photos.length,addedCount:added.length,photos:[...photos,...added]});
  console.log(`${source.name}: ${photos.length} original + ${added.length} additions`);
 }
-await mkdir('src/generated',{recursive:true});await writeFile('src/generated/wedding-collection.json',JSON.stringify(categories));
+const finalCategories=applyPolicy(categories,withdrawals);
+await mkdir('src/generated',{recursive:true});await writeFile('src/generated/wedding-collection.json',JSON.stringify(finalCategories));

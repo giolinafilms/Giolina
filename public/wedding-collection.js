@@ -12,7 +12,12 @@
  function move(step){if(!category)return;show(active+step);history.replaceState(null,'',route(category.photos[active].id));}
  function dismiss(){if(openedFromGallery){history.back();}else if(category){history.replaceState(null,'',route());}viewer.close();}
  function render(){
-  const params=new URLSearchParams(location.hash.slice(1)),next=categories.find(c=>c.slug===params.get('category'));
+  const params=new URLSearchParams(location.hash.slice(1));let next=categories.find(c=>c.slug===params.get('category'));
+  // Retained photographs may move categories; old links follow the photograph.
+  if(params.get('photo')&&!next?.photos.some(p=>p.id===params.get('photo'))){
+   const moved=categories.find(c=>c.photos.some(p=>p.id===params.get('photo')));
+   if(moved){next=moved;params.set('category',moved.slug);history.replaceState(null,'','#'+params);}
+  }
   if(!next){category=null;grid.replaceChildren();section.hidden=true;overview.hidden=false;if(viewer.open)viewer.close();return;}
   overview.hidden=true;section.hidden=false;
   if(category!==next){
