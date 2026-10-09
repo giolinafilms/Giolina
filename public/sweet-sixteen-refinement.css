@@ -158,7 +158,7 @@
 .gl-celebration-page :is(#sweet-films,#sweet-photography){scroll-margin-top:24px}
 @media(prefers-reduced-motion:no-preference){html:has(.gl-celebration){scroll-behavior:smooth}}
 @media(max-width:700px){.gl-celebration-page .gl-sweet-browse{width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation .gl-landing-wrap,.gl-sweet-photography{grid-template-columns:minmax(0,1fr);gap:20px;width:calc(100% - 44px)}.gl-celebration-page .gl-sweet-presentation-copy{padding:0 4px 10px;text-align:center}.gl-celebration-page .gl-sweet-presentation h2{font-size:27px}.gl-sweet-film-inquiry{aspect-ratio:auto;min-height:220px;padding:24px}.gl-sweet-photography{padding-block:28px}.gl-sweet-photography h2{font-size:32px}.gl-sweet-photo-presentation h2{font-size:25px}.gl-sweet-planning .gl-celebration-faq-grid{gap:20px}.gl-sweet-planning .gl-sweet-faq-photo{display:none}}
-/* Replaceable photography layout preview; wedding images are explicitly identified. */
+/* Sweet Sixteen photography: natural proportions and responsive columns. */
 .gl-celebration-page .gl-sweet-photography{display:block;padding:32px 0}
 .gl-sweet-photo-collage{column-count:3;column-gap:20px;scroll-margin-top:24px}
 .gl-sweet-collage-heading{column-span:all;margin-bottom:24px}
@@ -191,9 +191,17 @@
 .gl-celebration-page .gl-sweet-closing-title .gl-sweet-script-accent{display:block;margin-top:4px}
 .gl-celebration-page .gl-sweet-service-title{font:400 clamp(42px,5vw,60px)/1.15 Allura,cursive!important;color:#b06f83!important}
 
-/* Emergency: suspend wedding placeholders until the Sweet Sixteen collection is ready.
-   Keep source content recoverable; this rule affects only this page's collage. */
-.gl-celebration-page .gl-sweet-photo-collage > figure,
-.gl-celebration-page .gl-sweet-collage-heading > p {display:none!important}
-.gl-celebration-page .gl-sweet-photo-collage {column-count:1}
-.gl-celebration-page .gl-sweet-collage-heading {margin-bottom:0}
+/* Page-scoped viewer preserves the existing wedding viewers unchanged. */
+.gl-sweet-photo-collage>figure>a{display:block;cursor:zoom-in}
+.gl-sweet-photo-collage>figure>a>img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.gl-sweet-photo-collage>figure>a:focus-visible{outline:3px solid #76525c;outline-offset:4px}
+.gl-sweet-viewer{box-sizing:border-box;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;padding:16px;border:0;background:#171416;color:#fff;overflow:hidden}
+.gl-sweet-viewer::backdrop{background:rgba(15,10,13,.94)}
+.gl-sweet-viewer img{display:block;width:100%;height:calc(100% - 112px);object-fit:contain;touch-action:pan-y}
+.gl-sweet-viewer header,.gl-sweet-viewer nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px}
+.gl-sweet-viewer button{min-height:44px;padding:10px 18px;background:#f3d9df;border:1px solid #ddb0bc;color:#49353b;font:400 15px/1.4 Arial,sans-serif;cursor:pointer}
+.gl-sweet-viewer button:focus-visible{outline:3px solid white;outline-offset:3px}
+.gl-sweet-viewer [data-count]{font:400 14px/1.4 Arial,sans-serif}
+.gl-sweet-viewer [role=status]:not([hidden]){position:absolute;top:45%;left:10%;right:10%;background:#171416;padding:20px;text-align:center}
+body.gl-sweet-viewer-open{overflow:hidden}
+@media(max-width:700px){.gl-sweet-viewer{padding:10px;padding-bottom:max(10px,env(safe-area-inset-bottom))}}
