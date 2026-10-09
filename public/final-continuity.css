@@ -9,7 +9,9 @@
 .gl-about-story .gl-about-origin{border-top:1px solid #e7eeee;align-items:center;padding-block:36px}
 .gl-about-story .gl-about-foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;max-width:1040px;align-items:start}
 .gl-about-story .gl-about-foundation p{max-width:none}
-.gl-redesign .gl-closing .gl-image-rotation{height:100%;min-height:360px}
+.gl-redesign .gl-closing{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+.gl-redesign .gl-closing>figure,.gl-redesign .gl-closing>div{min-width:0}
+.gl-redesign .gl-closing .gl-image-rotation{height:auto;min-height:0;aspect-ratio:3/2}
 .gl-contact-final .gl-contact-image{align-self:center;aspect-ratio:2/3;height:auto;min-height:0}
 .gl-contact-final .gl-contact-image .gl-image-rotation{position:relative;aspect-ratio:2/3}
 .gl-contact-final .gl-contact-image .gl-image-rotation img{object-fit:contain!important;object-position:center}
@@ -20,6 +22,7 @@
 .wc-category>.wc-top{margin-top:28px}
 .wc-category-navigation a:focus-visible,.wc-top:focus-visible{outline:2px solid #126c72;outline-offset:4px}
 @media(max-width:700px){
+ .gl-redesign .gl-closing{grid-template-columns:minmax(0,1fr)}
  .gl-about-story .gl-about-leadership{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:28px}
  .gl-about-story .gl-about-foundation-grid{grid-template-columns:minmax(0,1fr);gap:26px}
  .gl-about-story .gl-about-opening .gl-image-rotation{aspect-ratio:3/2}
