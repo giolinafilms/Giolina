@@ -190,3 +190,10 @@
 .gl-celebration-page .gl-sweet-closing-title{font:400 clamp(25px,3vw,34px)/1.3 Georgia,serif}
 .gl-celebration-page .gl-sweet-closing-title .gl-sweet-script-accent{display:block;margin-top:4px}
 .gl-celebration-page .gl-sweet-service-title{font:400 clamp(42px,5vw,60px)/1.15 Allura,cursive!important;color:#b06f83!important}
+
+/* Emergency: suspend wedding placeholders until the Sweet Sixteen collection is ready.
+   Keep source content recoverable; this rule affects only this page's collage. */
+.gl-celebration-page .gl-sweet-photo-collage > figure,
+.gl-celebration-page .gl-sweet-collage-heading > p {display:none!important}
+.gl-celebration-page .gl-sweet-photo-collage {column-count:1}
+.gl-celebration-page .gl-sweet-collage-heading {margin-bottom:0}
