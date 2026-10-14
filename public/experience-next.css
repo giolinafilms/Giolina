@@ -54,3 +54,7 @@
 .gl-experience .gl-exp-film.gl-exp-special{background:#f6f3ec}
 .gl-experience .gl-exp-cta{background:#f6f3ec;padding-block:52px 58px}
 @media(max-width:767px){.gl-experience .gl-exp-review{padding-block:34px}.gl-experience .gl-exp-cta{padding-block:36px 40px}}
+.gl-experience .gl-exp-questions details p{margin:0;padding-top:12px;line-height:1.75}
+.gl-experience .gl-exp-questions details p:first-of-type{padding-top:18px}
+.gl-experience .gl-exp-questions details strong{font-weight:600;color:#126c72}
+.gl-experience .gl-exp-steps p+p{margin-top:12px}

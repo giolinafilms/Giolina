@@ -16,7 +16,17 @@ test('requested placements change while the photography opening and montage stay
  const img=current('portfolio').querySelector('.gl-photo-spread img');assert.equal(img.parentElement.getAttribute('href'),img.getAttribute('src'));
 });
 test('accepted pages and film identities remain byte for byte unchanged',()=>{
- for(const name of ['experience-2','sweet-sixteen','portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ for(const name of ['sweet-sixteen','portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ const experience=current('experience-2'),oldExperience=previous('experience-2');
+ assert.equal(experience.querySelector('.gl-exp-steps').children[1].outerHTML,oldExperience.querySelector('.gl-exp-steps').children[1].outerHTML);
+ for(const selector of ['.gl-exp-steps>div:first-child','.gl-exp-steps>div:nth-child(3)','.gl-exp-questions']){
+  experience.querySelector(selector).replaceWith(oldExperience.querySelector(selector).cloneNode(true));
+ }
+ assert.equal(experience.body.innerHTML,oldExperience.body.innerHTML);
+ const experienceData=JSON.parse(readFileSync(path('experience-2'),'utf8'));
+ const oldExperienceData=JSON.parse(execFileSync('git',['show',`${baseline}:${path('experience-2')}`],{encoding:'utf8'}));
+ delete experienceData.content;delete oldExperienceData.content;
+ assert.deepEqual(experienceData,oldExperienceData);
  const about=current('about-us');about.querySelectorAll('.gl-name-accent').forEach(e=>e.replaceWith(e.textContent));assert.equal(about.body.innerHTML,previous('about-us').body.innerHTML);
  const a=current('contact-us-2'),b=previous('contact-us-2');assert.equal(a.querySelector('form').outerHTML,b.querySelector('form').outerHTML);
 });
