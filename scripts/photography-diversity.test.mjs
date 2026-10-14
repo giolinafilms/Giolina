@@ -9,14 +9,15 @@ const document=text=>new JSDOM(JSON.parse(text).content).window.document;
 const current=n=>document(readFileSync(path(n),'utf8'));
 const previous=n=>document(execFileSync('git',['show',`${baseline}:${path(n)}`],{encoding:'utf8'}));
 test('requested placements change while the photography opening and montage stay intact',()=>{
- for(const [name,selectors] of [['index',['.gl-home-intro-photograph img','.gl-experience img']],['portfolio',['.gl-photo-spread img']]]){
+ for(const [name,selectors] of [['index',['.gl-home-intro-photograph img']],['portfolio',['.gl-photo-spread img']]]){
   for(const selector of selectors)assert.notEqual(current(name).querySelector(selector).src,previous(name).querySelector(selector).src);
  }
  for(const selector of ['.gl-photo-intro','.gl-photo-gallery'])assert.equal(current('portfolio').querySelector(selector).outerHTML,previous('portfolio').querySelector(selector).outerHTML);
  const img=current('portfolio').querySelector('.gl-photo-spread img');assert.equal(img.parentElement.getAttribute('href'),img.getAttribute('src'));
 });
 test('accepted pages and film identities remain byte for byte unchanged',()=>{
- for(const name of ['experience-2','about-us','sweet-sixteen','portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ for(const name of ['experience-2','sweet-sixteen','portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ const about=current('about-us');about.querySelectorAll('.gl-name-accent').forEach(e=>e.replaceWith(e.textContent));assert.equal(about.body.innerHTML,previous('about-us').body.innerHTML);
  const a=current('contact-us-2'),b=previous('contact-us-2');assert.equal(a.querySelector('form').outerHTML,b.querySelector('form').outerHTML);
 });
 test('new display catalogue is sanitized and every asset resolves',()=>{

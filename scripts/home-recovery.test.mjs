@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const home=JSON.parse(readFileSync('src/content/pages/index.json')).content;
-test('approved homepage cleanup retains experience, branding and current hero',()=>{
- for(const text of ['Enjoy your day.','We are GioLina Films.','something beautiful.','data-hero-src=','data-selected-portfolio-images']) assert.ok(home.includes(text),text);
+test('approved homepage cleanup retains the Experience card, branding and current hero',()=>{
+ for(const text of ['Discover the experience','We are GioLina Films.','something beautiful.','data-hero-src=','data-selected-portfolio-images']) assert.ok(home.includes(text),text);
+ assert.ok(!home.includes('Enjoy your day.'),'redundant lower Experience section stays removed');
  assert.ok(!home.includes('From our clients'),'retired homepage review section stays removed');
  assert.equal((home.match(/<h1\b/g)||[]).length,1);
  assert.ok(!home.includes('href="/events/"'));
