@@ -10,7 +10,7 @@ for(const path of mainPagePaths){
  if(!path.startsWith('/events/'))assert(!/href="\/events(?:\/|\")/.test(html),`retired Events link ${path}`);
  for(const label of ['Main navigation','Mobile navigation','Footer navigation']){
   const nav=html.match(new RegExp(`<nav[^>]*aria-label="${label}"[^>]*>([\\s\\S]*?)</nav>`))?.[1];
-  if(nav){assert(!/>Events</.test(nav),`Events absent from ${label} ${path}`);assert(nav.includes('href="/client-reviews/"'),`Reviews retained in ${label} ${path}`);assert(nav.indexOf('>Cinematography<')<nav.indexOf('>Photography<'),`Film before photo in ${label} ${path}`);}
+  if(nav){assert(!/>Events</.test(nav),`Events absent from ${label} ${path}`);assert(nav.includes('href="/reviews/"'),`Reviews retained in ${label} ${path}`);assert(nav.indexOf('>Cinematography<')<nav.indexOf('>Photography<'),`Film before photo in ${label} ${path}`);}
  }
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
  assert(title&&!titles.has(title),`title ${path}`);titles.add(title);
@@ -42,7 +42,7 @@ const videoSitemap=readFileSync('dist/video-sitemap.xml','utf8');
 assert(videoSitemap.includes('xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"'));
 const decodeXml=value=>value.replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&apos;',"'");
 let videoCount=0;
-for(const [path,count] of [['/portfolio-2/',28],['/sweet-sixteen/',5],['/ready-to-go-productions/',17]]){
+for(const [path,count] of [['/cinematography/',28],['/sweet-sixteen/',5],['/ready-to-go-productions/',17]]){
  const html=readFileSync('dist'+path+'index.html','utf8');
  const schemas=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match=>JSON.parse(match[1]));
  const catalogs=schemas.filter(schema=>schema['@type']==='ItemList');assert.equal(catalogs.length,1);

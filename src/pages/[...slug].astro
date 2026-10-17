@@ -39,7 +39,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <link rel="stylesheet" href="/accessibility.css" />
 <link rel="stylesheet" href="/public-polish.css" />
 <link rel="stylesheet" href="/final-continuity.css" />
-{page.path === "/experience-2/" && <link rel="stylesheet" href="/tenor-test.css" />}
+{page.path === "/experience/" && <link rel="stylesheet" href="/tenor-test.css" />}
 {isEvents && <link rel="stylesheet" href="/events-phase1.css" />}
 </head>
 <body class={page.bodyClass}>
@@ -54,11 +54,11 @@ const isRtg = page.path === "/ready-to-go-productions/";
 {isRtg ? <RtgFooter /> : <SiteFooter />}
 {!isRtg && !isEvents && <nav class="gl-mobile-cta" aria-label="Quick contact">
  <a href="tel:8663060308">Call</a>
- <a href="/contact-us-2/">Inquire</a>
+ <a href="/contact/">Inquire</a>
 </nav>}
 {!isRtg && !isEvents && <script src="/mobile-cta.js" defer is:inline></script>}
 <script src="/migration.js" is:inline></script>
-<script src="/film-player.js" defer={page.path === "/portfolio-2/"} is:inline></script>
+<script src="/film-player.js" defer={page.path === "/cinematography/"} is:inline></script>
 <script src="/scheduler-links.js" defer is:inline></script>
 </body>
 </html>

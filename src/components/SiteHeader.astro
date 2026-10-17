@@ -2,13 +2,13 @@
 const { path = '/' } = Astro.props;
 const links = [
  { label: 'Home', href: '/', paths: ['/', '/homepage-preview/'] },
- { label: 'Cinematography', href: '/portfolio-2/', paths: ['/portfolio-2/', '/video-portfolio/'] },
- { label: 'Photography', href: '/portfolio/', paths: ['/portfolio/', '/photography/', '/photography-portfolio/'] },
+ { label: 'Cinematography', href: '/cinematography/', paths: ['/cinematography/', '/video-portfolio/'] },
+ { label: 'Photography', href: '/photography/', paths: ['/photography/', '/photography/', '/photography-portfolio/'] },
  { label: 'Sweet Sixteen', href: '/sweet-sixteen/', paths: ['/sweet-sixteen/'] },
- { label: 'Reviews', href: '/client-reviews/', paths: ['/client-reviews/', '/reviews/'] },
- { label: 'Experience', href: '/experience-2/', paths: ['/experience-2/'] },
+ { label: 'Reviews', href: '/reviews/', paths: ['/reviews/', '/reviews/'] },
+ { label: 'Experience', href: '/experience/', paths: ['/experience/'] },
  { label: 'About Us', href: '/about-us/', paths: ['/about-us/', '/about-us-2/'] },
- { label: 'Contact Us', href: '/contact-us-2/', paths: ['/contact-us-2/', '/contact-us/'] },
+ { label: 'Contact Us', href: '/contact/', paths: ['/contact/', '/contact-us/'] },
 ];
 const socials = [
  { label: 'Instagram', href: 'https://www.instagram.com/GioLinaFilms', glyph: '\uf16d' },
@@ -18,13 +18,13 @@ const socials = [
 ---
 <header class="gl-site-header">
  <div class="gl-site-masthead">
-  {path === '/contact-us-2/' ? <a href="/" aria-label="GioLina home"><img src="/assets/giolina-authentic-transparent-black.svg" width="800" height="411" alt="GioLina" fetchpriority="high" /></a> : <img src="/assets/giolina-authentic-transparent-black.svg" width="800" height="411" alt="GioLina" fetchpriority="high" />}
+  {path === '/contact/' ? <a href="/" aria-label="GioLina home"><img src="/assets/giolina-authentic-transparent-black.svg" width="800" height="411" alt="GioLina" fetchpriority="high" /></a> : <img src="/assets/giolina-authentic-transparent-black.svg" width="800" height="411" alt="GioLina" fetchpriority="high" />}
   <p>Cinematic wedding filmmaking &amp; photography</p>
   <div class="gl-site-header-actions">
    <nav class="gl-site-social-icons" aria-label="Social media">
     {socials.map(social => <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}><span class="gl-site-social-glyph" aria-hidden="true">{social.glyph}</span></a>)}
    </nav>
-   <a class="gl-site-header-inquire" href="/contact-us-2/">Inquire about your day</a>
+   <a class="gl-site-header-inquire" href="/contact/">Inquire about your day</a>
   </div>
  </div>
  <div class="gl-site-nav">
