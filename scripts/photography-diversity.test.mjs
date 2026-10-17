@@ -16,7 +16,18 @@ test('requested placements change while the photography opening and montage stay
  const img=current('portfolio').querySelector('.gl-photo-spread img');assert.equal(img.parentElement.getAttribute('href'),img.getAttribute('src'));
 });
 test('accepted pages and film identities remain byte for byte unchanged',()=>{
- for(const name of ['sweet-sixteen','portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ for(const name of ['portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
+ // The authorized five-event update changes only the existing collage figures.
+ const sweet=current('sweet-sixteen'),oldSweet=previous('sweet-sixteen');
+ for(const doc of [sweet,oldSweet]){
+  doc.querySelectorAll('[data-sweet-photo]').forEach(a=>a.closest('figure').remove());
+  const collage=doc.querySelector('.gl-sweet-photo-collage');
+  [...collage.childNodes].filter(n=>n.nodeType===3&&!n.textContent.trim()).forEach(n=>n.remove());
+ }
+ assert.equal(sweet.body.innerHTML,oldSweet.body.innerHTML);
+ const sweetData=JSON.parse(readFileSync(path('sweet-sixteen'),'utf8'));
+ const oldSweetData=JSON.parse(execFileSync('git',['show',`${baseline}:${path('sweet-sixteen')}`],{encoding:'utf8'}));
+ delete sweetData.content;delete oldSweetData.content;assert.deepEqual(sweetData,oldSweetData);
  const experience=current('experience-2'),oldExperience=previous('experience-2');
  assert.equal(experience.querySelector('.gl-exp-steps').children[1].outerHTML,oldExperience.querySelector('.gl-exp-steps').children[1].outerHTML);
  for(const selector of ['.gl-exp-steps>div:first-child','.gl-exp-steps>div:nth-child(3)','.gl-exp-questions']){

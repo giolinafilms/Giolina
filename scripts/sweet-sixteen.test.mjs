@@ -29,6 +29,10 @@ test('Sweet Sixteen viewer opens, navigates, reports image failure and restores 
  const img=dialog.querySelector('img');assert.equal(img.src,links[0].href);
  dialog.querySelector('[data-next]').click();assert.equal(img.src,links[1].href);
  dialog.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowLeft'}));assert.equal(img.src,links[0].href);
+ const touch=(type,x,y)=>{const event=new w.Event(type);Object.assign(event,{pointerType:'touch',pointerId:1,clientX:x,clientY:y});img.dispatchEvent(event);};
+ touch('pointerdown',200,100);touch('pointerup',100,105);assert.equal(img.src,links[1].href);
+ touch('pointerdown',100,100);touch('pointerup',200,105);assert.equal(img.src,links[0].href);
+ touch('pointerdown',200,100);touch('pointerup',100,220);assert.equal(img.src,links[0].href,'Vertical scrolling does not advance');
  img.dispatchEvent(new w.Event('error'));assert.equal(dialog.querySelector('[role=status]').hidden,false);
  img.dispatchEvent(new w.Event('load'));assert.equal(dialog.querySelector('[role=status]').hidden,true);
  dialog.querySelector('[data-close]').click();assert(!dialog.open);assert(!img.hasAttribute('src'));assert.equal(w.document.activeElement,links[0]);
