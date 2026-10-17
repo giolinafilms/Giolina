@@ -38,7 +38,12 @@ test('accepted pages and film identities remain byte for byte unchanged',()=>{
  const oldExperienceData=JSON.parse(execFileSync('git',['show',`${baseline}:${path('experience-2')}`],{encoding:'utf8'}));
  delete experienceData.content;delete oldExperienceData.content;
  assert.deepEqual(experienceData,oldExperienceData);
- const about=current('about-us');about.querySelectorAll('.gl-name-accent').forEach(e=>e.replaceWith(e.textContent));assert.equal(about.body.innerHTML,previous('about-us').body.innerHTML);
+ const about=current('about-us'),oldAbout=previous('about-us');
+ about.querySelectorAll('.gl-name-accent').forEach(e=>e.replaceWith(e.textContent));
+ // Owner-approved text-only introduction replaces only the old opening photograph.
+ about.querySelector('.gl-about-introduction').replaceWith(oldAbout.querySelector('.gl-about-opening').cloneNode(true));
+ about.querySelector('#gl-about-title').replaceWith(oldAbout.querySelector('#gl-about-title').cloneNode(true));
+ assert.equal(about.body.innerHTML,oldAbout.body.innerHTML);
  const a=current('contact-us-2'),b=previous('contact-us-2');assert.equal(a.querySelector('form').outerHTML,b.querySelector('form').outerHTML);
 });
 test('new display catalogue is sanitized and every asset resolves',()=>{
