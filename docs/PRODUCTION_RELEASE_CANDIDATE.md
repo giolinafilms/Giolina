@@ -1,43 +1,36 @@
-# Inactive production release candidate
+# Reconciled production candidate, not launched
 
-Approved website baseline: `fcfe9a9cbb02a0eabd06422b9d73b7b59a5e7f61`.
-Main branch examined: `00e7e81c9fe9ae5bf88ed0ed9c8b8acc3a82d83b`.
-Their common ancestor is `be964b98e953c0a3038023fb3dded9091da4aba6`.
-Preview has 191 unique commits; main has 16. Main-only changes are early page refinements and the older SmugMug discovery implementation. Preserve both histories, but use the approved preview tree as the content baseline. Do not resurrect old page copies, withdrawn assets or obsolete discovery routes by an automatic merge.
+Approved preview baseline: f2a16eb59e8b5c7744d43f4f9f2f79744153e11a.
+Previous preparation checkpoint: 62f9bddbb811d7ab97c02b3b02fea260d3c56516.
+Main remains 00e7e81c9fe9ae5bf88ed0ed9c8b8acc3a82d83b.
 
-The previously reported local candidate `2f399fc2ebc108edfcac3463ef009ddfa3563aa3` was not present in the resumed local repository or available through GitHub. This candidate restores its narrow release controls from the session record and is independently tested. It is not represented as the same commit.
+This candidate takes the approved preview content unchanged and restores the narrow runtime production policy, analytics loader and tests. Clean public URLs and all 97 redirects are retained. Sweet Sixteen has 40 collage photographs, eight per event, and five unchanged films. Wedding Collection remains nine categories, 713 placements and 709 unique photographs.
 
-## Scope
+The approved week-14.mp4 is 10,721,131 bytes, SHA-256 460c1941cbd2c2ff2ca4df7097c5039110946ab464ca7d77dd3576c8396e51c5. No media replacement is included.
 
-Only `worker.js`, a production policy module, an inactive analytics script, release tests and these notes change. Approved pages, photography, media, protected handlers and Wrangler configuration remain unchanged.
+## Controls
 
-The committed week-14 video is 10,721,131 bytes, SHA-256 `460c1941cbd2c2ff2ca4df7097c5039110946ab464ca7d77dd3576c8396e51c5`. Never include the smaller unexplained file from the original checkout.
+GIOLINA_INDEXING_ENABLED and GIOLINA_ANALYTICS_ENABLED default off and require the exact string true, HTTPS and the exact giolinafilms.com origin. Only the approved public route allowlist can activate them. Preview, www, private, retired and error routes stay protected. The www host requires a separately approved canonical redirect.
 
-## Runtime controls, disabled by default
+GA4 G-KD1ES061DH sends one manually configured page view without query, fragment or referrer and reports contact intent, not a fabricated successful lead. Advertising signals are disabled. Before activation verify account ownership, consent requirements and Enhanced Measurement settings; account-side auto events must not undermine sanitized payloads. No Google event delivery is claimed by local tests.
 
-- `GIOLINA_INDEXING_ENABLED="true"` changes robots metadata/headers only for successful allowlisted public routes on `https://giolinafilms.com`. It supplies production sitemap references in robots.txt.
-- `GIOLINA_ANALYTICS_ENABLED="true"` enables the loader only for successful allowlisted public HTML on the same exact HTTPS origin. The client also checks origin and path.
-- Missing flags, all other values, preview hosts, www, private routes and error responses remain protected. The www hostname requires a separately approved canonical redirect.
-- Neither flag is added to Wrangler configuration or enabled by this candidate.
-- GA4 measurement ID: `G-KD1ES061DH`. One manual page view, sanitized location without query/fragment, empty referrer, no form field values, advertising signals disabled. Contact links emit `contact_intent`, never a successful lead.
-- Native hosted Formspree has no verified on-site success callback. Do not synthesize `generate_lead` or treat submission attempts as conversions. No form integration changes.
+Production has only the declared ASSETS binding. This release uses an empty previews configuration so its candidate does not inherit the CRM database or authentication configuration used by the approved website development preview. No production routes or activation variables are added. The approved preview branch is untouched.
 
-Before analytics activation, verify stream ownership, applicable consent requirements and Enhanced Measurement configuration. Automatic form/history events and unsanitized automatic URL collection must not undermine the controlled events. Verify actual event delivery only after separately authorized activation. Local tests do not contact Google.
+## Validation and deployment boundaries
 
-## Release gates
+Run npm run build, npm run check, node --test scripts/*.test.mjs and npm run check:admin. The normal portfolio feed build is explicitly authorized read-only. Runtime production-policy tests use Miniflare and do not activate public indexing or analytics. A hosted branch Preview must additionally be checked.
 
-Run `npm run build`, `npm run check`, `node --test scripts/*.test.mjs`, and `npm run check:admin`.
+Updating prep/production-readiness is authorized for isolated candidate hosting. Updating main, running a production deployment, proxying DNS, modifying TLS/DNSSEC or attaching routes is not authorized.
 
-The locked local workerd supports 2026-09-25, so the runtime fixture uses that date. Deployment configuration stays at 2026-09-30. Hosted candidate verification is required before launch.
+## Future launch, separate approval required
 
-Confirm production configuration and current Worker version before updating main. The existing Worker is `giolina`, build `npm run build`, entry `worker.js`, static output `dist` with `ASSETS`. Do not copy preview CRM variables or database bindings into production. The asset binding is declared by the source configuration even if the previous production dashboard was empty.
+1. Freeze the reviewed candidate SHA and record full current production and candidate version IDs, current routes/redirect rules and DNS export. Retain WordPress hosting and the owner-downloaded October 15 files/database backup; restoration has not been tested.
+2. Verify active certificates for apex/www, origin certificate compatibility and current TLS mode. Do not infer edge certificate readiness from origin HTTPS.
+3. After explicit launch approval, promote the reconciled candidate while preserving main history. Confirm main's configured build npm run build and deploy npx wrangler deploy. Verify the resulting active Worker version before public routing.
+4. Keep A apex 160.153.0.49 and www CNAME giolinafilms.com. Proxy only those website records; attach exactly giolinafilms.com/* and www.giolinafilms.com/* to the verified Worker. No wildcard subdomain route. No additional nameserver migration.
+5. Apply the reviewed HTTPS/non-www redirect with path/query preservation, checking for existing-rule conflicts. Preserve every mail, verification and protected client-service record, and the whole giolina.co zone.
+6. Verify clean/legacy URLs, HTTPS, photos, films, contact, scheduler, client services and Google Workspace. Enable production indexing/analytics only after separate approval; verify preview noindex, GA4 behavior and Search Console ownership before production sitemap submission.
 
-Updating main can trigger production Worker deployment. It requires a separate reviewed release action; this candidate does not update main. No production routes, domains, DNS, indexing or analytics activation are authorized.
+## Rollback
 
-## Future routing and rollback
-
-Preserve WordPress origin and full DNS zone exports. Verify backup restore capability, DNSSEC state, assigned Cloudflare nameservers, zone record parity, certificates and TLS before any routing change. Use exactly `giolinafilms.com/*` and `www.giolinafilms.com/*`, never a wildcard subdomain route. Do not attach a branch preview as production.
-
-Route-based rollback removes only those two new routes and restores any launch-specific redirect rules, returning to the retained origin. Record the current production Worker version for Worker rollback. DNS-authority rollback requires the original zone, nameservers and matching DNSSEC state, with allowance for cached delegation. Verify email and every protected client-service hostname separately.
-
-DNS export contents and private backup details are deliberately not included in this public source document.
+Remove only the two new website Worker routes and restore launch-specific redirect/proxy settings to return traffic to retained WordPress origin 160.153.0.49. Verify apex/www and protected services. For Worker-only faults use the full recorded previously verified production version, and reconcile Git so a later build cannot overwrite the rollback. Do not treat a short version prefix or build ID as a rollback version. Keep DNS authority and email intact; nameserver rollback is not the first website rollback mechanism.

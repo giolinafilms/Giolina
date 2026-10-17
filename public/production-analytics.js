@@ -1,6 +1,6 @@
 (() => {
  if(location.origin!=='https://giolinafilms.com'||window.__giolinaAnalyticsStarted)return;
- const paths=new Set(['/','/portfolio-2/','/portfolio/','/sweet-sixteen/','/client-reviews/','/experience-2/','/about-us/','/contact-us-2/','/ready-to-go-productions/','/photography/wedding-collection/']);
+ const paths=new Set(['/','/cinematography/','/photography/','/sweet-sixteen/','/reviews/','/experience/','/about-us/','/contact/','/ready-to-go-productions/','/photography/wedding-collection/']);
  if(!paths.has(location.pathname))return;
  let config;try{config=JSON.parse(document.querySelector('#gl-analytics-config')?.textContent||'{}');}catch{return;}
  if(config.enabled!==true||config.measurementId!=='G-KD1ES061DH')return;
@@ -18,7 +18,7 @@
   const href=link.getAttribute('href');let method=null;
   if(href?.startsWith('tel:'))method='phone';
   else if(href?.startsWith('mailto:'))method='email';
-  else if(href==='/contact-us-2/')method='inquiry_page';
+  else if(href==='/contact/')method='inquiry_page';
   else if(href==='https://clients.giolina.co/schedule/61f5ca5de95956002dd1c3d7')method='scheduler';
   if(method)window.gtag('event','contact_intent',{...page,contact_method:method});
  });

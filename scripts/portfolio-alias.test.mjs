@@ -9,5 +9,5 @@ test('retired portfolio alias retains its redirect without shipping a duplicate 
  assert.ok(!page.content.includes('data-photo-viewer-link'),'Retired alias must not duplicate photo placements');
  const response=await worker.fetch(new Request('https://preview.test/photography-portfolio/?photo=retained'),{ASSETS:{fetch(){throw Error('Alias must redirect before serving assets');}}});
  assert.equal(response.status,301);
- assert.equal(response.headers.get('location'),'https://preview.test/portfolio/?photo=retained');
+ assert.equal(response.headers.get('location'),'https://preview.test/photography/?photo=retained');
 });

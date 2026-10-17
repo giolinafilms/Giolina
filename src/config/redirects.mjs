@@ -1,5 +1,6 @@
+import {publicPathMoves} from './public-paths.mjs';
 // Exact legacy page equivalents and captured public upload paths. No guessed destinations.
-export default Object.freeze({
+const legacyRedirects = {
   "/events/": "/ready-to-go-productions/",
   "/events/private-celebrations/": "/ready-to-go-productions/",
   "/events/corporate/": "/ready-to-go-productions/",
@@ -94,4 +95,7 @@ export default Object.freeze({
   "/wp-content/uploads/2023/09/32_ReadyToGoPRODUCTIONS_New-York_New-Jersey_Wedding_Photographer_bridal-prep_-scaled.jpg": "/assets/04d9b784dbe54c20.jpg",
   "/wp-content/uploads/2023/01/IMG_3846_Megan-_ReadyToGoProductions.com-wedding-2-1-scaled-1.jpg": "/assets/7353475231731939.jpg",
   "/wp-content/uploads/2023/09/82_ReadyToGoPRODUCTIONS_New-York_New-Jersey_Wedding_Photographer_groom_prep_-scaled.jpg": "/assets/dc1cc8444ad476be.jpg"
-});
+};
+
+const redirects=Object.fromEntries(Object.entries(legacyRedirects).filter(([source])=>!Object.values(publicPathMoves).includes(source)).map(([source,target])=>[source,publicPathMoves[target]??target]));
+export default Object.freeze({...redirects,...publicPathMoves});

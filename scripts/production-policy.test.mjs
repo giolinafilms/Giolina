@@ -24,7 +24,7 @@ test('real Worker applies independent flags only to successful public production
    if(active){assert(body.includes('"enabled":true'));assert.equal(r.headers.get('ETag'),null);assert.equal(r.headers.get('Cache-Control'),'no-store');}
   }
   const robots=await mf.dispatchFetch('https://giolinafilms.com/robots.txt');assert((await robots.text()).includes('Sitemap: https://giolinafilms.com/sitemap.xml'));
-  const redirect=await mf.dispatchFetch('https://giolinafilms.com/contact-us/?x=1',{redirect:'manual'});assert.equal(redirect.status,301);assert(redirect.headers.get('Location').endsWith('/contact-us-2/?x=1'));
+  const redirect=await mf.dispatchFetch('https://giolinafilms.com/contact-us/?x=1',{redirect:'manual'});assert.equal(redirect.status,301);assert(redirect.headers.get('Location').endsWith('/contact/?x=1'));
   const privateResponse=await mf.dispatchFetch('https://giolinafilms.com/admin/');assert.equal(privateResponse.status,503);assert.equal(privateResponse.headers.get('X-Robots-Tag'),'noindex, nofollow');assert(!(await privateResponse.text()).includes('/production-analytics.js'));
   for(const [flags,index,analytics] of [[{},false,false],[{GIOLINA_INDEXING_ENABLED:'true'},true,false],[{GIOLINA_ANALYTICS_ENABLED:'true'},false,true]]){
    await mf.setOptions(options(flags));const r=await mf.dispatchFetch('https://giolinafilms.com/'),body=await r.text();
@@ -33,7 +33,7 @@ test('real Worker applies independent flags only to successful public production
  }finally{await mf.dispose();}
 });
 const script=readFileSync('public/production-analytics.js','utf8');
-function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled})+'</script><a href="/contact-us-2/">Inquire</a><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.eval(script);return dom;}
+function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled})+'</script><a href="/contact/">Inquire</a><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.eval(script);return dom;}
 test('analytics does not load without production authorization',()=>{
  for(const [url,enabled] of [['https://giolinafilms.com/',false],['https://preview.test/',true],['https://giolinafilms.com/admin/',true],['http://giolinafilms.com/',true]]){const d=browser(url,enabled);assert.equal(d.window.dataLayer,undefined);assert.equal(d.window.document.querySelector('script[src]'),null);d.window.close();}
 });
@@ -41,4 +41,25 @@ test('one sanitized page view and contact intent, no false lead or personal fiel
  const d=browser('https://giolinafilms.com/?email=private@example.test#secret',true),w=d.window;w.eval(script);
  w.document.querySelector('a').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
  const calls=w.dataLayer.map(a=>[...a]);assert.equal(calls.filter(a=>a[1]==='page_view').length,1);assert.equal(calls.filter(a=>a[1]==='contact_intent').length,1);assert(!/private@|secret|generate_lead|form_submit/.test(JSON.stringify(calls)));assert.equal(calls.find(a=>a[1]==='page_view')[2].page_location,'https://giolinafilms.com/');assert.equal(w.document.querySelectorAll('script[src]').length,1);d.window.close();
+});
+
+test('clean public routes share the production and analytics allowlists; aliases stay closed',async()=>{
+ const {mainPagePaths}=await import('../src/config/site.mjs');
+ const flags={GIOLINA_INDEXING_ENABLED:'true',GIOLINA_ANALYTICS_ENABLED:'true'};
+ for(const path of [...mainPagePaths,'/photography/wedding-collection/']){
+  assert.deepEqual(productionPolicy(new URL('https://giolinafilms.com'+path),flags),{index:true,analytics:true});
+  const dom=browser('https://giolinafilms.com'+path,true);assert.ok(dom.window.dataLayer,path);dom.window.close();
+  assert.deepEqual(productionPolicy(new URL('https://prep-production-readiness-giolina.dawn-math-f4b1.workers.dev'+path),flags),{index:false,analytics:false});
+ }
+ for(const path of ['/portfolio/','/portfolio-2/','/experience-2/','/client-reviews/','/contact-us-2/','/contact-us/']){
+  assert.deepEqual(productionPolicy(new URL('https://giolinafilms.com'+path),flags),{index:false,analytics:false});
+  const dom=browser('https://giolinafilms.com'+path,true);assert.equal(dom.window.dataLayer,undefined);dom.window.close();
+ }
+});
+
+test('production config has no CRM bindings, secrets or activation switches',()=>{
+ const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
+ assert.equal(config.name,'giolina');assert.equal(config.compatibility_date,'2026-09-30');
+ for(const key of ['vars','d1_databases','kv_namespaces','r2_buckets','routes','services'])assert.equal(config[key],undefined,key);
+ assert.equal(config.assets.binding,'ASSETS');assert.deepEqual(config.previews,{});
 });

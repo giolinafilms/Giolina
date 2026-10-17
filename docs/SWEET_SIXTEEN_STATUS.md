@@ -1,17 +1,13 @@
 # Sweet Sixteen preview update
 
-Scope: existing Sweet Sixteen page only; no production or DNS change.
+Scope: existing Sweet Sixteen photography collage only. No production, DNS, film, protected-service, or Wedding Collection changes.
 
-- Replaced seven remaining hidden wedding placeholders; an eighth had already been removed.
-- Added twelve authentic Sweet Sixteen photographs as 24 optimized WebP display derivatives, with opaque filenames and a display-only catalogue.
-- Retained existing genuine photographs, five films, both presentation links, content, branding and established blush styling.
-- Added a page-scoped fullscreen viewer with keyboard navigation, touch gestures, focus restoration and visible image-load error handling.
-- Removed unused wedding placeholder files and temporary CSS hiding rules.
-- Kept all Wedding Collection code, content and selection policy unchanged.
-- Reusable publication process: [Photography workflow](PHOTOGRAPHY_WORKFLOW.md).
+The collage now contains 40 visually selected photographs from five authorized events, eight per event. Eight existing collage photographs remain and four placements were replaced; 32 photographs were added as 64 optimized WebP derivatives. The stable order alternates events throughout, with no adjacent photographs from the same event.
 
-Source limitation: one complete source gallery was recovered for new selections. Existing approved imagery from other events remains, but additional full-gallery source links were not recovered. A newly curated multi-event collage is not claimed.
+Seven existing photographic assets outside the collage and the existing film-frame poster remain unchanged. One pre-existing pair of those assets uses different crops of the same capture; it was preserved rather than altering approved page content. No new duplicate capture was introduced.
 
-Local validation: 23 public tests, 90 Admin tests, Astro build and route/SEO checks pass. All 24 WebPs decode with matching dimensions and no EXIF/XMP metadata. Independent review identified an empty enlargement, which was regenerated and validated; automated checks now reject empty/truncated WebPs. Hosted preview and rendered width results follow verification. Physical-device testing and real inquiry delivery are separate acceptance gates.
+The five films, presentation destinations, page copy, responsive columns, natural image proportions, and existing fullscreen viewer remain unchanged. Public catalogue data contains only opaque identifiers, display paths, dimensions, order, category, and generic alt text. Detailed source attribution and visual-selection records are held privately, outside this repository.
 
-No private provenance or review packages are included in this repository update. The existing migration log is preserved unchanged; this note records the current work without republishing its internal historical details.
+Publication follows the [standard photography workflow](PHOTOGRAPHY_WORKFLOW.md). New display derivatives are limited to 640 pixels for thumbnails and 1600 pixels for enlargements, without upscaling or EXIF/XMP metadata. Original source photographs were not published.
+
+Build, regression, decoding, and hosted verification results are recorded in the completion report. Browser testing is distinct from physical-device acceptance.
