@@ -53,7 +53,7 @@
 .gl-about-story .gl-about-introduction h1{font-size:clamp(32px,4vw,52px);margin:0 auto 16px}
 .gl-about-story .gl-about-introduction p{margin:0 auto}
 
-/* Existing Allura script and About Us teal, limited to the brand word. */
+/* Reuse the authentic header wordmark silhouette in existing About Us teal. */
 .gl-about-story .gl-about-introduction h1{line-height:1.25;text-wrap:balance}
-.gl-about-story .gl-about-introduction .gl-about-brand-script{font-family:Allura,cursive;font-size:1.18em;font-weight:400;letter-spacing:0;color:#128087;white-space:nowrap}
+.gl-about-story .gl-about-introduction .gl-about-brand-wordmark{display:inline-block;width:3.3em;height:1.7em;vertical-align:-.48em;background-color:#128087;color:transparent;white-space:nowrap;-webkit-mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat;mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat}
 .gl-about-story #gl-name-story,.gl-about-story .gl-about-foundation h2{color:#126c72}
