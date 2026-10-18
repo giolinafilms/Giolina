@@ -55,5 +55,5 @@
 
 /* Reuse the authentic header wordmark silhouette in existing About Us teal. */
 .gl-about-story .gl-about-introduction h1{line-height:1.25;text-wrap:balance}
-.gl-about-story .gl-about-introduction .gl-about-brand-wordmark{display:inline-block;width:3.3em;height:1.7em;vertical-align:-.48em;background-color:#128087;color:transparent;white-space:nowrap;-webkit-mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat;mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat}
+.gl-about-story .gl-about-introduction .gl-about-brand-wordmark{display:inline-block;overflow:hidden;width:3.3em;height:1.7em;vertical-align:-.48em;background-color:#128087;color:transparent;white-space:nowrap;-webkit-mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat;mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat}
 .gl-about-story #gl-name-story,.gl-about-story .gl-about-foundation h2{color:#126c72}
