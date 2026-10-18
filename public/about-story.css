@@ -52,3 +52,8 @@
 .gl-about-story .gl-about-leadership #gl-about-title{font-size:clamp(34px,4vw,48px);line-height:1.14;margin:0 0 18px}
 .gl-about-story .gl-about-introduction h1{font-size:clamp(32px,4vw,52px);margin:0 auto 16px}
 .gl-about-story .gl-about-introduction p{margin:0 auto}
+
+/* Existing Allura script and About Us teal, limited to the brand word. */
+.gl-about-story .gl-about-introduction h1{line-height:1.25;text-wrap:balance}
+.gl-about-story .gl-about-introduction .gl-about-brand-script{font-family:Allura,cursive;font-size:1.18em;font-weight:400;letter-spacing:0;color:#128087;white-space:nowrap}
+.gl-about-story #gl-name-story,.gl-about-story .gl-about-foundation h2{color:#126c72}
