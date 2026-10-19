@@ -57,9 +57,37 @@ test('clean public routes share the production and analytics allowlists; aliases
  }
 });
 
-test('production config has no CRM bindings, secrets or activation switches',()=>{
+test('production config enables only approved indexing and preserves unrelated variables',()=>{
  const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
  assert.equal(config.name,'giolina');assert.equal(config.compatibility_date,'2026-09-30');
- for(const key of ['vars','d1_databases','kv_namespaces','r2_buckets','routes','services'])assert.equal(config[key],undefined,key);
+ for(const key of ['d1_databases','kv_namespaces','r2_buckets','routes','services'])assert.equal(config[key],undefined,key);
  assert.equal(config.assets.binding,'ASSETS');assert.deepEqual(config.previews,{});
+ assert.equal(config.keep_vars,true);
+ assert.deepEqual(config.vars,{GIOLINA_INDEXING_ENABLED:'true',GIOLINA_ANALYTICS_ENABLED:'false'});
+});
+
+test('deployed bindings activate only canonical public pages while preview, private and error responses stay protected',async()=>{
+ const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
+ const {mainPagePaths}=await import('../src/config/site.mjs');
+ const {default:redirects}=await import('../src/config/redirects.mjs');
+ const bundle=await build({entryPoints:['worker.js'],bundle:true,write:false,format:'esm',platform:'browser',target:'es2022'});
+ const html='<html><head><meta name="robots" content="noindex, nofollow"><script id="gl-analytics-config" type="application/json">{"measurementId":"G-KD1ES061DH","enabled":false}</script></head><body>Public page</body></html>';
+ const mf=new Miniflare(convertV4MiniflareOptions({workers:[{name:'seo-activation-test',modules:true,script:bundle.outputFiles[0].text,compatibilityDate:'2026-09-25',bindings:config.vars,serviceBindings:{ASSETS:async r=>new Response(html,{status:new URL(r.url).searchParams.has('missing')?404:200,headers:{'Content-Type':'text/html'}})}}]}));
+ try{
+  for(const path of [...mainPagePaths,'/photography/wedding-collection/']){
+   const res=await mf.dispatchFetch('https://giolinafilms.com'+path),body=await res.text();
+   assert.equal(res.headers.get('X-Robots-Tag'),'index, follow',path);assert(body.includes('content="index, follow"'));assert(!body.includes('/production-analytics.js'));
+   const preview=await mf.dispatchFetch('https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev'+path);
+   assert.equal(preview.headers.get('X-Robots-Tag'),'noindex, nofollow');assert((await preview.text()).includes('content="noindex, nofollow"'));
+  }
+  for(const path of ['/admin/','/api/admin/','/login/','/qa/public-polish/','/not-a-real-page/','/?missing']){
+   const res=await mf.dispatchFetch('https://giolinafilms.com'+path);assert.equal(res.headers.get('X-Robots-Tag'),'noindex, nofollow',path);assert(!(await res.text()).includes('/production-analytics.js'));
+  }
+  for(const path of ['/sitemap.xml','/video-sitemap.xml']){const res=await mf.dispatchFetch('https://giolinafilms.com'+path);assert.equal(res.headers.get('X-Robots-Tag'),'index, follow');}
+  const robots=await mf.dispatchFetch('https://giolinafilms.com/robots.txt');const text=await robots.text();assert(text.includes('Allow: /'));assert(text.includes('Sitemap: https://giolinafilms.com/sitemap.xml'));assert(!text.includes('Disallow: /'));
+  assert.equal(Object.keys(redirects).length,97);
+  for(const [from,to] of Object.entries(redirects)){
+   const res=await mf.dispatchFetch('https://giolinafilms.com'+from+'?keep=1',{redirect:'manual'});assert.equal(res.status,301,from);assert.equal(res.headers.get('Location'),'https://giolinafilms.com'+to+'?keep=1');
+  }
+ }finally{await mf.dispose();}
 });

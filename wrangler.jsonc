@@ -9,5 +9,10 @@
     "run_worker_first": true,
     "not_found_handling": "404-page"
   },
-  "previews": {}
+  "previews": {},
+  "keep_vars": true,
+  "vars": {
+    "GIOLINA_INDEXING_ENABLED": "true",
+    "GIOLINA_ANALYTICS_ENABLED": "false"
+  }
 }
