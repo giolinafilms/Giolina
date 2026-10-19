@@ -25,5 +25,10 @@
         "migrations_dir": "admin/migrations"
       }
     ]
+  },
+  "keep_vars": true,
+  "vars": {
+    "GIOLINA_INDEXING_ENABLED": "true",
+    "GIOLINA_ANALYTICS_ENABLED": "false"
   }
 }
