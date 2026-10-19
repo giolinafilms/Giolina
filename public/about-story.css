@@ -43,3 +43,17 @@
 .gl-about-story .gl-about-foundation-logo{align-self:center;display:block;width:170px;max-width:100%;height:auto;margin:0}
 .gl-about-story .gl-about-foundation .gl-about-rtg-link{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;color:#128087}
 @media(max-width:900px){.gl-about-story .gl-about-foundation-grid{grid-template-columns:minmax(0,1fr);gap:22px}.gl-about-story .gl-about-foundation{padding-block:28px}.gl-about-story .gl-about-foundation p{max-width:62ch}.gl-about-story .gl-about-foundation-logo{width:145px;margin-inline:auto}}
+
+/* Compact, text-only introduction. Existing story sections stay unchanged. */
+.gl-about-introduction{padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(24px,3vw,40px);text-align:center}
+.gl-about-introduction h1{max-width:900px;margin:0 auto 16px;font-size:clamp(32px,4vw,52px);line-height:1.15}
+.gl-about-introduction p{max-width:650px;margin:0 auto;color:#52636a}
+@media(max-width:700px){.gl-about-introduction h1{margin-bottom:12px}.gl-about-introduction p{font-size:17px;line-height:1.6}}
+.gl-about-story .gl-about-leadership #gl-about-title{font-size:clamp(34px,4vw,48px);line-height:1.14;margin:0 0 18px}
+.gl-about-story .gl-about-introduction h1{font-size:clamp(32px,4vw,52px);margin:0 auto 16px}
+.gl-about-story .gl-about-introduction p{margin:0 auto}
+
+/* Reuse the authentic header wordmark silhouette in existing About Us teal. */
+.gl-about-story .gl-about-introduction h1{line-height:1.25;text-wrap:balance}
+.gl-about-story .gl-about-introduction .gl-about-brand-wordmark{display:inline-block;overflow:hidden;width:3.3em;height:1.7em;vertical-align:-.48em;background-color:#128087;color:transparent;white-space:nowrap;-webkit-mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat;mask:url("/assets/giolina-authentic-transparent-black.svg") center/contain no-repeat}
+.gl-about-story #gl-name-story,.gl-about-story .gl-about-foundation h2{color:#126c72}

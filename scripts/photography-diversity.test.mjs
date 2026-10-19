@@ -15,31 +15,17 @@ test('requested placements change while the photography opening and montage stay
  for(const selector of ['.gl-photo-intro','.gl-photo-gallery'])assert.equal(current('portfolio').querySelector(selector).outerHTML,previous('portfolio').querySelector(selector).outerHTML);
  const img=current('portfolio').querySelector('.gl-photo-spread img');assert.equal(img.parentElement.getAttribute('href'),img.getAttribute('src'));
 });
-test('accepted pages and film identities remain byte for byte unchanged',()=>{
- for(const name of ['portfolio-2'])assert.equal(readFileSync(path(name),'utf8'),execFileSync('git',['show',`${baseline}:${path(name)}`],{encoding:'utf8'}));
- // The authorized five-event update changes only the existing collage figures.
- const sweet=current('sweet-sixteen'),oldSweet=previous('sweet-sixteen');
- for(const doc of [sweet,oldSweet]){
-  doc.querySelectorAll('[data-sweet-photo]').forEach(a=>a.closest('figure').remove());
-  const collage=doc.querySelector('.gl-sweet-photo-collage');
-  [...collage.childNodes].filter(n=>n.nodeType===3&&!n.textContent.trim()).forEach(n=>n.remove());
+test('editorial updates preserve production films, links, quotations and forms',()=>{
+ const production='c852da0ec272e954803e29c9cd408174174c656b';
+ for(const name of ['index','about-us','experience-2','portfolio-2','sweet-sixteen','ready-to-go-productions','contact-us-2']){
+  const now=current(name),before=document(execFileSync('git',['show',`${production}:${path(name)}`],{encoding:'utf8'}));
+  for(const selector of ['iframe','[data-vimeo-id]','[data-mediazilla-src]','video','source','blockquote','form']){
+   assert.deepEqual([...now.querySelectorAll(selector)].map(e=>e.outerHTML),[...before.querySelectorAll(selector)].map(e=>e.outerHTML),`${name}: ${selector}`);
+  }
+  const links=doc=>[...doc.querySelectorAll('a[href]:not([data-sweet-photo])')].map(e=>e.getAttribute('href'));
+  assert.deepEqual(links(now),links(before),`${name}: links`);
  }
- assert.equal(sweet.body.innerHTML,oldSweet.body.innerHTML);
- const sweetData=JSON.parse(readFileSync(path('sweet-sixteen'),'utf8'));
- const oldSweetData=JSON.parse(execFileSync('git',['show',`${baseline}:${path('sweet-sixteen')}`],{encoding:'utf8'}));
- delete sweetData.content;delete oldSweetData.content;assert.deepEqual(sweetData,oldSweetData);
- const experience=current('experience-2'),oldExperience=previous('experience-2');
- assert.equal(experience.querySelector('.gl-exp-steps').children[1].outerHTML,oldExperience.querySelector('.gl-exp-steps').children[1].outerHTML);
- for(const selector of ['.gl-exp-steps>div:first-child','.gl-exp-steps>div:nth-child(3)','.gl-exp-questions']){
-  experience.querySelector(selector).replaceWith(oldExperience.querySelector(selector).cloneNode(true));
- }
- assert.equal(experience.body.innerHTML,oldExperience.body.innerHTML);
- const experienceData=JSON.parse(readFileSync(path('experience-2'),'utf8'));
- const oldExperienceData=JSON.parse(execFileSync('git',['show',`${baseline}:${path('experience-2')}`],{encoding:'utf8'}));
- delete experienceData.content;delete oldExperienceData.content;
- assert.deepEqual(experienceData,oldExperienceData);
- const about=current('about-us');about.querySelectorAll('.gl-name-accent').forEach(e=>e.replaceWith(e.textContent));assert.equal(about.body.innerHTML,previous('about-us').body.innerHTML);
- const a=current('contact-us-2'),b=previous('contact-us-2');assert.equal(a.querySelector('form').outerHTML,b.querySelector('form').outerHTML);
+ assert.equal(readFileSync(path('client-reviews'),'utf8'),execFileSync('git',['show',`${production}:${path('client-reviews')}`],{encoding:'utf8'}));
 });
 test('new display catalogue is sanitized and every asset resolves',()=>{
  const photos=JSON.parse(readFileSync('src/content/marketing-display-additions.json'));
