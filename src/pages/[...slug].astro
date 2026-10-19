@@ -23,6 +23,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <title>{page.title}</title>
+{page.path === "/" && <link rel="preconnect" href="https://player.vimeo.com" />}
 <link rel="canonical" href={new URL(page.path,canonicalOrigin).href} />
 <script type="application/json" id="gl-analytics-config" set:html={JSON.stringify(analytics)} />
 {[...(page.schema ?? []), ...videoCatalogSchema(page)].map((schema)=><script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<","\\u003c")} />)}
