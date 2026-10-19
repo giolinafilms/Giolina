@@ -1,0 +1,91 @@
+[
+  {
+    "pageFile": "weddings--the-venetian-garfield.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "The Venetian",
+    "couple": "Stephanie & Danny",
+    "location": "Garfield, New Jersey",
+    "region": "Bergen County",
+    "intro": "Stephanie and Danny at The Venetian, in film and four selected photographs.",
+    "film": {
+      "id": "331322129",
+      "title": "Stephanie & Danny at The Venetian",
+      "duration": "8:30",
+      "poster": "/assets/stephanie-danny-venetian-staircase.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Stephanie and Danny on The Venetian grand staircase"
+    },
+    "photoHeading": "From the staircase to the first dance.",
+    "photoIntro": "Portraits on the grand staircase and outside at dusk, followed by their entrance and first dance.",
+    "photos": [
+      {
+        "src": "/assets/stephanie-danny-venetian-staircase.webp",
+        "small": "/assets/stephanie-danny-venetian-staircase-small.webp",
+        "width": 1024,
+        "height": 683,
+        "alt": "Stephanie and Danny sharing a kiss on The Venetian staircase beneath a chandelier",
+        "caption": "A portrait on the grand staircase."
+      },
+      {
+        "src": "/assets/stephanie-danny-evening-portrait.webp",
+        "small": "/assets/stephanie-danny-evening-portrait-small.webp",
+        "width": 1024,
+        "height": 683,
+        "alt": "Stephanie and Danny together on an evening terrace",
+        "caption": "A few moments together outside."
+      },
+      {
+        "src": "/assets/stephanie-danny-entrance.webp",
+        "small": "/assets/stephanie-danny-entrance-small.webp",
+        "width": 1024,
+        "height": 683,
+        "alt": "Stephanie and Danny celebrating their entrance beneath ballroom chandeliers",
+        "caption": "The reception begins."
+      },
+      {
+        "src": "/assets/stephanie-danny-first-dance.webp",
+        "small": "/assets/stephanie-danny-first-dance-small.webp",
+        "width": 1024,
+        "height": 683,
+        "alt": "Stephanie and Danny sharing their first dance",
+        "caption": "Their first dance."
+      }
+    ],
+    "context": "The Venetian is on River Drive in Garfield. Its grand staircase and chandelier lit ballroom appear in Stephanie and Danny’s photographs.",
+    "venueUrl": "https://www.venetiannj.com/",
+    "next": {
+      "href": "/weddings/the-park-savoy-florham-park/",
+      "label": "Deanna & Anthony at The Park Savoy"
+    }
+  },
+  {
+    "pageFile": "weddings--the-park-savoy-florham-park.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "The Park Savoy",
+    "couple": "Deanna & Anthony",
+    "location": "Florham Park, New Jersey",
+    "region": "Morris County",
+    "intro": "Deanna and Anthony’s wedding at The Park Savoy, presented in their GioLina film.",
+    "film": {
+      "id": "759600674",
+      "title": "Deanna & Anthony at The Park Savoy",
+      "duration": "9:32",
+      "poster": "/assets/deanna-anthony-park-savoy-film.jpg",
+      "width": 1280,
+      "height": 533,
+      "alt": "Deanna and Anthony beside a white wedding car, from their GioLina film"
+    },
+    "photoHeading": "From the staircase to the first dance.",
+    "photoIntro": "Portraits on the grand staircase and outside at dusk, followed by their entrance and first dance.",
+    "photos": [],
+    "context": "The Park Savoy Estate in Florham Park brings together a mansion, gardens and a grand ballroom. This story features GioLina’s cinematography for Deanna and Anthony.",
+    "venueUrl": "https://theparksavoy.com/",
+    "next": {
+      "href": "/weddings/the-venetian-garfield/",
+      "label": "Stephanie & Danny at The Venetian"
+    }
+  }
+]
