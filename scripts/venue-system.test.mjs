@@ -31,3 +31,15 @@ test('only two reviewed stories are generated and each checked-in page matches t
   assert.equal(doc.querySelectorAll('[data-vimeo-id]').length,1);
  }
 });
+
+test('approved venue presentation keeps films embedded without runtime labels or external presentation links',()=>{
+ for(const s of stories){
+  const doc=new JSDOM(renderVenueStory(s)).window.document;
+  assert.equal(doc.querySelectorAll('.gv-watch-link,.gv-film-heading span').length,0);
+  assert(!doc.body.textContent.includes(s.film.duration));
+  assert.equal(doc.querySelectorAll('a[href^="https://vimeo.com/"],a[href*="clients.giolina"]').length,0);
+  const next=doc.querySelector('.gv-next a');
+  assert(next);assert(stories.some(other=>other.pageFile.replace('weddings--','/weddings/').replace('.json','/')===next.getAttribute('href')));
+  assert.equal(doc.querySelector('[data-vimeo-id]').dataset.vimeoId,s.film.id);
+ }
+});

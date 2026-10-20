@@ -8,7 +8,6 @@
 @media(max-width:1100px){.gv-context{margin-inline:24px;gap:28px;padding:30px}.gv-next{margin-inline:24px}}
 @media(max-width:650px){.gv-intro{padding:28px 20px 26px}.gv-intro h1{font-size:38px}.gv-kicker{font-size:10px;letter-spacing:.11em}.gv-couple{font-size:23px;margin-bottom:16px}.gv-lede{font-size:15px;line-height:1.7}.gv-film-section{padding-inline:20px}.gv-film>button{padding:12px}.gv-film>button span{font-size:13px;padding:10px 16px!important}.gv-caption{font-size:11px}.gv-editorial{padding:40px 20px 20px}.gv-story{font-size:16px}.gv-gallery{grid-template-columns:minmax(0,1fr);padding:0 20px 28px;gap:24px}.gv-context{grid-template-columns:minmax(0,1fr);gap:8px;padding:26px 22px;margin-inline:20px}.gv-inquire{padding:44px 20px 30px}.gv-next{margin-inline:20px}.gv-next h2{font-size:22px}}
 
-.gv-watch-link{text-align:center;font:400 13px/1.5 Arial,sans-serif;margin:5px 0 0}.gv-watch-link a{display:inline-flex;align-items:center;min-height:44px}
 
 /* Cinematic story refinement: compact introduction, quiet controls, image-led rhythm. */
 .gv-intro{max-width:880px;padding-top:32px;padding-bottom:30px}
@@ -19,7 +18,6 @@
 .gv-story-nav a{display:inline-flex;align-items:center;min-height:44px}
 .gv-film-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin:0 0 12px}
 .gv-film-heading h2{font:400 13px/1.5 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin:0}
-.gv-film-heading>span{font:400 12px/1.5 Arial,sans-serif;color:#526266}
 .gv-film{background:#182629}
 .gv-film>button:focus-visible{outline-offset:-6px;outline-color:white}
 .gv-film>button span{background:#126c72!important;color:#fff!important;border:1px solid rgba(255,255,255,.7);padding:13px 23px!important;font:400 14px/1.4 Arial,sans-serif!important;letter-spacing:.025em}
