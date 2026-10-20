@@ -684,5 +684,289 @@
       "href": "/weddings/stroudsmoor-stroudsburg/",
       "label": "Christina & Danny at Stroudsmoor"
     }
+  },
+  {
+    "pageFile": "weddings--the-addison-park-aberdeen.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "The Addison Park",
+    "couple": "Lauren & Tommy",
+    "location": "Aberdeen, New Jersey",
+    "region": "Aberdeen",
+    "intro": "Lauren and Tommy’s wedding at The Addison Park, in their GioLina film.",
+    "photos": [],
+    "photoHeading": "Their wedding film.",
+    "photoIntro": "",
+    "context": "The Addison Park is in Aberdeen, New Jersey. This story features GioLina’s cinematography for Lauren and Tommy.",
+    "venueUrl": "https://theaddisonpark.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/the-park-savoy-florham-park/",
+      "label": "Deanna & Anthony at The Park Savoy"
+    },
+    "film": {
+      "id": "122910081",
+      "title": "Lauren & Tommy",
+      "eventName": "Lauren & Tommy",
+      "provider": "vimeo",
+      "poster": "/assets/lauren-tommy-poster.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Lauren during her wedding preparations"
+    }
+  },
+  {
+    "pageFile": "weddings--liberty-house-jersey-city.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Liberty House",
+    "couple": "Megan & Ralph",
+    "location": "Jersey City, New Jersey",
+    "region": "Jersey City",
+    "intro": "Megan and Ralph’s wedding at Liberty House, in film and photographs by GioLina.",
+    "photos": [
+      {
+        "src": "/assets/v26-3c8d89a59fee351e.webp",
+        "small": "/assets/v26-3c8d89a59fee351e-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph beside the waterfront railing with Manhattan behind them",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-46337fd10ea72807.webp",
+        "small": "/assets/v26-46337fd10ea72807-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Ralph kissing Megan on the cheek beside the waterfront",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-013100c3807952f3.webp",
+        "small": "/assets/v26-013100c3807952f3-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph holding hands in a waterfront portrait",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-4a0d3cfdb0f37e37.webp",
+        "small": "/assets/v26-4a0d3cfdb0f37e37-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph walking away along a brick path",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-b1152247c833e151.webp",
+        "small": "/assets/v26-b1152247c833e151-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph walking together in a black and white portrait",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-6ba29960bad5c730.webp",
+        "small": "/assets/v26-6ba29960bad5c730-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Ralph holding an umbrella above Megan on a garden path",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-5f992985132be9b0.webp",
+        "small": "/assets/v26-5f992985132be9b0-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph beneath a red umbrella",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-53212e9b89a784d2.webp",
+        "small": "/assets/v26-53212e9b89a784d2-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph embracing beside the skyline at dusk",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-8e1bff416a9f98fb.webp",
+        "small": "/assets/v26-8e1bff416a9f98fb-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Megan and Ralph smiling beneath a rainbow",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-bbf357ff3dde877b.webp",
+        "small": "/assets/v26-bbf357ff3dde877b-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Megan and Ralph kissing with a rainbow behind them",
+        "naturalRatio": true
+      }
+    ],
+    "photoHeading": "By the water, beneath a rainbow.",
+    "photoIntro": "Waterfront portraits, a shared umbrella and a rainbow over Megan and Ralph’s wedding day.",
+    "context": "Liberty House is in Jersey City, New Jersey. This story features GioLina’s photography and cinematography for Megan and Ralph.",
+    "venueUrl": "https://bylandmark.com/venues/liberty-house/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/the-park-savoy-florham-park/",
+      "label": "Deanna & Anthony at The Park Savoy"
+    },
+    "film": {
+      "id": "Hoq2eguL6",
+      "title": "Megan & Ralph",
+      "eventName": "Megan & Ralph",
+      "provider": "mediazilla",
+      "poster": "/assets/v26-3c8d89a59fee351e.webp",
+      "width": 1280,
+      "height": 853,
+      "alt": "Megan and Ralph beside the waterfront railing with Manhattan behind them",
+      "embedUrl": "https://mediazilla.com/Hoq2eguL6"
+    }
+  },
+  {
+    "pageFile": "weddings--the-old-bermuda-inn-staten-island.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-only",
+    "venue": "The Old Bermuda Inn",
+    "couple": "Loriann & Chris",
+    "location": "Staten Island, New York",
+    "region": "Staten Island",
+    "intro": "Loriann and Chris’s wedding at The Old Bermuda Inn, photographed by GioLina.",
+    "photos": [
+      {
+        "src": "/assets/v26-ee6a8aaa30a44a98.webp",
+        "small": "/assets/v26-ee6a8aaa30a44a98-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris together beneath a garden gazebo",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-02f90570e0d7403b.webp",
+        "small": "/assets/v26-02f90570e0d7403b-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Chris kissing Loriann on the cheek as she holds her bouquet",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-edad51ef622219b1.webp",
+        "small": "/assets/v26-edad51ef622219b1-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris sharing an umbrella",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-298bb1df3a29df04.webp",
+        "small": "/assets/v26-298bb1df3a29df04-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann sitting with Chris beside framed displays",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-47a6b3c255c43520.webp",
+        "small": "/assets/v26-47a6b3c255c43520-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris kissing in a black and white portrait",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-1e0ec223d1acd76e.webp",
+        "small": "/assets/v26-1e0ec223d1acd76e-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris smiling together at dusk",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-b50dec740a3c2e8e.webp",
+        "small": "/assets/v26-b50dec740a3c2e8e-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris seated in an illuminated gazebo",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-e9b2580a22f9ff07.webp",
+        "small": "/assets/v26-e9b2580a22f9ff07-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Loriann seated with her bouquet on a covered porch",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-b6c41cd13d14d417.webp",
+        "small": "/assets/v26-b6c41cd13d14d417-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Loriann beside a red fire engine",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-1d76c0a2ec563937.webp",
+        "small": "/assets/v26-1d76c0a2ec563937-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris posing beside a fire engine",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-9bf155b52cca76f9.webp",
+        "small": "/assets/v26-9bf155b52cca76f9-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris embracing in front of the fire engine",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-cf0696d2d8360ace.webp",
+        "small": "/assets/v26-cf0696d2d8360ace-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris sharing a kiss beside their wedding cake",
+        "naturalRatio": true
+      }
+    ],
+    "photoHeading": "Garden portraits and a celebration.",
+    "photoIntro": "Loriann and Chris beneath the gazebo, beside a fire engine and sharing a kiss by their wedding cake.",
+    "context": "The Old Bermuda Inn is in Staten Island, New York. This story features GioLina’s photography for Loriann and Chris.",
+    "venueUrl": "https://www.theoldbermudainn.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/the-park-savoy-florham-park/",
+      "label": "Deanna & Anthony at The Park Savoy"
+    }
   }
 ]

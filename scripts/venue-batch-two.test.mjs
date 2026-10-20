@@ -16,7 +16,7 @@ test('next wedding batch contains only verified films and correct coverage',()=>
   for(const img of d.querySelectorAll('.gv-story img')){assert(img.alt);assert(existsSync('public'+img.getAttribute('src')));}
   for(const a of d.querySelectorAll('.gv-story a[href^="/"]'))assert(existsSync('dist'+a.getAttribute('href')+'index.html'));
  }
- assert(!stories.some(s=>/Waterside|Palace|Addison|Liberty House/.test(s.venue)));
+ assert(!stories.some(s=>/Waterside|Palace/.test(s.venue)));
 });
 test('Gianna reuse uses the one independently matched current asset without changing the montage',()=>{
  const s=stories.find(s=>s.couple==='Gianna');assert.equal(s.photos.length,2);

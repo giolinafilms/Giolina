@@ -1,0 +1,133 @@
+{
+  "path": "/weddings/liberty-house-jersey-city/",
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Photography",
+      "href": "/photography/"
+    },
+    {
+      "label": "Liberty House",
+      "href": "/weddings/liberty-house-jersey-city/"
+    }
+  ],
+  "title": "Liberty House Wedding Photography & Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Megan and Ralph’s wedding at Liberty House, in film and photographs by GioLina.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Liberty House Wedding Photography &amp; Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Megan and Ralph’s wedding at Liberty House, in film and photographs by GioLina.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/liberty-house-jersey-city/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/v26-3c8d89a59fee351e.webp\"/>",
+    "<meta property=\"og:image:alt\" content=\"Megan and Ralph beside the waterfront railing with Manhattan behind them\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
+  ],
+  "content": "<article class=\"gv-story gv-photo-video\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Jersey City, New Jersey · Wedding photography &amp; film</p><h1>Megan &amp; Ralph<br><em>Liberty House</em></h1><p class=\"gv-lede\">Megan and Ralph’s wedding at Liberty House, in film and photographs by GioLina.</p><nav class=\"gv-story-nav\" aria-label=\"Explore this wedding\"><a href=\"#wedding-film\">The film</a><a href=\"#wedding-photographs\">The photographs</a></nav></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Megan &amp; Ralph wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1280/853\"><img src=\"/assets/v26-3c8d89a59fee351e.webp\" width=\"1280\" height=\"853\" alt=\"Megan and Ralph beside the waterfront railing with Manhattan behind them\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/Hoq2eguL6\" data-film-title=\"Megan &amp; Ralph\" aria-label=\"Play wedding film, Megan &amp; Ralph\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Megan &amp; Ralph · A film by GioLina Films</p></section><section id=\"wedding-photographs\" class=\"gv-editorial\" aria-labelledby=\"gv-story-title\"><p class=\"gv-kicker\">Selected photographs</p><h2 id=\"gv-story-title\">By the water, beneath a rainbow.</h2><p>Waterfront portraits, a shared umbrella and a rainbow over Megan and Ralph’s wedding day.</p></section><section class=\"gv-gallery\" aria-label=\"Selected photographs of Megan &amp; Ralph\"><figure><a href=\"/assets/v26-3c8d89a59fee351e.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph beside the waterfront railing with Manhattan behind them\"><img src=\"/assets/v26-3c8d89a59fee351e-small.webp\" srcset=\"/assets/v26-3c8d89a59fee351e-small.webp 640w, /assets/v26-3c8d89a59fee351e.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph beside the waterfront railing with Manhattan behind them\"></a></figure><figure><a href=\"/assets/v26-46337fd10ea72807.webp\" data-photo-viewer-link aria-label=\"View Ralph kissing Megan on the cheek beside the waterfront\"><img src=\"/assets/v26-46337fd10ea72807-small.webp\" srcset=\"/assets/v26-46337fd10ea72807-small.webp 640w, /assets/v26-46337fd10ea72807.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Ralph kissing Megan on the cheek beside the waterfront\"></a></figure><figure><a href=\"/assets/v26-013100c3807952f3.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph holding hands in a waterfront portrait\"><img src=\"/assets/v26-013100c3807952f3-small.webp\" srcset=\"/assets/v26-013100c3807952f3-small.webp 640w, /assets/v26-013100c3807952f3.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph holding hands in a waterfront portrait\"></a></figure><figure><a href=\"/assets/v26-4a0d3cfdb0f37e37.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph walking away along a brick path\"><img src=\"/assets/v26-4a0d3cfdb0f37e37-small.webp\" srcset=\"/assets/v26-4a0d3cfdb0f37e37-small.webp 640w, /assets/v26-4a0d3cfdb0f37e37.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph walking away along a brick path\"></a></figure><figure><a href=\"/assets/v26-b1152247c833e151.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph walking together in a black and white portrait\"><img src=\"/assets/v26-b1152247c833e151-small.webp\" srcset=\"/assets/v26-b1152247c833e151-small.webp 640w, /assets/v26-b1152247c833e151.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph walking together in a black and white portrait\"></a></figure><figure><a href=\"/assets/v26-6ba29960bad5c730.webp\" data-photo-viewer-link aria-label=\"View Ralph holding an umbrella above Megan on a garden path\"><img src=\"/assets/v26-6ba29960bad5c730-small.webp\" srcset=\"/assets/v26-6ba29960bad5c730-small.webp 640w, /assets/v26-6ba29960bad5c730.webp 1279w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1279\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1279/853\" alt=\"Ralph holding an umbrella above Megan on a garden path\"></a></figure><figure><a href=\"/assets/v26-5f992985132be9b0.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph beneath a red umbrella\"><img src=\"/assets/v26-5f992985132be9b0-small.webp\" srcset=\"/assets/v26-5f992985132be9b0-small.webp 640w, /assets/v26-5f992985132be9b0.webp 1279w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1279\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1279/853\" alt=\"Megan and Ralph beneath a red umbrella\"></a></figure><figure><a href=\"/assets/v26-53212e9b89a784d2.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph embracing beside the skyline at dusk\"><img src=\"/assets/v26-53212e9b89a784d2-small.webp\" srcset=\"/assets/v26-53212e9b89a784d2-small.webp 640w, /assets/v26-53212e9b89a784d2.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph embracing beside the skyline at dusk\"></a></figure><figure><a href=\"/assets/v26-8e1bff416a9f98fb.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph smiling beneath a rainbow\"><img src=\"/assets/v26-8e1bff416a9f98fb-small.webp\" srcset=\"/assets/v26-8e1bff416a9f98fb-small.webp 427w, /assets/v26-8e1bff416a9f98fb.webp 800w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"800\" height=\"1200\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:800/1200\" alt=\"Megan and Ralph smiling beneath a rainbow\"></a></figure><figure><a href=\"/assets/v26-bbf357ff3dde877b.webp\" data-photo-viewer-link aria-label=\"View Megan and Ralph kissing with a rainbow behind them\"><img src=\"/assets/v26-bbf357ff3dde877b-small.webp\" srcset=\"/assets/v26-bbf357ff3dde877b-small.webp 640w, /assets/v26-bbf357ff3dde877b.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Megan and Ralph kissing with a rainbow behind them\"></a></figure></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Jersey City</p><h2 id=\"gv-context-title\">Liberty House</h2></div><div><p>Liberty House is in Jersey City, New Jersey. This story features GioLina’s photography and cinematography for Megan and Ralph.</p><a class=\"gv-text-link\" href=\"https://bylandmark.com/venues/liberty-house/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><div class=\"gv-collection-link\"><a href=\"/photography/wedding-collection/\">View the wedding photography collection</a></div><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Liberty House</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/the-park-savoy-florham-park/\">Deanna &amp; Anthony at The Park Savoy</a></h2></section></article><script src=\"/photography-viewer.js\" defer></script><script src=\"/mediazilla-player.js\" defer></script>",
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/liberty-house-jersey-city/",
+      "url": "https://giolinafilms.com/weddings/liberty-house-jersey-city/",
+      "name": "Liberty House Wedding Photography & Film | GioLina Films",
+      "description": "Megan and Ralph’s wedding at Liberty House, in film and photographs by GioLina.",
+      "about": {
+        "@type": "Place",
+        "name": "Liberty House",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jersey City",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Megan & Ralph",
+          "description": "Megan & Ralph at Liberty House.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/v26-3c8d89a59fee351e.webp",
+          "embedUrl": "https://mediazilla.com/Hoq2eguL6"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-3c8d89a59fee351e.webp",
+          "name": "Megan and Ralph beside the waterfront railing with Manhattan behind them",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-46337fd10ea72807.webp",
+          "name": "Ralph kissing Megan on the cheek beside the waterfront",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-013100c3807952f3.webp",
+          "name": "Megan and Ralph holding hands in a waterfront portrait",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-4a0d3cfdb0f37e37.webp",
+          "name": "Megan and Ralph walking away along a brick path",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-b1152247c833e151.webp",
+          "name": "Megan and Ralph walking together in a black and white portrait",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-6ba29960bad5c730.webp",
+          "name": "Ralph holding an umbrella above Megan on a garden path",
+          "width": 1279,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-5f992985132be9b0.webp",
+          "name": "Megan and Ralph beneath a red umbrella",
+          "width": 1279,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-53212e9b89a784d2.webp",
+          "name": "Megan and Ralph embracing beside the skyline at dusk",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-8e1bff416a9f98fb.webp",
+          "name": "Megan and Ralph smiling beneath a rainbow",
+          "width": 800,
+          "height": 1200
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-bbf357ff3dde877b.webp",
+          "name": "Megan and Ralph kissing with a rainbow behind them",
+          "width": 1280,
+          "height": 853
+        }
+      ]
+    }
+  ]
+}

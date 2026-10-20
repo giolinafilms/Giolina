@@ -13,7 +13,7 @@ test('Giando preserves two distinct films and owner-corrected event coverage wit
  assert.equal(d.querySelectorAll('[data-photo-viewer-link]').length,0);
 });
 test('Stroudsmoor and Boscobel use verified films, local posters and nonindexable canonical previews',()=>{
- const next=stories.slice(11);assert.equal(next.length,2);assert.deepEqual(next.map(s=>s.film.id),['425184212','gjx8Km0Irn']);
+ const next=stories.slice(11,13);assert.equal(next.length,2);assert.deepEqual(next.map(s=>s.film.id),['425184212','gjx8Km0Irn']);
  for(const s of next){
   assert.equal(s.coverage,'video-only');assert.equal(s.photos.length,0);
   const p=JSON.parse(readFileSync('src/content/pages/'+s.pageFile));const d=new JSDOM(readFileSync('dist'+p.path+'index.html')).window.document;
