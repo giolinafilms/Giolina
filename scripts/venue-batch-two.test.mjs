@@ -4,9 +4,9 @@ import {readFileSync,existsSync} from 'node:fs';
 import {JSDOM} from 'jsdom';
 const stories=JSON.parse(readFileSync('src/content/venue-stories.json'));
 test('next wedding batch contains only verified films and correct coverage',()=>{
- const next=stories.slice(7);assert.equal(next.length,4);
+ const next=stories.slice(7,11);assert.equal(next.length,4);
  assert.deepEqual(next.flatMap(s=>s.films.map(f=>f.id)),['fAkBCNBFRB','842690557','799295947','263901273','d42vD8oAIH']);
- assert.deepEqual(next.map(s=>s.coverage),['video-only','video-only','video-only','photo-video']);assert(next[3].photographyPending);
+ assert.deepEqual(next.map(s=>s.coverage),['photo-video','video-only','video-only','photo-video']);assert(next[3].photographyPending);
  for(const s of next){
   const p=JSON.parse(readFileSync('src/content/pages/'+s.pageFile));const d=new JSDOM(readFileSync('dist'+p.path+'index.html','utf8')).window.document;
   assert.equal(d.querySelectorAll('h1').length,1);assert.equal(d.querySelectorAll('[data-photo-viewer-link]').length,0);

@@ -22,7 +22,7 @@ test('photo-only template emits actual photographs without film controls or film
  assert(!doc.querySelector('.gv-kicker').textContent.includes('film'));
 });
 test('only eleven reviewed stories are generated and each checked-in page matches the template',()=>{
- assert.equal(stories.length,11);
+ assert.equal(stories.length,13);
  for(const s of stories){
   const page=JSON.parse(readFileSync('src/content/pages/'+s.pageFile,'utf8'));
   assert.equal(page.content,renderVenueStory(s));

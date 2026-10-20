@@ -423,7 +423,7 @@
   {
     "pageFile": "weddings--giando-on-the-water-brooklyn.json",
     "publicationStatus": "preview-approved",
-    "coverage": "video-only",
+    "coverage": "photo-video",
     "venue": "Giando on the Water",
     "couple": "Alexandria & James · Selena & Dashmir",
     "location": "Brooklyn, New York",
@@ -450,7 +450,8 @@
         "height": 180,
         "alt": "Alexandria & James, a still from the GioLina wedding film",
         "provider": "mediazilla",
-        "embedUrl": "https://mediazilla.com/fAkBCNBFRB"
+        "embedUrl": "https://mediazilla.com/fAkBCNBFRB",
+        "coverage": "video-only"
       },
       {
         "id": "842690557",
@@ -460,14 +461,16 @@
         "width": 1315,
         "height": 510,
         "alt": "Selena & Dashmir, a still from the GioLina wedding film",
-        "provider": "vimeo"
+        "provider": "vimeo",
+        "coverage": "photo-video",
+        "photographyPending": true
       }
     ],
     "photos": [],
-    "context": "Giando on the Water overlooks the East River from Kent Avenue in Brooklyn. This collection features Alexandria and James, followed by Selena and Dashmir.",
+    "context": "Giando on the Water overlooks the East River from Kent Avenue in Brooklyn. GioLina provided cinematography for Alexandria and James, and photography and cinematography for Selena and Dashmir. Their films are presented separately here.",
     "venueUrl": "https://www.giandoonthewater.com/",
     "kind": "wedding",
-    "photographyPending": false,
+    "photographyPending": true,
     "next": {
       "href": "/weddings/gargiulos-brooklyn/",
       "label": "Gargiulo’s · Francesca & Chris"
@@ -596,6 +599,90 @@
     "next": {
       "href": "/weddings/giando-on-the-water-brooklyn/",
       "label": "Giando on the Water · Alexandria & James · Selena & Dashmir"
+    }
+  },
+  {
+    "pageFile": "weddings--stroudsmoor-stroudsburg.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "Stroudsmoor",
+    "couple": "Christina & Danny",
+    "location": "Stroudsburg, Pennsylvania",
+    "region": "Pocono Mountains",
+    "intro": "Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.",
+    "film": {
+      "id": "425184212",
+      "title": "Christina & Danny",
+      "eventName": "Christina & Danny",
+      "poster": "/assets/christina-danny.png",
+      "width": 1947,
+      "height": 808,
+      "alt": "Christina and Danny together outdoors, from their GioLina wedding film",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "425184212",
+        "title": "Christina & Danny",
+        "eventName": "Christina & Danny",
+        "poster": "/assets/christina-danny.png",
+        "width": 1947,
+        "height": 808,
+        "alt": "Christina and Danny together outdoors, from their GioLina wedding film",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [],
+    "context": "Stroudsmoor is in Stroudsburg, Pennsylvania, in the Pocono Mountains. This story features GioLina’s wedding cinematography for Christina and Danny.",
+    "venueUrl": "https://www.stroudsmoor.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/boscobel-garrison/",
+      "label": "Jazz & Trevor at Boscobel"
+    }
+  },
+  {
+    "pageFile": "weddings--boscobel-garrison.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "Boscobel",
+    "couple": "Jazz & Trevor",
+    "location": "Garrison, New York",
+    "region": "Hudson Valley",
+    "intro": "Jazz and Trevor’s wedding at Boscobel, in their GioLina film.",
+    "film": {
+      "id": "gjx8Km0Irn",
+      "title": "Jazz & Trevor",
+      "eventName": "Jazz & Trevor",
+      "poster": "/assets/jazz-trevor-poster.png",
+      "width": 441,
+      "height": 183,
+      "alt": "Trevor speaking to Jazz during their ceremony, from the GioLina wedding film",
+      "provider": "mediazilla",
+      "embedUrl": "https://mediazilla.com/gjx8Km0Irn"
+    },
+    "films": [
+      {
+        "id": "gjx8Km0Irn",
+        "title": "Jazz & Trevor",
+        "eventName": "Jazz & Trevor",
+        "poster": "/assets/jazz-trevor-poster.png",
+        "width": 441,
+        "height": 183,
+        "alt": "Trevor speaking to Jazz during their ceremony, from the GioLina wedding film",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/gjx8Km0Irn"
+      }
+    ],
+    "photos": [],
+    "context": "Boscobel House and Gardens overlooks the Hudson River in Garrison, New York. Jazz and Trevor’s wedding is presented through their GioLina film.",
+    "venueUrl": "https://www.boscobel.org/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/stroudsmoor-stroudsburg/",
+      "label": "Christina & Danny at Stroudsmoor"
     }
   }
 ]
