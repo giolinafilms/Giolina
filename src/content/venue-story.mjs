@@ -1,7 +1,7 @@
 // Build-time content template only. The media catalogue never creates routes.
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const localAsset = value => {
- if (!/^\/assets\/[a-zA-Z0-9._/-]+$/.test(value ?? '') || value.includes('..')) throw new Error('Expected an approved local media asset');
+ if (!/^\/(?:assets|sweet-media)\/[a-zA-Z0-9._/-]+$/.test(value ?? '') || value.includes('..')) throw new Error('Expected an approved local media asset');
  return escape(value);
 };
 export function renderVenueStory(s) {
@@ -14,7 +14,7 @@ export function renderVenueStory(s) {
  if (!hasPhotos && photos.length) throw new Error('Video-only coverage cannot include a photography collection');
  const label={'photo-video':'Wedding photography & film','video-only':'Wedding cinematography','photo-only':'Wedding photography'}[s.coverage];
  const e=escape;
- const photoMarkup=photos.map(p=>`<figure><a href="${localAsset(p.src)}" data-photo-viewer-link aria-label="View ${e(p.alt)}"><img src="${localAsset(p.small)}" srcset="${p.small === p.src ? `${localAsset(p.src)} ${p.width}w` : `${localAsset(p.small)} ${p.smallWidth ?? 640}w, ${localAsset(p.src)} ${p.smallWidth ? p.width : 1024}w`}" sizes="(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px" width="${Number(p.width)}" height="${Number(p.height)}" loading="lazy" decoding="async" alt="${e(p.alt)}"></a><figcaption>${e(p.caption)}</figcaption></figure>`).join('');
+ const photoMarkup=photos.map(p=>`<figure><a href="${localAsset(p.src)}" data-photo-viewer-link aria-label="View ${e(p.alt)}"><img src="${localAsset(p.small)}" srcset="${p.small === p.src ? `${localAsset(p.src)} ${p.width}w` : `${localAsset(p.small)} ${p.smallWidth ?? 640}w, ${localAsset(p.src)} ${p.smallWidth ? p.width : 1024}w`}" sizes="(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px" width="${Number(p.width)}" height="${Number(p.height)}" loading="lazy" decoding="async" alt="${e(p.alt)}"></a>${p.showCaption === true && p.caption ? `<figcaption>${e(p.caption)}</figcaption>` : ''}</figure>`).join('');
  let filmMarkup=hasFilm?films.map((film,index)=>`<section id="${index ? `wedding-film-${index+1}` : 'wedding-film'}" class="gv-film-section" aria-label="${e(s.couple)} wedding film"><div class="gv-film-heading"><h2>The wedding film</h2></div><div class="gl-film-preview gv-film" style="aspect-ratio:${Number(film.width)}/${Number(film.height)}"><img src="${localAsset(film.poster)}" width="${Number(film.width)}" height="${Number(film.height)}" alt="${e(film.alt)}" fetchpriority="high" decoding="async"><button type="button" ${film.provider === 'mediazilla' ? `data-mediazilla-src="${e(film.embedUrl)}"` : `data-vimeo-id="${e(film.id)}"`} data-film-title="${e(film.title)}" aria-label="Play wedding film, ${e(film.title)}"><span>Play wedding film</span></button></div><p class="gv-caption">${e(film.eventName ?? s.couple)} · A film by GioLina Films</p></section>`).join(''):'';
  if (s.kind === 'sweet-sixteen') filmMarkup=filmMarkup.replaceAll('The wedding film','The Sweet Sixteen film').replaceAll('Play wedding film','Play Sweet Sixteen film').replaceAll(' wedding film',' Sweet Sixteen film');
  if (!/^https:\/\//.test(s.venueUrl)) throw new Error('Official venue HTTPS URL required');

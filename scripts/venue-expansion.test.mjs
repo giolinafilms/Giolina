@@ -2,10 +2,10 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {JSDOM} from 'jsdom';
-const stories=JSON.parse(readFileSync('src/content/venue-stories.json')).slice(2);
+const stories=JSON.parse(readFileSync('src/content/venue-stories.json')).slice(2,7);
 test('five authorized previews preserve exact event/media identities and safe metadata',()=>{
  assert.equal(stories.length,5);
- assert.deepEqual(stories.map(s=>s.photos.length),[5,0,2,1,1]);
+ assert.deepEqual(stories.map(s=>s.photos.length),[5,0,2,1,2]);
  assert.deepEqual(stories.flatMap(s=>s.films.map(f=>f.id)),['425185852','9jzGeDjrO7','723528961','ttnbvY81xe','8baRrhNAed','793523768']);
  for(const s of stories){
   const page=JSON.parse(readFileSync('src/content/pages/'+s.pageFile));

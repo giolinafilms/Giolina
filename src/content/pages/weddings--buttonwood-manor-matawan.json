@@ -1,0 +1,64 @@
+{
+  "path": "/weddings/buttonwood-manor-matawan/",
+  "title": "Buttonwood Manor Wedding Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Nicolette and Tyler’s wedding at Buttonwood Manor, presented in their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Buttonwood Manor Wedding Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Nicolette and Tyler’s wedding at Buttonwood Manor, presented in their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/buttonwood-manor-matawan/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/nicolette-tyler-first-frame.jpg\"/>",
+    "<meta property=\"og:image:alt\" content=\"Nicolette &amp; Tyler, a still from the GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/nicolette-tyler-first-frame.jpg\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Buttonwood Manor",
+      "href": "/weddings/buttonwood-manor-matawan/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/buttonwood-manor-matawan/",
+      "url": "https://giolinafilms.com/weddings/buttonwood-manor-matawan/",
+      "name": "Buttonwood Manor Wedding Film | GioLina Films",
+      "description": "Nicolette and Tyler’s wedding at Buttonwood Manor, presented in their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "Buttonwood Manor",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Matawan",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Nicolette & Tyler at Buttonwood Manor",
+          "description": "Nicolette & Tyler wedding film at Buttonwood Manor.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/nicolette-tyler-first-frame.jpg",
+          "embedUrl": "https://mediazilla.com/d42vD8oAIH"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-photo-video\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Matawan, New Jersey · Wedding photography &amp; film</p><h1>Nicolette &amp; Tyler<br><em>Buttonwood Manor</em></h1><p class=\"gv-lede\">Nicolette and Tyler’s wedding at Buttonwood Manor, presented in their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Nicolette &amp; Tyler wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:640/266\"><img src=\"/assets/nicolette-tyler-first-frame.jpg\" width=\"640\" height=\"266\" alt=\"Nicolette &amp; Tyler, a still from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/d42vD8oAIH\" data-film-title=\"Nicolette &amp; Tyler\" aria-label=\"Play wedding film, Nicolette &amp; Tyler\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Nicolette &amp; Tyler · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Monmouth County</p><h2 id=\"gv-context-title\">Buttonwood Manor</h2></div><div><p>Buttonwood Manor is in Matawan, New Jersey. GioLina provided both photography and cinematography for Nicolette and Tyler; their film is featured here.</p><a class=\"gv-text-link\" href=\"https://buttonwoodmanor.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Buttonwood Manor</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/giando-on-the-water-brooklyn/\">Giando on the Water · Alexandria &amp; James · Selena &amp; Dashmir</a></h2></section></article><script src=\"/mediazilla-player.js\" defer></script>"
+}

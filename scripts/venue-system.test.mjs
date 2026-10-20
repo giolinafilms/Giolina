@@ -21,8 +21,8 @@ test('photo-only template emits actual photographs without film controls or film
  assert.equal(doc.querySelectorAll('[data-vimeo-id],iframe,.gv-film-section').length,0);
  assert(!doc.querySelector('.gv-kicker').textContent.includes('film'));
 });
-test('only seven reviewed stories are generated and each checked-in page matches the template',()=>{
- assert.equal(stories.length,7);
+test('only eleven reviewed stories are generated and each checked-in page matches the template',()=>{
+ assert.equal(stories.length,11);
  for(const s of stories){
   const page=JSON.parse(readFileSync('src/content/pages/'+s.pageFile,'utf8'));
   assert.equal(page.content,renderVenueStory(s));
@@ -42,4 +42,9 @@ test('approved venue presentation keeps films embedded without runtime labels or
   assert(next);assert(stories.some(other=>'/'+other.pageFile.replaceAll('--','/').replace('.json','/')===next.getAttribute('href')));
   const trigger=doc.querySelector('[data-vimeo-id],[data-mediazilla-src]'); assert.equal(trigger.dataset.vimeoId ?? trigger.dataset.mediazillaSrc,s.film.embedUrl ?? s.film.id);
  }
+});
+
+test('ordinary photo captions are absent by default while accessibility remains',()=>{
+ for(const s of stories){const d=new JSDOM(renderVenueStory(s)).window.document;assert.equal(d.querySelectorAll('figcaption').length,0);for(const a of d.querySelectorAll('[data-photo-viewer-link]')){assert(a.getAttribute('aria-label'));assert(a.querySelector('img').alt);}}
+ const s={...stories[0],photos:[{...stories[0].photos[0],showCaption:true,caption:'The grand staircase.'}]};assert.equal(new JSDOM(renderVenueStory(s)).window.document.querySelector('figcaption').textContent,'The grand staircase.');
 });

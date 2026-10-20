@@ -1,0 +1,64 @@
+{
+  "path": "/weddings/gargiulos-brooklyn/",
+  "title": "Gargiulo’s Wedding Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Francesca and Chris’s wedding at Gargiulo’s, in their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Gargiulo’s Wedding Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Francesca and Chris’s wedding at Gargiulo’s, in their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/gargiulos-brooklyn/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/francesca-chris.png\"/>",
+    "<meta property=\"og:image:alt\" content=\"Francesca &amp; Chris, a still from the GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/francesca-chris.png\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Gargiulo’s",
+      "href": "/weddings/gargiulos-brooklyn/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/gargiulos-brooklyn/",
+      "url": "https://giolinafilms.com/weddings/gargiulos-brooklyn/",
+      "name": "Gargiulo’s Wedding Film | GioLina Films",
+      "description": "Francesca and Chris’s wedding at Gargiulo’s, in their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "Gargiulo’s",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brooklyn",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Francesca & Chris at Gargiulo’s",
+          "description": "Francesca & Chris wedding film at Gargiulo’s.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/francesca-chris.png",
+          "embedUrl": "https://player.vimeo.com/video/799295947"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Brooklyn, New York · Wedding cinematography</p><h1>Francesca &amp; Chris<br><em>Gargiulo’s</em></h1><p class=\"gv-lede\">Francesca and Chris’s wedding at Gargiulo’s, in their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Francesca &amp; Chris wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:443/182\"><img src=\"/assets/francesca-chris.png\" width=\"443\" height=\"182\" alt=\"Francesca &amp; Chris, a still from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-vimeo-id=\"799295947\" data-film-title=\"Francesca &amp; Chris\" aria-label=\"Play wedding film, Francesca &amp; Chris\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Francesca &amp; Chris · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Brooklyn</p><h2 id=\"gv-context-title\">Gargiulo’s</h2></div><div><p>Gargiulo’s is in Coney Island, Brooklyn. This story features GioLina’s wedding cinematography for Francesca and Chris.</p><a class=\"gv-text-link\" href=\"https://gargiulos.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Gargiulo’s</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/laurita-winery-new-egypt/\">Laurita Winery · Sara &amp; Phil</a></h2></section></article>"
+}

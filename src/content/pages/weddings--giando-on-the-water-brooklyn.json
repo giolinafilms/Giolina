@@ -1,0 +1,71 @@
+{
+  "path": "/weddings/giando-on-the-water-brooklyn/",
+  "title": "Giando on the Water Wedding Films | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Two weddings at Giando on the Water, presented as separate GioLina films.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Giando on the Water Wedding Films | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Two weddings at Giando on the Water, presented as separate GioLina films.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/giando-on-the-water-brooklyn/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/alexandria-james.png\"/>",
+    "<meta property=\"og:image:alt\" content=\"Alexandria &amp; James, a still from the GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/alexandria-james.png\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Giando on the Water",
+      "href": "/weddings/giando-on-the-water-brooklyn/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/giando-on-the-water-brooklyn/",
+      "url": "https://giolinafilms.com/weddings/giando-on-the-water-brooklyn/",
+      "name": "Giando on the Water Wedding Films | GioLina Films",
+      "description": "Two weddings at Giando on the Water, presented as separate GioLina films.",
+      "about": {
+        "@type": "Place",
+        "name": "Giando on the Water",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brooklyn",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Alexandria & James at Giando on the Water",
+          "description": "Alexandria & James wedding film at Giando on the Water.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/alexandria-james.png",
+          "embedUrl": "https://mediazilla.com/fAkBCNBFRB"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "Selena & Dashmir at Giando on the Water",
+          "description": "Selena & Dashmir wedding film at Giando on the Water.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/seleena-dashmir-poster.jpg",
+          "embedUrl": "https://player.vimeo.com/video/842690557"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Brooklyn, New York · Wedding cinematography</p><h1>Alexandria &amp; James · Selena &amp; Dashmir<br><em>Giando on the Water</em></h1><p class=\"gv-lede\">Two weddings at Giando on the Water, presented as separate GioLina films.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Alexandria &amp; James · Selena &amp; Dashmir wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:442/180\"><img src=\"/assets/alexandria-james.png\" width=\"442\" height=\"180\" alt=\"Alexandria &amp; James, a still from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/fAkBCNBFRB\" data-film-title=\"Alexandria &amp; James\" aria-label=\"Play wedding film, Alexandria &amp; James\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Alexandria &amp; James · A film by GioLina Films</p></section><section id=\"wedding-film-2\" class=\"gv-film-section\" aria-label=\"Alexandria &amp; James · Selena &amp; Dashmir wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1315/510\"><img src=\"/assets/seleena-dashmir-poster.jpg\" width=\"1315\" height=\"510\" alt=\"Selena &amp; Dashmir, a still from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-vimeo-id=\"842690557\" data-film-title=\"Selena &amp; Dashmir\" aria-label=\"Play wedding film, Selena &amp; Dashmir\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Selena &amp; Dashmir · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Brooklyn</p><h2 id=\"gv-context-title\">Giando on the Water</h2></div><div><p>Giando on the Water overlooks the East River from Kent Avenue in Brooklyn. This collection features Alexandria and James, followed by Selena and Dashmir.</p><a class=\"gv-text-link\" href=\"https://www.giandoonthewater.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Giando on the Water</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/gargiulos-brooklyn/\">Gargiulo’s · Francesca &amp; Chris</a></h2></section></article><script src=\"/mediazilla-player.js\" defer></script>"
+}

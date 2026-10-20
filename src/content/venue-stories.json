@@ -358,7 +358,7 @@
     "couple": "Gianna",
     "location": "Staten Island, New York",
     "region": "Staten Island",
-    "intro": "Gianna’s Sweet Sixteen at Ariana’s South, in a GioLina film and selected portrait.",
+    "intro": "Gianna’s Sweet Sixteen at Ariana’s South, in a GioLina film and selected portraits.",
     "film": {
       "id": "793523768",
       "title": "Gianna",
@@ -390,10 +390,18 @@
         "alt": "Gianna, Sweet Sixteen portrait",
         "caption": "Gianna · selected portrait.",
         "smallWidth": 1280
+      },
+      {
+        "src": "/sweet-media/s16-11551d4a48a929f1-large.webp",
+        "small": "/sweet-media/s16-11551d4a48a929f1-small.webp",
+        "width": 800,
+        "height": 1199,
+        "smallWidth": 427,
+        "alt": "Gianna wearing a tiara and earrings in a close portrait"
       }
     ],
     "photoHeading": "A portrait of the celebration.",
-    "photoIntro": "A selected portrait of Gianna.",
+    "photoIntro": "Two portraits of Gianna.",
     "context": "Ariana’s South is a Staten Island event venue. This story features Gianna’s celebration. GioLina provided both photography and cinematography.",
     "venueUrl": "https://arianassouth.com/",
     "kind": "sweet-sixteen",
@@ -401,6 +409,184 @@
     "next": {
       "href": "/sweet-sixteen/vanderbilt-at-south-beach/",
       "label": "Gabby & Gina Marie at Vanderbilt at South Beach"
+    }
+  },
+  {
+    "pageFile": "weddings--giando-on-the-water-brooklyn.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "Giando on the Water",
+    "couple": "Alexandria & James · Selena & Dashmir",
+    "location": "Brooklyn, New York",
+    "region": "Brooklyn",
+    "intro": "Two weddings at Giando on the Water, presented as separate GioLina films.",
+    "film": {
+      "id": "fAkBCNBFRB",
+      "title": "Alexandria & James",
+      "eventName": "Alexandria & James",
+      "poster": "/assets/alexandria-james.png",
+      "width": 442,
+      "height": 180,
+      "alt": "Alexandria & James, a still from the GioLina wedding film",
+      "provider": "mediazilla",
+      "embedUrl": "https://mediazilla.com/fAkBCNBFRB"
+    },
+    "films": [
+      {
+        "id": "fAkBCNBFRB",
+        "title": "Alexandria & James",
+        "eventName": "Alexandria & James",
+        "poster": "/assets/alexandria-james.png",
+        "width": 442,
+        "height": 180,
+        "alt": "Alexandria & James, a still from the GioLina wedding film",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/fAkBCNBFRB"
+      },
+      {
+        "id": "842690557",
+        "title": "Selena & Dashmir",
+        "eventName": "Selena & Dashmir",
+        "poster": "/assets/seleena-dashmir-poster.jpg",
+        "width": 1315,
+        "height": 510,
+        "alt": "Selena & Dashmir, a still from the GioLina wedding film",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [],
+    "context": "Giando on the Water overlooks the East River from Kent Avenue in Brooklyn. This collection features Alexandria and James, followed by Selena and Dashmir.",
+    "venueUrl": "https://www.giandoonthewater.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/gargiulos-brooklyn/",
+      "label": "Gargiulo’s · Francesca & Chris"
+    }
+  },
+  {
+    "pageFile": "weddings--gargiulos-brooklyn.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "Gargiulo’s",
+    "couple": "Francesca & Chris",
+    "location": "Brooklyn, New York",
+    "region": "Brooklyn",
+    "intro": "Francesca and Chris’s wedding at Gargiulo’s, in their GioLina film.",
+    "film": {
+      "id": "799295947",
+      "title": "Francesca & Chris",
+      "eventName": "Francesca & Chris",
+      "poster": "/assets/francesca-chris.png",
+      "width": 443,
+      "height": 182,
+      "alt": "Francesca & Chris, a still from the GioLina wedding film",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "799295947",
+        "title": "Francesca & Chris",
+        "eventName": "Francesca & Chris",
+        "poster": "/assets/francesca-chris.png",
+        "width": 443,
+        "height": 182,
+        "alt": "Francesca & Chris, a still from the GioLina wedding film",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [],
+    "context": "Gargiulo’s is in Coney Island, Brooklyn. This story features GioLina’s wedding cinematography for Francesca and Chris.",
+    "venueUrl": "https://gargiulos.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/laurita-winery-new-egypt/",
+      "label": "Laurita Winery · Sara & Phil"
+    }
+  },
+  {
+    "pageFile": "weddings--laurita-winery-new-egypt.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "video-only",
+    "venue": "Laurita Winery",
+    "couple": "Sara & Phil",
+    "location": "New Egypt, New Jersey",
+    "region": "New Egypt",
+    "intro": "Sara and Phil’s wedding at Laurita Winery, presented through their GioLina film.",
+    "film": {
+      "id": "263901273",
+      "title": "Sara & Phil",
+      "eventName": "Sara & Phil",
+      "poster": "/assets/shorts/sara-phil-recap.jpg",
+      "width": 1280,
+      "height": 720,
+      "alt": "Sara & Phil, a still from the GioLina wedding film",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "263901273",
+        "title": "Sara & Phil",
+        "eventName": "Sara & Phil",
+        "poster": "/assets/shorts/sara-phil-recap.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Sara & Phil, a still from the GioLina wedding film",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [],
+    "context": "Laurita Winery is on Archertown Road in New Egypt, New Jersey. Sara and Phil’s film is part of GioLina’s wedding cinematography collection.",
+    "venueUrl": "https://lauritawinery.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/buttonwood-manor-matawan/",
+      "label": "Buttonwood Manor · Nicolette & Tyler"
+    }
+  },
+  {
+    "pageFile": "weddings--buttonwood-manor-matawan.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Buttonwood Manor",
+    "couple": "Nicolette & Tyler",
+    "location": "Matawan, New Jersey",
+    "region": "Monmouth County",
+    "intro": "Nicolette and Tyler’s wedding at Buttonwood Manor, presented in their GioLina film.",
+    "film": {
+      "id": "d42vD8oAIH",
+      "title": "Nicolette & Tyler",
+      "eventName": "Nicolette & Tyler",
+      "poster": "/assets/nicolette-tyler-first-frame.jpg",
+      "width": 640,
+      "height": 266,
+      "alt": "Nicolette & Tyler, a still from the GioLina wedding film",
+      "provider": "mediazilla",
+      "embedUrl": "https://mediazilla.com/d42vD8oAIH"
+    },
+    "films": [
+      {
+        "id": "d42vD8oAIH",
+        "title": "Nicolette & Tyler",
+        "eventName": "Nicolette & Tyler",
+        "poster": "/assets/nicolette-tyler-first-frame.jpg",
+        "width": 640,
+        "height": 266,
+        "alt": "Nicolette & Tyler, a still from the GioLina wedding film",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/d42vD8oAIH"
+      }
+    ],
+    "photos": [],
+    "context": "Buttonwood Manor is in Matawan, New Jersey. GioLina provided both photography and cinematography for Nicolette and Tyler; their film is featured here.",
+    "venueUrl": "https://buttonwoodmanor.com/",
+    "kind": "wedding",
+    "photographyPending": true,
+    "next": {
+      "href": "/weddings/giando-on-the-water-brooklyn/",
+      "label": "Giando on the Water · Alexandria & James · Selena & Dashmir"
     }
   }
 ]
