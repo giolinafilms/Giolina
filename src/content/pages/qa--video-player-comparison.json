@@ -1,0 +1,25 @@
+{
+  "path": "/qa/video-player-comparison/",
+  "title": "Preview Video Player Comparison | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Private review of existing and consent-gated inline wedding film players.\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css",
+    "/inline-player-experiment.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Player comparison",
+      "href": "/qa/video-player-comparison/"
+    }
+  ],
+  "schema": [],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Preview only · video player comparison</p><h1>Wedding films<br><em>Player comparison</em></h1><p class=\"gv-lede\">Compare the existing popup player with an inline player. Neither loads a video provider until you choose to play or load that provider.</p></header><section class=\"gv-film-section\" aria-labelledby=\"vimeo-title\"><div class=\"gv-film-heading\"><h2 id=\"vimeo-title\">Francesca &amp; Chris at Gargiulo’s</h2></div><p>Existing click to open player</p><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:443/182\"><img src=\"/assets/francesca-chris.png\" width=\"443\" height=\"182\" alt=\"Francesca &amp; Chris at Gargiulo’s, existing film poster\"><button type=\"button\" data-vimeo-id=\"799295947\" data-film-title=\"Francesca &amp; Chris at Gargiulo’s\" aria-label=\"Play existing player, Francesca &amp; Chris at Gargiulo’s\"><span>Play existing player</span></button></div><div class=\"inline-test\" data-inline-provider=\"vimeo\"><h3>Inline player</h3><p>Loading this player connects your browser to Vimeo. The provider receives technical information and may use cookies. This choice is separate from optional GioLina analytics and is not saved.</p><p>The Vimeo test uses its Do Not Track parameter. Vimeo says essential player/security cookies can still be used.</p><button type=\"button\" data-inline-load aria-controls=\"inline-vimeo\">Load Vimeo inline player</button><button type=\"button\" data-inline-remove hidden>Remove inline player</button><p data-inline-status role=\"status\">No inline provider loaded.</p><div id=\"inline-vimeo\" class=\"inline-screen\" data-player-src=\"https://player.vimeo.com/video/799295947?dnt=1&amp;autoplay=0\" data-player-title=\"Francesca &amp; Chris at Gargiulo’s\"><img src=\"/assets/francesca-chris.png\" width=\"443\" height=\"182\" alt=\"Francesca &amp; Chris at Gargiulo’s, existing film poster\"></div></div></section><section class=\"gv-film-section\" aria-labelledby=\"mediazilla-title\"><div class=\"gv-film-heading\"><h2 id=\"mediazilla-title\">Jazz &amp; Trevor at Boscobel</h2></div><p>Existing click to open player</p><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:441/183\"><img src=\"/assets/jazz-trevor-poster.png\" width=\"441\" height=\"183\" alt=\"Jazz &amp; Trevor at Boscobel, existing film poster\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/gjx8Km0Irn\" data-film-title=\"Jazz &amp; Trevor at Boscobel\" aria-label=\"Play existing player, Jazz &amp; Trevor at Boscobel\"><span>Play existing player</span></button></div><div class=\"inline-test\" data-inline-provider=\"mediazilla\"><h3>Inline player</h3><p>Loading this player connects your browser to MediaZilla. The provider receives technical information and may use cookies. This choice is separate from optional GioLina analytics and is not saved.</p><button type=\"button\" data-inline-load aria-controls=\"inline-mediazilla\">Load MediaZilla inline player</button><button type=\"button\" data-inline-remove hidden>Remove inline player</button><p data-inline-status role=\"status\">No inline provider loaded.</p><div id=\"inline-mediazilla\" class=\"inline-screen\" data-player-src=\"https://mediazilla.com/gjx8Km0Irn\" data-player-title=\"Jazz &amp; Trevor at Boscobel\"><img src=\"/assets/jazz-trevor-poster.png\" width=\"441\" height=\"183\" alt=\"Jazz &amp; Trevor at Boscobel, existing film poster\"></div></div></section><section class=\"gv-editorial\"><h2>Discovery and privacy</h2><p>The inline iframe is visible after permission, without a popup. Before that choice, there is no provider iframe for Google to discover. This version preserves the current request boundary; it does not solve automatic video discovery. Immediate embedding requires a separate provider cookie and privacy decision before production use.</p><p>Removing a player stops this page from keeping its iframe loaded. It cannot erase information or cookies already processed by the provider.</p><a href=\"/privacy/\">Existing analytics and inquiry privacy notice</a></section></article><script src=\"/mediazilla-player.js\" defer></script><script src=\"/inline-player-experiment.js\" defer></script>"
+}
