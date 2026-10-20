@@ -192,3 +192,13 @@ Do not enable or call /diagnostic in this deployment phase.
 
 Cloudflare build documentation:
 https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
+
+## Phase 3C: first Git-connected build trigger — October 20, 2026
+
+The owner confirmed that the separate `giolina-smugmug-diagnostic` Worker is
+connected to `giolinafilms/Giolina`, branch `smugmug-discovery`, with preview
+builds disabled and the explicit `diagnostics/smugmug/wrangler.jsonc` deploy
+command. This documentation-only commit requests the first connected build.
+Build success, migration provisioning and hosted readiness must be verified
+separately; this note does not establish deployment success. OAuth remains
+disabled, and no credentials or production configuration are changed.
