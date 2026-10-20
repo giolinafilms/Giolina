@@ -28,3 +28,8 @@ Official venue context checked against https://naninasinthepark.com/ and https:/
 
 ## Owner review required
 All five new stories are PREVIEW ONLY. Rockleigh needs matching photographs; Nanina’s needs additional verified exceptional photographs if a larger set is desired. Sweet Sixteen pages need an approved event-to-image mapping before expanding beyond the named portraits. Venetian needs additional supported photos and final approval. Nothing in this batch authorizes production publication.
+
+## Hosted preview verification
+Preview commit 22c414538ecc62e0944ff230021826a8498d4151 passed the established Cloudflare build 3d755e68-a88c-413d-9ee9-35f0fbf9aaa0. All five routes opened. Nanina’s photo viewer opened and advanced 1/5 to 2/5 and closed; its Vimeo player and Gabby’s player showed advancing playback. MediaZilla loaded the correctly titled Bianca & Bobby, Gina Marie and Julia films. This does not assert full end-to-end playback for those MediaZilla films. Metadata/noindex, image loading and desktop overflow checks passed on inspected pages. No physical-device or mobile/tablet viewport emulation was available.
+
+A final copy-only cleanup removes internal review phrasing from visitor-facing text; scoped venue/editorial tests and build rerun. Event attribution and media are unchanged. Search Console individual-page evidence is recorded separately in GOOGLE_INDEXING_VERIFICATION_2026-10-20.md.
