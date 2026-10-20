@@ -185,7 +185,7 @@
     "couple": "Bianca & Bobby",
     "location": "Rockleigh, New Jersey",
     "region": "Bergen County",
-    "intro": "Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.",
+    "intro": "Bianca and Bobby’s wedding at The Rockleigh, in their GioLina film and a portrait from their wedding day.",
     "film": {
       "id": "9jzGeDjrO7",
       "title": "Bianca & Bobby",
@@ -210,13 +210,22 @@
         "embedUrl": "https://mediazilla.com/9jzGeDjrO7"
       }
     ],
-    "photos": [],
-    "photoHeading": "Before the celebration.",
-    "photoIntro": "Existing portraits from the GioLina Sweet Sixteen collection.",
+    "photos": [
+      {
+        "src": "/assets/690ef6c3e99444cd.png",
+        "small": "/assets/690ef6c3e99444cd.png",
+        "width": 617,
+        "height": 683,
+        "smallWidth": 617,
+        "alt": "Bianca and Bobby smiling together in a wedding car"
+      }
+    ],
+    "photoHeading": "Together on their wedding day.",
+    "photoIntro": "A portrait of Bianca and Bobby.",
     "context": "The Rockleigh is in Rockleigh, New Jersey. GioLina provided photography and cinematography for Bianca and Bobby; their film is featured here.",
     "venueUrl": "https://therockleigh.net/",
     "kind": "wedding",
-    "photographyPending": true,
+    "photographyPending": false,
     "next": {
       "href": "/weddings/naninas-in-the-park-belleville/",
       "label": "Nicole & Phil at Nanina’s in the Park"
