@@ -33,7 +33,7 @@ test('real Worker applies independent flags only to successful public production
  }finally{await mf.dispose();}
 });
 const script=readFileSync('public/production-analytics.js','utf8');
-function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled})+'</script><a href="/contact/">Inquire</a><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.eval(script);return dom;}
+function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled,privacyApproved:true})+'</script><a href="/contact/">Inquire</a><footer></footer><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.localStorage.setItem('gl-analytics-consent',JSON.stringify({version:1,choice:'accepted',expires:Date.now()+100000}));dom.window.eval(readFileSync('public/analytics-consent.js','utf8'));dom.window.eval(script);return dom;}
 test('analytics does not load without production authorization',()=>{
  for(const [url,enabled] of [['https://giolinafilms.com/',false],['https://preview.test/',true],['https://giolinafilms.com/admin/',true],['http://giolinafilms.com/',true]]){const d=browser(url,enabled);assert.equal(d.window.dataLayer,undefined);assert.equal(d.window.document.querySelector('script[src]'),null);d.window.close();}
 });
@@ -63,7 +63,7 @@ test('production config enables only approved indexing and preserves unrelated v
  for(const key of ['d1_databases','kv_namespaces','r2_buckets','routes','services'])assert.equal(config[key],undefined,key);
  assert.equal(config.assets.binding,'ASSETS');assert.deepEqual(config.previews,{});
  assert.equal(config.keep_vars,true);
- assert.deepEqual(config.vars,{GIOLINA_INDEXING_ENABLED:'true',GIOLINA_ANALYTICS_ENABLED:'false'});
+ assert.deepEqual(config.vars,{GIOLINA_INDEXING_ENABLED:'true',GIOLINA_ANALYTICS_ENABLED:'true'});
 });
 
 test('deployed bindings activate only canonical public pages while preview, private and error responses stay protected',async()=>{
@@ -76,7 +76,7 @@ test('deployed bindings activate only canonical public pages while preview, priv
  try{
   for(const path of [...mainPagePaths,'/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/']){
    const res=await mf.dispatchFetch('https://giolinafilms.com'+path),body=await res.text();
-   assert.equal(res.headers.get('X-Robots-Tag'),'index, follow',path);assert(body.includes('content="index, follow"'));assert(!body.includes('/production-analytics.js'));
+   assert.equal(res.headers.get('X-Robots-Tag'),'index, follow',path);assert(body.includes('content="index, follow"'));assert(body.includes('/production-analytics.js'));
    const preview=await mf.dispatchFetch('https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev'+path);
    assert.equal(preview.headers.get('X-Robots-Tag'),'noindex, nofollow');assert((await preview.text()).includes('content="noindex, nofollow"'));
   }

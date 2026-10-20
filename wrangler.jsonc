@@ -13,6 +13,6 @@
   "keep_vars": true,
   "vars": {
     "GIOLINA_INDEXING_ENABLED": "true",
-    "GIOLINA_ANALYTICS_ENABLED": "false"
+    "GIOLINA_ANALYTICS_ENABLED": "true"
   }
 }

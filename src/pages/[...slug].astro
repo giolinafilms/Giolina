@@ -42,6 +42,7 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <link rel="stylesheet" href="/final-continuity.css" />
 {page.path === "/experience/" && <link rel="stylesheet" href="/tenor-test.css" />}
 {isEvents && <link rel="stylesheet" href="/events-phase1.css" />}
+<link rel="stylesheet" href="/analytics-consent.css" />
 </head>
 <body class={page.bodyClass}>
 <a class="migration-skip" href="#content">Skip to content</a>
@@ -61,5 +62,6 @@ const isRtg = page.path === "/ready-to-go-productions/";
 <script src="/migration.js" is:inline></script>
 <script src="/film-player.js" defer={page.path === "/cinematography/"} is:inline></script>
 <script src="/scheduler-links.js" defer is:inline></script>
+<script src="/analytics-consent.js" defer is:inline></script>
 </body>
 </html>
