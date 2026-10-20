@@ -1,0 +1,97 @@
+{
+  "path": "/weddings/the-park-savoy-florham-park/",
+  "title": "The Park Savoy Wedding Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Watch Deanna and Anthony’s GioLina wedding film at The Park Savoy in Florham Park, New Jersey. Explore our cinematography and inquire about your wedding.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"The Park Savoy Wedding Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Watch Deanna and Anthony’s GioLina wedding film at The Park Savoy in Florham Park, New Jersey. Explore our cinematography and inquire about your wedding.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/the-park-savoy-florham-park/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/deanna-anthony-park-savoy-film.jpg\"/>",
+    "<meta property=\"og:image:width\" content=\"1280\"/>",
+    "<meta property=\"og:image:height\" content=\"533\"/>",
+    "<meta property=\"og:image:alt\" content=\"Deanna &amp; Anthony at The Park Savoy\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/deanna-anthony-park-savoy-film.jpg\"/>"
+  ],
+  "css": [
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "The Park Savoy",
+      "href": "/weddings/the-park-savoy-florham-park/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/the-park-savoy-florham-park/",
+      "url": "https://giolinafilms.com/weddings/the-park-savoy-florham-park/",
+      "name": "The Park Savoy Wedding Film | GioLina Films",
+      "description": "Watch Deanna and Anthony’s GioLina wedding film at The Park Savoy in Florham Park, New Jersey. Explore our cinematography and inquire about your wedding.",
+      "inLanguage": "en-US",
+      "image": "https://giolinafilms.com/assets/deanna-anthony-park-savoy-film.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GioLina Films",
+        "url": "https://giolinafilms.com/"
+      },
+      "about": {
+        "@type": "Place",
+        "name": "The Park Savoy",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Florham Park",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": {
+        "@type": "MediaObject",
+        "name": "Deanna & Anthony wedding film at The Park Savoy",
+        "embedUrl": "https://player.vimeo.com/video/759600674",
+        "thumbnailUrl": "https://giolinafilms.com/assets/deanna-anthony-park-savoy-film.jpg",
+        "creator": {
+          "@type": "Organization",
+          "name": "GioLina Films"
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://giolinafilms.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cinematography",
+          "item": "https://giolinafilms.com/cinematography/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Park Savoy",
+          "item": "https://giolinafilms.com/weddings/the-park-savoy-florham-park/"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Florham Park, New Jersey · Wedding cinematography</p><h1>Deanna &amp; Anthony<br><em>The Park Savoy</em></h1><p class=\"gv-lede\">Deanna and Anthony’s wedding at The Park Savoy, presented in their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Deanna &amp; Anthony wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1280/533\"><img src=\"/assets/deanna-anthony-park-savoy-film.jpg\" width=\"1280\" height=\"533\" alt=\"Deanna and Anthony beside a white wedding car, from their GioLina film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-vimeo-id=\"759600674\" data-film-title=\"Deanna &amp; Anthony at The Park Savoy\" aria-label=\"Play wedding film, Deanna &amp; Anthony at The Park Savoy\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Deanna &amp; Anthony · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Morris County</p><h2 id=\"gv-context-title\">The Park Savoy</h2></div><div><p>The Park Savoy Estate in Florham Park brings together a mansion, gardens and a grand ballroom. This story features GioLina’s cinematography for Deanna and Anthony.</p><a class=\"gv-text-link\" href=\"https://theparksavoy.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at The Park Savoy</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section></article>"
+}

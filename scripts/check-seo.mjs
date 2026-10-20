@@ -67,7 +67,7 @@ for(const [path,count] of [['/cinematography/',28],['/sweet-sixteen/',5],['/read
 assert.equal(videoCount,50);
 assert(!videoSitemap.includes(canonicalOrigin+'/events/'),'Deferred Events excluded from video sitemap');
 const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
-assert.deepEqual(urls,[...mainPagePaths,'/photography/wedding-collection/'].map(p=>canonicalOrigin+p));
+assert.deepEqual(urls,[...mainPagePaths,'/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/'].map(p=>canonicalOrigin+p));
 const collectionHtml=readFileSync('dist/photography/wedding-collection/index.html','utf8');
 assert(collectionHtml.includes('<link rel="canonical" href="'+canonicalOrigin+'/photography/wedding-collection/"'),'Collection sitemap URL must match its canonical');
 assert.equal(new Set(urls).size,urls.length);

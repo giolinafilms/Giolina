@@ -74,7 +74,7 @@ test('deployed bindings activate only canonical public pages while preview, priv
  const html='<html><head><meta name="robots" content="noindex, nofollow"><script id="gl-analytics-config" type="application/json">{"measurementId":"G-KD1ES061DH","enabled":false}</script></head><body>Public page</body></html>';
  const mf=new Miniflare(convertV4MiniflareOptions({workers:[{name:'seo-activation-test',modules:true,script:bundle.outputFiles[0].text,compatibilityDate:'2026-09-25',bindings:config.vars,serviceBindings:{ASSETS:async r=>new Response(html,{status:new URL(r.url).searchParams.has('missing')?404:200,headers:{'Content-Type':'text/html'}})}}]}));
  try{
-  for(const path of [...mainPagePaths,'/photography/wedding-collection/']){
+  for(const path of [...mainPagePaths,'/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/']){
    const res=await mf.dispatchFetch('https://giolinafilms.com'+path),body=await res.text();
    assert.equal(res.headers.get('X-Robots-Tag'),'index, follow',path);assert(body.includes('content="index, follow"'));assert(!body.includes('/production-analytics.js'));
    const preview=await mf.dispatchFetch('https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev'+path);
