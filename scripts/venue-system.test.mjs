@@ -45,6 +45,6 @@ test('approved venue presentation keeps films embedded without runtime labels or
 });
 
 test('ordinary photo captions are absent by default while accessibility remains',()=>{
- for(const s of stories){const d=new JSDOM(renderVenueStory(s)).window.document;assert.equal(d.querySelectorAll('figcaption').length,0);for(const a of d.querySelectorAll('[data-photo-viewer-link]')){assert(a.getAttribute('aria-label'));assert(a.querySelector('img').alt);}}
+ for(const s of stories){const d=new JSDOM(renderVenueStory(s)).window.document;assert.equal(d.querySelectorAll('figcaption').length,s.photos.filter(p=>p.showCaption).length);for(const a of d.querySelectorAll('[data-photo-viewer-link]')){assert(a.getAttribute('aria-label'));assert(a.querySelector('img').alt);}}
  const s={...stories[0],photos:[{...stories[0].photos[0],showCaption:true,caption:'The grand staircase.'}]};assert.equal(new JSDOM(renderVenueStory(s)).window.document.querySelector('figcaption').textContent,'The grand staircase.');
 });

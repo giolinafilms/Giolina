@@ -26,7 +26,8 @@
         "width": 1024,
         "height": 683,
         "alt": "Stephanie and Danny sharing a kiss on The Venetian staircase beneath a chandelier",
-        "caption": "A portrait on the grand staircase."
+        "caption": "Beneath the chandelier on The Venetian’s grand staircase.",
+        "showCaption": true
       },
       {
         "src": "/assets/stephanie-danny-evening-portrait.webp",
@@ -42,7 +43,8 @@
         "width": 1024,
         "height": 683,
         "alt": "Stephanie and Danny celebrating their entrance beneath ballroom chandeliers",
-        "caption": "The reception begins."
+        "caption": "Stephanie and Danny make their entrance into the ballroom.",
+        "showCaption": true
       },
       {
         "src": "/assets/stephanie-danny-first-dance.webp",
@@ -50,7 +52,8 @@
         "width": 1024,
         "height": 683,
         "alt": "Stephanie and Danny sharing their first dance",
-        "caption": "Their first dance."
+        "caption": "Their first dance at The Venetian in Garfield.",
+        "showCaption": true
       }
     ],
     "context": "The Venetian is on River Drive in Garfield. Its grand staircase and chandelier lit ballroom appear in Stephanie and Danny’s photographs.",
@@ -259,7 +262,8 @@
         "width": 1280,
         "height": 854,
         "alt": "Gabby, from the existing GioLina portfolio",
-        "provider": "vimeo"
+        "provider": "vimeo",
+        "eventId": "gabby"
       },
       {
         "id": "ttnbvY81xe",
@@ -270,7 +274,8 @@
         "height": 853,
         "alt": "Gina Marie, from the existing GioLina portfolio",
         "provider": "mediazilla",
-        "embedUrl": "https://mediazilla.com/ttnbvY81xe"
+        "embedUrl": "https://mediazilla.com/ttnbvY81xe",
+        "eventId": "gina-marie"
       }
     ],
     "photos": [
@@ -281,7 +286,9 @@
         "height": 854,
         "alt": "Gabby, Sweet Sixteen portrait",
         "caption": "Gabby · selected portrait.",
-        "smallWidth": 1280
+        "smallWidth": 1280,
+        "eventId": "gabby",
+        "naturalRatio": true
       },
       {
         "src": "/assets/sweet-gina-marie-photo.webp",
@@ -290,7 +297,9 @@
         "height": 853,
         "alt": "Gina Marie, Sweet Sixteen portrait",
         "caption": "Gina Marie · selected portrait.",
-        "smallWidth": 1280
+        "smallWidth": 1280,
+        "eventId": "gina-marie",
+        "naturalRatio": true
       }
     ],
     "photoHeading": "A portrait of the celebration.",
@@ -302,7 +311,25 @@
     "next": {
       "href": "/sweet-sixteen/island-chateau/",
       "label": "Julia at Island Chateau"
-    }
+    },
+    "clients": [
+      {
+        "id": "gabby",
+        "name": "Gabby",
+        "image": "/assets/sweet-gabby-photo.webp",
+        "width": 1280,
+        "height": 854,
+        "alt": "Gabby, from the existing GioLina portfolio"
+      },
+      {
+        "id": "gina-marie",
+        "name": "Gina Marie",
+        "image": "/assets/sweet-gina-marie-photo.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Gina Marie, from the existing GioLina portfolio"
+      }
+    ]
   },
   {
     "pageFile": "sweet-sixteen--island-chateau.json",
@@ -451,7 +478,8 @@
         "alt": "Alexandria & James, a still from the GioLina wedding film",
         "provider": "mediazilla",
         "embedUrl": "https://mediazilla.com/fAkBCNBFRB",
-        "coverage": "video-only"
+        "coverage": "video-only",
+        "eventId": "alexandria-james"
       },
       {
         "id": "842690557",
@@ -463,7 +491,8 @@
         "alt": "Selena & Dashmir, a still from the GioLina wedding film",
         "provider": "vimeo",
         "coverage": "photo-video",
-        "photographyPending": true
+        "photographyPending": true,
+        "eventId": "selena-dashmir"
       }
     ],
     "photos": [],
@@ -474,7 +503,25 @@
     "next": {
       "href": "/weddings/gargiulos-brooklyn/",
       "label": "Gargiulo’s · Francesca & Chris"
-    }
+    },
+    "clients": [
+      {
+        "id": "alexandria-james",
+        "name": "Alexandria & James",
+        "image": "/assets/alexandria-james.png",
+        "width": 442,
+        "height": 180,
+        "alt": "Alexandria & James, a still from the GioLina wedding film"
+      },
+      {
+        "id": "selena-dashmir",
+        "name": "Selena & Dashmir",
+        "image": "/assets/seleena-dashmir-poster.jpg",
+        "width": 1315,
+        "height": 510,
+        "alt": "Selena & Dashmir, a still from the GioLina wedding film"
+      }
+    ]
   },
   {
     "pageFile": "weddings--gargiulos-brooklyn.json",
@@ -733,7 +780,9 @@
         "height": 853,
         "smallWidth": 640,
         "alt": "Megan and Ralph beside the waterfront railing with Manhattan behind them",
-        "naturalRatio": true
+        "naturalRatio": true,
+        "showCaption": true,
+        "caption": "The Manhattan skyline frames Megan and Ralph’s Liberty House wedding portraits."
       },
       {
         "src": "/assets/v26-46337fd10ea72807.webp",
@@ -787,7 +836,9 @@
         "height": 853,
         "smallWidth": 640,
         "alt": "Megan and Ralph beneath a red umbrella",
-        "naturalRatio": true
+        "naturalRatio": true,
+        "showCaption": true,
+        "caption": "A red umbrella and a moment together after the rain."
       },
       {
         "src": "/assets/v26-53212e9b89a784d2.webp",
@@ -814,7 +865,9 @@
         "height": 853,
         "smallWidth": 640,
         "alt": "Megan and Ralph kissing with a rainbow behind them",
-        "naturalRatio": true
+        "naturalRatio": true,
+        "showCaption": true,
+        "caption": "A rainbow over the waterfront to close their portrait collection."
       }
     ],
     "photoHeading": "By the water, beneath a rainbow.",

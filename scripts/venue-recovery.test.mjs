@@ -15,7 +15,7 @@ test('three recovered venue pages match confirmed coverage and stay preview only
  assert.deepEqual(next.map(s=>s.photos.length),[0,10,12]);
  for(const s of next){const p=JSON.parse(readFileSync('src/content/pages/'+s.pageFile));const d=new JSDOM(readFileSync('dist'+p.path+'index.html')).window.document;
  assert.equal(d.querySelectorAll('h1').length,1);assert.equal(d.querySelector('meta[name=robots]').content,'noindex, nofollow');assert.equal(d.querySelector('link[rel=canonical]').href,'https://giolinafilms.com'+p.path);
- assert.equal(d.querySelectorAll('[data-photo-viewer-link]').length,s.photos.length);assert.equal(d.querySelectorAll('[data-film-title]').length,s.film?1:0);assert(d.querySelector('.gv-button[href="/contact/"]'));assert(!d.querySelector('figcaption'));assert(!d.querySelector('script[src*="production-analytics"]'));
+ assert.equal(d.querySelectorAll('[data-photo-viewer-link]').length,s.photos.length);assert.equal(d.querySelectorAll('[data-film-title]').length,s.film?1:0);assert(d.querySelector('.gv-button[href="/contact/"]'));assert.equal(d.querySelectorAll('figcaption').length,s.pageFile==='weddings--liberty-house-jersey-city.json'?3:0);assert(!d.querySelector('script[src*="production-analytics"]'));
  assert(!readFileSync('public/sitemap.xml','utf8').includes(p.path));assert(!readFileSync('dist/video-sitemap.xml','utf8').includes(p.path));for(const e of d.querySelectorAll('script[type="application/ld+json"]'))JSON.parse(e.textContent);
  }
 });
