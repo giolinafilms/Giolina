@@ -1,0 +1,125 @@
+{
+  "status": "INACTIVE - publication permission unresolved by automatic review",
+  "files": [
+    {
+      "path": "public/assets/v26-ad2a40088bff65f5.webp",
+      "sha256": "dc5890dfa4661110fea350ae13a2c62403173a1518321d283c7cace800987dec",
+      "width": 800,
+      "height": 1199
+    },
+    {
+      "path": "public/assets/v26-ad2a40088bff65f5-small.webp",
+      "sha256": "12a6f4c4e41a9f7e1d931ca6b7afaa42508a67df7cb5de064a37e286a0e3ee01",
+      "width": 427,
+      "height": 640
+    },
+    {
+      "path": "public/assets/v26-73a89559b6b06046.webp",
+      "sha256": "de38b130ee8648a8b53f6951e16044a9d698e72441efaf8213c8105f3c50029c",
+      "width": 1279,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-73a89559b6b06046-small.webp",
+      "sha256": "c3152cfff336665189f4063c376e82dab3693e665e04372486e3b2d9318198ed",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-8f462ac503c37eb9.webp",
+      "sha256": "6fa3c0ebe32fb5dcb0214f90b4d911894cbf9bad1dbccd44cf769d92a5d2ad23",
+      "width": 1279,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-8f462ac503c37eb9-small.webp",
+      "sha256": "cc282f4ab75df7aeb718cfbaec48b7e91bd0a4e359297090e07c7d3c6a859d57",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-344e4f8d33358435.webp",
+      "sha256": "ed17a54f33b999cedf61c784dbc67c9de7fc00127e9f7eebf1b963fc6e6b235d",
+      "width": 1279,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-344e4f8d33358435-small.webp",
+      "sha256": "cb01fe4ef7c3a00af50614bc55ac39393a8d17e2c1a13771e6433c8a8374f4c4",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-3d05b86d50114471.webp",
+      "sha256": "b05e7a2811d8b68006fe2afd05bea67da89eafde79a897221fe63efe899051b6",
+      "width": 1280,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-3d05b86d50114471-small.webp",
+      "sha256": "a46b2d6687a89b9e735aa0eaa0e8589293c1654db0c082a8fa97a30d98bad03e",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-beac02befbd81f6b.webp",
+      "sha256": "c6f2a4f0e6f658e1180b902f2cbe61a93a2f56664d6b028f0c6abbac1569973a",
+      "width": 1280,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-beac02befbd81f6b-small.webp",
+      "sha256": "b75240939782fb948cb48e53384b81d847d81b56fe3f91bad67c73d3ffaf4470",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-84a5dea622ceb686.webp",
+      "sha256": "17dafa0788327b947489159a67e37dca2a3f1fb7607f9b5ace0d4365eaa68a83",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-84a5dea622ceb686-small.webp",
+      "sha256": "8e57c96a861541cc50bcee0e9153d81777cdb5f6204b2241778ef63b4780591a",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-7e3a7caa814966bd.webp",
+      "sha256": "98db92fe18c1dabc774e143eefd38fba3d1cc02fb3487dce92f5a0f540f03010",
+      "width": 1280,
+      "height": 853
+    },
+    {
+      "path": "public/assets/v26-7e3a7caa814966bd-small.webp",
+      "sha256": "ca74760d0024adebbd6ceeec7cb786f6f882d022e14d8b3ea8e1dc17b80e8018",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-c826a461b11b5a7f.webp",
+      "sha256": "2077e0f8728f7f14dce3222d3e426dd7339862190fd38ce8d9f178de65adb69c",
+      "width": 800,
+      "height": 1199
+    },
+    {
+      "path": "public/assets/v26-c826a461b11b5a7f-small.webp",
+      "sha256": "aa3881a266cc0ae8e22a2c9c8f806c1f2c85e3784fc2eeffb6a59a04610a755e",
+      "width": 427,
+      "height": 640
+    },
+    {
+      "path": "public/assets/v26-035835ea8b478380.webp",
+      "sha256": "2f4ae8ff92b8a9fafeb33270d961a2ea622a7ca19b0a63be9cb8172e80f6f1df",
+      "width": 800,
+      "height": 1199
+    },
+    {
+      "path": "public/assets/v26-035835ea8b478380-small.webp",
+      "sha256": "3aecd58eb0eeb095c55a1e1a5b516cf1380f32d6b41594495842172b9bc29732",
+      "width": 427,
+      "height": 640
+    }
+  ]
+}
