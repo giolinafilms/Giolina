@@ -1,0 +1,125 @@
+{
+  "status": "INACTIVE — media publication blocked",
+  "files": [
+    {
+      "path": "public/assets/v26-ca96038316eed514.webp",
+      "sha256": "18aae900ee4f57facfcf509b6d854c4f0ba032e81f62ff97d469c73ddc04d152",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-ca96038316eed514-small.webp",
+      "sha256": "16b089a32c7274eab5269c45ca4090b5e3a9e752d4bc53e46fb4372878458756",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-cc71c348e7272f2c.webp",
+      "sha256": "dd9be3b6ab9cd0e7cb2c12092a4db3c1639bdbacb73e07da103756754dbee4fa",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-cc71c348e7272f2c-small.webp",
+      "sha256": "98defd1c0806917c7d874dbe5e27e0a486749654a4419b5585ea9827b0fc2813",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-ca72cb4c8e1c5c72.webp",
+      "sha256": "bb30d242968e244e9600e62fbcba6e8a81371e0d8277b42c4dfe28350dab694b",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-ca72cb4c8e1c5c72-small.webp",
+      "sha256": "5ec05bbda29451d97b489cd78907ec9cb861fbf5b57b24a6886858e79ff15e05",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-66da0bf5ac3893a5.webp",
+      "sha256": "ca158724de49d3ab598fd567c0072376cc895d2e29b28e44b944879b98a88fb5",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-66da0bf5ac3893a5-small.webp",
+      "sha256": "3bdc9d3519693da81e94b6e551d8d40565afb8055cb38f9ac5d86f5f6617f4f6",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-a38b8fdb4d8dd342.webp",
+      "sha256": "ebbb78df41e1d915637e928ad6bfab05ef3ebacada1bdfd72f6351631840ebc9",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-a38b8fdb4d8dd342-small.webp",
+      "sha256": "187d649c345cf21c0fab1ae6d66b82954cad92bfdf23374f8904f246bb995450",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-04813a2105b1a523.webp",
+      "sha256": "0f2949c92fd648c4b8017c234703693304b1a06edf768dc6e00a22ebed3cb9dc",
+      "width": 800,
+      "height": 1199
+    },
+    {
+      "path": "public/assets/v26-04813a2105b1a523-small.webp",
+      "sha256": "a69969975115f4e7a5bad861d2f7b880ae8790b526dfd32004d88fc7b80fa3d5",
+      "width": 427,
+      "height": 640
+    },
+    {
+      "path": "public/assets/v26-7edbde3842edc1f4.webp",
+      "sha256": "83c9c8ef72cf184bb67e2843e70a80a5c87a1d1996f904f11ffb1884a04e4097",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-7edbde3842edc1f4-small.webp",
+      "sha256": "5a01b1eec79ddd06e0e0bf297b7f3d16132b9eeef3f4b7f79132b8b00490be7c",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-7c368aac5cd3cd58.webp",
+      "sha256": "839564dc3766cd98007af68b274487d855f0bc4c3bad4089834f3d8e656a86ca",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-7c368aac5cd3cd58-small.webp",
+      "sha256": "b8dadb380bdb826224cbee8cb9713488bb90e24d2bd3879e538c3b0d96d7c7a2",
+      "width": 640,
+      "height": 427
+    },
+    {
+      "path": "public/assets/v26-874bc290a9a5658e.webp",
+      "sha256": "04842df388eea29123ce4a59f48941babb2e4d178a584de11ac6bcd108fdca24",
+      "width": 800,
+      "height": 1199
+    },
+    {
+      "path": "public/assets/v26-874bc290a9a5658e-small.webp",
+      "sha256": "a9aeebfffa2f0dd7e86c467554954da16f7c2952012d9c2abd29222ea331fa7e",
+      "width": 427,
+      "height": 640
+    },
+    {
+      "path": "public/assets/v26-f2f8fc5daa145b62.webp",
+      "sha256": "17415de625a914a207d9c0cde0cce5fe7940a42c248e890fb4bddd2d5183cef6",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "path": "public/assets/v26-f2f8fc5daa145b62-small.webp",
+      "sha256": "48ea5027ace02908eba84373903c0e5ae9539834594cd65c07c451d837e0f7e9",
+      "width": 640,
+      "height": 427
+    }
+  ]
+}
