@@ -1,0 +1,48 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import pages from '../content/pages.mjs';
+const css = pages.find(page => page.path === '/about-us/')?.css ?? [];
+---
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Analytics and Inquiry Privacy | GioLina Films</title>
+<meta name="description" content="Optional analytics choices, inquiry providers and privacy requests at GioLina Films." />
+<link rel="canonical" href="https://giolinafilms.com/privacy/" />
+{css.map(href => <link rel="stylesheet" href={href} />)}
+<link rel="stylesheet" href="/site-header.css" />
+<link rel="stylesheet" href="/accessibility.css" />
+<link rel="stylesheet" href="/analytics-consent.css" />
+</head>
+<body>
+<a class="migration-skip" href="#content">Skip to content</a>
+<SiteHeader path="/privacy/" />
+<main id="content" tabindex="-1" class="privacy-copy">
+<p class="review-note">Preview for review. Optional Google Analytics remains disabled.</p>
+<h1>Analytics and inquiry privacy</h1>
+<h2>Your analytics choice</h2>
+<p>GioLina Films plans to use optional Google Analytics cookies to understand visits to its public website and improve its pages. When activated, analytics will start only after you select Accept Analytics. Declining or ignoring the choice will leave this analytics implementation off and will not prevent browsing or inquiries.</p>
+<p>Your acceptance or decline is remembered on this browser for six calendar months. Use Analytics Preferences in the footer to change your choice. Withdrawal stops future tracking from this implementation, removes accessible first-party Google Analytics cookies and reloads the page without analytics. It does not automatically delete information already processed by Google. A supported Global Privacy Control signal keeps optional analytics off.</p>
+<h2>Information used for analytics</h2>
+<p>With permission, the prepared implementation sends public page addresses without query strings or fragments, page titles, external referring-site origins, and categories of contact-link interactions. Supported scroll and video engagement may also be measured. Contact, email, telephone and consultation-link clicks indicate interest; they do not establish that an inquiry was completed.</p>
+<p>Our custom analytics events do not include customer names, email addresses, phone numbers, inquiry messages or form contents. Google processes technical information associated with analytics requests, including browser, device and network information. This information is not described as anonymous. See <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>.</p>
+<p>Google Signals is off, user-provided data collection is not configured, and advertising storage, advertising user data and advertising personalization remain denied.</p>
+<h2>Analytics retention</h2>
+<p>The GA4 property is configured for 14-month event-level and user-level data retention. New activity resets the retention period for the user identifier, not the age of every historical event. Standard aggregated reports are not governed by that same retention setting. Analytics cookie lifetimes are separate from both this retention setting and the six-month consent preference.</p>
+<h2>Inquiries and scheduling</h2>
+<p>The Contact form sends the information you enter through Formspree. Existing HoneyBook services are used for relevant scheduling and customer communications. Information you provide through these services is separate from optional Google Analytics. Declining analytics does not prevent an inquiry or consultation request.</p>
+<p>Read the <a href="https://formspree.io/legal/privacy-policy/">Formspree Privacy Policy</a> and <a href="https://www.honeybook.com/legal/privacy">HoneyBook Privacy Policy</a> for their processing and retention information. The 14-month GA4 setting does not govern inquiry records held by GioLina Films, Formspree or HoneyBook. No fixed inquiry-retention period is represented here.</p>
+<h2>Privacy questions and requests</h2>
+<p>Contact GioLina Films at <a href="mailto:info@giolina.co">info@giolina.co</a> with privacy questions, personal-information access requests, deletion requests or analytics inquiries. You can also ask about the retention of a particular inquiry. Withdrawal of analytics consent and a request to delete previously collected information are separate actions.</p>
+</main>
+<SiteFooter />
+<script src="/analytics-consent.js" defer is:inline></script>
+<style>
+.privacy-copy{max-width:760px;margin:40px auto 64px;padding:0 24px;color:#253c3e;font:17px/1.7 Arial,sans-serif}.privacy-copy h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,44px);line-height:1.15}.privacy-copy h2{font-family:Georgia,serif;font-size:25px;margin:32px 0 12px}.privacy-copy a{color:#126c72;text-decoration:underline}.review-note{padding:12px 16px;border:1px solid #b9cccb;font-size:14px}
+</style>
+</body>
+</html>

@@ -1,7 +1,7 @@
 (() => {
  if(window.GioLinaConsent)return;
  const allowedOrigins=['https://giolinafilms.com','https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev'];
- const paths=['/','/cinematography/','/photography/','/sweet-sixteen/','/reviews/','/experience/','/about-us/','/contact/','/ready-to-go-productions/','/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/','/weddings/the-venetian-garfield/'];
+ const paths=['/','/cinematography/','/photography/','/sweet-sixteen/','/reviews/','/experience/','/about-us/','/contact/','/ready-to-go-productions/','/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/','/weddings/the-venetian-garfield/','/privacy/'];
  if(!allowedOrigins.includes(location.origin)||!paths.includes(location.pathname))return;
  const key='gl-analytics-consent',id='G-KD1ES061DH';
  let preference=null,revoked=false;
@@ -15,7 +15,7 @@
   }
  };
  const panel=document.createElement('section');panel.className='gl-analytics-choice';panel.setAttribute('aria-label','Analytics preferences');
- panel.innerHTML='<p>Allow optional analytics cookies to help us understand how this website is used? Your choice will not affect browsing or inquiries.</p><div class="gl-analytics-actions"><button type="button" data-analytics-accept>Accept Analytics</button><button type="button" data-analytics-decline>Decline</button></div><p data-analytics-status role="status"></p>';
+ panel.innerHTML='<p>Allow optional analytics cookies to help us understand how this website is used? Your choice will not affect browsing or inquiries.</p><p><a href="/privacy/">Analytics and inquiry privacy notice</a></p><div class="gl-analytics-actions"><button type="button" data-analytics-accept>Accept Analytics</button><button type="button" data-analytics-decline>Decline</button></div><p data-analytics-status role="status"></p>';
  const status=panel.querySelector('[data-analytics-status]');
  if(navigator.globalPrivacyControl===true){panel.querySelector('[data-analytics-accept]').disabled=true;status.textContent='Your browser’s privacy preference keeps optional analytics off.';}
  panel.hidden=!!preference||navigator.globalPrivacyControl===true;

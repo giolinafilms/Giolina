@@ -3,7 +3,7 @@ import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import worker from '../worker.js';
 const sourcePages=readdirSync('src/content/pages').filter(x=>x.endsWith('.json')).map(x=>JSON.parse(readFileSync('src/content/pages/'+x,'utf8')));
-const pages=publishedPages(sourcePages);
+const pages=[...publishedPages(sourcePages),{path:'/privacy/'}];
 let assets=0;const missingLinks=[];
 for(const page of pages){
  const target='dist'+(page.path==='/'?'/index.html':page.path.replace(/\/$/,'')+'/index.html');

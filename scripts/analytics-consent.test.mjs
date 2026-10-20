@@ -23,7 +23,7 @@ test('accept loads once with denied ads and sanitized origin; aliases report int
  assert.equal(calls(w).filter(a=>a[1]==='page_view').length,1);
  assert.equal(calls(w).find(a=>a[1]==='page_view')[2].page_referrer,'https://www.google.com/');
  assert.equal(calls(w).find(a=>a[0]==='consent'&&a[1]==='default')[2].ad_storage,'denied');
- w.document.querySelector('a').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
+ w.document.querySelector('a[href^="/contact-us-2/"]').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
  assert.equal(calls(w).filter(a=>a[1]==='contact_intent').length,1);
  assert(!/private|generate_lead|form_submit/.test(JSON.stringify(calls(w))));w.close();
 });
@@ -31,7 +31,7 @@ test('withdrawal disables tracking, clears GA cookies and never replays prior cl
  const w=setup();choice(w,'accept');w.document.cookie='_ga=123; path=/';w.document.cookie='_ga_KD1ES061DH=456; path=/';
  choice(w,'decline');assert.equal(w['ga-disable-G-KD1ES061DH'],true);assert(!w.document.cookie.includes('_ga'));
  const n=calls(w).filter(a=>a[0]==='event').length;
- w.document.querySelector('a').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
+ w.document.querySelector('a[href^="/contact-us-2/"]').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));
  assert.equal(calls(w).filter(a=>a[0]==='event').length,n);w.close();
 });
 test('consent survives reload, expires, and respects GPC, privacy gate and private/preview exclusions',()=>{
@@ -50,7 +50,7 @@ test('decline can be changed to acceptance during the same visit',()=>{
  const w=setup();choice(w,'decline');w.GioLinaConsent.open();choice(w,'accept');assert.equal(calls(w).filter(a=>a[1]==='page_view').length,1);w.close();
 });
 test('preconsent actions are not replayed; saved preference lasts six months',()=>{
- const w=setup();w.document.querySelector('a').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));choice(w,'accept');
+ const w=setup();w.document.querySelector('a[href^="/contact-us-2/"]').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));choice(w,'accept');
  assert.equal(calls(w).filter(a=>a[1]==='contact_intent').length,0);
  const saved=JSON.parse(w.localStorage.getItem('gl-analytics-consent')),days=(saved.expires-Date.now())/86400000;
  assert(days>179&&days<185);w.close();
@@ -58,5 +58,28 @@ test('preconsent actions are not replayed; saved preference lasts six months',()
 test('consent revoked in another tab blocks subsequent intent events',()=>{
  const w=setup();choice(w,'accept');w.localStorage.setItem('gl-analytics-consent',JSON.stringify({version:1,choice:'denied',expires:Date.now()+10000}));
  w.dispatchEvent(new w.StorageEvent('storage',{key:'gl-analytics-consent'}));
- const n=calls(w).filter(a=>a[0]==='event').length;w.document.querySelector('a').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));assert.equal(calls(w).filter(a=>a[0]==='event').length,n);assert(w['ga-disable-G-KD1ES061DH']);w.close();
+ const n=calls(w).filter(a=>a[0]==='event').length;w.document.querySelector('a[href^="/contact-us-2/"]').dispatchEvent(new w.MouseEvent('click',{bubbles:true,cancelable:true}));assert.equal(calls(w).filter(a=>a[0]==='event').length,n);assert(w['ga-disable-G-KD1ES061DH']);w.close();
+});
+
+// These tests cover our loader, not Google's remotely configured history listener.
+test('loader emits one initial view and does not replay views for gallery history changes',()=>{
+ const w=setup({url:'https://giolinafilms.com/photography/wedding-collection/?source=test#photo=private'});
+ choice(w,'accept');
+ w.history.replaceState(null,'','#photo=next');
+ w.history.pushState(null,'','#photo=another');
+ w.dispatchEvent(new w.PopStateEvent('popstate'));
+ w.dispatchEvent(new w.CustomEvent('gl:analytics-consent'));
+ const views=calls(w).filter(a=>a[0]==='event'&&a[1]==='page_view');
+ assert.equal(views.length,1);
+ assert.equal(views[0][2].page_location,'https://giolinafilms.com/photography/wedding-collection/');
+ assert.equal(calls(w).find(a=>a[0]==='config')[2].send_page_view,false);
+ w.close();
+});
+test('privacy notice is accessible from consent and its preferences never load analytics',()=>{
+ let w=setup();assert.equal(w.document.querySelector('.gl-analytics-choice a').getAttribute('href'),'/privacy/');w.close();
+ w=setup({url:'https://giolinafilms.com/privacy/'});choice(w,'accept');assert.equal(w.dataLayer,undefined);assert(w.document.querySelector('.gl-analytics-preferences'));w.close();
+ const html=readFileSync('dist/privacy/index.html','utf8');
+ assert.match(html,/noindex, nofollow/);assert.match(html,/info@giolina.co/);
+ assert.match(html,/formspree.io\/legal\/privacy-policy/);assert.match(html,/honeybook.com\/legal\/privacy/);
+ assert(!html.includes('googletagmanager.com'));
 });

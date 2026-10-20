@@ -22,15 +22,21 @@ For privacy questions or requests, contact GioLina Films at info@giolina.co.
 
 Account GioLina Films; property and stream giolinafilms.com; website https://giolinafilms.com; stream 6089670506; measurement ID G-KD1ES061DH. Ownership/stream confirmation is no longer outstanding. Event and user retention: 14 months; reset on activity enabled. Signals off; user-provided data not configured. Enhanced Measurement and page-load/history tracking are currently enabled. Owner reports collection in the past 48 hours; the origin remains unresolved.
 
-## Specific remaining publication facts
+## Latest owner confirmations and notice integration
 
-1. Confirm the legal operator name if different from GioLina Films, and whether info@giolina.co receives privacy requests for that operator.
-2. Confirm inquiry-provider identity (including whether the branded scheduling service is HoneyBook), inquiry retention/deletion practice, and the existing provider privacy-notice links to include. Formspree is verified from the live form action; do not describe the form as HoneyBook.
-3. Review applicable processing/transfer disclosures against the actual Google account data-sharing and cookie settings. These settings were not included in the owner's confirmations. Do not promise a six-month GA cookie lifetime merely because the consent preference lasts six months.
+The owner explicitly confirmed info@giolina.co for privacy questions, access/deletion requests and analytics inquiries. Do not ask again. The owner approved the minimal Enhanced Measurement settings; approval is not evidence the dashboard settings have been saved.
+
+The reviewable notice is implemented at /privacy/ on the existing preview, linked from the footer and consent panel. It explicitly says analytics is disabled in this preview. It covers confirmed analytics practices and distinguishes Formspree inquiries and owner-confirmed HoneyBook services. Official provider notices reviewed:
+- https://formspree.io/legal/privacy-policy/
+- https://www.honeybook.com/legal/privacy
+
+Neither general provider policy establishes GioLina's own inquiry retention/deletion schedule. The notice does not invent one or apply GA4's 14 months to inquiries. The specific remaining business fact is how long GioLina keeps unsuccessful inquiries and completed-client records, and how deletion requests are handled across provider accounts. This matters if the notice is to describe those practices; it is not a reason to repeat ownership or consent-design approval.
+
+No comprehensive legal-compliance claim is made. The notice is preview-only until final production wording and applicable disclosures are verified. Remove the preview status paragraph and update proposed analytics language only with the activation release.
 
 ## Technical activation conditions
 
-Resolve Enhanced Measurement history overlap and automatic parameter collection before publishing this notice as a description of active tracking. The sanitized custom-event description alone does not cover Google's enabled automatic search, form, outbound-link and file events. Identify the reported recent traffic source. Keep enabled:false and privacyApproved:false until these conditions and the final notice integration are satisfied. No legal-compliance certification is implied.
+Resolve Enhanced Measurement history overlap and automatic parameter collection before publishing this notice as a description of active tracking. The sanitized custom-event description alone does not cover Google's enabled automatic search, form, outbound-link and file events. Historical event reports remain inaccessible; the activity badge alone is not a blocker if live collection tests establish safe behavior. Keep enabled:false and privacyApproved:false until these conditions and the final notice integration are satisfied. No legal-compliance certification is implied.
 
 References:
 - https://support.google.com/analytics/answer/7667196
