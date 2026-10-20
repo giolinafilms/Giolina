@@ -1,0 +1,12 @@
+{
+  "name": "giolina-smugmug-runtime-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test runtime.test.mjs" },
+  "devDependencies": {
+    "esbuild": "0.25.4",
+    "miniflare": "4.20260730.0",
+    "workerd": "1.20261019.1"
+  },
+  "overrides": { "workerd": "1.20261019.1" }
+}

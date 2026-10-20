@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
-import worker, { ENDPOINT, buildRequest, capture, RunGate, sanitizeBody, sanitizeHeaders } from './worker.mjs';
+import worker, { ENDPOINT, buildRequest, capture, RunGate, sanitizeBody, sanitizeHeaders } from './core.mjs';
 import { generateBase } from '../../vendor/oauth-sign-webcrypto.mjs';
 const access = 'a'.repeat(43);
 const env = { SMUGMUG_API_KEY: 'fictional-key', SMUGMUG_API_SECRET: 'fictional-secret', DIAGNOSTIC_ACCESS_TOKEN: access };

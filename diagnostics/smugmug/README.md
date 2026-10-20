@@ -74,14 +74,37 @@ Tests use synthetic values and mocked fetch only. The dedicated configuration wa
 packaged using the branch-pinned Wrangler 4.83.0 and also Wrangler 4.135.0. Website
 Astro assets are not part of this bundle. Root website code/config is not changed.
 
-Validation limitation: the branch-pinned workerd bundled with Wrangler 4.83.0 rejects
-the new Worker's compatibility date: `This Worker requires compatibility date
-"2026-10-20", but the newest date supported by this server binary is "2026-04-22".`
-The newer installed Miniflare harness also rejected its legacy constructor options.
-Neither attempt made an OAuth request. Node tests pass, including mocked durable
-transactions and replay checks; real runtime durable-storage behavior remains to be
-verified with a compatible local harness before live-test authorization. Do not
-silently lower the deployment compatibility date or claim a runtime test passed.
+### Phase 3A: reproducible real-runtime validation
+
+Install and run the isolated, locked harness from the repository root:
+
+    npm ci --prefix diagnostics/smugmug/runtime-tests
+    npm test --prefix diagnostics/smugmug/runtime-tests
+
+The harness pins Miniflare 4.20260730.0, workerd 1.20261019.1 (including the
+transitive override) and esbuild 0.25.4. It does not change root dependencies.
+The compatibility date remains 2026-10-20. All outbound Worker fetches terminate
+at a synthetic in-process service with no network fallback. No real credentials
+are used. Local SQLite storage is created in temporary test directories.
+
+The previous old binary supported only 2026-04-22. The installed Miniflare 5 alpha
+required a different constructor API; even after using its official converter,
+its binary supported only 2026-09-25. The pinned stable harness and newer workerd
+resolve both problems without changing the deployment date or security settings.
+
+Real-runtime testing also exposed an invalid exported ENDPOINT constant in the
+Worker entry module. The deployment entry now exports only the fetch handler and
+RunGate class; testable implementation exports live in core.mjs. Security logic
+is otherwise unchanged. Node unit tests import core.mjs; runtime tests bundle the
+actual deployment entry worker.mjs.
+
+The suite validates configured defaults, private readiness, binding presence,
+SQLite single-use claims, 12 concurrent requests, replay, consumption across full
+runtime restart, sanitized evidence, request-token-only success, redirects, 503,
+unknown/oversized responses, the actual 20-second fetch timeout and no retries.
+A thrown Node mock callback becomes an HTTP response in Miniflare, so the transport
+failure test instead exercises the Worker's real abort deadline against a delayed
+mock response. It does not mislabel a mock HTTP 500 as a connection failure.
 
 ## Deployment handoff (not performed)
 
@@ -131,3 +154,41 @@ References:
 - https://api.smugmug.com/api/v2/doc/tutorial/authorization.html
 - https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/
 - https://developers.cloudflare.com/workers/configuration/secrets/
+
+## Simplest dashboard deployment (later phase; not performed)
+
+Use Workers Builds with GitHub so the dedicated Wrangler config provisions the
+Worker and its SQLite Durable Object together. Do not paste only worker.mjs into
+the dashboard editor: it imports local modules and needs the storage migration.
+
+In the expected Cloudflare account, Workers & Pages > Create application >
+connect/import Git repository, select giolinafilms/Giolina, then configure the
+NEW application before the first deploy:
+
+- Worker/project name: giolina-smugmug-diagnostic
+- Deployment branch: smugmug-discovery (never main)
+- Root directory: repository root
+- Build command:
+  node --test diagnostics/smugmug/worker.test.mjs && npm ci --prefix diagnostics/smugmug/runtime-tests && npm test --prefix diagnostics/smugmug/runtime-tests
+- Deploy command:
+  npx --no-install wrangler deploy --config diagnostics/smugmug/wrangler.jsonc
+- Disable automatic builds for other branches on this NEW Worker.
+- Do not use the automatically suggested root Astro deployment command.
+
+If the UI does not allow setting the branch and explicit config command before
+first deployment, stop and use the explicit CLI handoff above. Do not launch a
+root-config deployment and try to repair its target afterward.
+
+The first deployment applies migration v1 and creates RUN_GATE backed by the
+RunGate SQLite class in this new Worker. No existing namespace IDs are referenced.
+Confirm this binding and the disabled variables after deployment. If Cloudflare
+asks for an upgrade/payment, stop; no purchase is authorized.
+
+Enter the three runtime secrets only under the NEW Worker's Settings > Variables
+and Secrets, not its build-time secrets. Keep all arming variables disabled.
+A normal browser visit to /readiness should return 401. Use a secure HTTP client
+with a Bearer header for the private readiness result. Record its URL/version ID.
+Do not enable or call /diagnostic in this deployment phase.
+
+Cloudflare build documentation:
+https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
