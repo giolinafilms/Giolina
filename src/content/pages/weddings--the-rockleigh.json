@@ -1,0 +1,63 @@
+{
+  "path": "/weddings/the-rockleigh/",
+  "title": "The Rockleigh Wedding Film & Photography | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"The Rockleigh Wedding Film &amp; Photography | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/the-rockleigh/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/shorts/bianca-bobby.jpg\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/shorts/bianca-bobby.jpg\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "The Rockleigh",
+      "href": "/weddings/the-rockleigh/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/the-rockleigh/",
+      "url": "https://giolinafilms.com/weddings/the-rockleigh/",
+      "name": "The Rockleigh Wedding Film & Photography | GioLina Films",
+      "description": "Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "The Rockleigh",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rockleigh",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Bianca & Bobby at The Rockleigh",
+          "description": "Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/shorts/bianca-bobby.jpg",
+          "embedUrl": "https://mediazilla.com/9jzGeDjrO7"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-photo-video\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Rockleigh, New Jersey · Wedding photography &amp; film</p><h1>Bianca &amp; Bobby<br><em>The Rockleigh</em></h1><p class=\"gv-lede\">Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Bianca &amp; Bobby wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1280/720\"><img src=\"/assets/shorts/bianca-bobby.jpg\" width=\"1280\" height=\"720\" alt=\"Bianca &amp; Bobby, from the existing GioLina portfolio\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/9jzGeDjrO7\" data-film-title=\"Bianca &amp; Bobby\" aria-label=\"Play wedding film, Bianca &amp; Bobby\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Bianca &amp; Bobby · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Bergen County</p><h2 id=\"gv-context-title\">The Rockleigh</h2></div><div><p>The Rockleigh is in Rockleigh, New Jersey. GioLina provided photography and cinematography for Bianca and Bobby; this preview currently presents their film.</p><a class=\"gv-text-link\" href=\"https://therockleigh.net/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at The Rockleigh</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/naninas-in-the-park-belleville/\">Nicole &amp; Phil at Nanina’s in the Park</a></h2></section></article><script src=\"/mediazilla-player.js\" defer></script>"
+}

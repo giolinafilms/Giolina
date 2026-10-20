@@ -87,5 +87,320 @@
       "href": "/weddings/the-venetian-garfield/",
       "label": "Stephanie & Danny at The Venetian"
     }
+  },
+  {
+    "pageFile": "weddings--naninas-in-the-park-belleville.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Nanina’s in the Park",
+    "couple": "Nicole & Phil",
+    "location": "Belleville, New Jersey",
+    "region": "Essex County",
+    "intro": "Nicole and Phil’s wedding film, alongside five photographs from the preparations.",
+    "film": {
+      "id": "425185852",
+      "title": "Nicole & Phil",
+      "eventName": "Nicole & Phil",
+      "poster": "/assets/nicole-philip-poster.jpg",
+      "width": 1280,
+      "height": 544,
+      "alt": "Nicole & Phil, from the existing GioLina portfolio",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "425185852",
+        "title": "Nicole & Phil",
+        "eventName": "Nicole & Phil",
+        "poster": "/assets/nicole-philip-poster.jpg",
+        "width": 1280,
+        "height": 544,
+        "alt": "Nicole & Phil, from the existing GioLina portfolio",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [
+      {
+        "src": "/assets/nicole-phil-bridal-portrait.webp",
+        "small": "/assets/nicole-phil-bridal-portrait-small.webp",
+        "width": 640,
+        "height": 960,
+        "alt": "Nicole holding her bouquet in a doorway",
+        "caption": "Nicole, before the ceremony.",
+        "smallWidth": 320
+      },
+      {
+        "src": "/assets/nicole-phil-beside-her-dress.webp",
+        "small": "/assets/nicole-phil-beside-her-dress-small.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Nicole beside her wedding dress in soft window light",
+        "caption": "The dress and the preparations.",
+        "smallWidth": 640
+      },
+      {
+        "src": "/assets/nicole-phil-earring-detail.webp",
+        "small": "/assets/nicole-phil-earring-detail-small.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Nicole adjusting her earring before the ceremony",
+        "caption": "A finishing detail.",
+        "smallWidth": 640
+      },
+      {
+        "src": "/assets/nicole-phil-family-moment.webp",
+        "small": "/assets/nicole-phil-family-moment-small.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Nicole sharing a family moment before the ceremony",
+        "caption": "Together before the ceremony.",
+        "smallWidth": 640
+      },
+      {
+        "src": "/assets/nicole-phil-window-silhouette.webp",
+        "small": "/assets/nicole-phil-window-silhouette-small.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Nicole in silhouette with her bouquet and wedding dress",
+        "caption": "A quiet portrait by the window.",
+        "smallWidth": 640
+      }
+    ],
+    "photoHeading": "Before the celebration.",
+    "photoIntro": "Selected preparation photographs from Nicole and Phil’s wedding day. These portraits are not identified as photographs taken at Nanina’s.",
+    "context": "Nanina’s in the Park is in Belleville, New Jersey. This wedding story brings together GioLina’s film and a selection of Nicole’s preparation portraits.",
+    "venueUrl": "https://naninasinthepark.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/the-rockleigh/",
+      "label": "Bianca & Bobby at The Rockleigh"
+    }
+  },
+  {
+    "pageFile": "weddings--the-rockleigh.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "The Rockleigh",
+    "couple": "Bianca & Bobby",
+    "location": "Rockleigh, New Jersey",
+    "region": "Bergen County",
+    "intro": "Bianca and Bobby’s wedding at The Rockleigh, presented through their GioLina film.",
+    "film": {
+      "id": "9jzGeDjrO7",
+      "title": "Bianca & Bobby",
+      "eventName": "Bianca & Bobby",
+      "poster": "/assets/shorts/bianca-bobby.jpg",
+      "width": 1280,
+      "height": 720,
+      "alt": "Bianca & Bobby, from the existing GioLina portfolio",
+      "provider": "mediazilla",
+      "embedUrl": "https://mediazilla.com/9jzGeDjrO7"
+    },
+    "films": [
+      {
+        "id": "9jzGeDjrO7",
+        "title": "Bianca & Bobby",
+        "eventName": "Bianca & Bobby",
+        "poster": "/assets/shorts/bianca-bobby.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Bianca & Bobby, from the existing GioLina portfolio",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/9jzGeDjrO7"
+      }
+    ],
+    "photos": [],
+    "photoHeading": "Before the celebration.",
+    "photoIntro": "Existing portraits from the GioLina Sweet Sixteen collection.",
+    "context": "The Rockleigh is in Rockleigh, New Jersey. GioLina provided photography and cinematography for Bianca and Bobby; this preview currently presents their film.",
+    "venueUrl": "https://therockleigh.net/",
+    "kind": "wedding",
+    "photographyPending": true,
+    "next": {
+      "href": "/weddings/naninas-in-the-park-belleville/",
+      "label": "Nicole & Phil at Nanina’s in the Park"
+    }
+  },
+  {
+    "pageFile": "sweet-sixteen--vanderbilt-at-south-beach.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Vanderbilt at South Beach",
+    "couple": "Gabby & Gina Marie",
+    "location": "Staten Island, New York",
+    "region": "Staten Island",
+    "intro": "Two celebrations at Vanderbilt at South Beach: Gabby and Gina Marie, each with her own GioLina film.",
+    "film": {
+      "id": "723528961",
+      "title": "Gabby",
+      "eventName": "Gabby",
+      "poster": "/assets/sweet-gabby-photo.webp",
+      "width": 1280,
+      "height": 854,
+      "alt": "Gabby, from the existing GioLina portfolio",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "723528961",
+        "title": "Gabby",
+        "eventName": "Gabby",
+        "poster": "/assets/sweet-gabby-photo.webp",
+        "width": 1280,
+        "height": 854,
+        "alt": "Gabby, from the existing GioLina portfolio",
+        "provider": "vimeo"
+      },
+      {
+        "id": "ttnbvY81xe",
+        "title": "Gina Marie",
+        "eventName": "Gina Marie",
+        "poster": "/assets/sweet-gina-marie-photo.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Gina Marie, from the existing GioLina portfolio",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/ttnbvY81xe"
+      }
+    ],
+    "photos": [
+      {
+        "src": "/assets/sweet-gabby-photo.webp",
+        "small": "/assets/sweet-gabby-photo.webp",
+        "width": 1280,
+        "height": 854,
+        "alt": "Gabby, Sweet Sixteen portrait",
+        "caption": "Gabby · selected portrait.",
+        "smallWidth": 1280
+      },
+      {
+        "src": "/assets/sweet-gina-marie-photo.webp",
+        "small": "/assets/sweet-gina-marie-photo.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Gina Marie, Sweet Sixteen portrait",
+        "caption": "Gina Marie · selected portrait.",
+        "smallWidth": 1280
+      }
+    ],
+    "photoHeading": "A portrait of the celebration.",
+    "photoIntro": "Existing portraits from the GioLina Sweet Sixteen collection.",
+    "context": "Vanderbilt at South Beach is a Staten Island event venue. Gabby and Gina Marie celebrated separate Sweet Sixteens here; their films and portraits are presented individually.",
+    "venueUrl": "https://www.vanderbiltsouthbeach.com/",
+    "kind": "sweet-sixteen",
+    "photographyPending": false,
+    "next": {
+      "href": "/sweet-sixteen/island-chateau/",
+      "label": "Julia at Island Chateau"
+    }
+  },
+  {
+    "pageFile": "sweet-sixteen--island-chateau.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Island Chateau",
+    "couple": "Julia",
+    "location": "Staten Island, New York",
+    "region": "Staten Island",
+    "intro": "Julia’s Sweet Sixteen at Island Chateau, in a GioLina film and selected portrait.",
+    "film": {
+      "id": "8baRrhNAed",
+      "title": "Julia",
+      "eventName": "Julia",
+      "poster": "/assets/sweet-julia-photo.webp",
+      "width": 1280,
+      "height": 854,
+      "alt": "Julia, from the existing GioLina portfolio",
+      "provider": "mediazilla",
+      "embedUrl": "https://mediazilla.com/8baRrhNAed"
+    },
+    "films": [
+      {
+        "id": "8baRrhNAed",
+        "title": "Julia",
+        "eventName": "Julia",
+        "poster": "/assets/sweet-julia-photo.webp",
+        "width": 1280,
+        "height": 854,
+        "alt": "Julia, from the existing GioLina portfolio",
+        "provider": "mediazilla",
+        "embedUrl": "https://mediazilla.com/8baRrhNAed"
+      }
+    ],
+    "photos": [
+      {
+        "src": "/assets/sweet-julia-photo.webp",
+        "small": "/assets/sweet-julia-photo.webp",
+        "width": 1280,
+        "height": 854,
+        "alt": "Julia, Sweet Sixteen portrait",
+        "caption": "Julia · selected portrait.",
+        "smallWidth": 1280
+      }
+    ],
+    "photoHeading": "A portrait of the celebration.",
+    "photoIntro": "Existing portraits from the GioLina Sweet Sixteen collection.",
+    "context": "Island Chateau is a Staten Island event venue. This story features Julia’s celebration. GioLina provided both photography and cinematography.",
+    "venueUrl": "https://www.islandchateau.com/",
+    "kind": "sweet-sixteen",
+    "photographyPending": false,
+    "next": {
+      "href": "/sweet-sixteen/arianas-south/",
+      "label": "Gianna at Ariana’s South"
+    }
+  },
+  {
+    "pageFile": "sweet-sixteen--arianas-south.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Ariana’s South",
+    "couple": "Gianna",
+    "location": "Staten Island, New York",
+    "region": "Staten Island",
+    "intro": "Gianna’s Sweet Sixteen at Ariana’s South, in a GioLina film and selected portrait.",
+    "film": {
+      "id": "793523768",
+      "title": "Gianna",
+      "eventName": "Gianna",
+      "poster": "/assets/sweet-gianna-photo.webp",
+      "width": 1280,
+      "height": 853,
+      "alt": "Gianna, from the existing GioLina portfolio",
+      "provider": "vimeo"
+    },
+    "films": [
+      {
+        "id": "793523768",
+        "title": "Gianna",
+        "eventName": "Gianna",
+        "poster": "/assets/sweet-gianna-photo.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Gianna, from the existing GioLina portfolio",
+        "provider": "vimeo"
+      }
+    ],
+    "photos": [
+      {
+        "src": "/assets/sweet-gianna-photo.webp",
+        "small": "/assets/sweet-gianna-photo.webp",
+        "width": 1280,
+        "height": 853,
+        "alt": "Gianna, Sweet Sixteen portrait",
+        "caption": "Gianna · selected portrait.",
+        "smallWidth": 1280
+      }
+    ],
+    "photoHeading": "A portrait of the celebration.",
+    "photoIntro": "Existing portraits from the GioLina Sweet Sixteen collection.",
+    "context": "Ariana’s South is a Staten Island event venue. This story features Gianna’s celebration. GioLina provided both photography and cinematography.",
+    "venueUrl": "https://arianassouth.com/",
+    "kind": "sweet-sixteen",
+    "photographyPending": false,
+    "next": {
+      "href": "/sweet-sixteen/vanderbilt-at-south-beach/",
+      "label": "Gabby & Gina Marie at Vanderbilt at South Beach"
+    }
   }
 ]

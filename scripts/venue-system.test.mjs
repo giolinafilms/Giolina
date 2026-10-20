@@ -21,14 +21,14 @@ test('photo-only template emits actual photographs without film controls or film
  assert.equal(doc.querySelectorAll('[data-vimeo-id],iframe,.gv-film-section').length,0);
  assert(!doc.querySelector('.gv-kicker').textContent.includes('film'));
 });
-test('only two reviewed stories are generated and each checked-in page matches the template',()=>{
- assert.equal(stories.length,2);
+test('only seven reviewed stories are generated and each checked-in page matches the template',()=>{
+ assert.equal(stories.length,7);
  for(const s of stories){
   const page=JSON.parse(readFileSync('src/content/pages/'+s.pageFile,'utf8'));
   assert.equal(page.content,renderVenueStory(s));
   const doc=new JSDOM(page.content).window.document;
   assert.equal(doc.querySelectorAll('h1').length,1);
-  assert.equal(doc.querySelectorAll('[data-vimeo-id]').length,1);
+  assert.equal(doc.querySelectorAll('[data-vimeo-id],[data-mediazilla-src]').length,(s.films ?? [s.film]).length);
  }
 });
 
@@ -39,7 +39,7 @@ test('approved venue presentation keeps films embedded without runtime labels or
   assert(!doc.body.textContent.includes(s.film.duration));
   assert.equal(doc.querySelectorAll('a[href^="https://vimeo.com/"],a[href*="clients.giolina"]').length,0);
   const next=doc.querySelector('.gv-next a');
-  assert(next);assert(stories.some(other=>other.pageFile.replace('weddings--','/weddings/').replace('.json','/')===next.getAttribute('href')));
-  assert.equal(doc.querySelector('[data-vimeo-id]').dataset.vimeoId,s.film.id);
+  assert(next);assert(stories.some(other=>'/'+other.pageFile.replaceAll('--','/').replace('.json','/')===next.getAttribute('href')));
+  const trigger=doc.querySelector('[data-vimeo-id],[data-mediazilla-src]'); assert.equal(trigger.dataset.vimeoId ?? trigger.dataset.mediazillaSrc,s.film.embedUrl ?? s.film.id);
  }
 });
