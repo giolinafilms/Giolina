@@ -1021,5 +1021,128 @@
       "href": "/weddings/the-park-savoy-florham-park/",
       "label": "Deanna & Anthony at The Park Savoy"
     }
+  },
+  {
+    "pageFile": "weddings--waterside-north-bergen.json",
+    "publicationStatus": "preview-approved",
+    "coverage": "photo-video",
+    "venue": "Waterside",
+    "couple": "Tonya & Josh",
+    "location": "North Bergen, New Jersey",
+    "region": "North Bergen",
+    "intro": "Tonya and Josh’s wedding at Waterside, in film and photographs by GioLina.",
+    "photos": [
+      {
+        "src": "/assets/v26-75cc19de5d921568.webp",
+        "small": "/assets/v26-75cc19de5d921568-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya looking toward the waterfront before the celebration",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-243eae3d50a75f3f.webp",
+        "small": "/assets/v26-243eae3d50a75f3f-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Tonya holding a blue and white bouquet",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-a14145d0dbc33f5e.webp",
+        "small": "/assets/v26-a14145d0dbc33f5e-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya and Josh smiling together beside the waterfront terrace",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-f1cea84142733565.webp",
+        "small": "/assets/v26-f1cea84142733565-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya and Josh embracing beside the terrace doors",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-aebbf3c74b1443e7.webp",
+        "small": "/assets/v26-aebbf3c74b1443e7-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Josh kissing Tonya on the cheek",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-70ae796618237fd2.webp",
+        "small": "/assets/v26-70ae796618237fd2-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya seated beside Josh with her wedding dress spread around her",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-dc1bcb39a5a88958.webp",
+        "small": "/assets/v26-dc1bcb39a5a88958-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya and Josh embracing in the purple-lit reception space",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-f9efb11cdfb0f722.webp",
+        "small": "/assets/v26-f9efb11cdfb0f722-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Tonya and Josh beneath a colorful chandelier",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-92aaa7e8ad33561f.webp",
+        "small": "/assets/v26-92aaa7e8ad33561f-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya standing beside the waterfront at dusk",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-b1fa714a599ea7b6.webp",
+        "small": "/assets/v26-b1fa714a599ea7b6-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Tonya and Josh together with the city lights across the water",
+        "naturalRatio": true
+      }
+    ],
+    "photoHeading": "From daylight to city lights.",
+    "photoIntro": "Tonya and Josh beside the waterfront, together on the terrace and surrounded by the colors of their celebration.",
+    "context": "Waterside is in North Bergen, New Jersey. This story features GioLina’s photography and cinematography for Tonya and Josh.",
+    "venueUrl": "https://watersideevents.com/",
+    "kind": "wedding",
+    "photographyPending": false,
+    "next": {
+      "href": "/weddings/the-park-savoy-florham-park/",
+      "label": "Deanna & Anthony at The Park Savoy"
+    },
+    "film": {
+      "id": "Zowjkb006",
+      "title": "Tonya & Josh",
+      "eventName": "Tonya & Josh",
+      "provider": "mediazilla",
+      "poster": "/assets/v26-75cc19de5d921568.webp",
+      "width": 1280,
+      "height": 853,
+      "alt": "Tonya looking toward the waterfront before the celebration",
+      "embedUrl": "https://mediazilla.com/Zowjkb006"
+    }
   }
 ]
