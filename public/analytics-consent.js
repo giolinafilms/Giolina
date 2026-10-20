@@ -1,7 +1,7 @@
 (() => {
  if(window.GioLinaConsent)return;
  const allowedOrigins=['https://giolinafilms.com','https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev'];
- const paths=['/','/cinematography/','/photography/','/sweet-sixteen/','/reviews/','/experience/','/about-us/','/contact/','/ready-to-go-productions/','/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/','/privacy/'];
+ const paths=['/','/cinematography/','/photography/','/sweet-sixteen/','/reviews/','/experience/','/about-us/','/contact/','/ready-to-go-productions/','/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/','/weddings/gargiulos-brooklyn/','/weddings/laurita-winery-new-egypt/','/weddings/stroudsmoor-stroudsburg/','/weddings/boscobel-garrison/','/privacy/'];
  if(!allowedOrigins.includes(location.origin)||!paths.includes(location.pathname))return;
  const key='gl-analytics-consent',id='G-KD1ES061DH';
  let preference=null,revoked=false;

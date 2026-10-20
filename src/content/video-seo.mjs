@@ -8,6 +8,7 @@ const absolute = value => new URL(value, canonicalOrigin).href;
 // Build-time metadata only: no provider requests, player creation or media fetching.
 // Derive from the same cards and short-film data used by the visible page.
 export function videoCatalog(page) {
+ if (new Set(['/weddings/gargiulos-brooklyn/','/weddings/laurita-winery-new-egypt/','/weddings/stroudsmoor-stroudsburg/','/weddings/boscobel-garrison/']).has(page.path)) return (page.schema?.[0]?.hasPart ?? []).map(({name,description,thumbnailUrl,embedUrl})=>({name,description,thumbnailUrl,embedUrl}));
  if (!videoPages.has(page.path)) return [];
  const films = [];
  const description = title => page.path.startsWith('/events/')
@@ -47,6 +48,7 @@ export function videoCatalog(page) {
 }
 
 export function videoCatalogSchema(page) {
+ if (!videoPages.has(page.path)) return []; // Venue pages already carry their factual media schema.
  const films = videoCatalog(page);
  if (!films.length) return [];
  const url = absolute(page.path);

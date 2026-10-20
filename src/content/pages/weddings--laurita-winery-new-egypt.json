@@ -1,0 +1,64 @@
+{
+  "path": "/weddings/laurita-winery-new-egypt/",
+  "title": "Laurita Winery Wedding Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Sara and Phil’s wedding at Laurita Winery, presented through their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Laurita Winery Wedding Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Sara and Phil’s wedding at Laurita Winery, presented through their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/laurita-winery-new-egypt/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/shorts/sara-phil-recap.jpg\"/>",
+    "<meta property=\"og:image:alt\" content=\"Sara &amp; Phil, a still from the GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/shorts/sara-phil-recap.jpg\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Laurita Winery",
+      "href": "/weddings/laurita-winery-new-egypt/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/laurita-winery-new-egypt/",
+      "url": "https://giolinafilms.com/weddings/laurita-winery-new-egypt/",
+      "name": "Laurita Winery Wedding Film | GioLina Films",
+      "description": "Sara and Phil’s wedding at Laurita Winery, presented through their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "Laurita Winery",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Egypt",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Sara & Phil at Laurita Winery",
+          "description": "Sara & Phil wedding film at Laurita Winery.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/shorts/sara-phil-recap.jpg",
+          "embedUrl": "https://player.vimeo.com/video/263901273"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">New Egypt, New Jersey · Wedding cinematography</p><h1>Sara &amp; Phil<br><em>Laurita Winery</em></h1><p class=\"gv-lede\">Sara and Phil’s wedding at Laurita Winery, presented through their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Sara &amp; Phil wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1280/720\"><img src=\"/assets/shorts/sara-phil-recap.jpg\" width=\"1280\" height=\"720\" alt=\"Sara &amp; Phil, a still from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-vimeo-id=\"263901273\" data-film-title=\"Sara &amp; Phil\" aria-label=\"Play wedding film, Sara &amp; Phil\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Sara &amp; Phil · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · New Egypt</p><h2 id=\"gv-context-title\">Laurita Winery</h2></div><div><p>Laurita Winery is on Archertown Road in New Egypt, New Jersey. Sara and Phil’s film is part of GioLina’s wedding cinematography collection.</p><a class=\"gv-text-link\" href=\"https://lauritawinery.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Laurita Winery</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/stroudsmoor-stroudsburg/\">Christina &amp; Danny at Stroudsmoor</a></h2></section></article>"
+}

@@ -1,0 +1,64 @@
+{
+  "path": "/weddings/boscobel-garrison/",
+  "title": "Boscobel Wedding Film | Jazz & Trevor | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Jazz and Trevor’s wedding at Boscobel, in their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Boscobel Wedding Film | Jazz &amp; Trevor | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Jazz and Trevor’s wedding at Boscobel, in their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/boscobel-garrison/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/jazz-trevor-poster.png\"/>",
+    "<meta property=\"og:image:alt\" content=\"Trevor speaking to Jazz during their ceremony, from the GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/jazz-trevor-poster.png\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Boscobel",
+      "href": "/weddings/boscobel-garrison/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/boscobel-garrison/",
+      "url": "https://giolinafilms.com/weddings/boscobel-garrison/",
+      "name": "Boscobel Wedding Film | Jazz & Trevor | GioLina Films",
+      "description": "Jazz and Trevor’s wedding at Boscobel, in their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "Boscobel",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Garrison",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Jazz & Trevor at Boscobel",
+          "description": "Jazz and Trevor’s wedding at Boscobel, in their GioLina film.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/jazz-trevor-poster.png",
+          "embedUrl": "https://mediazilla.com/gjx8Km0Irn"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Garrison, New York · Wedding cinematography</p><h1>Jazz &amp; Trevor<br><em>Boscobel</em></h1><p class=\"gv-lede\">Jazz and Trevor’s wedding at Boscobel, in their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Jazz &amp; Trevor wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:441/183\"><img src=\"/assets/jazz-trevor-poster.png\" width=\"441\" height=\"183\" alt=\"Trevor speaking to Jazz during their ceremony, from the GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/gjx8Km0Irn\" data-film-title=\"Jazz &amp; Trevor\" aria-label=\"Play wedding film, Jazz &amp; Trevor\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Jazz &amp; Trevor · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Hudson Valley</p><h2 id=\"gv-context-title\">Boscobel</h2></div><div><p>Boscobel House and Gardens overlooks the Hudson River in Garrison, New York. Jazz and Trevor’s wedding is presented through their GioLina film.</p><a class=\"gv-text-link\" href=\"https://www.boscobel.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Boscobel</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/gargiulos-brooklyn/\">Francesca &amp; Chris at Gargiulo’s</a></h2></section></article><script src=\"/mediazilla-player.js\" defer></script>"
+}

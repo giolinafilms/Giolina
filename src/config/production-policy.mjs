@@ -1,5 +1,5 @@
 import {mainPagePaths,analytics} from './site.mjs';
-const publicPages=new Set([...mainPagePaths,'/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/']);
+const publicPages=new Set([...mainPagePaths,'/photography/wedding-collection/','/weddings/the-park-savoy-florham-park/','/weddings/gargiulos-brooklyn/','/weddings/laurita-winery-new-egypt/','/weddings/stroudsmoor-stroudsburg/','/weddings/boscobel-garrison/']);
 const seoFiles=new Set(['/robots.txt','/sitemap.xml','/video-sitemap.xml']);
 export function productionPolicy(url,env={}) {
  const production=url.origin==='https://giolinafilms.com';

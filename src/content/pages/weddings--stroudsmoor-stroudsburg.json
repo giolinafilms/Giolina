@@ -1,0 +1,64 @@
+{
+  "path": "/weddings/stroudsmoor-stroudsburg/",
+  "title": "Stroudsmoor Wedding Film | Christina & Danny | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"Stroudsmoor Wedding Film | Christina &amp; Danny | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/stroudsmoor-stroudsburg/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/christina-danny.png\"/>",
+    "<meta property=\"og:image:alt\" content=\"Christina and Danny together outdoors, from their GioLina wedding film\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>",
+    "<meta name=\"twitter:image\" content=\"https://giolinafilms.com/assets/christina-danny.png\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "Stroudsmoor",
+      "href": "/weddings/stroudsmoor-stroudsburg/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/stroudsmoor-stroudsburg/",
+      "url": "https://giolinafilms.com/weddings/stroudsmoor-stroudsburg/",
+      "name": "Stroudsmoor Wedding Film | Christina & Danny | GioLina Films",
+      "description": "Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.",
+      "about": {
+        "@type": "Place",
+        "name": "Stroudsmoor",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Stroudsburg",
+          "addressRegion": "PA",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Christina & Danny at Stroudsmoor",
+          "description": "Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/christina-danny.png",
+          "embedUrl": "https://player.vimeo.com/video/425184212"
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-video-only\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Stroudsburg, Pennsylvania · Wedding cinematography</p><h1>Christina &amp; Danny<br><em>Stroudsmoor</em></h1><p class=\"gv-lede\">Christina and Danny’s wedding at Stroudsmoor, in their GioLina film.</p></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Christina &amp; Danny wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1947/808\"><img src=\"/assets/christina-danny.png\" width=\"1947\" height=\"808\" alt=\"Christina and Danny together outdoors, from their GioLina wedding film\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-vimeo-id=\"425184212\" data-film-title=\"Christina &amp; Danny\" aria-label=\"Play wedding film, Christina &amp; Danny\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Christina &amp; Danny · A film by GioLina Films</p></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Pocono Mountains</p><h2 id=\"gv-context-title\">Stroudsmoor</h2></div><div><p>Stroudsmoor is in Stroudsburg, Pennsylvania, in the Pocono Mountains. This story features GioLina’s wedding cinematography for Christina and Danny.</p><a class=\"gv-text-link\" href=\"https://www.stroudsmoor.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at Stroudsmoor</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/boscobel-garrison/\">Jazz &amp; Trevor at Boscobel</a></h2></section></article>"
+}

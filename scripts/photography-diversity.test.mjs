@@ -22,7 +22,7 @@ test('editorial updates preserve production films, links, quotations and forms',
   for(const selector of ['iframe','[data-vimeo-id]','[data-mediazilla-src]','video','source','blockquote','form']){
    assert.deepEqual([...now.querySelectorAll(selector)].map(e=>e.outerHTML),[...before.querySelectorAll(selector)].map(e=>e.outerHTML),`${name}: ${selector}`);
   }
-  const links=doc=>[...doc.querySelectorAll('a[href]:not([data-sweet-photo])')].map(e=>e.getAttribute('href'));
+  const links=doc=>[...doc.querySelectorAll('a[href]:not([data-sweet-photo])')].filter(e=>!e.closest('.gl-published-stories')).map(e=>e.getAttribute('href'));
   assert.deepEqual(links(now),links(before),`${name}: links`);
  }
  assert.equal(readFileSync(path('client-reviews'),'utf8'),execFileSync('git',['show',`${production}:${path('client-reviews')}`],{encoding:'utf8'}));

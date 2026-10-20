@@ -7,8 +7,9 @@
     "<meta property=\"og:url\" content=\"https://giolinafilms.com/photography/wedding-collection/\">"
   ],
   "css": [
-    "/wedding-collection.css"
+    "/wedding-collection.css",
+    "/published-stories.css"
   ],
   "bodyClass": "wc-page",
-  "content": "<header class=\"wc-intro\"><h1>THE WEDDING COLLECTION</h1><p>A closer look at the moments, details and celebrations we love to capture.</p><a href=\"/portfolio/\">\u2190 Back to Photography</a></header>"
+  "content": "<header class=\"wc-intro\"><h1>THE WEDDING COLLECTION</h1><p>A closer look at the moments, details and celebrations we love to capture.</p><a href=\"/portfolio/\">← Back to Photography</a></header><section class=\"gl-published-stories\" aria-labelledby=\"published-stories-title\"><h2 id=\"published-stories-title\">Selected wedding stories</h2><p>Explore these weddings through their GioLina films.</p><ul><li><a href=\"/weddings/gargiulos-brooklyn/\">Francesca &amp; Chris at Gargiulo’s</a></li><li><a href=\"/weddings/laurita-winery-new-egypt/\">Sara &amp; Phil at Laurita Winery</a></li><li><a href=\"/weddings/stroudsmoor-stroudsburg/\">Christina &amp; Danny at Stroudsmoor</a></li><li><a href=\"/weddings/boscobel-garrison/\">Jazz &amp; Trevor at Boscobel</a></li></ul></section>"
 }
