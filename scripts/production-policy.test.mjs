@@ -33,7 +33,7 @@ test('real Worker applies independent flags only to successful public production
  }finally{await mf.dispose();}
 });
 const script=readFileSync('public/production-analytics.js','utf8');
-function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled})+'</script><a href="/contact/">Inquire</a><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.eval(script);return dom;}
+function browser(url,enabled){const dom=new JSDOM('<title>GioLina Films</title><script id="gl-analytics-config" type="application/json">'+JSON.stringify({measurementId:'G-KD1ES061DH',enabled,privacyApproved:true})+'</script><a href="/contact/">Inquire</a><footer></footer><input name="email" value="private@example.test">',{url,runScripts:'outside-only'});dom.window.localStorage.setItem('gl-analytics-consent',JSON.stringify({version:1,choice:'accepted',expires:Date.now()+100000}));dom.window.eval(readFileSync('public/analytics-consent.js','utf8'));dom.window.eval(script);return dom;}
 test('analytics does not load without production authorization',()=>{
  for(const [url,enabled] of [['https://giolinafilms.com/',false],['https://preview.test/',true],['https://giolinafilms.com/admin/',true],['http://giolinafilms.com/',true]]){const d=browser(url,enabled);assert.equal(d.window.dataLayer,undefined);assert.equal(d.window.document.querySelector('script[src]'),null);d.window.close();}
 });
@@ -61,7 +61,7 @@ test('production config enables only approved indexing and preserves unrelated v
  const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
  assert.equal(config.name,'giolina');assert.equal(config.compatibility_date,'2026-09-30');
  for(const key of ['d1_databases','kv_namespaces','r2_buckets','routes','services'])assert.equal(config[key],undefined,key);
- assert.equal(config.assets.binding,'ASSETS');assert.deepEqual(config.previews,{"vars": {"CRM_STAGE": "preview", "CRM_ORIGIN": "https://preview-homepage-photography-rotation-giolina.dawn-math-f4b1.workers.dev", "CRM_ACCESS_TEAM": "sweet-salad-fb3f.cloudflareaccess.com", "CRM_ACCESS_AUD": "1b5b7a64d6e6bbed806c5b229f87bfc606a3f52a0dddce10876d886df659df79", "CRM_ADMIN_EMAILS": "info@giolina.co"}, "d1_databases": [{"binding": "CRM_DB", "database_name": "giolina-crm-preview", "database_id": "4f3fda7b-35ed-4a10-b457-b8fec46677c5", "migrations_dir": "admin/migrations"}]}); // Preserve the existing preview's isolated bindings exactly.
+ assert.equal(config.assets.binding,'ASSETS');assert.equal(config.previews.vars.CRM_STAGE,'preview');assert.equal(config.previews.d1_databases.length,1);assert.equal(config.previews.d1_databases[0].binding,'CRM_DB'); // Do not duplicate internal configuration identifiers in tests.
  assert.equal(config.keep_vars,true);
  assert.deepEqual(config.vars,{GIOLINA_INDEXING_ENABLED:'true',GIOLINA_ANALYTICS_ENABLED:'false'});
 });
