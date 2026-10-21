@@ -163,15 +163,22 @@ export class RunGate {
   }
   async owner(request) {
     if (!await authorized(request, this.env)) return json({error:'unauthorized'},401);
-    // This fixed owner gate is independent of, and cannot enable, the legacy run.
-    if (request.method !== 'POST' || this.env.DIAGNOSTIC_ENABLED !== 'false' ||
-        this.env.CREDENTIAL_APPLICATION_CONFIRMED !== 'false' || this.env.AUTHORIZED_RUN_ID !== '' ||
-        !credentialReady(this.env)) return json({error:'unsafe_configuration'},403);
+    if (request.method !== 'POST') return json({error:'method_not_allowed'},405);
     const action = new URL(request.url).pathname.split('/').pop();
-    const existing = await this.state.storage.get('owner');
-    const display = value => value?.state === 'armed' && Date.now() >= value.expiresAt
-      ? {...value,state:'expired'} : value || {state:'unarmed'};
-    if (action === 'status') return json(display(existing));
+    const configuration = {
+      diagnosticDisabled: this.env.DIAGNOSTIC_ENABLED === 'false',
+      applicationConfirmationDisabled: this.env.CREDENTIAL_APPLICATION_CONFIRMED === 'false',
+      runIdentifierEmpty: this.env.AUTHORIZED_RUN_ID === '',
+      credentialsWellFormed: credentialReady(this.env)
+    };
+    const ownerActionsAvailable = Object.values(configuration).every(value=>value === true);
+    const display = value => ({...(value?.state === 'armed' && Date.now() >= value.expiresAt
+      ? {...value,state:'expired'} : value || {state:'unarmed'}), configuration, ownerActionsAvailable});
+    // Status is authenticated, read-only and never writes, signs or calls SmugMug.
+    // An execution configuration lock must not hide an existing durable record.
+    if (action === 'status') return json(display(await this.state.storage.get('owner')));
+    // Preserve the exact execution prerequisites. Status does not relax arming/run gates.
+    if (!ownerActionsAvailable) return json({error:'unsafe_configuration'},403);
     let body;
     try { body = await request.json(); } catch { return json({error:'confirmation_required'},400); }
     if (action === 'arm') {
@@ -183,7 +190,7 @@ export class RunGate {
           armedUtc:new Date().toISOString(), expiresAt:Date.now()+10*60*1000};
         await tx.put('owner',value); return value;
       });
-      return grant ? json(grant) : json({error:'authorization_already_created_no_retry'},409);
+      return grant ? json(display(grant)) : json({error:'authorization_already_created_no_retry'},409);
     }
     if (action !== 'run' || body?.confirmation !== 'run-one-request-token-test-now')
       return json({error:'confirmation_required'},400);
@@ -201,7 +208,7 @@ export class RunGate {
     catch { return json({state:'consumed',error:'attempt_uncertain_no_retry'},503); }
     const completed = {...claimed,state:'completed',evidence};
     await this.state.storage.put('owner',completed);
-    return json(completed);
+    return json(display(completed));
   }
 
 }
@@ -222,10 +229,13 @@ export default {
     }
     if (['/owner-test/status','/owner-test/arm','/owner-test/run'].includes(url.pathname)) {
       if (!await authorized(request,env)) return json({error:'unauthorized'},401);
-      if (request.method !== 'POST' || request.headers.get('Origin') !== url.origin ||
-          request.headers.get('Sec-Fetch-Site') !== 'same-origin' || request.headers.has('Cookie') ||
-          request.headers.get('X-Owner-Test') !== 'v1' || request.headers.get('Content-Type') !== 'application/json')
-        return json({error:'forbidden'},403);
+      // Safe reason codes only after Bearer verification; never echo header values.
+      if (request.method !== 'POST') return json({error:'method_not_allowed'},403);
+      if (request.headers.get('Origin') !== url.origin) return json({error:'origin_mismatch'},403);
+      if (request.headers.get('Sec-Fetch-Site') !== 'same-origin') return json({error:'fetch_metadata_rejected'},403);
+      if (request.headers.has('Cookie')) return json({error:'cookie_not_allowed'},403);
+      if (request.headers.get('X-Owner-Test') !== 'v1') return json({error:'csrf_header_missing'},403);
+      if (request.headers.get('Content-Type') !== 'application/json') return json({error:'content_type_rejected'},403);
       // Bound input before parsing or forwarding; reject arbitrary endpoints/fields.
       let body;
       try {

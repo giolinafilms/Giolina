@@ -24,7 +24,7 @@ async function fixture({ bindings = {}, upstream = () => form('oauth_problem=sig
     name: config.name, modules: true, script, compatibilityDate: config.compatibility_date,
     durableObjects: Object.fromEntries(config.durable_objects.bindings.map(b => [b.name, { className: b.class_name, useSQLite: config.migrations.some(m => m.new_sqlite_classes?.includes(b.class_name)) }])),
     durableObjectsPersist: persist || false,
-    bindings: { ...config.vars, ...credentials, ...bindings },
+    bindings: Object.fromEntries(Object.entries({ ...config.vars, ...credentials, ...bindings }).filter(([,value])=>value !== undefined)),
     // All Worker outbound fetches terminate here. There is no network fallback.
     outboundService: async request => {
       calls.push({ url: request.url, method: request.method });
@@ -231,4 +231,46 @@ test('owner timeout locks authorization; legacy enabled settings cannot authoriz
   const g=await fixture({bindings:armed});
   try{assert.equal((await ownerRequest(g,'arm')).status,403);assert.equal(g.calls.length,0);}
   finally{await g.mf.dispose();}
+});
+
+test('read-only owner status remains inspectable when execution configuration is locked',async()=>{
+  const f=await fixture({bindings:{AUTHORIZED_RUN_ID:undefined}});
+  try{
+    const r=await ownerRequest(f,'status');assert.equal(r.status,200);const data=await r.json();
+    assert.equal(data.state,'unarmed');assert.equal(data.ownerActionsAvailable,false);
+    assert.equal(data.configuration.runIdentifierEmpty,false);
+    assert.equal((await ownerRequest(f,'arm')).status,403);assert.equal((await ownerRequest(f,'run')).status,403);
+    assert.equal(f.calls.length,0);
+  }finally{await f.mf.dispose();}
+});
+
+test('status preserves stored consumption through configuration changes and repeated reads',async()=>{
+  const persist=await mkdtemp(join(tmpdir(),'status-preservation-'));let f;
+  try{
+    f=await fixture({persist});await ownerRequest(f,'arm');
+    const previous=await (await ownerRequest(f,'run')).json();assert.equal(f.calls.length,1);
+    await f.mf.dispose();f=await fixture({persist,bindings:{SMUGMUG_API_SECRET:''}});
+    for(let i=0;i<3;i++){
+      const r=await ownerRequest(f,'status');assert.equal(r.status,200);const data=await r.json();
+      assert.equal(data.state,'completed');assert.deepEqual(data.evidence,previous.evidence);
+      assert.equal(data.consumedUtc,previous.consumedUtc);assert.equal(data.ownerActionsAvailable,false);
+      assert.equal(data.configuration.credentialsWellFormed,false);
+      assert.ok(!JSON.stringify(data).includes(credentials.SMUGMUG_API_KEY));
+    }
+    assert.equal((await ownerRequest(f,'arm')).status,403);assert.equal((await ownerRequest(f,'run')).status,403);
+    assert.equal(f.calls.length,0);
+  }finally{if(f)await f.mf.dispose();await rm(persist,{recursive:true,force:true});}
+});
+test('owner status keeps exact browser protections with safe rejection reasons',async()=>{
+  const f=await fixture();
+  try{
+    for(const [changed,reason]of [[{Origin:''},'origin_mismatch'],[{'Sec-Fetch-Site':''},'fetch_metadata_rejected'],[{Cookie:'secret-cookie'},'cookie_not_allowed'],[{'X-Owner-Test':''},'csrf_header_missing'],[{'Content-Type':'text/plain'},'content_type_rejected']]){
+      const r=await ownerRequest(f,'status',{headers:{...ownerHeaders,...changed}});
+      assert.equal(r.status,403);assert.equal((await r.json()).error,reason);
+    }
+    const unauthorized=await ownerRequest(f,'status',{headers:{...ownerHeaders,Authorization:''}});
+    assert.equal(unauthorized.status,401);assert.deepEqual(await unauthorized.json(),{error:'unauthorized'});
+    const state=await (await ownerRequest(f,'status')).json();assert.equal(state.state,'unarmed');
+    assert.equal(state.ownerActionsAvailable,true);assert.equal(f.calls.length,0);
+  }finally{await f.mf.dispose();}
 });

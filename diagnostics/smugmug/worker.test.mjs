@@ -199,17 +199,17 @@ test('page exit and hidden state abort in-flight readiness and clear credentials
 });
 
 import { testJs } from './owner-test-page.mjs';
-function testPageHarness(send) {
-  const ids=['test-password','test-confirm','test-status','test-report','test-refresh','test-arm','test-run','test-copy'];
+function testPageHarness(send, timers = {}) {
+  const ids=['test-password','test-confirm','test-status','test-arm-status','test-run-status','test-copy-help','test-report','test-refresh','test-arm','test-run','test-copy'];
   const handlers={},windows={},documents={};let copied='';
   const elements=Object.fromEntries(ids.map(id=>[id,{value:'',checked:false,disabled:false,textContent:'',addEventListener:(name,fn)=>{handlers[id]=fn;}}]));
   const deny=new Proxy({},{get(){throw new Error('forbidden storage/logging');}});
   const document={visibilityState:'visible',getElementById:id=>elements[id],addEventListener:(name,fn)=>{documents[name]=fn;}};
-  runInNewContext(testJs,{document,window:{addEventListener:(name,fn)=>{windows[name]=fn;}},navigator:{clipboard:{writeText:async value=>{copied=value;}}},fetch:send,AbortController,setTimeout,clearTimeout,console:deny,localStorage:deny,sessionStorage:deny});
+  runInNewContext(testJs,{document,window:{addEventListener:(name,fn)=>{windows[name]=fn;}},navigator:{clipboard:{writeText:async value=>{copied=value;}}},fetch:send,AbortController,setTimeout:timers.setTimeout||setTimeout,clearTimeout:timers.clearTimeout||clearTimeout,console:deny,localStorage:deny,sessionStorage:deny});
   return {elements,windows,documents,document,copied:()=>copied,click:id=>handlers[id]()};
 }
 test('owner UI requires confirmation, sends once, clears secrets and copies only evidence',async()=>{
-  let calls=0;let h;const responses=[{state:'unarmed'},{state:'armed'},{state:'completed',evidence:{result:'http_401_signature_invalid',status:401}}];
+  let calls=0;let h;const responses=[{state:'unarmed',ownerActionsAvailable:true},{state:'armed',ownerActionsAvailable:true},{state:'completed',ownerActionsAvailable:true,evidence:{result:'http_401_signature_invalid',status:401}}];
   h=testPageHarness(async(path,options)=>{
     calls++;assert.equal(h.elements['test-password'].value,'');assert.equal(options.headers.Authorization,'Bearer '+access);
     assert.equal(options.mode,'same-origin');assert.equal(options.credentials,'omit');assert.equal(options.redirect,'error');
@@ -220,7 +220,7 @@ test('owner UI requires confirmation, sends once, clears secrets and copies only
   assert.equal(h.elements['test-arm'].disabled,true);assert.equal(h.elements['test-run'].disabled,true);assert.equal(calls,0);
   h.elements['test-password'].value=access;await h.click('test-refresh');assert.equal(calls,1);
   h.elements['test-password'].value=access;await h.click('test-arm');assert.equal(calls,1);
-  h.elements['test-confirm'].checked=true;await h.click('test-arm');assert.equal(calls,2);assert.equal(h.elements['test-confirm'].checked,false);
+  h.elements['test-password'].value=access;h.elements['test-confirm'].checked=true;await h.click('test-arm');assert.equal(calls,2);assert.equal(h.elements['test-confirm'].checked,false);
   h.elements['test-password'].value=access;h.elements['test-confirm'].checked=true;await h.click('test-run');assert.equal(calls,3);
   assert.equal(h.elements['test-run'].disabled,true);assert.equal(h.elements['test-arm'].disabled,true);
   await h.click('test-copy');assert.equal(JSON.parse(h.copied()).status,401);
@@ -256,4 +256,48 @@ test('owner gate expiration and failed durable storage fail closed before outbou
     const r=await worker.fetch(new Request(url+'/owner-test/run',{method:'POST',headers:{Authorization:'Bearer '+access,Origin:url,'Sec-Fetch-Site':'same-origin','X-Owner-Test':'v1','Content-Type':'application/json'},body:JSON.stringify({confirmation:'run-one-request-token-test-now'})}),broken);
     assert.equal(r.status,503);assert.equal(outbound,0);
   }finally{globalThis.fetch=original;}
+});
+
+test('status UI identifies server, parsing and network failures without claiming an OAuth attempt',async()=>{
+  const cases=[
+    [()=>Response.json({error:'unauthorized'},{status:401}),/password.*not accepted/i],
+    [()=>Response.json({error:'unsafe_configuration'},{status:403}),/configuration/i],
+    [()=>Response.json({error:'forbidden'},{status:403}),/security check/i],
+    [()=>Response.json({error:'fetch_metadata_rejected'},{status:403}),/browser.*security/i],
+    [()=>Response.json({error:'durable_gate_unavailable_no_retry'},{status:503}),/authorization storage.*unavailable/i],
+    [()=>new Response('PRIVATE SECRET',{status:502}),/server error.*502/i],
+    [()=>new Response('PRIVATE SECRET',{status:200}),/unexpected.*response/i],
+    [()=>Response.json({state:'invented'}),/unknown.*state/i],
+    [()=>{throw new TypeError('PRIVATE SECRET');},/connection.*network/i]
+  ];
+  for(const [send,message]of cases){
+    let calls=0;const h=testPageHarness(async()=>{calls++;return send();});
+    h.elements['test-password'].value=access;await h.click('test-refresh');
+    assert.match(h.elements['test-status'].textContent,message);
+    assert.match(h.elements['test-status'].textContent,/status check cannot arm or run OAuth/i);
+    assert.ok(!JSON.stringify(h.elements).includes('PRIVATE SECRET'));
+    assert.equal(calls,1);assert.equal(h.elements['test-password'].value,'');
+    assert.equal(h.elements['test-arm'].disabled,true);assert.equal(h.elements['test-run'].disabled,true);
+    assert.equal(h.elements['test-copy'].disabled,true);assert.match(h.elements['test-copy-help'].textContent,/no.*report/i);
+  }
+});
+test('status UI distinguishes timeout and missing password and never automatically retries',async()=>{
+  let timeout,calls=0;const h=testPageHarness(async(_,options)=>{calls++;return new Promise((_,reject)=>options.signal.addEventListener('abort',()=>reject(new DOMException('aborted','AbortError'))));},{setTimeout:fn=>{timeout=fn;return 1;},clearTimeout:()=>{}});
+  await h.click('test-refresh');assert.equal(calls,0);assert.match(h.elements['test-status'].textContent,/enter.*password/i);
+  h.elements['test-password'].value=access;const pending=h.click('test-refresh');timeout();await pending;
+  assert.match(h.elements['test-status'].textContent,/timed out/i);assert.equal(calls,1);
+  assert.equal(h.elements['test-copy'].disabled,true);
+});
+test('status UI clearly separates unarmed, configuration lock, armed, consumed and completed',async()=>{
+  for(const [reply,message,arm,run,copy]of [
+    [{state:'unarmed',ownerActionsAvailable:true},/ready.*not armed/i,false,true,true],
+    [{state:'unarmed',ownerActionsAvailable:false},/configuration.*blocks/i,true,true,true],
+    [{state:'armed',ownerActionsAvailable:true},/armed.*not consumed/i,true,false,true],
+    [{state:'consumed',ownerActionsAvailable:true},/already used.*not proof/i,true,true,true],
+    [{state:'completed',ownerActionsAvailable:true},/already used.*no.*report/i,true,true,true],
+    [{state:'completed',ownerActionsAvailable:true,evidence:{result:'http_401_signature_invalid',status:401}},/already used/i,true,true,false]
+  ]){
+    const h=testPageHarness(async()=>Response.json(reply));h.elements['test-password'].value=access;await h.click('test-refresh');
+    assert.match(h.elements['test-status'].textContent,message);assert.equal(h.elements['test-arm'].disabled,arm);assert.equal(h.elements['test-run'].disabled,run);assert.equal(h.elements['test-copy'].disabled,copy);
+  }
 });

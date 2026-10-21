@@ -1,5 +1,47 @@
 # Isolated SmugMug diagnostic
 
+## Phase 3G — status reporting correction
+
+The old “Outcome not confirmed” text was a catch-all for every non-401 server
+failure, fetch/timeout failure, invalid JSON and unexpected state. It did not prove
+arming, consumption or SmugMug authentication failure. The password cleared before
+fetch as a security measure; clearing it never proved a successful response.
+
+No hosted authorization history was accessible to Work without the diagnostic
+password. The owner's reported failure alone cannot identify which server/network
+condition occurred. No live run is authorized in this phase.
+
+Authenticated status is now independent of execution-configuration prerequisites:
+it only reads the existing fixed owner record, reports safe configuration booleans,
+and never writes storage, signs OAuth or contacts SmugMug. Arm/run retain their
+exact configuration, Bearer, Origin, Fetch Metadata, custom-header and replay gates.
+A configuration mismatch cannot hide an existing consumed record. No record reset,
+new run ID or migration is introduced. Missing/altered settings still block execution.
+
+The owner now only needs to open the existing webpage, enter the existing diagnostic
+password in the test section, click Check Test Status, and read the message directly
+under that button. Do not arm or run during this phase. Each action has its own
+focusable live-region result. Passwords still clear immediately; keyboard focus
+moves to the result to make mobile feedback visible. Copy explains why it is disabled.
+
+Known errors are distinguished by safe HTTP status/reason codes (password rejected,
+origin/Fetch Metadata/CSRF rejection, configuration lock or unavailable durable
+storage). Timeout, network failure, invalid response and unknown state have separate
+messages. No raw server error body, header value or exception text is echoed.
+Status errors explicitly say they cannot arm or run OAuth; they do not imply that
+an authorization was consumed. No automatic retry occurs.
+
+Unarmed means no record exists for this fixed owner-test object, not a global audit
+of every historical legacy diagnostic run. Consumed means the durable claim exists;
+it does not prove the upstream request reached SmugMug. Completed reports only saved
+sanitized evidence. Legacy configuration flags alone do not establish owner state.
+
+Regression coverage includes these UI cases, same-origin rejection reasons,
+read-only status with mismatched/missing configuration, and durable consumed-state
+preservation. All workerd upstream calls use the existing network-isolated mocks.
+Physical iPhone/Safari validation and hosted authenticated state remain separate
+checks; unit/runtime tests do not substitute for those observations.
+
 ## Current owner workflow — Phase 3F
 
 The existing isolated Worker is deployed through its existing GitHub connection.
