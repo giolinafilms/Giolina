@@ -72,3 +72,20 @@ Do not weaken review settings, change destinations, split/rename denied uploads 
 - SmugMug: complete the established test-gated Cloudflare build of d477f5b and verify hosted owner status. Only then obtain explicit authorization for one controlled live request; do not infer it from the recovery mandate. Request-token success alone is not account authorization or gallery access.
 - Media: obtain a supported resolution of the review conflict and an operational processing environment. Recover and verify Jacques first, complete that client before Eagle Oaks, then continue client by client. Do not activate incomplete galleries.
 - Keep production, main, DNS, analytics, client services, originals, Palace/Jen & Mike hold and all newer preview work intact.
+
+## Subsequent fresh execution validation — October 21, 2026
+
+Command execution recovered. Existing dirty checkout was preserved; diagnostic source was recovered separately at d477f5b.
+- Diagnostic unit tests: 22 passed, 0 failed.
+- Actual workerd/SQLite runtime tests: 18 passed, 0 failed, synthetic credentials and intercepted upstream only.
+- Dedicated Wrangler dry-run packaging passed. No real OAuth, arming, secrets or production changes.
+- Diagnostic validation checkpoint: 3a81072a3f4fcdc2e8d17a7dc33382b0c99b8d99 (documentation only); remote head verified. Existing Git-connected build was requested through this one normal branch push, but build detection/deployment remains unverified.
+- Public hosted test.js still lacked the referrer-policy correction before the checkpoint. Public readiness was freshly observed as HTTP 401 unauthorized.
+- Wrangler whoami confirms no authenticated deployment access in this execution environment. No temporary-account deployment or alternate login was attempted.
+- Current complete preview tree still confirms 123 newly selected, 32 committed photographs/64 derivatives, 91 missing photographs/182 derivatives.
+- Recovered Jacques: all 20 local derivatives pass SHA-256, WebP decoding and dimensions against the committed integrity manifest; 10 full-size hashes also match private provenance. Original source bytes were not established in this recovery.
+- Recovered Eagle Oaks: all 20 derivatives found in the separate recovery directory pass SHA-256, decoding and dimensions; 10 recovered source files decode. This does not independently establish source hashes.
+- Four existing Jacques/Eagle Oaks draft tests passed. Drafts remain inactive; no photographs were uploaded and no client batch was published.
+- These recovered image bytes remain temporary local files, not a newly verified durable image archive.
+- Fresh physical Safari/browser tests are not completed. No installed Chromium or WebKit executable was available. Authenticated hosted durable state remains unknown.
+- Historical automatic photo-upload review conflict remains unresolved; no review-state or appeal tool is exposed. Do not retry denied publication or treat this checkpoint as a policy override.
