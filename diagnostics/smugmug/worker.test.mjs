@@ -197,3 +197,63 @@ test('page exit and hidden state abort in-flight readiness and clear credentials
   assert.equal(h.elements.results.children.length,0);assert.equal(h.elements['diagnostic-password'].value,'');
   for(const name of ['pagehide','pageshow']){h.elements['diagnostic-password'].value=access;h.windows[name]();assert.equal(h.elements['diagnostic-password'].value,'');}
 });
+
+import { testJs } from './owner-test-page.mjs';
+function testPageHarness(send) {
+  const ids=['test-password','test-confirm','test-status','test-report','test-refresh','test-arm','test-run','test-copy'];
+  const handlers={},windows={},documents={};let copied='';
+  const elements=Object.fromEntries(ids.map(id=>[id,{value:'',checked:false,disabled:false,textContent:'',addEventListener:(name,fn)=>{handlers[id]=fn;}}]));
+  const deny=new Proxy({},{get(){throw new Error('forbidden storage/logging');}});
+  const document={visibilityState:'visible',getElementById:id=>elements[id],addEventListener:(name,fn)=>{documents[name]=fn;}};
+  runInNewContext(testJs,{document,window:{addEventListener:(name,fn)=>{windows[name]=fn;}},navigator:{clipboard:{writeText:async value=>{copied=value;}}},fetch:send,AbortController,setTimeout,clearTimeout,console:deny,localStorage:deny,sessionStorage:deny});
+  return {elements,windows,documents,document,copied:()=>copied,click:id=>handlers[id]()};
+}
+test('owner UI requires confirmation, sends once, clears secrets and copies only evidence',async()=>{
+  let calls=0;let h;const responses=[{state:'unarmed'},{state:'armed'},{state:'completed',evidence:{result:'http_401_signature_invalid',status:401}}];
+  h=testPageHarness(async(path,options)=>{
+    calls++;assert.equal(h.elements['test-password'].value,'');assert.equal(options.headers.Authorization,'Bearer '+access);
+    assert.equal(options.mode,'same-origin');assert.equal(options.credentials,'omit');assert.equal(options.redirect,'error');
+    assert.equal(options.headers['X-Owner-Test'],'v1');assert.equal(options.method,'POST');
+    assert.equal(path,['/owner-test/status','/owner-test/arm','/owner-test/run'][calls-1]);
+    return Response.json(responses[calls-1]);
+  });
+  assert.equal(h.elements['test-arm'].disabled,true);assert.equal(h.elements['test-run'].disabled,true);assert.equal(calls,0);
+  h.elements['test-password'].value=access;await h.click('test-refresh');assert.equal(calls,1);
+  h.elements['test-password'].value=access;await h.click('test-arm');assert.equal(calls,1);
+  h.elements['test-confirm'].checked=true;await h.click('test-arm');assert.equal(calls,2);assert.equal(h.elements['test-confirm'].checked,false);
+  h.elements['test-password'].value=access;h.elements['test-confirm'].checked=true;await h.click('test-run');assert.equal(calls,3);
+  assert.equal(h.elements['test-run'].disabled,true);assert.equal(h.elements['test-arm'].disabled,true);
+  await h.click('test-copy');assert.equal(JSON.parse(h.copied()).status,401);
+  assert.ok(!JSON.stringify(h.elements).includes(access));
+  h.windows.pagehide();assert.equal(h.elements['test-report'].textContent,'');assert.equal(h.elements['test-run'].disabled,true);
+});
+test('owner UI double-click, ambiguous result and reload cannot automatically execute or retry',async()=>{
+  let calls=0,finish,signal;
+  const h=testPageHarness(async(_,opts)=>{calls++;signal=opts.signal;return new Promise(r=>{finish=r;});});
+  h.elements['test-password'].value=access;const pending=h.click('test-refresh');
+  await h.click('test-refresh');assert.equal(calls,1);
+  h.windows.pagehide();assert.equal(signal.aborted,true);
+  finish(Response.json({state:'armed'}));await pending;
+  assert.equal(h.elements['test-run'].disabled,true);
+  h.windows.pageshow();assert.equal(calls,1);assert.equal(h.elements['test-password'].value,'');
+  for(const send of [async()=>new Response('private-secret',{status:500}),async()=>{throw new Error('private-secret');}]) {
+    const g=testPageHarness(send);g.elements['test-password'].value=access;await g.click('test-refresh');
+    assert.equal(g.elements['test-run'].disabled,true);assert.ok(!JSON.stringify(g.elements).includes('private-secret'));
+    assert.match(g.elements['test-status'].textContent,/No automatic retry/);
+  }
+});
+test('owner gate expiration and failed durable storage fail closed before outbound',async()=>{
+  const bindings={...env,DIAGNOSTIC_ENABLED:'false',CREDENTIAL_APPLICATION_CONFIRMED:'false',AUTHORIZED_RUN_ID:''};
+  const record={state:'armed',expiresAt:0};let writes=0;let outbound=0;
+  const tx={get:async()=>record,put:async()=>{writes++;}};
+  const gate=new RunGate({storage:{...tx,transaction:async fn=>fn(tx)}},bindings);
+  const request=action=>new Request('https://run-gate/owner-test/'+action,{method:'POST',headers:{Authorization:'Bearer '+access},body:JSON.stringify({confirmation:'run-one-request-token-test-now'})});
+  const original=globalThis.fetch;globalThis.fetch=async()=>{outbound++;throw new Error('unexpected');};
+  try {
+    assert.equal((await (await gate.fetch(request('status'))).json()).state,'expired');
+    assert.equal((await gate.fetch(request('run'))).status,409);assert.equal(outbound,0);assert.equal(writes,0);
+    const broken={...bindings,RUN_GATE:{idFromName:()=>'',get:()=>({fetch:async()=>{throw new Error('storage failure');}})}};
+    const r=await worker.fetch(new Request(url+'/owner-test/run',{method:'POST',headers:{Authorization:'Bearer '+access,Origin:url,'Sec-Fetch-Site':'same-origin','X-Owner-Test':'v1','Content-Type':'application/json'},body:JSON.stringify({confirmation:'run-one-request-token-test-now'})}),broken);
+    assert.equal(r.status,503);assert.equal(outbound,0);
+  }finally{globalThis.fetch=original;}
+});

@@ -166,3 +166,69 @@ test('owner page and same-origin readiness in actual workerd, zero outbound requ
     assert.equal(f.calls.length,0);
   } finally {await f.mf.dispose();}
 });
+
+const ownerHeaders = { Origin: root, 'Sec-Fetch-Site': 'same-origin', 'X-Owner-Test': 'v1', 'Content-Type':'application/json' };
+const confirmations = { status: {}, arm: { application:'2026-10-02', confirmation:'authorize-one-request-token-test' }, run: { confirmation:'run-one-request-token-test-now' } };
+const ownerRequest = (f, action, overrides = {}) => f.request('/owner-test/'+action, { method:'POST', headers:ownerHeaders, body:JSON.stringify(confirmations[action]), ...overrides });
+test('owner single-use workflow: strict authorization and durable concurrent execution', async () => {
+  const persist = await mkdtemp(join(tmpdir(),'owner-gate-')); let f;
+  try {
+    f=await fixture({persist});
+    assert.equal((await ownerRequest(f,'status')).status,200);
+    assert.equal((await (await ownerRequest(f,'status')).json()).state,'unarmed');
+    assert.equal((await ownerRequest(f,'run')).status,409);
+    for(const changed of [{Authorization:''},{Origin:''},{Origin:'https://evil.invalid'},{'Sec-Fetch-Site':'cross-site'},{'X-Owner-Test':''},{Cookie:'x=y'},{'Content-Type':'text/plain'}]) {
+      const r=await ownerRequest(f,'arm',{headers:{...ownerHeaders,...changed}});
+      assert.ok([401,403].includes(r.status));
+    }
+    assert.equal((await ownerRequest(f,'arm',{body:'{}'})).status,400);
+    assert.equal(f.calls.length,0);
+    const arms=await Promise.all(Array.from({length:8},()=>ownerRequest(f,'arm')));
+    assert.equal(arms.filter(r=>r.status===200).length,1);
+    assert.equal(arms.filter(r=>r.status===409).length,7);
+    assert.equal(f.calls.length,0);
+    await f.mf.dispose(); f=await fixture({persist});
+    assert.equal((await (await ownerRequest(f,'status')).json()).state,'armed');
+    assert.equal((await ownerRequest(f,'run',{body:'{}'})).status,400);
+    const runs=await Promise.all(Array.from({length:12},()=>ownerRequest(f,'run')));
+    assert.equal(runs.filter(r=>r.status===200).length,1);
+    assert.equal(runs.filter(r=>r.status===409).length,11);
+    assert.equal(f.calls.length,1);
+    const result=await runs.find(r=>r.status===200).json();
+    assert.equal(result.state,'completed'); assert.equal(result.evidence.result,'http_401_signature_invalid');
+    assert.equal(result.evidence.responseReceived,true);
+    await f.mf.dispose();f=await fixture({persist});
+    const saved=await (await ownerRequest(f,'status')).json();
+    assert.equal(saved.state,'completed');assert.deepEqual(saved.evidence,result.evidence);
+    assert.equal((await ownerRequest(f,'arm')).status,409);
+    assert.equal((await ownerRequest(f,'run')).status,409);assert.equal(f.calls.length,0);
+  } finally { if(f)await f.mf.dispose();await rm(persist,{recursive:true,force:true}); }
+});
+test('owner failures, redirects and successful tokens consume once and return sanitized evidence', async()=>{
+  for(const upstream of [()=>form('oauth_token=private-token&oauth_token_secret=private-secret&oauth_callback_confirmed=true'),()=>form('',302,{location:'https://invalid.example/?secret=x'}),()=>new Response('private-body',{status:503}),()=>{throw new Error('private-error');}]) {
+    const f=await fixture({upstream});
+    try {
+      assert.equal((await ownerRequest(f,'arm')).status,200);
+      const r=await ownerRequest(f,'run');assert.equal(r.status,200);
+      const e=await r.json();
+      for(const secret of [...Object.values(credentials),'private-token','private-secret','private-body','private-error','invalid.example'])assert.ok(!JSON.stringify(e).includes(secret));
+      assert.equal((await ownerRequest(f,'run')).status,409);assert.equal(f.calls.length,1);
+    }finally{await f.mf.dispose();}
+  }
+});
+
+test('owner timeout locks authorization; legacy enabled settings cannot authorize owner routes',async()=>{
+  const f=await fixture({upstream:()=>new Promise(resolve=>setTimeout(()=>resolve(form('delayed=synthetic')),21000))});
+  try {
+    assert.equal((await ownerRequest(f,'arm')).status,200);
+    const e=await (await ownerRequest(f,'run')).json();
+    assert.equal(e.evidence.result,'connection_or_transport_failure');
+    assert.equal(e.evidence.responseReceived,false);
+    assert.equal((await ownerRequest(f,'run')).status,409);
+    assert.equal((await ownerRequest(f,'arm')).status,409);assert.equal(f.calls.length,1);
+    assert.equal((await (await ownerRequest(f,'status')).json()).state,'completed');
+  }finally{await f.mf.dispose();}
+  const g=await fixture({bindings:armed});
+  try{assert.equal((await ownerRequest(g,'arm')).status,403);assert.equal(g.calls.length,0);}
+  finally{await g.mf.dispose();}
+});

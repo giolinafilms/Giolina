@@ -1,3 +1,4 @@
+import { testJs } from './owner-test-page.mjs';
 import { ownerHtml, ownerCss, ownerJs } from './owner-page.mjs';
 import { hmacsign, rfc3986 } from '../../vendor/oauth-sign-webcrypto.mjs';
 
@@ -109,11 +110,17 @@ export async function capture(env, send = fetch) {
     transportObservedRequestHeaders: null,
     transportObservation: 'Not available; runtime-added outbound headers were not observed.',
     redirectPolicy: 'manual', providerReceipt: 'Not independently verified',
-    accountAuthenticationSucceeded: false
+    responseReceived: false, accountAuthenticationSucceeded: false
   };
   try {
     const response = await send(request); // Exactly one attempt. No redirects/retries.
+    evidence.responseReceived = true;
     evidence.status = response.status;
+    // Preserve header names and redirect evidence even if body reading fails.
+    evidence.responseHeaders = [...response.headers].map(([name])=>[name,'[REDACTED]']);
+    evidence.responseBody = {body:'[WITHHELD: body capture failed]',format:'withheld',complete:false};
+    evidence.redirect = {received:response.status >= 300 && response.status < 400,followed:false,
+      location:response.headers.has('location')?'[REDACTED: redirect not followed]':null};
     const raw = await readBounded(response);
     const fields = new URLSearchParams(raw.text);
     const secrets = [env.SMUGMUG_API_KEY, env.SMUGMUG_API_SECRET, env.DIAGNOSTIC_ACCESS_TOKEN,
@@ -138,10 +145,11 @@ export async function capture(env, send = fetch) {
 }
 
 // Durable claim survives restarts and closes concurrent/replayed requests.
-// No tokens or upstream response are persisted. Failures consume the authorization too.
+// Only sanitized owner evidence is persisted. Failures consume authorization too.
 export class RunGate {
   constructor(state, env) { this.state = state; this.env = env; }
   async fetch(request) {
+    if (new URL(request.url).pathname.startsWith('/owner-test/')) return this.owner(request);
     if (request.method !== 'POST' || this.env.DIAGNOSTIC_ENABLED !== 'true' ||
       this.env.CREDENTIAL_APPLICATION_CONFIRMED !== '2026-10-02' ||
       !validRun(this.env.AUTHORIZED_RUN_ID) || !credentialReady(this.env)) return json({ error: 'disabled' }, 403);
@@ -153,21 +161,86 @@ export class RunGate {
     if (!claimed) return json({ error: 'authorization_already_consumed' }, 409);
     return json(await capture(this.env));
   }
+  async owner(request) {
+    if (!await authorized(request, this.env)) return json({error:'unauthorized'},401);
+    // This fixed owner gate is independent of, and cannot enable, the legacy run.
+    if (request.method !== 'POST' || this.env.DIAGNOSTIC_ENABLED !== 'false' ||
+        this.env.CREDENTIAL_APPLICATION_CONFIRMED !== 'false' || this.env.AUTHORIZED_RUN_ID !== '' ||
+        !credentialReady(this.env)) return json({error:'unsafe_configuration'},403);
+    const action = new URL(request.url).pathname.split('/').pop();
+    const existing = await this.state.storage.get('owner');
+    const display = value => value?.state === 'armed' && Date.now() >= value.expiresAt
+      ? {...value,state:'expired'} : value || {state:'unarmed'};
+    if (action === 'status') return json(display(existing));
+    let body;
+    try { body = await request.json(); } catch { return json({error:'confirmation_required'},400); }
+    if (action === 'arm') {
+      if (body?.application !== '2026-10-02' || body?.confirmation !== 'authorize-one-request-token-test')
+        return json({error:'confirmation_required'},400);
+      const grant = await this.state.storage.transaction(async tx => {
+        if (await tx.get('owner')) return null;
+        const value = {state:'armed', application:'GioLina Films — October 2, 2026',
+          armedUtc:new Date().toISOString(), expiresAt:Date.now()+10*60*1000};
+        await tx.put('owner',value); return value;
+      });
+      return grant ? json(grant) : json({error:'authorization_already_created_no_retry'},409);
+    }
+    if (action !== 'run' || body?.confirmation !== 'run-one-request-token-test-now')
+      return json({error:'confirmation_required'},400);
+    const claimed = await this.state.storage.transaction(async tx => {
+      const value = await tx.get('owner');
+      if (value?.state !== 'armed' || Date.now() >= value.expiresAt) return null;
+      const consumed = {...value,state:'consumed', consumedUtc:new Date().toISOString()};
+      await tx.put('owner',consumed); return consumed;
+    });
+    if (!claimed) return json({error:'not_armed_expired_or_consumed_no_retry'},409);
+    // Persist consumption BEFORE signing or any outbound request. A crash remains locked.
+    // Do not log raw response data. capture() returns only sanitized evidence.
+    let evidence;
+    try { evidence = await capture(this.env); }
+    catch { return json({state:'consumed',error:'attempt_uncertain_no_retry'},503); }
+    const completed = {...claimed,state:'completed',evidence};
+    await this.state.storage.put('owner',completed);
+    return json(completed);
+  }
+
 }
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.protocol !== 'https:' || !/^giolina-smugmug-diagnostic\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname) || url.search) return json({ error: 'not_found' }, 404);
-    if (['/', '/owner.js', '/owner.css'].includes(url.pathname)) {
+    if (['/', '/owner.js', '/owner.css', '/test.js'].includes(url.pathname)) {
       if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405);
-      const [body, type] = url.pathname === '/' ? [ownerHtml, 'text/html'] : url.pathname === '/owner.js' ? [ownerJs, 'text/javascript'] : [ownerCss, 'text/css'];
+      const [body, type] = url.pathname === '/' ? [ownerHtml, 'text/html'] : url.pathname === '/owner.js' ? [ownerJs, 'text/javascript'] : url.pathname === '/test.js' ? [testJs, 'text/javascript'] : [ownerCss, 'text/css'];
       return new Response(body, { headers: {
         ...securityHeaders, 'Content-Type': type + '; charset=utf-8',
         'Content-Security-Policy': "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'; object-src 'none'",
         'X-Frame-Options': 'DENY', 'Cross-Origin-Resource-Policy': 'same-origin',
         'Cross-Origin-Opener-Policy': 'same-origin', 'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
       } });
+    }
+    if (['/owner-test/status','/owner-test/arm','/owner-test/run'].includes(url.pathname)) {
+      if (!await authorized(request,env)) return json({error:'unauthorized'},401);
+      if (request.method !== 'POST' || request.headers.get('Origin') !== url.origin ||
+          request.headers.get('Sec-Fetch-Site') !== 'same-origin' || request.headers.has('Cookie') ||
+          request.headers.get('X-Owner-Test') !== 'v1' || request.headers.get('Content-Type') !== 'application/json')
+        return json({error:'forbidden'},403);
+      // Bound input before parsing or forwarding; reject arbitrary endpoints/fields.
+      let body;
+      try {
+        const raw = await readBounded(new Response(request.body));
+        if (!raw.complete || raw.text.length > 256) return json({error:'invalid_request'},400);
+        body = JSON.parse(raw.text);
+        if (!body || Array.isArray(body) || typeof body !== 'object' ||
+            Object.keys(body).some(k=>!['application','confirmation'].includes(k))) return json({error:'invalid_request'},400);
+      } catch { return json({error:'invalid_request'},400); }
+      if (!env.RUN_GATE) return json({error:'durable_gate_unavailable_no_retry'},503);
+      try {
+        const stub = env.RUN_GATE.get(env.RUN_GATE.idFromName('owner-single-test-v1'));
+        return await stub.fetch(new Request('https://run-gate'+url.pathname,{method:'POST',
+          headers:{Authorization:request.headers.get('Authorization'),'Content-Type':'application/json'},body:JSON.stringify(body)}));
+      } catch { return json({error:'durable_gate_unavailable_no_retry'},503); }
     }
     if (!['/readiness', '/diagnostic'].includes(url.pathname)) return json({ error: 'not_found' }, 404);
     if (!await authorized(request, env)) return json({ error: 'unauthorized' }, 401);

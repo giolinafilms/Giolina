@@ -1,5 +1,61 @@
 # Isolated SmugMug diagnostic
 
+## Current owner workflow — Phase 3F
+
+The existing isolated Worker is deployed through its existing GitHub connection.
+The historical CLI/deployment handoffs below are archived context, not owner tasks.
+Do not recreate the Worker or change its secrets, routes or disabled variables.
+
+This phase adds the one-test interface; it does **not** authorize a live request.
+Only after separate explicit owner authorization:
+
+1. Open https://giolina-smugmug-diagnostic.dawn-math-f4b1.workers.dev/ .
+2. In SmugMug Authentication Test, enter the existing diagnostic password and
+   click Check Test Status. It must say unarmed. This action never sends OAuth.
+3. Re-enter that password, check the explicit October 2 application/one-test
+   confirmation, and click Arm One Test. Arming sends no SmugMug request.
+4. Within ten minutes, re-enter the password, confirm again, and click
+   Run One OAuth Test exactly once.
+5. Copy the sanitized support report. If the outcome is unclear, use only
+   Check Test Status to retrieve the saved result. Never rearm or retry.
+
+No Cloudflare edits, API-key entry, terminal, or manual HTTP headers are required.
+Expired grants remain locked and require technical review; there is no reset route.
+The API key is withheld from reports and can be supplied privately to Sebastian.
+Success proves the request-token step only, never account or gallery access.
+
+### Security boundary
+
+The legacy `/diagnostic` route and its browser rejection are preserved. The new
+`/owner-test/status`, `/owner-test/arm`, `/owner-test/run` POST routes require
+Bearer authentication, exact Origin, Sec-Fetch-Site same-origin, a custom header,
+JSON, no cookies and no CORS. They reject query strings, unexpected fields and
+oversized input. Owner routes require all three legacy configuration values to
+remain exactly false/false/empty; they never change those values.
+
+The owner flow is a separate explicit durable grant, not an automatic enabling
+of legacy configuration. A fixed RunGate object has unarmed → armed → consumed
+→ completed states. Arm and consume use atomic transactions. The grant expires
+in ten minutes and can be created only once. Consumption commits before signing
+or fetch; concurrent requests, failures, timeout, lost responses and restarts
+cannot repeat it. No browser route can delete state or choose another object/run ID.
+Only sanitized evidence is stored, for authenticated recovery after a reload.
+A consumed state without evidence is deliberately treated as uncertain and locked.
+
+No live grant was created during implementation/testing. Runtime tests use synthetic
+bindings and intercept every upstream fetch, with no network fallback. Wrangler
+config and migration v1 are unchanged. The public page alone reveals no configured
+state. Check Readiness still checks legacy settings; Check Test Status separately
+reports the durable owner authorization. Do not interpret a legacy disabled flag
+as proof that an owner grant is unarmed after someone explicitly arms it.
+
+Password fields clear on dispatch and page hide; no cookies, URL credentials,
+browser storage, logs, external scripts or fonts. Copy handles only sanitized
+report text. The browser never retries, follows redirects, or executes on reload.
+
+## Historical implementation notes
+
+
 Selected registration: **GioLina Films, October 2, 2026**, confirmed by owner.
 This is a new isolated Worker in the existing repository, not a replacement website.
 The older application and bindings remain untouched. No live OAuth test is authorized
@@ -25,7 +81,7 @@ endpoints. Success means request-token acquisition only, not account authenticat
 
 - `GET /readiness`: requires an Authorization Bearer token; returns presence flags,
   never values; performs no outbound request. Unauthenticated visitors receive only
-  a generic 401. No UI, query-string token, cookie login or CORS access is provided.
+  a generic 401. No query-string token, cookie login or CORS access is provided.
 - `POST /diagnostic`: requires that same token, matching `X-Diagnostic-Run` header,
   `DIAGNOSTIC_ENABLED=true`, `CREDENTIAL_APPLICATION_CONFIRMED=2026-10-02`, both
   nonempty unpadded SmugMug credentials and a configured run ID. Browser Origin/Cookie
@@ -227,8 +283,8 @@ Do not save it through a browser password-save prompt or export request traces.
 
 Readiness checks binding presence and credential formatting only. RUN_GATE
 presence does not exercise its storage. A passed readiness check is not successful
-SmugMug authentication. There is no OAuth button, arming operation, run identifier
-mutation or upstream request in this page. The protected diagnostic POST and its
+SmugMug authentication. This readiness action does not arm or execute OAuth; the separately reviewed
+Phase 3F owner-test section above adds explicit controls for the later test. The protected diagnostic POST and its
 browser-origin rejection remain unchanged. All Wrangler arming defaults remain
 disabled, and existing runtime secrets are not changed by this implementation.
 
