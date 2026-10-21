@@ -785,21 +785,21 @@
         "caption": "The Manhattan skyline frames Megan and Ralph’s Liberty House wedding portraits."
       },
       {
-        "src": "/assets/v26-46337fd10ea72807.webp",
-        "small": "/assets/v26-46337fd10ea72807-small.webp",
-        "width": 1280,
-        "height": 853,
-        "smallWidth": 640,
-        "alt": "Ralph kissing Megan on the cheek beside the waterfront",
-        "naturalRatio": true
-      },
-      {
         "src": "/assets/v26-013100c3807952f3.webp",
         "small": "/assets/v26-013100c3807952f3-small.webp",
         "width": 1280,
         "height": 853,
         "smallWidth": 640,
         "alt": "Megan and Ralph holding hands in a waterfront portrait",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-46337fd10ea72807.webp",
+        "small": "/assets/v26-46337fd10ea72807-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Ralph kissing Megan on the cheek beside the waterfront",
         "naturalRatio": true
       },
       {
@@ -826,7 +826,7 @@
         "width": 1279,
         "height": 853,
         "smallWidth": 640,
-        "alt": "Ralph holding an umbrella above Megan on a garden path",
+        "alt": "Ralph holding an umbrella beside Megan on a garden path",
         "naturalRatio": true
       },
       {
@@ -835,10 +835,10 @@
         "width": 1279,
         "height": 853,
         "smallWidth": 640,
-        "alt": "Megan and Ralph beneath a red umbrella",
+        "alt": "Megan and Ralph sharing a kiss beneath an umbrella",
         "naturalRatio": true,
         "showCaption": true,
-        "caption": "A red umbrella and a moment together after the rain."
+        "caption": "A kiss beneath an umbrella, with the city beyond."
       },
       {
         "src": "/assets/v26-53212e9b89a784d2.webp",
@@ -846,7 +846,7 @@
         "width": 1280,
         "height": 853,
         "smallWidth": 640,
-        "alt": "Megan and Ralph embracing beside the skyline at dusk",
+        "alt": "Megan and Ralph embracing beside the waterfront with Manhattan behind them",
         "naturalRatio": true
       },
       {
@@ -867,11 +867,11 @@
         "alt": "Megan and Ralph kissing with a rainbow behind them",
         "naturalRatio": true,
         "showCaption": true,
-        "caption": "A rainbow over the waterfront to close their portrait collection."
+        "caption": "A kiss beneath the rainbow."
       }
     ],
     "photoHeading": "By the water, beneath a rainbow.",
-    "photoIntro": "Waterfront portraits, a shared umbrella and a rainbow over Megan and Ralph’s wedding day.",
+    "photoIntro": "A walk by the water, a kiss beneath an umbrella and a rainbow to close this collection of wedding day portraits.",
     "context": "Liberty House is in Jersey City, New Jersey. This story features GioLina’s photography and cinematography for Megan and Ralph.",
     "venueUrl": "https://bylandmark.com/venues/liberty-house/",
     "kind": "wedding",
@@ -912,21 +912,21 @@
         "naturalRatio": true
       },
       {
-        "src": "/assets/v26-02f90570e0d7403b.webp",
-        "small": "/assets/v26-02f90570e0d7403b-small.webp",
-        "width": 1279,
-        "height": 853,
-        "smallWidth": 640,
-        "alt": "Chris kissing Loriann on the cheek as she holds her bouquet",
-        "naturalRatio": true
-      },
-      {
         "src": "/assets/v26-edad51ef622219b1.webp",
         "small": "/assets/v26-edad51ef622219b1-small.webp",
         "width": 1279,
         "height": 853,
         "smallWidth": 640,
         "alt": "Loriann and Chris sharing an umbrella",
+        "naturalRatio": true
+      },
+      {
+        "src": "/assets/v26-02f90570e0d7403b.webp",
+        "small": "/assets/v26-02f90570e0d7403b-small.webp",
+        "width": 1279,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Chris kissing Loriann on the cheek as she holds her bouquet",
         "naturalRatio": true
       },
       {
@@ -948,6 +948,15 @@
         "naturalRatio": true
       },
       {
+        "src": "/assets/v26-e9b2580a22f9ff07.webp",
+        "small": "/assets/v26-e9b2580a22f9ff07-small.webp",
+        "width": 800,
+        "height": 1200,
+        "smallWidth": 427,
+        "alt": "Loriann seated with her bouquet on a covered porch, with Chris standing behind her",
+        "naturalRatio": true
+      },
+      {
         "src": "/assets/v26-1e0ec223d1acd76e.webp",
         "small": "/assets/v26-1e0ec223d1acd76e-small.webp",
         "width": 1280,
@@ -966,12 +975,12 @@
         "naturalRatio": true
       },
       {
-        "src": "/assets/v26-e9b2580a22f9ff07.webp",
-        "small": "/assets/v26-e9b2580a22f9ff07-small.webp",
-        "width": 800,
-        "height": 1200,
-        "smallWidth": 427,
-        "alt": "Loriann seated with her bouquet on a covered porch",
+        "src": "/assets/v26-1d76c0a2ec563937.webp",
+        "small": "/assets/v26-1d76c0a2ec563937-small.webp",
+        "width": 1280,
+        "height": 853,
+        "smallWidth": 640,
+        "alt": "Loriann and Chris posing beside a fire engine",
         "naturalRatio": true
       },
       {
@@ -981,15 +990,6 @@
         "height": 1200,
         "smallWidth": 427,
         "alt": "Loriann beside a red fire engine",
-        "naturalRatio": true
-      },
-      {
-        "src": "/assets/v26-1d76c0a2ec563937.webp",
-        "small": "/assets/v26-1d76c0a2ec563937-small.webp",
-        "width": 1280,
-        "height": 853,
-        "smallWidth": 640,
-        "alt": "Loriann and Chris posing beside a fire engine",
         "naturalRatio": true
       },
       {
@@ -1011,8 +1011,8 @@
         "naturalRatio": true
       }
     ],
-    "photoHeading": "Garden portraits and a celebration.",
-    "photoIntro": "Loriann and Chris beneath the gazebo, beside a fire engine and sharing a kiss by their wedding cake.",
+    "photoHeading": "From the garden to the celebration.",
+    "photoIntro": "Garden portraits, quiet moments together and a kiss beside the wedding cake: selected moments from Loriann and Chris’s day.",
     "context": "The Old Bermuda Inn is in Staten Island, New York. This story features GioLina’s photography for Loriann and Chris.",
     "venueUrl": "https://www.theoldbermudainn.com/",
     "kind": "wedding",
@@ -1083,7 +1083,7 @@
         "width": 1280,
         "height": 853,
         "smallWidth": 640,
-        "alt": "Tonya seated beside Josh with her wedding dress spread around her",
+        "alt": "Tonya seated on the terrace bar beside Josh, with her wedding dress spread around her",
         "naturalRatio": true
       },
       {
@@ -1101,7 +1101,7 @@
         "width": 800,
         "height": 1200,
         "smallWidth": 427,
-        "alt": "Tonya and Josh beneath a colorful chandelier",
+        "alt": "Tonya and Josh standing together beneath a colorful chandelier",
         "naturalRatio": true
       },
       {
@@ -1124,7 +1124,7 @@
       }
     ],
     "photoHeading": "From daylight to city lights.",
-    "photoIntro": "Tonya and Josh beside the waterfront, together on the terrace and surrounded by the colors of their celebration.",
+    "photoIntro": "From waterfront portraits and the terrace bar to interiors glowing purple, ending with Tonya and Josh beneath the city lights.",
     "context": "Waterside is in North Bergen, New Jersey. This story features GioLina’s photography and cinematography for Tonya and Josh.",
     "venueUrl": "https://watersideevents.com/",
     "kind": "wedding",
