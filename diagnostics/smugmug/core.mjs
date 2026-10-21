@@ -1,3 +1,4 @@
+import { ownerHtml, ownerCss, ownerJs } from './owner-page.mjs';
 import { hmacsign, rfc3986 } from '../../vendor/oauth-sign-webcrypto.mjs';
 
 export const ENDPOINT = 'https://api.smugmug.com/services/oauth/1.0a/getRequestToken';
@@ -158,8 +159,29 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.protocol !== 'https:' || !/^giolina-smugmug-diagnostic\.[a-z0-9-]+\.workers\.dev$/.test(url.hostname) || url.search) return json({ error: 'not_found' }, 404);
+    if (['/', '/owner.js', '/owner.css'].includes(url.pathname)) {
+      if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405);
+      const [body, type] = url.pathname === '/' ? [ownerHtml, 'text/html'] : url.pathname === '/owner.js' ? [ownerJs, 'text/javascript'] : [ownerCss, 'text/css'];
+      return new Response(body, { headers: {
+        ...securityHeaders, 'Content-Type': type + '; charset=utf-8',
+        'Content-Security-Policy': "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'; object-src 'none'",
+        'X-Frame-Options': 'DENY', 'Cross-Origin-Resource-Policy': 'same-origin',
+        'Cross-Origin-Opener-Policy': 'same-origin', 'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+      } });
+    }
     if (!['/readiness', '/diagnostic'].includes(url.pathname)) return json({ error: 'not_found' }, 404);
     if (!await authorized(request, env)) return json({ error: 'unauthorized' }, 401);
+    // Read-only browser access: bearer token plus same-origin/custom-header checks.
+    // No CORS is enabled. Non-browser bearer clients remain compatible.
+    if (url.pathname === '/readiness') {
+      const origin = request.headers.get('Origin');
+      const site = request.headers.get('Sec-Fetch-Site');
+      if (request.headers.has('Cookie') || (origin !== null && origin !== url.origin) ||
+        (site !== null && site !== 'same-origin') ||
+        ((origin !== null || site !== null) && request.headers.get('X-Readiness-Request') !== 'owner-v1')) {
+        return json({ error: 'forbidden' }, 403);
+      }
+    }
     if (url.pathname === '/readiness' && request.method === 'GET') return json({
       service: 'giolina-smugmug-diagnostic',
       bindings: { SMUGMUG_API_KEY: !!env.SMUGMUG_API_KEY, SMUGMUG_API_SECRET: !!env.SMUGMUG_API_SECRET, RUN_GATE: !!env.RUN_GATE },
@@ -180,3 +202,4 @@ export default {
     } catch { return json({ error: 'durable_gate_unavailable_no_retry' }, 503); }
   }
 };
+

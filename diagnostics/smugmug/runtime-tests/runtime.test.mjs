@@ -135,3 +135,34 @@ test('actual workerd/SQLite runtime with network-isolated synthetic OAuth', asyn
     finally { await g.mf.dispose(); }
   });
 });
+
+
+test('owner page and same-origin readiness in actual workerd, zero outbound requests', async () => {
+  const f = await fixture();
+  try {
+    const page = await f.mf.dispatchFetch(root + '/');
+    assert.equal(page.status, 200);
+    assert.match(await page.text(), /Check Readiness/);
+    for (const path of ['/owner.js','/owner.css']) {
+      const asset = await f.mf.dispatchFetch(root+path);
+      assert.equal(asset.status,200);
+      assert.equal(asset.headers.get('cache-control'),'no-store, private');
+      assert.equal(asset.headers.get('cross-origin-resource-policy'),'same-origin');
+      for (const secret of Object.values(credentials)) assert.ok(!(await asset.clone().text()).includes(secret));
+    }
+    const browser = { Origin:root, 'Sec-Fetch-Site':'same-origin', 'X-Readiness-Request':'owner-v1' };
+    assert.equal((await f.mf.dispatchFetch(root+'/readiness',{headers:{'Sec-Fetch-Site':'none'}})).status,401);
+    const good = await f.request('/readiness',{headers:browser});
+    assert.equal(good.status,200);
+    const state = await good.json();
+    assert.equal(state.actionEnabled,false); assert.equal(state.runConfigured,false);
+    assert.equal(state.selectedApplicationConfirmed,false); assert.equal(state.bindings.RUN_GATE,true);
+    for (const changed of [{Origin:'https://evil.invalid'},{Origin:'null'},{'Sec-Fetch-Site':'same-site'},{'Sec-Fetch-Site':'cross-site'},{'X-Readiness-Request':''},{Cookie:'session=synthetic'}]) {
+      const r = await f.request('/readiness',{headers:{...browser,...changed}});
+      assert.equal(r.status,403); assert.equal(r.headers.get('access-control-allow-origin'),null);
+    }
+    assert.equal((await f.request('/readiness',{method:'OPTIONS',headers:browser})).status,405);
+    assert.equal((await f.request('/diagnostic',{method:'POST',headers:browser})).status,403);
+    assert.equal(f.calls.length,0);
+  } finally {await f.mf.dispose();}
+});

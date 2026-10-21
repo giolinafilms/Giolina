@@ -202,3 +202,38 @@ command. This documentation-only commit requests the first connected build.
 Build success, migration provisioning and hosted readiness must be verified
 separately; this note does not establish deployment success. OAuth remains
 disabled, and no credentials or production configuration are changed.
+
+
+## Owner readiness page
+
+Open the isolated Worker's root workers.dev URL, enter the existing diagnostic
+access token in the masked **Diagnostic password** field, and select **Check
+Readiness**. Never enter a SmugMug API key or API secret into this page.
+
+This public static page reveals no runtime configuration. Its script sends a
+same-origin GET to `/readiness` using the existing Bearer authentication and a
+custom readiness header. Cross-origin browser requests, cookies and preflights
+are rejected; no CORS permission is added. The browser omits cookies, refuses
+redirects and does not automatically retry. Static assets and private responses
+are non-cacheable. CSP limits scripts/styles/connections to this origin, blocks
+forms and framing, and no third-party resources are used.
+
+The password field clears before the request; the script drops its token
+reference immediately after dispatch and again in cleanup. No browser storage,
+cookies, URLs or logs retain it. Leaving/hiding the page clears the field/results
+and aborts an in-flight check. JavaScript cannot guarantee physical memory erasure;
+the token necessarily exists in browser request memory while the request runs.
+Do not save it through a browser password-save prompt or export request traces.
+
+Readiness checks binding presence and credential formatting only. RUN_GATE
+presence does not exercise its storage. A passed readiness check is not successful
+SmugMug authentication. There is no OAuth button, arming operation, run identifier
+mutation or upstream request in this page. The protected diagnostic POST and its
+browser-origin rejection remain unchanged. All Wrangler arming defaults remain
+disabled, and existing runtime secrets are not changed by this implementation.
+
+Tests in worker.test.mjs cover the owner page, same-origin/CSRF rejection,
+unauthorized requests and browser-script lifecycle/error behavior using a minimal
+DOM with synthetic fetch. The real workerd suite additionally checks the page and
+readiness paths with all outbound calls intercepted; the existing durable replay,
+concurrency, restart and OAuth-redaction cases remain in place.

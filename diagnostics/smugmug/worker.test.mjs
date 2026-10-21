@@ -102,3 +102,98 @@ test('run identity, application and credential checks prevent dispatch', async (
   assert.equal((await worker.fetch(request(), { ...armed, CREDENTIAL_APPLICATION_CONFIRMED: '2026-10-01' })).status, 403);
   assert.equal((await worker.fetch(request(), { ...armed, SMUGMUG_API_SECRET: ' trailing ' })).status, 403);
 });
+
+
+test('owner page is public but never exposes runtime configuration or credentials', async () => {
+  const r = await worker.fetch(new Request(url + '/'), env);
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get('content-type'), /text\/html/);
+  const html = await r.text();
+  assert.match(html, /GioLina Films — SmugMug Diagnostic/);
+  assert.match(html, /type="password"/);
+  assert.match(html, /Check Readiness/);
+  for (const secret of Object.values(env)) assert.ok(!html.includes(secret));
+  assert.match(r.headers.get('content-security-policy'), /connect-src 'self'/);
+  assert.match(r.headers.get('content-security-policy'), /frame-ancestors 'none'/);
+  assert.equal(r.headers.get('cache-control'), 'no-store, private');
+  assert.equal(r.headers.get('referrer-policy'), 'no-referrer');
+  assert.equal(r.headers.get('set-cookie'), null);
+  assert.equal((await worker.fetch(new Request(url + '/?token=secret'), env)).status, 404);
+  assert.equal((await worker.fetch(new Request(url + '/', {method:'POST'}), env)).status, 405);
+});
+
+test('browser readiness requires same origin, custom header and no cookies; no CORS', async () => {
+  const good = { Origin: url, 'Sec-Fetch-Site': 'same-origin', 'X-Readiness-Request': 'owner-v1' };
+  const r = await worker.fetch(req('/readiness', 'GET', good), {...env, RUN_GATE:{}});
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get('access-control-allow-origin'), null);
+  const state = await r.json();
+  assert.equal(state.credentialsWellFormed, true);
+  assert.equal(state.actionEnabled, false);
+  assert.equal(state.runConfigured, false);
+  assert.equal(state.selectedApplicationConfirmed, false);
+  for (const bad of [
+    { ...good, Origin:'https://evil.invalid' }, { ...good, Origin:'null' },
+    { ...good, 'Sec-Fetch-Site':'cross-site' }, { ...good, 'Sec-Fetch-Site':'same-site' },
+    { ...good, 'X-Readiness-Request':'' }, { ...good, Cookie:'x=y' }
+  ]) assert.equal((await worker.fetch(req('/readiness','GET',bad),env)).status,403);
+  assert.equal((await worker.fetch(new Request(url+'/readiness',{headers:good}),env)).status,401);
+  assert.equal((await worker.fetch(req('/readiness','OPTIONS',good),env)).status,405);
+  // Existing non-browser bearer clients still work; browser diagnostic POST stays forbidden.
+  assert.equal((await worker.fetch(req('/readiness'),env)).status,200);
+  assert.equal((await worker.fetch(req('/diagnostic','POST',good),env)).status,403);
+});
+
+// Execute the delivered browser script against a minimal DOM, with forbidden
+// storage/logging APIs throwing. Fetch is synthetic and never reaches the network.
+import { runInNewContext } from 'node:vm';
+import { ownerJs } from './owner-page.mjs';
+function browserHarness(send) {
+  const handlers = {}, windows = {}, documents = {};
+  const elements = Object.fromEntries(['readiness-form','diagnostic-password','check','status','results'].map(id=>[id,{value:'',disabled:false,textContent:'',children:[],addEventListener:(name,fn)=>{handlers[name]=fn;},replaceChildren(){this.children=[];},appendChild(x){this.children.push(x);}}]));
+  const deny = new Proxy({}, {get(){throw new Error('storage/logging forbidden');}});
+  const document = {visibilityState:'visible',getElementById:id=>elements[id],createElement:()=>({textContent:''}),addEventListener:(name,fn)=>{documents[name]=fn;}};
+  runInNewContext(ownerJs,{document,window:{addEventListener:(name,fn)=>{windows[name]=fn;}},fetch:send,AbortController,setTimeout,clearTimeout,console:deny,localStorage:deny,sessionStorage:deny});
+  return {elements,document,windows,documents,submit:()=>handlers.submit({preventDefault(){}})};
+}
+const readinessFixture = { service:'giolina-smugmug-diagnostic',bindings:{SMUGMUG_API_KEY:true,SMUGMUG_API_SECRET:true,RUN_GATE:true},credentialsWellFormed:true,actionEnabled:false,selectedApplicationConfirmed:false,runConfigured:false,authenticationTested:false };
+test('browser UI handles bearer internally, uses no storage and clears password before request', async () => {
+  let calls=0; let h;
+  h=browserHarness(async(path,options)=>{
+    calls++; assert.equal(path,'/readiness'); assert.equal(options.method,'GET');
+    assert.equal(options.headers.Authorization,'Bearer '+access);
+    assert.equal(options.credentials,'omit'); assert.equal(options.redirect,'error');
+    assert.equal(options.mode,'same-origin'); assert.equal(options.cache,'no-store');
+    assert.equal(h.elements['diagnostic-password'].value,'');
+    return Response.json(readinessFixture);
+  });
+  h.elements['diagnostic-password'].value=access;
+  await h.submit(); assert.equal(calls,1);
+  assert.match(h.elements.status.textContent,/Readiness checks passed/);
+  assert.equal(h.elements.results.children.length,7);
+  assert.equal(h.elements['diagnostic-password'].value,'');
+  assert.ok(!JSON.stringify(h.elements).includes(access));
+  assert.equal(h.elements.check.disabled,false);
+});
+test('browser errors never echo server credentials and never automatically retry', async () => {
+  for(const reply of [()=>new Response('secret-token',{status:401}),()=>new Response('secret-token',{status:500}),()=>{throw new Error('secret-token');},()=>Response.json({...readinessFixture,service:'secret-token'})]) {
+    let calls=0;const h=browserHarness(async()=>{calls++;return reply();});
+    h.elements['diagnostic-password'].value=access;await h.submit();
+    assert.equal(calls,1);assert.ok(!JSON.stringify(h.elements).includes('secret-token'));
+    assert.equal(h.elements['diagnostic-password'].value,'');assert.equal(h.elements.check.disabled,false);
+  }
+});
+test('browser hides no unsafe setup and makes no request for invalid password', async()=>{
+  let calls=0;const h=browserHarness(async()=>{calls++;return Response.json({...readinessFixture,actionEnabled:true});});
+  h.elements['diagnostic-password'].value='bad';await h.submit();assert.equal(calls,0);
+  h.elements['diagnostic-password'].value=access;await h.submit();assert.equal(calls,1);
+  assert.match(h.elements.status.textContent,/needs attention/);
+});
+test('page exit and hidden state abort in-flight readiness and clear credentials/results', async()=>{
+  let finish;let signal;const h=browserHarness(async(_,opts)=>{signal=opts.signal;return new Promise(r=>{finish=r;});});
+  h.elements['diagnostic-password'].value=access;const pending=h.submit();
+  h.document.visibilityState='hidden';h.documents.visibilitychange();assert.equal(signal.aborted,true);
+  finish(Response.json(readinessFixture));await pending;
+  assert.equal(h.elements.results.children.length,0);assert.equal(h.elements['diagnostic-password'].value,'');
+  for(const name of ['pagehide','pageshow']){h.elements['diagnostic-password'].value=access;h.windows[name]();assert.equal(h.elements['diagnostic-password'].value,'');}
+});
