@@ -1,0 +1,133 @@
+{
+  "path": "/weddings/the-rockleigh/",
+  "title": "The Rockleigh Wedding Photography & Film | GioLina Films",
+  "seo": [
+    "<meta name=\"description\" content=\"Bianca and Bobby’s wedding at The Rockleigh, in film and photographs.\"/>",
+    "<meta property=\"og:type\" content=\"website\"/>",
+    "<meta property=\"og:title\" content=\"The Rockleigh Wedding Photography &amp; Film | GioLina Films\"/>",
+    "<meta property=\"og:description\" content=\"Bianca and Bobby’s wedding at The Rockleigh, in film and photographs.\"/>",
+    "<meta property=\"og:url\" content=\"https://giolinafilms.com/weddings/the-rockleigh/\"/>",
+    "<meta property=\"og:image\" content=\"https://giolinafilms.com/assets/shorts/bianca-bobby.jpg\"/>",
+    "<meta property=\"og:image:alt\" content=\"Bianca &amp; Bobby, from the existing GioLina portfolio\"/>",
+    "<meta name=\"twitter:card\" content=\"summary_large_image\"/>"
+  ],
+  "css": [
+    "/photography-refinements.css",
+    "/venue-stories.css"
+  ],
+  "bodyClass": "gl-venue-story",
+  "breadcrumbs": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Cinematography",
+      "href": "/cinematography/"
+    },
+    {
+      "label": "The Rockleigh",
+      "href": "/weddings/the-rockleigh/"
+    }
+  ],
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://giolinafilms.com/weddings/the-rockleigh/",
+      "url": "https://giolinafilms.com/weddings/the-rockleigh/",
+      "name": "The Rockleigh Wedding Photography & Film | GioLina Films",
+      "description": "Bianca and Bobby’s wedding at The Rockleigh, in film and photographs.",
+      "about": {
+        "@type": "Place",
+        "name": "The Rockleigh",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rockleigh",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      "hasPart": [
+        {
+          "@type": "MediaObject",
+          "name": "Bianca & Bobby",
+          "description": "Bianca & Bobby at The Rockleigh.",
+          "thumbnailUrl": "https://giolinafilms.com/assets/shorts/bianca-bobby.jpg",
+          "embedUrl": "https://mediazilla.com/9jzGeDjrO7"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/690ef6c3e99444cd.png",
+          "name": "Bianca and Bobby smiling together in a wedding car",
+          "width": 617,
+          "height": 683
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-81c2b717458cd8ca.webp",
+          "name": "Bianca having her makeup finished before the wedding",
+          "width": 1279,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-c734cfcad8743407.webp",
+          "name": "Bianca during hair and makeup preparations",
+          "width": 1279,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-d6b28b1300603cba.webp",
+          "name": "Bianca standing by a window during preparations",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-82f8a83394ebdce2.webp",
+          "name": "Bianca putting on her wedding shoes",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-8837da7eb1e02a59.webp",
+          "name": "Bianca smiling beneath her veil",
+          "width": 800,
+          "height": 1200
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-88311be37f5525b1.webp",
+          "name": "Bianca having her wedding dress adjusted",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-28daee753a7b6578.webp",
+          "name": "Bianca standing in her wedding dress before the ceremony",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-ca442767304646b2.webp",
+          "name": "Bianca sharing an emotional moment with a family member",
+          "width": 1280,
+          "height": 853
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://giolinafilms.com/assets/v26-690a4934a745552a.webp",
+          "name": "Bianca and Bobby embracing during their wedding celebration",
+          "width": 512,
+          "height": 768
+        }
+      ]
+    }
+  ],
+  "content": "<article class=\"gv-story gv-photo-video\"><header class=\"gv-intro\"><p class=\"gv-kicker\">Rockleigh, New Jersey · Wedding photography &amp; film</p><h1>Bianca &amp; Bobby<br><em>The Rockleigh</em></h1><p class=\"gv-lede\">Bianca and Bobby’s wedding at The Rockleigh, in film and photographs.</p><nav class=\"gv-story-nav\" aria-label=\"Explore this wedding\"><a href=\"#wedding-film\">The film</a><a href=\"#wedding-photographs\">The photographs</a></nav></header><section id=\"wedding-film\" class=\"gv-film-section\" aria-label=\"Bianca &amp; Bobby wedding film\"><div class=\"gv-film-heading\"><h2>The wedding film</h2></div><div class=\"gl-film-preview gv-film\" style=\"aspect-ratio:1280/720\"><img src=\"/assets/shorts/bianca-bobby.jpg\" width=\"1280\" height=\"720\" alt=\"Bianca &amp; Bobby, from the existing GioLina portfolio\" fetchpriority=\"high\" decoding=\"async\"><button type=\"button\" data-mediazilla-src=\"https://mediazilla.com/9jzGeDjrO7\" data-film-title=\"Bianca &amp; Bobby\" aria-label=\"Play wedding film, Bianca &amp; Bobby\"><span>Play wedding film</span></button></div><p class=\"gv-caption\">Bianca &amp; Bobby · A film by GioLina Films</p></section><section id=\"wedding-photographs\" class=\"gv-editorial\" aria-labelledby=\"gv-story-title\"><p class=\"gv-kicker\">Selected photographs</p><h2 id=\"gv-story-title\">The preparations and the celebration.</h2><p>Details and family moments before the ceremony, a wedding car portrait and an embrace during the celebration.</p></section><section class=\"gv-gallery\" aria-label=\"Selected photographs of Bianca &amp; Bobby\"><figure><a href=\"/assets/690ef6c3e99444cd.png\" data-photo-viewer-link aria-label=\"View Bianca and Bobby smiling together in a wedding car\"><img src=\"/assets/690ef6c3e99444cd.png\" srcset=\"/assets/690ef6c3e99444cd.png 617w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"617\" height=\"683\" loading=\"lazy\" decoding=\"async\" alt=\"Bianca and Bobby smiling together in a wedding car\"></a></figure><figure><a href=\"/assets/v26-81c2b717458cd8ca.webp\" data-photo-viewer-link aria-label=\"View Bianca having her makeup finished before the wedding\"><img src=\"/assets/v26-81c2b717458cd8ca-small.webp\" srcset=\"/assets/v26-81c2b717458cd8ca-small.webp 640w, /assets/v26-81c2b717458cd8ca.webp 1279w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1279\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1279/853\" alt=\"Bianca having her makeup finished before the wedding\"></a></figure><figure><a href=\"/assets/v26-c734cfcad8743407.webp\" data-photo-viewer-link aria-label=\"View Bianca during hair and makeup preparations\"><img src=\"/assets/v26-c734cfcad8743407-small.webp\" srcset=\"/assets/v26-c734cfcad8743407-small.webp 640w, /assets/v26-c734cfcad8743407.webp 1279w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1279\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1279/853\" alt=\"Bianca during hair and makeup preparations\"></a></figure><figure><a href=\"/assets/v26-d6b28b1300603cba.webp\" data-photo-viewer-link aria-label=\"View Bianca standing by a window during preparations\"><img src=\"/assets/v26-d6b28b1300603cba-small.webp\" srcset=\"/assets/v26-d6b28b1300603cba-small.webp 640w, /assets/v26-d6b28b1300603cba.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Bianca standing by a window during preparations\"></a></figure><figure><a href=\"/assets/v26-82f8a83394ebdce2.webp\" data-photo-viewer-link aria-label=\"View Bianca putting on her wedding shoes\"><img src=\"/assets/v26-82f8a83394ebdce2-small.webp\" srcset=\"/assets/v26-82f8a83394ebdce2-small.webp 640w, /assets/v26-82f8a83394ebdce2.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Bianca putting on her wedding shoes\"></a></figure><figure><a href=\"/assets/v26-8837da7eb1e02a59.webp\" data-photo-viewer-link aria-label=\"View Bianca smiling beneath her veil\"><img src=\"/assets/v26-8837da7eb1e02a59-small.webp\" srcset=\"/assets/v26-8837da7eb1e02a59-small.webp 427w, /assets/v26-8837da7eb1e02a59.webp 800w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"800\" height=\"1200\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:800/1200\" alt=\"Bianca smiling beneath her veil\"></a></figure><figure><a href=\"/assets/v26-88311be37f5525b1.webp\" data-photo-viewer-link aria-label=\"View Bianca having her wedding dress adjusted\"><img src=\"/assets/v26-88311be37f5525b1-small.webp\" srcset=\"/assets/v26-88311be37f5525b1-small.webp 640w, /assets/v26-88311be37f5525b1.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Bianca having her wedding dress adjusted\"></a></figure><figure><a href=\"/assets/v26-28daee753a7b6578.webp\" data-photo-viewer-link aria-label=\"View Bianca standing in her wedding dress before the ceremony\"><img src=\"/assets/v26-28daee753a7b6578-small.webp\" srcset=\"/assets/v26-28daee753a7b6578-small.webp 640w, /assets/v26-28daee753a7b6578.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Bianca standing in her wedding dress before the ceremony\"></a></figure><figure><a href=\"/assets/v26-ca442767304646b2.webp\" data-photo-viewer-link aria-label=\"View Bianca sharing an emotional moment with a family member\"><img src=\"/assets/v26-ca442767304646b2-small.webp\" srcset=\"/assets/v26-ca442767304646b2-small.webp 640w, /assets/v26-ca442767304646b2.webp 1280w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"1280\" height=\"853\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:1280/853\" alt=\"Bianca sharing an emotional moment with a family member\"></a></figure><figure><a href=\"/assets/v26-690a4934a745552a.webp\" data-photo-viewer-link aria-label=\"View Bianca and Bobby embracing during their wedding celebration\"><img src=\"/assets/v26-690a4934a745552a-small.webp\" srcset=\"/assets/v26-690a4934a745552a-small.webp 427w, /assets/v26-690a4934a745552a.webp 512w\" sizes=\"(max-width:650px) calc(100vw - 40px), (max-width:1100px) calc(100vw - 48px), 1072px\" width=\"512\" height=\"768\" loading=\"lazy\" decoding=\"async\" style=\"aspect-ratio:512/768\" alt=\"Bianca and Bobby embracing during their wedding celebration\"></a></figure></section><section class=\"gv-context\" aria-labelledby=\"gv-context-title\"><div><p class=\"gv-kicker\">The setting · Bergen County</p><h2 id=\"gv-context-title\">The Rockleigh</h2></div><div><p>The Rockleigh is in Rockleigh, New Jersey. GioLina provided photography and cinematography for Bianca and Bobby; their film is featured here. Preparation photographs are part of the event story and are not presented as venue interiors.</p><a class=\"gv-text-link\" href=\"https://therockleigh.net/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit the venue website</a></div></section><div class=\"gv-collection-link\"><a href=\"/photography/wedding-collection/\">View the wedding photography collection</a></div><section class=\"gv-inquire\" aria-labelledby=\"gv-inquire-title\"><h2 id=\"gv-inquire-title\">Your wedding at The Rockleigh</h2><p>Share your date, venue and the coverage you have in mind.</p><a class=\"gv-button\" href=\"/contact/\">Inquire about your wedding</a><div class=\"gv-links\"><a href=\"/cinematography/\">Explore wedding films</a><a href=\"/photography/\">Explore wedding photography</a></div></section><section class=\"gv-next\" aria-labelledby=\"gv-next-title\"><p class=\"gv-kicker\">Explore more wedding stories</p><h2 id=\"gv-next-title\"><a href=\"/weddings/naninas-in-the-park-belleville/\">Nicole &amp; Phil at Nanina’s in the Park</a></h2></section></article><script src=\"/photography-viewer.js\" defer></script><script src=\"/mediazilla-player.js\" defer></script>"
+}
