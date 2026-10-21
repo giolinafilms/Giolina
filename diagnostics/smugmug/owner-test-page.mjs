@@ -96,7 +96,7 @@ async function act(action) {
   const timer=setTimeout(()=>{timedOut=true;active.abort();},action==='status'?12000:35000);
   show(action,action==='status'?'Checking test status… This cannot arm or run OAuth.':action==='arm'?'Checking one-test arming authorization. No OAuth request is sent by arming.':'Running the single authorized request. Do not repeat or reload.',true);
   try {
-    const pending=fetch('/owner-test/'+action,{method:'POST',mode:'same-origin',credentials:'omit',redirect:'error',cache:'no-store',signal:active.signal,headers:{Authorization:'Bearer '+token,'X-Owner-Test':'v1','Content-Type':'application/json'},body:JSON.stringify(body)});
+    const pending=fetch('/owner-test/'+action,{method:'POST',mode:'same-origin',referrerPolicy:'same-origin',credentials:'omit',redirect:'error',cache:'no-store',signal:active.signal,headers:{Authorization:'Bearer '+token,'X-Owner-Test':'v1','Content-Type':'application/json'},body:JSON.stringify(body)});
     token=null;
     const response=await pending;if(current!==generation)return;
     if(response.status===401){failed(action,'Diagnostic password was not accepted (HTTP 401).');return;}

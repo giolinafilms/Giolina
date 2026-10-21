@@ -212,7 +212,7 @@ test('owner UI requires confirmation, sends once, clears secrets and copies only
   let calls=0;let h;const responses=[{state:'unarmed',ownerActionsAvailable:true},{state:'armed',ownerActionsAvailable:true},{state:'completed',ownerActionsAvailable:true,evidence:{result:'http_401_signature_invalid',status:401}}];
   h=testPageHarness(async(path,options)=>{
     calls++;assert.equal(h.elements['test-password'].value,'');assert.equal(options.headers.Authorization,'Bearer '+access);
-    assert.equal(options.mode,'same-origin');assert.equal(options.credentials,'omit');assert.equal(options.redirect,'error');
+    assert.equal(options.mode,'same-origin');assert.equal(options.referrerPolicy,'same-origin');assert.equal(options.credentials,'omit');assert.equal(options.redirect,'error');
     assert.equal(options.headers['X-Owner-Test'],'v1');assert.equal(options.method,'POST');
     assert.equal(path,['/owner-test/status','/owner-test/arm','/owner-test/run'][calls-1]);
     return Response.json(responses[calls-1]);

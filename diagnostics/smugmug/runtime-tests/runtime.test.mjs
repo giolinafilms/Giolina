@@ -274,3 +274,24 @@ test('owner status keeps exact browser protections with safe rejection reasons',
     assert.equal(state.ownerActionsAvailable,true);assert.equal(f.calls.length,0);
   }finally{await f.mf.dispose();}
 });
+
+test('owner status requires canonical same-origin POST and never accepts a null or missing Origin',async()=>{
+  const f=await fixture();
+  try{
+    for(const origin of [undefined,'null','https://untrusted.example',root+'/',root.toUpperCase()]){
+      const requestHeaders={...headers,...ownerHeaders};
+      if(origin===undefined)delete requestHeaders.Origin;else requestHeaders.Origin=origin;
+      const r=await f.mf.dispatchFetch(root+'/owner-test/status',{method:'POST',headers:requestHeaders,body:'{}'});
+      assert.equal(r.status,403);assert.equal((await r.json()).error,'origin_mismatch');
+    }
+    // URL parsing canonicalizes host casing; the browser's serialized origin is lowercase.
+    const canonical=await f.mf.dispatchFetch(root.replace('.example.', '.EXAMPLE.')+'/owner-test/status',{
+      method:'POST',headers:{...headers,...ownerHeaders},body:'{}'
+    });
+    assert.equal(canonical.status,200);assert.equal((await canonical.json()).state,'unarmed');
+    // GET readiness remains valid without Origin; owner status remains POST-only.
+    assert.equal((await f.request('/readiness')).status,200);
+    assert.equal((await f.request('/owner-test/status',{headers:ownerHeaders})).status,403);
+    assert.equal(f.calls.length,0);
+  }finally{await f.mf.dispose();}
+});
