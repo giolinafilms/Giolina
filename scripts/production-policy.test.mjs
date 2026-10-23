@@ -85,9 +85,10 @@ test('deployed bindings activate only canonical public pages while preview, priv
   }
   for(const path of ['/sitemap.xml','/video-sitemap.xml']){const res=await mf.dispatchFetch('https://giolinafilms.com'+path);assert.equal(res.headers.get('X-Robots-Tag'),'index, follow');}
   const robots=await mf.dispatchFetch('https://giolinafilms.com/robots.txt');const text=await robots.text();assert(text.includes('Allow: /'));assert(text.includes('Sitemap: https://giolinafilms.com/sitemap.xml'));assert(!text.includes('Disallow: /'));
-  assert.equal(Object.keys(redirects).length,97);
+  assert.equal(Object.keys(redirects).length,98);
   for(const [from,to] of Object.entries(redirects)){
    const res=await mf.dispatchFetch('https://giolinafilms.com'+from+'?keep=1',{redirect:'manual'});assert.equal(res.status,301,from);assert.equal(res.headers.get('Location'),'https://giolinafilms.com'+to+'?keep=1');
   }
  }finally{await mf.dispose();}
 });
+

@@ -9,6 +9,16 @@ test('old page URLs redirect permanently without losing queries',async()=>{
  }
 });
 
+test('obsolete Services URL redirects directly to the homepage before serving legacy content',async()=>{
+ for(const origin of ['https://preview.test','https://giolinafilms.com'])for(const path of ['/services-2-2/','/services-2-2'])for(const method of ['GET','HEAD'])for(const query of ['', '?source=legacy&campaign=wedding%20films']){
+  const response=await worker.fetch(new Request(origin+path+query,{method}),{
+   ASSETS:{fetch:async()=>{throw new Error('Obsolete Services content must not be served');}}
+  });
+  assert.equal(response.status,301);
+  assert.equal(response.headers.get('location'),origin+'/'+query);
+ }
+});
+
 test('published pages use clean navigation, canonical metadata and preserve content',async()=>{
  const {readFileSync,readdirSync}=await import('node:fs');
  const {publishedPages}=await import('../src/config/public-paths.mjs');
@@ -29,3 +39,4 @@ test('published pages use clean navigation, canonical metadata and preserve cont
  assert.deepEqual(media(after),media(before),source+' approved media');
  }
 });
+
