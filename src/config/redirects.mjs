@@ -1,6 +1,7 @@
 import {publicPathMoves} from './public-paths.mjs';
 // Exact legacy page equivalents and captured public upload paths. No guessed destinations.
 const legacyRedirects = {
+  "/services-2-2/": "/",
   "/events/": "/ready-to-go-productions/",
   "/events/private-celebrations/": "/ready-to-go-productions/",
   "/events/corporate/": "/ready-to-go-productions/",
@@ -99,3 +100,4 @@ const legacyRedirects = {
 
 const redirects=Object.fromEntries(Object.entries(legacyRedirects).filter(([source])=>!Object.values(publicPathMoves).includes(source)).map(([source,target])=>[source,publicPathMoves[target]??target]));
 export default Object.freeze({...redirects,...publicPathMoves});
+
