@@ -1,1 +1,69 @@
-.gl-analytics-choice{box-sizing:border-box;max-width:680px;margin:20px auto;padding:20px;border:1px solid #b9cccb;background:#f7faf9;color:#253c3e;font:15px/1.55 Arial,sans-serif;text-align:left}.gl-analytics-choice[hidden]{display:none}.gl-analytics-choice p{margin:0 0 14px}.gl-analytics-choice [data-analytics-status]:empty{display:none}.gl-analytics-actions{display:flex;flex-wrap:wrap;gap:12px}.gl-analytics-actions button{flex:1;min-width:140px;min-height:44px;border:1px solid #126c72;background:white;color:#126c72;padding:10px 16px;font:inherit;cursor:pointer}.gl-analytics-actions button:hover{background:#e8f1ef}.gl-analytics-actions button:disabled{opacity:.55;cursor:default}.gl-analytics-preferences{display:block;margin:16px auto;padding:10px;border:0;background:none;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}.gl-analytics-choice button:focus-visible,.gl-analytics-preferences:focus-visible{outline:3px solid #126c72;outline-offset:3px}@media(max-width:650px){.gl-analytics-choice{margin:16px 20px;padding:16px}.gl-analytics-actions{gap:10px}}
+/* Keep consent controls independent of legacy page-level button styles. */
+footer .gl-analytics-choice {
+ box-sizing:border-box;
+ width:100%;
+ max-width:640px;
+ margin:12px auto 20px;
+ padding:16px;
+ border:1px solid #b9cccb;
+ background:#f7faf9;
+ color:#253c3e;
+ font:400 15px/1.5 Arial,sans-serif;
+ text-align:left;
+ overflow-wrap:anywhere;
+}
+footer .gl-analytics-choice[hidden] {display:none}
+footer .gl-analytics-choice p {margin:0 0 12px}
+footer .gl-analytics-choice p:last-child {margin:12px 0 0}
+footer .gl-analytics-choice [data-analytics-status]:empty {display:none}
+footer .gl-analytics-choice a {text-decoration:underline;text-underline-offset:3px}
+footer .gl-analytics-actions {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+footer .gl-analytics-actions button {
+ box-sizing:border-box;
+ width:100%;
+ min-width:0;
+ min-height:44px;
+ margin:0;
+ padding:10px;
+ border:1px solid #126c72;
+ border-radius:0;
+ background:#fff;
+ color:#126c72;
+ font:400 15px/1.4 Arial,sans-serif;
+ text-transform:none;
+ letter-spacing:normal;
+ white-space:normal;
+ overflow-wrap:anywhere;
+ cursor:pointer;
+}
+footer .gl-analytics-actions button:hover,footer .gl-analytics-actions button:focus {background:#e8f1ef;color:#126c72;border-radius:0}
+footer .gl-analytics-actions button:disabled {opacity:.55;cursor:default}
+footer button.gl-analytics-preferences {
+ display:block;
+ box-sizing:border-box;
+ width:fit-content;
+ max-width:100%;
+ min-height:44px;
+ margin:12px auto 0;
+ padding:10px 12px;
+ border:0;
+ border-radius:0;
+ background:transparent;
+ color:#253c3e;
+ font:400 15px/1.4 Arial,sans-serif;
+ text-transform:none;
+ letter-spacing:normal;
+ white-space:normal;
+ overflow-wrap:anywhere;
+ text-decoration:underline;
+ text-underline-offset:3px;
+ cursor:pointer;
+}
+footer button.gl-analytics-preferences:hover,footer button.gl-analytics-preferences:focus {background:#e8f1ef;color:#126c72;border-radius:0}
+footer .gl-analytics-choice button:focus-visible,footer button.gl-analytics-preferences:focus-visible {outline:3px solid #126c72;outline-offset:3px}
+@media(max-width:650px) {
+ footer .gl-analytics-choice {padding:12px;margin:8px auto 16px}
+}
+@media(max-width:380px) {
+ footer .gl-analytics-actions {grid-template-columns:minmax(0,1fr)}
+}
